@@ -22,10 +22,6 @@
 		3928AF4F1A26862A00BE9DBC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3928AF4E1A26862A00BE9DBC /* CFNetwork.framework */; };
 		3928AF511A26863200BE9DBC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3928AF501A26863200BE9DBC /* AudioToolbox.framework */; };
 		3928AF531A26863800BE9DBC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3928AF521A26863800BE9DBC /* MessageUI.framework */; };
-		3928AF591A26865300BE9DBC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3928AF551A26864900BE9DBC /* Bolts.framework */; };
-		3928AF5A1A26865300BE9DBC /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3928AF561A26864900BE9DBC /* Parse.framework */; };
-		3928AF5B1A26865300BE9DBC /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3928AF571A26864900BE9DBC /* ParseFacebookUtils.framework */; };
-		3928AF5C1A26865300BE9DBC /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3928AF581A26864900BE9DBC /* ParseUI.framework */; };
 		3928AF601A26867400BE9DBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3928AF5F1A26867400BE9DBC /* Foundation.framework */; };
 		396881081A26AD68001D1AE7 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396881071A26AD68001D1AE7 /* PassKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		39C528C31A2684700018C017 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C528C21A2684700018C017 /* ProfileViewController.m */; };
@@ -37,6 +33,9 @@
 		39DE84331A2680D300BB47FB /* CityBicycleCompanyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE84321A2680D300BB47FB /* CityBicycleCompanyTests.m */; };
 		39DE843E1A26835500BB47FB /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE843D1A26835500BB47FB /* ProductViewController.m */; };
 		39DE84411A2683AF00BB47FB /* AccessoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE84401A2683AF00BB47FB /* AccessoriesViewController.m */; };
+		FBDEE0FF1A26B601006A974E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDEE0E31A26B5E4006A974E /* Bolts.framework */; };
+		FBDEE1001A26B601006A974E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDEE0E41A26B5E4006A974E /* Parse.framework */; };
+		FBDEE1011A26B61C006A974E /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDEE0FB1A26B5E4006A974E /* ParseUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +45,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 39DE84121A2680D300BB47FB;
 			remoteInfo = CityBicycleCompany;
+		};
+		FBDEE0FD1A26B5E4006A974E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBDEE0F81A26B5E4006A974E /* ParseStarterProject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 09ABC06D13A1D52D009C3FCF;
+			remoteInfo = ParseStarterProject;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -91,6 +97,25 @@
 		39DE843D1A26835500BB47FB /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
 		39DE843F1A2683AF00BB47FB /* AccessoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoriesViewController.h; sourceTree = "<group>"; };
 		39DE84401A2683AF00BB47FB /* AccessoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoriesViewController.m; sourceTree = "<group>"; };
+		FBDEE0E31A26B5E4006A974E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		FBDEE0E41A26B5E4006A974E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		FBDEE0E51A26B5E4006A974E /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		FBDEE0E71A26B5E4006A974E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FBDEE0E81A26B5E4006A974E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FBDEE0E91A26B5E4006A974E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FBDEE0EB1A26B5E4006A974E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FBDEE0ED1A26B5E4006A974E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		FBDEE0EF1A26B5E4006A974E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ParseStarterProjectViewController.xib; sourceTree = "<group>"; };
+		FBDEE0F01A26B5E4006A974E /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		FBDEE0F11A26B5E4006A974E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FBDEE0F21A26B5E4006A974E /* ParseStarterProject-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ParseStarterProject-Info.plist"; sourceTree = "<group>"; };
+		FBDEE0F31A26B5E4006A974E /* ParseStarterProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParseStarterProject-Prefix.pch"; sourceTree = "<group>"; };
+		FBDEE0F41A26B5E4006A974E /* ParseStarterProjectAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseStarterProjectAppDelegate.h; sourceTree = "<group>"; };
+		FBDEE0F51A26B5E4006A974E /* ParseStarterProjectAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseStarterProjectAppDelegate.m; sourceTree = "<group>"; };
+		FBDEE0F61A26B5E4006A974E /* ParseStarterProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseStarterProjectViewController.h; sourceTree = "<group>"; };
+		FBDEE0F71A26B5E4006A974E /* ParseStarterProjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseStarterProjectViewController.m; sourceTree = "<group>"; };
+		FBDEE0F81A26B5E4006A974E /* ParseStarterProject.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ParseStarterProject.xcodeproj; sourceTree = "<group>"; };
+		FBDEE0FB1A26B5E4006A974E /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +123,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBDEE1011A26B61C006A974E /* ParseUI.framework in Frameworks */,
+				FBDEE0FF1A26B601006A974E /* Bolts.framework in Frameworks */,
+				FBDEE1001A26B601006A974E /* Parse.framework in Frameworks */,
 				396881081A26AD68001D1AE7 /* PassKit.framework in Frameworks */,
 				3928AF601A26867400BE9DBC /* Foundation.framework in Frameworks */,
 				3928AF431A2685F500BE9DBC /* Security.framework in Frameworks */,
@@ -105,10 +133,6 @@
 				3928AF511A26863200BE9DBC /* AudioToolbox.framework in Frameworks */,
 				3928AF4F1A26862A00BE9DBC /* CFNetwork.framework in Frameworks */,
 				3928AF4D1A26862100BE9DBC /* CoreGraphics.framework in Frameworks */,
-				3928AF591A26865300BE9DBC /* Bolts.framework in Frameworks */,
-				3928AF5A1A26865300BE9DBC /* Parse.framework in Frameworks */,
-				3928AF5B1A26865300BE9DBC /* ParseFacebookUtils.framework in Frameworks */,
-				3928AF5C1A26865300BE9DBC /* ParseUI.framework in Frameworks */,
 				3928AF4B1A26861A00BE9DBC /* CoreLocation.framework in Frameworks */,
 				3928AF491A26861500BE9DBC /* libz.dylib in Frameworks */,
 				3928AF471A26860500BE9DBC /* MobileCoreServices.framework in Frameworks */,
@@ -145,6 +169,7 @@
 		3928AF611A26869400BE9DBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FBDEE0E21A26B5E4006A974E /* ParseStarterProject-2 */,
 				396881071A26AD68001D1AE7 /* PassKit.framework */,
 				3928AF5F1A26867400BE9DBC /* Foundation.framework */,
 				3928AF521A26863800BE9DBC /* MessageUI.framework */,
@@ -234,6 +259,49 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FBDEE0E21A26B5E4006A974E /* ParseStarterProject-2 */ = {
+			isa = PBXGroup;
+			children = (
+				FBDEE0E31A26B5E4006A974E /* Bolts.framework */,
+				FBDEE0E41A26B5E4006A974E /* Parse.framework */,
+				FBDEE0E51A26B5E4006A974E /* ParseFacebookUtils.framework */,
+				FBDEE0E61A26B5E4006A974E /* ParseStarterProject */,
+				FBDEE0F81A26B5E4006A974E /* ParseStarterProject.xcodeproj */,
+				FBDEE0FB1A26B5E4006A974E /* ParseUI.framework */,
+			);
+			name = "ParseStarterProject-2";
+			path = "../../../../Downloads/ParseStarterProject-2";
+			sourceTree = "<group>";
+		};
+		FBDEE0E61A26B5E4006A974E /* ParseStarterProject */ = {
+			isa = PBXGroup;
+			children = (
+				FBDEE0E71A26B5E4006A974E /* Default-568h@2x.png */,
+				FBDEE0E81A26B5E4006A974E /* Default.png */,
+				FBDEE0E91A26B5E4006A974E /* Default@2x.png */,
+				FBDEE0EA1A26B5E4006A974E /* InfoPlist.strings */,
+				FBDEE0EC1A26B5E4006A974E /* MainWindow.xib */,
+				FBDEE0EE1A26B5E4006A974E /* ParseStarterProjectViewController.xib */,
+				FBDEE0F01A26B5E4006A974E /* Entitlements.plist */,
+				FBDEE0F11A26B5E4006A974E /* main.m */,
+				FBDEE0F21A26B5E4006A974E /* ParseStarterProject-Info.plist */,
+				FBDEE0F31A26B5E4006A974E /* ParseStarterProject-Prefix.pch */,
+				FBDEE0F41A26B5E4006A974E /* ParseStarterProjectAppDelegate.h */,
+				FBDEE0F51A26B5E4006A974E /* ParseStarterProjectAppDelegate.m */,
+				FBDEE0F61A26B5E4006A974E /* ParseStarterProjectViewController.h */,
+				FBDEE0F71A26B5E4006A974E /* ParseStarterProjectViewController.m */,
+			);
+			path = ParseStarterProject;
+			sourceTree = "<group>";
+		};
+		FBDEE0F91A26B5E4006A974E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FBDEE0FE1A26B5E4006A974E /* ParseStarterProject.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -316,6 +384,12 @@
 			mainGroup = 39DE840A1A2680D300BB47FB;
 			productRefGroup = 39DE84141A2680D300BB47FB /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FBDEE0F91A26B5E4006A974E /* Products */;
+					ProjectRef = FBDEE0F81A26B5E4006A974E /* ParseStarterProject.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				39DE84121A2680D300BB47FB /* CityBicycleCompany */,
@@ -323,6 +397,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FBDEE0FE1A26B5E4006A974E /* ParseStarterProject.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = ParseStarterProject.app;
+			remoteRef = FBDEE0FD1A26B5E4006A974E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		39DE84111A2680D300BB47FB /* Resources */ = {
@@ -393,6 +477,30 @@
 				39DE84261A2680D300BB47FB /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		FBDEE0EA1A26B5E4006A974E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBDEE0EB1A26B5E4006A974E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FBDEE0EC1A26B5E4006A974E /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBDEE0ED1A26B5E4006A974E /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		FBDEE0EE1A26B5E4006A974E /* ParseStarterProjectViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBDEE0EF1A26B5E4006A974E /* en */,
+			);
+			name = ParseStarterProjectViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -489,6 +597,7 @@
 					"/Users/Vala/Downloads/stripe-ios-master/Example",
 					"$(PROJECT_DIR)/stripe-ios-master",
 					2/Example,
+					"/Users/mayyang/Downloads/ParseStarterProject-2",
 				);
 				INFOPLIST_FILE = CityBicycleCompany/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -510,6 +619,7 @@
 					"/Users/Vala/Downloads/stripe-ios-master/Example",
 					"$(PROJECT_DIR)/stripe-ios-master",
 					2/Example,
+					"/Users/mayyang/Downloads/ParseStarterProject-2",
 				);
 				INFOPLIST_FILE = CityBicycleCompany/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
