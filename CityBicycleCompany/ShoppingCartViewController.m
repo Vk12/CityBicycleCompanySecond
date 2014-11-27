@@ -7,8 +7,8 @@
 //
 
 #import "ShoppingCartViewController.h"
-#import "Stripe+ApplePay.h"
-#import "Stripe.h"
+//#import "Stripe+ApplePay.h"
+//#import "Stripe.h"
 @interface ShoppingCartViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
 
@@ -24,21 +24,21 @@
 
 - (IBAction)onPayButtonTapped:(UIButton *)sender
 {
-    PKPaymentRequest *request = [Stripe
-                                 paymentRequestWithMerchantIdentifier:YOUR_APPLE_MERCHANT_ID];
-    // Configure your request here.
-    NSString *label = @"Premium Llama Food";
-    NSDecimalNumber *amount = [NSDecimalNumber decimalNumberWithString:@"10.00"];
-    request.paymentSummaryItems = @[
-                                    [PKPaymentSummaryItem summaryItemWithLabel:label
-                                                                        amount:amount];
-                                    ];
-    
-    if ([Stripe canSubmitPaymentRequest:request]) {
-        ...
-    } else {
-        // Show the user your own credit card form (see options 2 or 3)
-    }
+//    PKPaymentRequest *request = [Stripe
+//                                 paymentRequestWithMerchantIdentifier:YOUR_APPLE_MERCHANT_ID];
+//    // Configure your request here.
+//    NSString *label = @"Premium Llama Food";
+//    NSDecimalNumber *amount = [NSDecimalNumber decimalNumberWithString:@"10.00"];
+//    request.paymentSummaryItems = @[
+//                                    [PKPaymentSummaryItem summaryItemWithLabel:label
+//                                                                        amount:amount];
+//                                    ];
+//    
+//    if ([Stripe canSubmitPaymentRequest:request]) {
+//        ...
+//    } else {
+//        // Show the user your own credit card form (see options 2 or 3)
+//    }
 
 }
 
