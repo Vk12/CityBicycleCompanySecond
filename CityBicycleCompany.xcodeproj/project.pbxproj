@@ -697,6 +697,11 @@
 					2/Example,
 					/Users/mayyang/Downloads/ParseStarterProject,
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					STRIPE_ENABLE_APPLEPAY,
+				);
 				INFOPLIST_FILE = CityBicycleCompany/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -717,6 +722,7 @@
 					2/Example,
 					/Users/mayyang/Downloads/ParseStarterProject,
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = STRIPE_ENABLE_APPLEPAY;
 				INFOPLIST_FILE = CityBicycleCompany/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
