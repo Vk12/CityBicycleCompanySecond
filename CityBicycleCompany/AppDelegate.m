@@ -8,18 +8,19 @@
 
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
+#import "Stripe.h"
 
 @interface AppDelegate ()
 
 @end
-//NSString * const StripePublishableKey = @"pk_test_pJHyjo6BZHMqd66aAnhz9f9h";
+NSString * const StripePublishableKey = @"pk_test_pJHyjo6BZHMqd66aAnhz9f9h";
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Parse setApplicationId:@"srr6q0zfkpHLhFfGDIhEQIg4fNFtZ3DNigXlswBO" clientKey:@"MiUt4DiBSMZ6bgtWBuuPhAQwpUe0eEWRVmMyY5Os"];
-//    [Stripe setDefaultPublishableKey:StripePublishableKey];
+    [Stripe setDefaultPublishableKey:StripePublishableKey];
     return YES;
 }
 
