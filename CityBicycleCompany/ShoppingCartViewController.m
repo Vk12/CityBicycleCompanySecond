@@ -32,7 +32,10 @@
     request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:label amount:number]];
     
     if ([Stripe canSubmitPaymentRequest:request]) {
-        // Do stuff.
+        UIViewController *paymentController;
+#if DEBUG
+#else
+#endif
     }
     else
     {
