@@ -38,7 +38,9 @@
     // Generating a PKPaymentRequest to submit to Apple.
     PKPaymentRequest *request = [Stripe paymentRequestWithMerchantIdentifier:@"merchant.com.citybicyclecompany"];
     
-//TODO: Configure request.
+    
+//TODO: CONFIGURE REQUEST.
+    
     // Set the paymentSummaryItems to a NSArray of PKPaymentSummaryItems.  These are analogous to line items on a receipt.
     NSString *label = @"Premium llama food";
     NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:@"10.00"];
@@ -47,7 +49,8 @@
     // Query to check if ApplePay is available for the phone user.
     if ([Stripe canSubmitPaymentRequest:request])
     {
-//        UIViewController *paymentController;
+        
+    // Create and display the payment request view controller.
 #if DEBUG
         STPTestPaymentAuthorizationViewController *auth = [[STPTestPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
         
@@ -59,14 +62,15 @@
     }
     else
     {
-        // Show the user your own credit card form (see options 2 or 3).
+    // Show the user your own credit card form (see options 2 or 3 on Stripe documentation).
     }
     
     
 }
 
-#pragma mark PKPaymentAuthorizationViewControllerDelegate Methods
+#pragma mark PKPaymentAuthorizationViewControllerDelegate Protocols
 
+// This protocol returns a PKPayment, that we pass into the method within.
 - (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller
                        didAuthorizePayment:(PKPayment *)payment
                                 completion:(void (^)(PKPaymentAuthorizationStatus))completion
@@ -74,19 +78,28 @@
     [self handlePaymentAuthorizationWithPayment:payment completion:completion];
 }
 
-- (void)handlePaymentAuthorizationWithPayment:(PKPayment *)payment completion:(void (^)(PKPaymentAuthorizationStatus))completion
+- (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
 {
-    void (^tokenBlock)(STPToken * token, NSError * error) = ^void(STPToken *token, NSError *error)
-    {
-        if (error)
-        {
+    
+}
+
+#pragma mark PKPaymentAuthorizationViewControllerDelegate Helper Methods
+
+// This method creates a single-use token.
+- (void)handlePaymentAuthorizationWithPayment:(PKPayment *)payment
+                                   completion:(void (^)(PKPaymentAuthorizationStatus))completion
+{
+    [Stripe createTokenWithPayment:payment completion:^(STPToken *token, NSError *error) {
+        if (error) {
             completion(PKPaymentAuthorizationStatusFailure);
             return;
         }
+        
         [self createBackendChargeWithToken:token completion:completion];
-    };
+    }];
 }
 
+// This method sends the token to server
 - (void)createBackendChargeWithToken:(STPToken *)token
                           completion:(void (^)(PKPaymentAuthorizationStatus))completion {
     NSURL *url = [NSURL URLWithString:@"https://example.com/token"];
