@@ -6,9 +6,18 @@
 //  Copyright (c) 2014 MVA. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import "ShoppingCartViewController.h"
 #import "Stripe+ApplePay.h"
 #import "Stripe.h"
+#import "Stripe+ApplePay.h"
+
+#if DEBUG
+#import "STPTestPaymentAuthorizationViewController.h"
+#import "PKPayment+STPTestKeys.h"
+#endif
+
+
 @interface ShoppingCartViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
 
@@ -34,6 +43,7 @@
     if ([Stripe canSubmitPaymentRequest:request]) {
         UIViewController *paymentController;
 #if DEBUG
+        STPTestPaymentAuthorizationViewController *auth = [[STPTestPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
 #else
 #endif
     }
