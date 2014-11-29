@@ -35,14 +35,18 @@
 {
     NSLog(@"button was tapped");
     
+    // Generating a PKPaymentRequest to submit to Apple.
     PKPaymentRequest *request = [Stripe paymentRequestWithMerchantIdentifier:@"merchant.com.citybicyclecompany"];
     
-    // Configure your request here.
+//TODO: Configure request.
+    // Set the paymentSummaryItems to a NSArray of PKPaymentSummaryItems.  These are analogous to line items on a receipt.
     NSString *label = @"Premium llama food";
     NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:@"10.00"];
     request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:label amount:number]];
     
-    if ([Stripe canSubmitPaymentRequest:request]) {
+    // Query to check if ApplePay is available for the phone user.
+    if ([Stripe canSubmitPaymentRequest:request])
+    {
 //        UIViewController *paymentController;
 #if DEBUG
         STPTestPaymentAuthorizationViewController *auth = [[STPTestPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
@@ -61,16 +65,48 @@
     
 }
 
+#pragma mark PKPaymentAuthorizationViewControllerDelegate Methods
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller
+                       didAuthorizePayment:(PKPayment *)payment
+                                completion:(void (^)(PKPaymentAuthorizationStatus))completion
+{
+    [self handlePaymentAuthorizationWithPayment:payment completion:completion];
 }
-*/
+
+- (void)handlePaymentAuthorizationWithPayment:(PKPayment *)payment completion:(void (^)(PKPaymentAuthorizationStatus))completion
+{
+    void (^tokenBlock)(STPToken * token, NSError * error) = ^void(STPToken *token, NSError *error)
+    {
+        if (error)
+        {
+            completion(PKPaymentAuthorizationStatusFailure);
+            return;
+        }
+        [self createBackendChargeWithToken:token completion:completion];
+    };
+}
+
+- (void)createBackendChargeWithToken:(STPToken *)token
+                          completion:(void (^)(PKPaymentAuthorizationStatus))completion {
+    NSURL *url = [NSURL URLWithString:@"https://example.com/token"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    request.HTTPMethod = @"POST";
+    NSString *body     = [NSString stringWithFormat:@"stripeToken=%@", token.tokenId];
+    request.HTTPBody   = [body dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response,
+                                               NSData *data,
+                                               NSError *error) {
+                               if (error) {
+                                   completion(PKPaymentAuthorizationStatusFailure);
+                               } else {
+                                   completion(PKPaymentAuthorizationStatusSuccess);
+                               }
+                           }];
+}
+
 
 @end
