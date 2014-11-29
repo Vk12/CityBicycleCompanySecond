@@ -18,7 +18,7 @@
 #endif
 
 
-@interface ShoppingCartViewController ()
+@interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
 
 @end
@@ -33,6 +33,8 @@
 
 - (IBAction)onPayButtonTapped:(UIButton *)sender
 {
+    NSLog(@"button was tapped");
+    
     PKPaymentRequest *request = [Stripe paymentRequestWithMerchantIdentifier:@"merchant.com.citybicyclecompany"];
     
     // Configure your request here.
@@ -41,11 +43,15 @@
     request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:label amount:number]];
     
     if ([Stripe canSubmitPaymentRequest:request]) {
-        UIViewController *paymentController;
+//        UIViewController *paymentController;
 #if DEBUG
         STPTestPaymentAuthorizationViewController *auth = [[STPTestPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
+        
 #else
+        PKPaymentAuthorizationViewController *auth = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
 #endif
+        auth.delegate = self;
+        [self presentViewController:auth animated:YES completion:nil];
     }
     else
     {
