@@ -68,6 +68,7 @@
 		FB0E0B6C1A2943EB0053F9D1 /* STPTestPaymentSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB0E0B5C1A2943EB0053F9D1 /* STPTestPaymentSummaryViewController.xib */; };
 		FB0E0B6D1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB0E0B6E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
+		FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7F27A81A2A9FDB00328CE8 /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +168,8 @@
 		FB0E0B5C1A2943EB0053F9D1 /* STPTestPaymentSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STPTestPaymentSummaryViewController.xib; sourceTree = "<group>"; };
 		FB0E0B5D1A2943EB0053F9D1 /* STPTestShippingMethodStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPTestShippingMethodStore.h; sourceTree = "<group>"; };
 		FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPTestShippingMethodStore.m; sourceTree = "<group>"; };
+		FB7F27A71A2A9FDB00328CE8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		FB7F27A81A2A9FDB00328CE8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		FBDEE0E31A26B5E4006A974E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		FBDEE0E41A26B5E4006A974E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		FBDEE0E51A26B5E4006A974E /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 				FB0E0B4E1A2943EB0053F9D1 /* ApplePayStubs Classes */,
 				FB0E0B291A293EB50053F9D1 /* Stripe */,
 				3928AF621A269DC100BE9DBC /* CityBicycleCompany.entitlements */,
+				FB7F27A71A2A9FDB00328CE8 /* Constants.h */,
+				FB7F27A81A2A9FDB00328CE8 /* Constants.m */,
 				39DE843F1A2683AF00BB47FB /* AccessoriesViewController.h */,
 				39DE84401A2683AF00BB47FB /* AccessoriesViewController.m */,
 				39DE841A1A2680D300BB47FB /* AppDelegate.h */,
@@ -581,6 +586,7 @@
 				FB0E0B3E1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */,
 				FB0E0B691A2943EB0053F9D1 /* STPTestPaymentSummaryViewController.m in Sources */,
 				FB0E0B611A2943EB0053F9D1 /* STPTestAddressStore.m in Sources */,
+				FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */,
 				3928AF341A2684A800BE9DBC /* BicycleViewController.m in Sources */,
 				39DE843E1A26835500BB47FB /* ProductViewController.m in Sources */,
 				39DE84191A2680D300BB47FB /* main.m in Sources */,

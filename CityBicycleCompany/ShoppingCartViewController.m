@@ -11,6 +11,7 @@
 #import "Stripe+ApplePay.h"
 #import "Stripe.h"
 #import "Stripe+ApplePay.h"
+#import "Constants.h"
 
 #if DEBUG
 #import "STPTestPaymentAuthorizationViewController.h"
@@ -28,6 +29,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Testing Cloud Code
+    [PFCloud callFunctionInBackground:@"stripe"
+                       withParameters:@{}
+                                block:^(NSString *result, NSError *error) {
+                                    if (!error) {
+                                        // result is hello world
+                                        
+                                    }
+                                    }];
 
 }
 
@@ -62,7 +73,7 @@
     }
     else
     {
-    // Show the user your own credit card form (see options 2 or 3 on Stripe documentation).
+        // TODO: Show the user your own credit card form (see options 2 or 3 on Stripe documentation).
     }
     
     
@@ -101,24 +112,43 @@
 
 // This method sends the token to server
 - (void)createBackendChargeWithToken:(STPToken *)token
-                          completion:(void (^)(PKPaymentAuthorizationStatus))completion {
-    NSURL *url = [NSURL URLWithString:@"https://example.com/token"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    request.HTTPMethod = @"POST";
-    NSString *body     = [NSString stringWithFormat:@"stripeToken=%@", token.tokenId];
-    request.HTTPBody   = [body dataUsingEncoding:NSUTF8StringEncoding];
+                          completion:(void (^)(PKPaymentAuthorizationStatus))completion
+{
+    if (!ParseApplicationId || !ParseClientKey)
+    {
+        UIAlertView *message =
+        [[UIAlertView alloc] initWithTitle:@"Todo: Submit this token to your backend"
+                                   message:[NSString stringWithFormat:@"Good news! Stripe turned your credit card into a token: %@ \nYou can follow the "
+                                            @"instructions in the README to set up Parse as an example backend, or use this "
+                                            @"token to manually create charges at dashboard.stripe.com .",
+                                            token.tokenId]
+                                  delegate:nil
+                         cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
+                         otherButtonTitles:nil];
+        
+        [message show];
+        completion(PKPaymentAuthorizationStatusSuccess);
+        return;
+    }
     
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *data,
-                                               NSError *error) {
-                               if (error) {
-                                   completion(PKPaymentAuthorizationStatusFailure);
-                               } else {
-                                   completion(PKPaymentAuthorizationStatusSuccess);
-                               }
-                           }];
+    
+//    NSURL *url = [NSURL URLWithString:@"https://example.com/token"];
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+//    request.HTTPMethod = @"POST";
+//    NSString *body     = [NSString stringWithFormat:@"stripeToken=%@", token.tokenId];
+//    request.HTTPBody   = [body dataUsingEncoding:NSUTF8StringEncoding];
+//    
+//    [NSURLConnection sendAsynchronousRequest:request
+//                                       queue:[NSOperationQueue mainQueue]
+//                           completionHandler:^(NSURLResponse *response,
+//                                               NSData *data,
+//                                               NSError *error) {
+//                               if (error) {
+//                                   completion(PKPaymentAuthorizationStatusFailure);
+//                               } else {
+//                                   completion(PKPaymentAuthorizationStatusSuccess);
+//                               }
+//                           }];
 }
 
 
