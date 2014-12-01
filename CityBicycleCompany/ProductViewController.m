@@ -7,6 +7,7 @@
 //
 
 #import "ProductViewController.h"
+#import "ProductCollectionViewCell.h"
 
 @interface ProductViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *productCollectionView;

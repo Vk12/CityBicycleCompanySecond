@@ -338,15 +338,30 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="597" height="146"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productCell" id="Clt-Rf-fzx" customClass="ProductCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="597" height="146"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bit-5g-G5r">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zth-FG-tmh">
                                                     <rect key="frame" x="0.0" y="0.0" width="597" height="146"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="zth-FG-tmh" firstAttribute="leading" secondItem="Clt-Rf-fzx" secondAttribute="leadingMargin" constant="-8" id="9gO-x1-SnL"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="zth-FG-tmh" secondAttribute="bottom" constant="-8" id="M98-Nd-6Aa"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="zth-FG-tmh" secondAttribute="trailing" constant="-8" id="VfZ-iK-2ho"/>
+                                            <constraint firstItem="zth-FG-tmh" firstAttribute="top" secondItem="Clt-Rf-fzx" secondAttribute="topMargin" constant="-8" id="WKo-2R-bWI"/>
+                                        </constraints>
                                         <connections>
-                                            <outlet property="imageView" destination="bit-5g-G5r" id="5VF-C1-fGc"/>
+                                            <outlet property="imageView" destination="zth-FG-tmh" id="w2c-gp-7rL"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
