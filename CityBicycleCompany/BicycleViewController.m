@@ -47,14 +47,15 @@
     } ];
 }
 
-//- (IBAction)onCartButtonPressed:(UIButton *)sender
-//{
-////    if (self.sizeSegmentedController.selectedSegmentIndex == 0)
-////    {
-////        NSString *firstSegment = [NSString stringWithFormat:@"50 cm"];
-////        self.addToCartArray add
-//    }
-//}
+- (IBAction)onCartButtonPressed:(UIButton *)sender
+{
+
+    if (self.sizeSegmentedController.selectedSegmentIndex == 0)
+    {
+        NSString *firstSegment = [NSString stringWithFormat:@"50 cm"];
+        
+    }
+}
 
 
 -(void)viewDidAppear:(BOOL)animated

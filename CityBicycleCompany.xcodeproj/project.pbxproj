@@ -27,6 +27,9 @@
 		39C528C31A2684700018C017 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C528C21A2684700018C017 /* ProfileViewController.m */; };
 		39CA90631A2CD92D001FD52F /* ProductCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CA90621A2CD92D001FD52F /* ProductCollectionViewCell.m */; };
 		39CA90671A2CE3BE001FD52F /* BicycleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CA90661A2CE3BE001FD52F /* BicycleCollectionViewCell.m */; };
+		39CA906D1A2D1E2B001FD52F /* Accessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CA906C1A2D1E2B001FD52F /* Accessory.m */; };
+		39CA90701A2D1FB5001FD52F /* Bicycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CA906F1A2D1FB5001FD52F /* Bicycle.m */; };
+		39CA90731A2D21F7001FD52F /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CA90721A2D21F7001FD52F /* Photo.m */; };
 		39DE84191A2680D300BB47FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE84181A2680D300BB47FB /* main.m */; };
 		39DE841C1A2680D300BB47FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE841B1A2680D300BB47FB /* AppDelegate.m */; };
 		39DE84221A2680D300BB47FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39DE84201A2680D300BB47FB /* Main.storyboard */; };
@@ -111,6 +114,12 @@
 		39CA90621A2CD92D001FD52F /* ProductCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCollectionViewCell.m; sourceTree = "<group>"; };
 		39CA90651A2CE3BE001FD52F /* BicycleCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BicycleCollectionViewCell.h; sourceTree = "<group>"; };
 		39CA90661A2CE3BE001FD52F /* BicycleCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BicycleCollectionViewCell.m; sourceTree = "<group>"; };
+		39CA906B1A2D1E2B001FD52F /* Accessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Accessory.h; sourceTree = "<group>"; };
+		39CA906C1A2D1E2B001FD52F /* Accessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Accessory.m; sourceTree = "<group>"; };
+		39CA906E1A2D1FB5001FD52F /* Bicycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bicycle.h; path = ../Bicycle.h; sourceTree = "<group>"; };
+		39CA906F1A2D1FB5001FD52F /* Bicycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bicycle.m; path = ../Bicycle.m; sourceTree = "<group>"; };
+		39CA90711A2D21F7001FD52F /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = ../Photo.h; sourceTree = "<group>"; };
+		39CA90721A2D21F7001FD52F /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = ../Photo.m; sourceTree = "<group>"; };
 		39DE84131A2680D300BB47FB /* CityBicycleCompany.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityBicycleCompany.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39DE84171A2680D300BB47FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39DE84181A2680D300BB47FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -166,25 +175,6 @@
 		FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPTestShippingMethodStore.m; sourceTree = "<group>"; };
 		FB7F27A71A2A9FDB00328CE8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FB7F27A81A2A9FDB00328CE8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		FBDEE0E31A26B5E4006A974E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		FBDEE0E41A26B5E4006A974E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		FBDEE0E51A26B5E4006A974E /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		FBDEE0E71A26B5E4006A974E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		FBDEE0E81A26B5E4006A974E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		FBDEE0E91A26B5E4006A974E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		FBDEE0EB1A26B5E4006A974E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FBDEE0ED1A26B5E4006A974E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		FBDEE0EF1A26B5E4006A974E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ParseStarterProjectViewController.xib; sourceTree = "<group>"; };
-		FBDEE0F01A26B5E4006A974E /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
-		FBDEE0F11A26B5E4006A974E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FBDEE0F21A26B5E4006A974E /* ParseStarterProject-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ParseStarterProject-Info.plist"; sourceTree = "<group>"; };
-		FBDEE0F31A26B5E4006A974E /* ParseStarterProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParseStarterProject-Prefix.pch"; sourceTree = "<group>"; };
-		FBDEE0F41A26B5E4006A974E /* ParseStarterProjectAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseStarterProjectAppDelegate.h; sourceTree = "<group>"; };
-		FBDEE0F51A26B5E4006A974E /* ParseStarterProjectAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseStarterProjectAppDelegate.m; sourceTree = "<group>"; };
-		FBDEE0F61A26B5E4006A974E /* ParseStarterProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseStarterProjectViewController.h; sourceTree = "<group>"; };
-		FBDEE0F71A26B5E4006A974E /* ParseStarterProjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseStarterProjectViewController.m; sourceTree = "<group>"; };
-		FBDEE0F81A26B5E4006A974E /* ParseStarterProject.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ParseStarterProject.xcodeproj; sourceTree = "<group>"; };
-		FBDEE0FB1A26B5E4006A974E /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +240,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		39CA90741A2D22BA001FD52F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39CA906B1A2D1E2B001FD52F /* Accessory.h */,
+				39CA906C1A2D1E2B001FD52F /* Accessory.m */,
+				39CA906E1A2D1FB5001FD52F /* Bicycle.h */,
+				39CA906F1A2D1FB5001FD52F /* Bicycle.m */,
+				39CA90711A2D21F7001FD52F /* Photo.h */,
+				39CA90721A2D21F7001FD52F /* Photo.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		39DE840A1A2680D300BB47FB = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +297,7 @@
 				39CA90621A2CD92D001FD52F /* ProductCollectionViewCell.m */,
 				39CA90651A2CE3BE001FD52F /* BicycleCollectionViewCell.h */,
 				39CA90661A2CE3BE001FD52F /* BicycleCollectionViewCell.m */,
+				39CA90741A2D22BA001FD52F /* Model */,
 				39DE84231A2680D300BB47FB /* Images.xcassets */,
 				39DE84251A2680D300BB47FB /* LaunchScreen.xib */,
 				39DE84161A2680D300BB47FB /* Supporting Files */,
@@ -390,49 +394,6 @@
 			);
 			name = "ApplePayStubs Classes";
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		FBDEE0E21A26B5E4006A974E /* ParseStarterProject-2 */ = {
-			isa = PBXGroup;
-			children = (
-				FBDEE0E31A26B5E4006A974E /* Bolts.framework */,
-				FBDEE0E41A26B5E4006A974E /* Parse.framework */,
-				FBDEE0E51A26B5E4006A974E /* ParseFacebookUtils.framework */,
-				FBDEE0E61A26B5E4006A974E /* ParseStarterProject */,
-				FBDEE0F81A26B5E4006A974E /* ParseStarterProject.xcodeproj */,
-				FBDEE0FB1A26B5E4006A974E /* ParseUI.framework */,
-			);
-			name = "ParseStarterProject-2";
-			path = "../../../../Downloads/ParseStarterProject-2";
-			sourceTree = "<group>";
-		};
-		FBDEE0E61A26B5E4006A974E /* ParseStarterProject */ = {
-			isa = PBXGroup;
-			children = (
-				FBDEE0E71A26B5E4006A974E /* Default-568h@2x.png */,
-				FBDEE0E81A26B5E4006A974E /* Default.png */,
-				FBDEE0E91A26B5E4006A974E /* Default@2x.png */,
-				FBDEE0EA1A26B5E4006A974E /* InfoPlist.strings */,
-				FBDEE0EC1A26B5E4006A974E /* MainWindow.xib */,
-				FBDEE0EE1A26B5E4006A974E /* ParseStarterProjectViewController.xib */,
-				FBDEE0F01A26B5E4006A974E /* Entitlements.plist */,
-				FBDEE0F11A26B5E4006A974E /* main.m */,
-				FBDEE0F21A26B5E4006A974E /* ParseStarterProject-Info.plist */,
-				FBDEE0F31A26B5E4006A974E /* ParseStarterProject-Prefix.pch */,
-				FBDEE0F41A26B5E4006A974E /* ParseStarterProjectAppDelegate.h */,
-				FBDEE0F51A26B5E4006A974E /* ParseStarterProjectAppDelegate.m */,
-				FBDEE0F61A26B5E4006A974E /* ParseStarterProjectViewController.h */,
-				FBDEE0F71A26B5E4006A974E /* ParseStarterProjectViewController.m */,
-			);
-			path = ParseStarterProject;
-			sourceTree = "<group>";
-		};
-		FBDEE0F91A26B5E4006A974E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FBDEE0FE1A26B5E4006A974E /* ParseStarterProject.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -553,6 +514,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39CA90731A2D21F7001FD52F /* Photo.m in Sources */,
 				39CA90671A2CE3BE001FD52F /* BicycleCollectionViewCell.m in Sources */,
 				39DE841C1A2680D300BB47FB /* AppDelegate.m in Sources */,
 				39DE84411A2683AF00BB47FB /* AccessoriesViewController.m in Sources */,
@@ -567,6 +529,7 @@
 				FB0E0B401A293EB50053F9D1 /* STPAPIConnection.m in Sources */,
 				FB0E0B4C1A293EB50053F9D1 /* StripeError.m in Sources */,
 				39C528C31A2684700018C017 /* ProfileViewController.m in Sources */,
+				39CA906D1A2D1E2B001FD52F /* Accessory.m in Sources */,
 				FB0E0B5F1A2943EB0053F9D1 /* PKPayment+STPTestKeys.m in Sources */,
 				FB0E0B671A2943EB0053F9D1 /* STPTestPaymentAuthorizationViewController.m in Sources */,
 				39CA90631A2CD92D001FD52F /* ProductCollectionViewCell.m in Sources */,
@@ -577,6 +540,7 @@
 				FB0E0B441A293EB50053F9D1 /* STPCard.m in Sources */,
 				FB0E0B4A1A293EB50053F9D1 /* Stripe.m in Sources */,
 				FB0E0B421A293EB50053F9D1 /* STPBankAccount.m in Sources */,
+				39CA90701A2D1FB5001FD52F /* Bicycle.m in Sources */,
 				FB0E0B631A2943EB0053F9D1 /* STPTestCardStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,7 +687,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/stripe-ios-master",
-					"$(PROJECT_DIR)"
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
