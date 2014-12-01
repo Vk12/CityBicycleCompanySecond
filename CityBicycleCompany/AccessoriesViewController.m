@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *colorSegmentedControl;
 @property (strong, nonatomic) IBOutlet UITextField *quantityTextField;
 @property (strong, nonatomic) IBOutlet UIButton *addToCartButton;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
 
 @end
 
@@ -25,6 +27,10 @@
 {
     [super viewDidLoad];
 
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.widthConstraint.constant = self.scrollView.frame.size.width;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

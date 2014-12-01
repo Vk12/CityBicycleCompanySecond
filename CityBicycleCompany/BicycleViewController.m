@@ -18,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *classicSeriesWheelsetSegmented;
 @property (strong, nonatomic) IBOutlet UITextField *quantityTextField;
 @property (strong, nonatomic) IBOutlet UIButton *addtoCartButton;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -29,6 +31,11 @@
 
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.widthConstraint.constant = self.scrollView.frame.size.width;
+
+}
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return nil;
