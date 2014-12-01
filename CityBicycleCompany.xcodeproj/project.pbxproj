@@ -34,9 +34,10 @@
 		39DE84331A2680D300BB47FB /* CityBicycleCompanyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE84321A2680D300BB47FB /* CityBicycleCompanyTests.m */; };
 		39DE843E1A26835500BB47FB /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE843D1A26835500BB47FB /* ProductViewController.m */; };
 		39DE84411A2683AF00BB47FB /* AccessoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE84401A2683AF00BB47FB /* AccessoriesViewController.m */; };
-		FB0E0B251A293CC60053F9D1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0E0B1F1A293C240053F9D1 /* Bolts.framework */; };
-		FB0E0B271A293CD60053F9D1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0E0B261A293CD60053F9D1 /* Parse.framework */; };
-		FB0E0B281A293CE80053F9D1 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0E0B231A293C720053F9D1 /* ParseUI.framework */; };
+		87EAEB891A2CF7A2002FEBB4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB851A2CF7A2002FEBB4 /* Bolts.framework */; };
+		87EAEB8A1A2CF7A2002FEBB4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB861A2CF7A2002FEBB4 /* Parse.framework */; };
+		87EAEB8B1A2CF7A2002FEBB4 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB871A2CF7A2002FEBB4 /* ParseFacebookUtils.framework */; };
+		87EAEB8C1A2CF7A2002FEBB4 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB881A2CF7A2002FEBB4 /* ParseUI.framework */; };
 		FB0E0B3E1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B2C1A293EB50053F9D1 /* Stripe+ApplePay.m */; };
 		FB0E0B3F1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B2C1A293EB50053F9D1 /* Stripe+ApplePay.m */; };
 		FB0E0B401A293EB50053F9D1 /* STPAPIConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B2E1A293EB50053F9D1 /* STPAPIConnection.m */; };
@@ -80,13 +81,6 @@
 			remoteGlobalIDString = 39DE84121A2680D300BB47FB;
 			remoteInfo = CityBicycleCompany;
 		};
-		FBDEE0FD1A26B5E4006A974E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FBDEE0F81A26B5E4006A974E /* ParseStarterProject.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 09ABC06D13A1D52D009C3FCF;
-			remoteInfo = ParseStarterProject;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -107,10 +101,6 @@
 		3928AF4E1A26862A00BE9DBC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3928AF501A26863200BE9DBC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3928AF521A26863800BE9DBC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		3928AF551A26864900BE9DBC /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		3928AF561A26864900BE9DBC /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		3928AF571A26864900BE9DBC /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		3928AF581A26864900BE9DBC /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		3928AF5F1A26867400BE9DBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3928AF621A269DC100BE9DBC /* CityBicycleCompany.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CityBicycleCompany.entitlements; sourceTree = "<group>"; };
 		396881071A26AD68001D1AE7 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
@@ -133,10 +123,10 @@
 		39DE843D1A26835500BB47FB /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
 		39DE843F1A2683AF00BB47FB /* AccessoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoriesViewController.h; sourceTree = "<group>"; };
 		39DE84401A2683AF00BB47FB /* AccessoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoriesViewController.m; sourceTree = "<group>"; };
-		FB0E0B1F1A293C240053F9D1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../../Downloads/ParseStarterProject/Bolts.framework; sourceTree = "<group>"; };
-		FB0E0B211A293C610053F9D1 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = ../../../../Downloads/ParseStarterProject/ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		FB0E0B231A293C720053F9D1 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = ../../../../Downloads/ParseStarterProject/ParseUI.framework; sourceTree = "<group>"; };
-		FB0E0B261A293CD60053F9D1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../../Downloads/ParseStarterProject/Parse.framework; sourceTree = "<group>"; };
+		87EAEB851A2CF7A2002FEBB4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		87EAEB861A2CF7A2002FEBB4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		87EAEB871A2CF7A2002FEBB4 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		87EAEB881A2CF7A2002FEBB4 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		FB0E0B2B1A293EB50053F9D1 /* Stripe+ApplePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Stripe+ApplePay.h"; sourceTree = "<group>"; };
 		FB0E0B2C1A293EB50053F9D1 /* Stripe+ApplePay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Stripe+ApplePay.m"; sourceTree = "<group>"; };
 		FB0E0B2D1A293EB50053F9D1 /* STPAPIConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPAPIConnection.h; sourceTree = "<group>"; };
@@ -199,9 +189,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB0E0B281A293CE80053F9D1 /* ParseUI.framework in Frameworks */,
-				FB0E0B271A293CD60053F9D1 /* Parse.framework in Frameworks */,
-				FB0E0B251A293CC60053F9D1 /* Bolts.framework in Frameworks */,
+				87EAEB891A2CF7A2002FEBB4 /* Bolts.framework in Frameworks */,
+				87EAEB8A1A2CF7A2002FEBB4 /* Parse.framework in Frameworks */,
+				87EAEB8B1A2CF7A2002FEBB4 /* ParseFacebookUtils.framework in Frameworks */,
+				87EAEB8C1A2CF7A2002FEBB4 /* ParseUI.framework in Frameworks */,
 				396881081A26AD68001D1AE7 /* PassKit.framework in Frameworks */,
 				3928AF601A26867400BE9DBC /* Foundation.framework in Frameworks */,
 				3928AF431A2685F500BE9DBC /* Security.framework in Frameworks */,
@@ -230,26 +221,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3928AF541A26864900BE9DBC /* parse-library-1.5.0 */ = {
-			isa = PBXGroup;
-			children = (
-				3928AF551A26864900BE9DBC /* Bolts.framework */,
-				3928AF561A26864900BE9DBC /* Parse.framework */,
-				3928AF571A26864900BE9DBC /* ParseFacebookUtils.framework */,
-				3928AF581A26864900BE9DBC /* ParseUI.framework */,
-			);
-			name = "parse-library-1.5.0";
-			path = "../../../Downloads/parse-library-1.5.0";
-			sourceTree = "<group>";
-		};
 		3928AF611A26869400BE9DBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FB0E0B261A293CD60053F9D1 /* Parse.framework */,
-				FB0E0B231A293C720053F9D1 /* ParseUI.framework */,
-				FB0E0B211A293C610053F9D1 /* ParseFacebookUtils.framework */,
-				FB0E0B1F1A293C240053F9D1 /* Bolts.framework */,
-				FBDEE0E21A26B5E4006A974E /* ParseStarterProject-2 */,
+				87EAEB851A2CF7A2002FEBB4 /* Bolts.framework */,
+				87EAEB861A2CF7A2002FEBB4 /* Parse.framework */,
+				87EAEB871A2CF7A2002FEBB4 /* ParseFacebookUtils.framework */,
+				87EAEB881A2CF7A2002FEBB4 /* ParseUI.framework */,
 				396881071A26AD68001D1AE7 /* PassKit.framework */,
 				3928AF5F1A26867400BE9DBC /* Foundation.framework */,
 				3928AF521A26863800BE9DBC /* MessageUI.framework */,
@@ -277,7 +255,6 @@
 				39DE842F1A2680D300BB47FB /* CityBicycleCompanyTests */,
 				39DE84141A2680D300BB47FB /* Products */,
 				3928AF611A26869400BE9DBC /* Frameworks */,
-				3928AF541A26864900BE9DBC /* parse-library-1.5.0 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -536,12 +513,6 @@
 			mainGroup = 39DE840A1A2680D300BB47FB;
 			productRefGroup = 39DE84141A2680D300BB47FB /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FBDEE0F91A26B5E4006A974E /* Products */;
-					ProjectRef = FBDEE0F81A26B5E4006A974E /* ParseStarterProject.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				39DE84121A2680D300BB47FB /* CityBicycleCompany */,
@@ -549,16 +520,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FBDEE0FE1A26B5E4006A974E /* ParseStarterProject.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = ParseStarterProject.app;
-			remoteRef = FBDEE0FD1A26B5E4006A974E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		39DE84111A2680D300BB47FB /* Resources */ = {
@@ -665,30 +626,6 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
-		FBDEE0EA1A26B5E4006A974E /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBDEE0EB1A26B5E4006A974E /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FBDEE0EC1A26B5E4006A974E /* MainWindow.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBDEE0ED1A26B5E4006A974E /* en */,
-			);
-			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
-		FBDEE0EE1A26B5E4006A974E /* ParseStarterProjectViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBDEE0EF1A26B5E4006A974E /* en */,
-			);
-			name = ParseStarterProjectViewController.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -780,8 +717,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/stripe-ios-master",
-					2/Example,
-					/Users/mayyang/Downloads/ParseStarterProject,
+					"$(PROJECT_DIR)"
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -805,8 +741,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/stripe-ios-master",
-					2/Example,
-					/Users/mayyang/Downloads/ParseStarterProject,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = STRIPE_ENABLE_APPLEPAY;
 				INFOPLIST_FILE = CityBicycleCompany/Info.plist;
