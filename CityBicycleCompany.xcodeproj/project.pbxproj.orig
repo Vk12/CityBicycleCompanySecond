@@ -600,9 +600,12 @@
 				FB0E0B401A293EB50053F9D1 /* STPAPIConnection.m in Sources */,
 				FB0E0B4C1A293EB50053F9D1 /* StripeError.m in Sources */,
 				39C528C31A2684700018C017 /* ProfileViewController.m in Sources */,
+<<<<<<< HEAD
 				FB0E0B5F1A2943EB0053F9D1 /* PKPayment+STPTestKeys.m in Sources */,
 				FB0E0B671A2943EB0053F9D1 /* STPTestPaymentAuthorizationViewController.m in Sources */,
+=======
 				39CA90631A2CD92D001FD52F /* ProductCollectionViewCell.m in Sources */,
+>>>>>>> 6a8fd9b8d9d53f85e936d77e5bc0e37c05d60c85
 				3928AF371A26852200BE9DBC /* ShoppingCartViewController.m in Sources */,
 				FB0E0B651A2943EB0053F9D1 /* STPTestDataTableViewController.m in Sources */,
 				FB0E0B481A293EB50053F9D1 /* STPUtils.m in Sources */,

@@ -258,7 +258,9 @@
                         <outlet property="descriptionLabel" destination="Nnd-Qd-rsl" id="BnL-Zd-dk3"/>
                         <outlet property="nameLabel" destination="E8D-n3-WkU" id="gRW-Uy-xy3"/>
                         <outlet property="quantityTextField" destination="UCj-Up-4tc" id="41u-1U-X5r"/>
+                        <outlet property="scrollView" destination="Q6r-5W-POS" id="ZAu-CL-dWR"/>
                         <outlet property="sizeSegmentedControl" destination="eoY-3u-lBD" id="E5U-wr-esz"/>
+                        <outlet property="widthConstraint" destination="7Ig-ha-twA" id="1mM-Wb-VFw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6vs-C9-IPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -336,15 +338,30 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="597" height="146"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productCell" id="Clt-Rf-fzx" customClass="ProductCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="597" height="146"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bit-5g-G5r">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zth-FG-tmh">
                                                     <rect key="frame" x="0.0" y="0.0" width="597" height="146"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="zth-FG-tmh" firstAttribute="leading" secondItem="Clt-Rf-fzx" secondAttribute="leadingMargin" constant="-8" id="9gO-x1-SnL"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="zth-FG-tmh" secondAttribute="bottom" constant="-8" id="M98-Nd-6Aa"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="zth-FG-tmh" secondAttribute="trailing" constant="-8" id="VfZ-iK-2ho"/>
+                                            <constraint firstItem="zth-FG-tmh" firstAttribute="top" secondItem="Clt-Rf-fzx" secondAttribute="topMargin" constant="-8" id="WKo-2R-bWI"/>
+                                        </constraints>
                                         <connections>
-                                            <outlet property="imageView" destination="bit-5g-G5r" id="5VF-C1-fGc"/>
+                                            <outlet property="imageView" destination="zth-FG-tmh" id="w2c-gp-7rL"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1184,8 +1201,10 @@
                         <outlet property="nameLabel" destination="fdc-iD-TS6" id="eNs-We-1qm"/>
                         <outlet property="quantityTextField" destination="Sb5-M3-8CT" id="rtC-NV-TTU"/>
                         <outlet property="rearBreakController" destination="GXc-yO-xYd" id="zz3-FM-Qp9"/>
+                        <outlet property="scrollView" destination="xqQ-HP-SRF" id="usv-Bl-rlq"/>
                         <outlet property="sizeSegmentedController" destination="H04-mt-RRm" id="rf4-ke-S95"/>
                         <outlet property="wheelSetColorSegmented" destination="iWh-0H-Dsv" id="qsh-lF-Qe2"/>
+                        <outlet property="widthConstraint" destination="e5M-Ip-zza" id="dNy-8D-q7Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXL-Ai-IQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
