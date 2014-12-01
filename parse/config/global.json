@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Bicycle Co": {
+            "applicationId": "srr6q0zfkpHLhFfGDIhEQIg4fNFtZ3DNigXlswBO", 
+            "masterKey": "7J5G9Op8VpzG7HzL7dTvj8I3FMQ7ABfwciP0a7IV"
+        }, 
+        "_default": {
+            "link": "Bicycle Co"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.2"
+    }
+}
