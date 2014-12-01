@@ -91,7 +91,8 @@
 
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
 {
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 #pragma mark PKPaymentAuthorizationViewControllerDelegate Helper Methods
@@ -130,6 +131,27 @@
         completion(PKPaymentAuthorizationStatusSuccess);
         return;
     }
+    NSDictionary *chargeParams = @{
+                                   @"token": token.tokenId,
+                                   @"currency": @"usd",
+                                   @"amount": @"1000", // this is in cents (i.e. $10)
+                                   };
+    // This passes the token off to our payment backend, which will then actually complete charging the card using your account's
+    [PFCloud callFunctionInBackground:@"charge"
+                       withParameters:chargeParams
+                                block:^(id object, NSError *error) {
+                                    if (error) {
+                                        completion(PKPaymentAuthorizationStatusFailure);
+                                    } else {
+                                        // We're done!
+                                        completion(PKPaymentAuthorizationStatusSuccess);
+                                        [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded"
+                                                                    message:nil
+                                                                   delegate:nil
+                                                          cancelButtonTitle:nil
+                                                          otherButtonTitles:@"OK", nil] show];
+                                    }
+                                }];
     
     
 //    NSURL *url = [NSURL URLWithString:@"https://example.com/token"];
