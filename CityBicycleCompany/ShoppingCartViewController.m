@@ -6,10 +6,20 @@
 //  Copyright (c) 2014 MVA. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import "ShoppingCartViewController.h"
-//#import "Stripe+ApplePay.h"
-//#import "Stripe.h"
-@interface ShoppingCartViewController ()
+#import "Stripe+ApplePay.h"
+#import "Stripe.h"
+#import "Stripe+ApplePay.h"
+#import "Constants.h"
+
+#if DEBUG
+#import "STPTestPaymentAuthorizationViewController.h"
+#import "PKPayment+STPTestKeys.h"
+#endif
+
+
+@interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
 
 @end
@@ -19,39 +29,149 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Testing Cloud Code
+    [PFCloud callFunctionInBackground:@"stripe"
+                       withParameters:@{}
+                                block:^(NSString *result, NSError *error) {
+                                    if (!error) {
+                                        // result is hello world
+                                        
+                                    }
+                                    }];
 
 }
 
 - (IBAction)onPayButtonTapped:(UIButton *)sender
 {
-//    PKPaymentRequest *request = [Stripe
-//                                 paymentRequestWithMerchantIdentifier:YOUR_APPLE_MERCHANT_ID];
-//    // Configure your request here.
-//    NSString *label = @"Premium Llama Food";
-//    NSDecimalNumber *amount = [NSDecimalNumber decimalNumberWithString:@"10.00"];
-//    request.paymentSummaryItems = @[
-//                                    [PKPaymentSummaryItem summaryItemWithLabel:label
-//                                                                        amount:amount];
-//                                    ];
+    NSLog(@"button was tapped");
+    
+    // Generating a PKPaymentRequest to submit to Apple.
+    PKPaymentRequest *request = [Stripe paymentRequestWithMerchantIdentifier:@"merchant.com.citybicyclecompany"];
+    
+    
+//TODO: CONFIGURE REQUEST.
+    
+    // Set the paymentSummaryItems to a NSArray of PKPaymentSummaryItems.  These are analogous to line items on a receipt.
+    NSString *label = @"Premium llama food";
+    NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:@"10.00"];
+    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:label amount:number]];
+    
+    // Query to check if ApplePay is available for the phone user.
+    if ([Stripe canSubmitPaymentRequest:request])
+    {
+        
+    // Create and display the payment request view controller.
+#if DEBUG
+        STPTestPaymentAuthorizationViewController *auth = [[STPTestPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
+        
+#else
+        PKPaymentAuthorizationViewController *auth = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
+#endif
+        auth.delegate = self;
+        [self presentViewController:auth animated:YES completion:nil];
+    }
+    else
+    {
+        // TODO: Show the user your own credit card form (see options 2 or 3 on Stripe documentation).
+    }
+    
+    
+}
+
+#pragma mark PKPaymentAuthorizationViewControllerDelegate Protocols
+
+// This protocol returns a PKPayment, that we pass into the method within.
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller
+                       didAuthorizePayment:(PKPayment *)payment
+                                completion:(void (^)(PKPaymentAuthorizationStatus))completion
+{
+    [self handlePaymentAuthorizationWithPayment:payment completion:completion];
+}
+
+- (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+
+#pragma mark PKPaymentAuthorizationViewControllerDelegate Helper Methods
+
+// This method creates a single-use token.
+- (void)handlePaymentAuthorizationWithPayment:(PKPayment *)payment
+                                   completion:(void (^)(PKPaymentAuthorizationStatus))completion
+{
+    [Stripe createTokenWithPayment:payment completion:^(STPToken *token, NSError *error) {
+        if (error) {
+            completion(PKPaymentAuthorizationStatusFailure);
+            return;
+        }
+        
+        [self createBackendChargeWithToken:token completion:completion];
+    }];
+}
+
+// This method sends the token to server
+- (void)createBackendChargeWithToken:(STPToken *)token
+                          completion:(void (^)(PKPaymentAuthorizationStatus))completion
+{
+    if (!ParseApplicationId || !ParseClientKey)
+    {
+        UIAlertView *message =
+        [[UIAlertView alloc] initWithTitle:@"Todo: Submit this token to your backend"
+                                   message:[NSString stringWithFormat:@"Good news! Stripe turned your credit card into a token: %@ \nYou can follow the "
+                                            @"instructions in the README to set up Parse as an example backend, or use this "
+                                            @"token to manually create charges at dashboard.stripe.com .",
+                                            token.tokenId]
+                                  delegate:nil
+                         cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
+                         otherButtonTitles:nil];
+        
+        [message show];
+        completion(PKPaymentAuthorizationStatusSuccess);
+        return;
+    }
+    NSDictionary *chargeParams = @{
+                                   @"token": token.tokenId,
+                                   @"currency": @"usd",
+                                   @"amount": @"1000", // this is in cents (i.e. $10)
+                                   };
+    // This passes the token off to our payment backend, which will then actually complete charging the card using your account's
+    [PFCloud callFunctionInBackground:@"charge"
+                       withParameters:chargeParams
+                                block:^(id object, NSError *error) {
+                                    if (error) {
+                                        completion(PKPaymentAuthorizationStatusFailure);
+                                    } else {
+                                        // We're done!
+                                        completion(PKPaymentAuthorizationStatusSuccess);
+                                        [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded"
+                                                                    message:nil
+                                                                   delegate:nil
+                                                          cancelButtonTitle:nil
+                                                          otherButtonTitles:@"OK", nil] show];
+                                    }
+                                }];
+    
+    
+//    NSURL *url = [NSURL URLWithString:@"https://example.com/token"];
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+//    request.HTTPMethod = @"POST";
+//    NSString *body     = [NSString stringWithFormat:@"stripeToken=%@", token.tokenId];
+//    request.HTTPBody   = [body dataUsingEncoding:NSUTF8StringEncoding];
 //    
-//    if ([Stripe canSubmitPaymentRequest:request]) {
-//        ...
-//    } else {
-//        // Show the user your own credit card form (see options 2 or 3)
-//    }
-
+//    [NSURLConnection sendAsynchronousRequest:request
+//                                       queue:[NSOperationQueue mainQueue]
+//                           completionHandler:^(NSURLResponse *response,
+//                                               NSData *data,
+//                                               NSError *error) {
+//                               if (error) {
+//                                   completion(PKPaymentAuthorizationStatusFailure);
+//                               } else {
+//                                   completion(PKPaymentAuthorizationStatusSuccess);
+//                               }
+//                           }];
 }
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
