@@ -26,6 +26,7 @@
 		396881081A26AD68001D1AE7 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396881071A26AD68001D1AE7 /* PassKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		39C528C31A2684700018C017 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C528C21A2684700018C017 /* ProfileViewController.m */; };
 		39CA90631A2CD92D001FD52F /* ProductCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CA90621A2CD92D001FD52F /* ProductCollectionViewCell.m */; };
+		39CA90671A2CE3BE001FD52F /* BicycleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CA90661A2CE3BE001FD52F /* BicycleCollectionViewCell.m */; };
 		39DE84191A2680D300BB47FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE84181A2680D300BB47FB /* main.m */; };
 		39DE841C1A2680D300BB47FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE841B1A2680D300BB47FB /* AppDelegate.m */; };
 		39DE84221A2680D300BB47FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39DE84201A2680D300BB47FB /* Main.storyboard */; };
@@ -85,6 +86,8 @@
 		39C528C21A2684700018C017 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		39CA90611A2CD92D001FD52F /* ProductCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCollectionViewCell.h; sourceTree = "<group>"; };
 		39CA90621A2CD92D001FD52F /* ProductCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCollectionViewCell.m; sourceTree = "<group>"; };
+		39CA90651A2CE3BE001FD52F /* BicycleCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BicycleCollectionViewCell.h; sourceTree = "<group>"; };
+		39CA90661A2CE3BE001FD52F /* BicycleCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BicycleCollectionViewCell.m; sourceTree = "<group>"; };
 		39DE84131A2680D300BB47FB /* CityBicycleCompany.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityBicycleCompany.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39DE84171A2680D300BB47FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39DE84181A2680D300BB47FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -231,6 +234,8 @@
 				3928AF361A26852200BE9DBC /* ShoppingCartViewController.m */,
 				39CA90611A2CD92D001FD52F /* ProductCollectionViewCell.h */,
 				39CA90621A2CD92D001FD52F /* ProductCollectionViewCell.m */,
+				39CA90651A2CE3BE001FD52F /* BicycleCollectionViewCell.h */,
+				39CA90661A2CE3BE001FD52F /* BicycleCollectionViewCell.m */,
 				39DE84231A2680D300BB47FB /* Images.xcassets */,
 				39DE84251A2680D300BB47FB /* LaunchScreen.xib */,
 				39DE84161A2680D300BB47FB /* Supporting Files */,
@@ -439,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39CA90671A2CE3BE001FD52F /* BicycleCollectionViewCell.m in Sources */,
 				39DE841C1A2680D300BB47FB /* AppDelegate.m in Sources */,
 				39DE84411A2683AF00BB47FB /* AccessoriesViewController.m in Sources */,
 				3928AF341A2684A800BE9DBC /* BicycleViewController.m in Sources */,
