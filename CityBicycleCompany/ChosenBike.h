@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSNumber *chosenQuantity;
 @property (strong, nonatomic) NSString *chosenBike;
 @property (strong, nonatomic) NSString *salePrice;
+@property (strong, nonatomic) NSString *chosenName;
 //@property (strong, nonatomic)
 
 @end

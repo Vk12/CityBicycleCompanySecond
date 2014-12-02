@@ -10,6 +10,7 @@
 #import "BicycleCollectionViewCell.h"
 #import <Parse/Parse.h>
 #import "Bicycle.h"
+#import "ChosenBike.h"
 @interface BicycleViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -31,7 +32,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self getImages];
+    NSLog(@"hgfhgf %@", self.theChosenBicycleInformation.chosenName);
+    
 }
 
 - (void) getImages

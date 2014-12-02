@@ -362,6 +362,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="zth-FG-tmh" id="w2c-gp-7rL"/>
+                                            <segue destination="a1L-zc-nEL" kind="presentation" id="6ff-r1-R9T"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -487,9 +488,6 @@
                                         <state key="normal" title="TestBike">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="a1L-zc-nEL" kind="presentation" id="0HK-TR-3Ai"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -671,7 +669,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfX-dy-UJZ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="338" y="104"/>
+            <point key="canvasLocation" x="423" y="38"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="u4o-qS-d2e">
