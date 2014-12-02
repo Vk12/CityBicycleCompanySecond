@@ -9,6 +9,7 @@
 #import "BicycleViewController.h"
 #import "BicycleCollectionViewCell.h"
 #import <Parse/Parse.h>
+#import "Bicycle.h"
 @interface BicycleViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -49,10 +50,10 @@
 
 - (IBAction)onCartButtonPressed:(UIButton *)sender
 {
-
+    Bicycle *bicycle = [[Bicycle alloc]init];
     if (self.sizeSegmentedController.selectedSegmentIndex == 0)
     {
-        NSString *firstSegment = [NSString stringWithFormat:@"50 cm"];
+
         
     }
 }
@@ -81,14 +82,6 @@
     return self.bikeArray.count;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

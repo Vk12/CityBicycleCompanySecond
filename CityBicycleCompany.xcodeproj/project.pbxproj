@@ -279,12 +279,8 @@
 				FB0E0B4E1A2943EB0053F9D1 /* ApplePayStubs Classes */,
 				FB0E0B291A293EB50053F9D1 /* Stripe */,
 				3928AF621A269DC100BE9DBC /* CityBicycleCompany.entitlements */,
-				FB7F27A71A2A9FDB00328CE8 /* Constants.h */,
-				FB7F27A81A2A9FDB00328CE8 /* Constants.m */,
 				39DE843F1A2683AF00BB47FB /* AccessoriesViewController.h */,
 				39DE84401A2683AF00BB47FB /* AccessoriesViewController.m */,
-				39DE841A1A2680D300BB47FB /* AppDelegate.h */,
-				39DE841B1A2680D300BB47FB /* AppDelegate.m */,
 				3928AF321A2684A800BE9DBC /* BicycleViewController.h */,
 				3928AF331A2684A800BE9DBC /* BicycleViewController.m */,
 				39DE843C1A26835500BB47FB /* ProductViewController.h */,
@@ -308,6 +304,10 @@
 		39DE84161A2680D300BB47FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				39DE841A1A2680D300BB47FB /* AppDelegate.h */,
+				39DE841B1A2680D300BB47FB /* AppDelegate.m */,
+				FB7F27A71A2A9FDB00328CE8 /* Constants.h */,
+				FB7F27A81A2A9FDB00328CE8 /* Constants.m */,
 				39DE84171A2680D300BB47FB /* Info.plist */,
 				39DE84181A2680D300BB47FB /* main.m */,
 			);

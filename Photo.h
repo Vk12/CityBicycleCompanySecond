@@ -7,9 +7,12 @@
 //
 
 #import <Parse/Parse.h>
-
+@class Bicycle;
+@class Accessory;
 @interface Photo : PFObject <PFSubclassing>
 
 @property PFFile *productPhoto;
+@property Bicycle *bicycle;
+@property Accessory *accessory;
 
 @end

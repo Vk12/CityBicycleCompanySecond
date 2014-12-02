@@ -11,6 +11,8 @@
 @implementation Photo
 
 @dynamic productPhoto;
+@dynamic bicycle;
+@dynamic accessory;
 
 + (void)load
 {
