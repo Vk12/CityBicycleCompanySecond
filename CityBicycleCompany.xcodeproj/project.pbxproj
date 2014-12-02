@@ -75,6 +75,8 @@
 		FB0E0B6D1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB0E0B6E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7F27A81A2A9FDB00328CE8 /* Constants.m */; };
+		FBCF66AB1A2D1D22006487DD /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCF66AA1A2D1D22006487DD /* PaymentViewController.m */; };
+		FBCF66AE1A2D1D5F006487DD /* ShippingManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCF66AD1A2D1D5F006487DD /* ShippingManagerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -521,6 +523,7 @@
 				FB0E0B3E1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */,
 				FB0E0B691A2943EB0053F9D1 /* STPTestPaymentSummaryViewController.m in Sources */,
 				FB0E0B611A2943EB0053F9D1 /* STPTestAddressStore.m in Sources */,
+				FBCF66AE1A2D1D5F006487DD /* ShippingManagerViewController.m in Sources */,
 				FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */,
 				3928AF341A2684A800BE9DBC /* BicycleViewController.m in Sources */,
 				39DE843E1A26835500BB47FB /* ProductViewController.m in Sources */,
