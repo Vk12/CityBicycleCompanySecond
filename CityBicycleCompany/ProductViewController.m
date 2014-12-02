@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 MVA. All rights reserved.
 //
 
+#import "Bicycle.h"
 #import "ProductViewController.h"
 #import "ProductCollectionViewCell.h"
 #import <Parse/Parse.h>
@@ -49,8 +50,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ProductCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"productCell" forIndexPath:indexPath];
-    PFObject *bikeImage = self.productArray [indexPath.row];
-    PFFile *file = [bikeImage objectForKey:@"bicyclePhoto"];
+    Bicycle *bike = self.productArray [indexPath.row];
+    PFFile *file = bike.bicyclePhoto;
     [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         cell.imageView.image = [UIImage imageWithData:data];
     }];
@@ -69,8 +70,8 @@
 {
     BicycleViewController *vc = [segue destinationViewController];
     NSInteger bicycleIndexSelected = [self.productCollectionView indexPathForCell:sender].row;
-    ChosenBike *theBike = [self.productArray objectAtIndex:bicycleIndexSelected];
-    vc.theChosenBicycleInformation = theBike;
+    Bicycle *theBike = [self.productArray objectAtIndex:bicycleIndexSelected];
+    vc.bicycleFromParse = theBike;
     
 }
 
