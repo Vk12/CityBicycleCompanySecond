@@ -1,4 +1,4 @@
-//
+
 //  ShoppingCartViewController.m
 //  CityBicycleCompany
 //
@@ -10,8 +10,8 @@
 #import "ShoppingCartViewController.h"
 #import "Stripe+ApplePay.h"
 #import "Stripe.h"
-#import "Stripe+ApplePay.h"
 #import "Constants.h"
+#import "ShippingManagerViewController.h"
 
 #if DEBUG
 #import "STPTestPaymentAuthorizationViewController.h"
@@ -30,17 +30,29 @@
 {
     [super viewDidLoad];
     
-    // Testing Cloud Code
-    [PFCloud callFunctionInBackground:@"stripe"
-                       withParameters:@{}
-                                block:^(NSString *result, NSError *error) {
-                                    if (!error) {
-                                        // result is hello world
-                                        
-                                    }
-                                    }];
+//    // Testing Cloud Code
+//    [PFCloud callFunctionInBackground:@"stripe"
+//                       withParameters:@{}
+//                                block:^(NSString *result, NSError *error) {
+//                                    if (!error) {
+//                                        // result is hello world
+//                                        
+//                                    }
+//                                    }];
 
 }
+
+
+- (NSArray *)summaryItemsForShippingMethod
+{
+    NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:@"10.00"];
+
+    PKPaymentSummaryItem *foodItem = [PKPaymentSummaryItem summaryItemWithLabel:@"Premium Llama food" amount:number];
+    NSDecimalNumber *total = [foodItem.amount decimalNumberByAdding:number];
+    PKPaymentSummaryItem *totalItem = [PKPaymentSummaryItem summaryItemWithLabel:@"Llama Food Services, Inc." amount:total];
+    return @[foodItem, totalItem];
+}
+
 
 - (IBAction)onPayButtonTapped:(UIButton *)sender
 {
@@ -48,14 +60,16 @@
     
     // Generating a PKPaymentRequest to submit to Apple.
     PKPaymentRequest *request = [Stripe paymentRequestWithMerchantIdentifier:@"merchant.com.citybicyclecompany"];
-    
+    [request setRequiredShippingAddressFields:PKAddressFieldPostalAddress];
+    [request setRequiredBillingAddressFields:PKAddressFieldPostalAddress];
+
     
 //TODO: CONFIGURE REQUEST.
     
     // Set the paymentSummaryItems to a NSArray of PKPaymentSummaryItems.  These are analogous to line items on a receipt.
     NSString *label = @"Premium llama food";
     NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:@"10.00"];
-    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:label amount:number]];
+    request.paymentSummaryItems = @[[self summaryItemsForShippingMethod]];
     
     // Query to check if ApplePay is available for the phone user.
     if ([Stripe canSubmitPaymentRequest:request])
@@ -64,7 +78,6 @@
     // Create and display the payment request view controller.
 #if DEBUG
         STPTestPaymentAuthorizationViewController *auth = [[STPTestPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
-        
 #else
         PKPaymentAuthorizationViewController *auth = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
 #endif
@@ -73,7 +86,8 @@
     }
     else
     {
-        // TODO: Show the user your own credit card form (see options 2 or 3 on Stripe documentation).
+//        PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
+        
     }
     
     
