@@ -51,11 +51,69 @@
 - (IBAction)onCartButtonPressed:(UIButton *)sender
 {
     Bicycle *bicycle = [[Bicycle alloc]init];
+    bicycle.size = [NSArray arrayWithObjects:@"50cm (5'2 - 5'6)",@"55cm (5'7 - 5'10)",@"60cm (5'11 - 6'4)", nil];
+    bicycle.wheelsetColor = [NSArray arrayWithObjects:@"Black",@"Red ($15)",@"White ($15)", @"Gold ($80)", nil];
+    bicycle.extraWheel = [NSArray arrayWithObjects:@"Red ($80)",@"White ($80)",@"Gold ($80)", nil];
+    
+    //Sizes
     if (self.sizeSegmentedController.selectedSegmentIndex == 0)
     {
-
+//        bicycle.size = [NSArray arrayWithObject:]
         
     }
+    else if (self.sizeSegmentedController.selectedSegmentIndex == 1)
+    {
+//        bicycle.size = [NSArray arrayWithObject:];
+    }
+    else if (self.sizeSegmentedController.selectedSegmentIndex == 2)
+    {
+//        bicycle.size = [NSArray arrayWithObject:];
+    }
+    
+    //Setting RearBreak
+    if (self.rearBreakController.selectedSegmentIndex == 0)
+    {
+        bicycle.hasRearBreak = NO;
+    }
+    else if (self.rearBreakController.selectedSegmentIndex == 1)
+    {
+        bicycle.hasRearBreak = YES;
+    }
+    
+    //Setting WheelColor
+    if (self.wheelSetColorSegmented.selectedSegmentIndex == 0)
+    {
+//        bicycle.wheelsetColor = [NSArray arrayWithObject:]
+    }
+    else if (self.wheelSetColorSegmented.selectedSegmentIndex == 1)
+    {
+//        bicycle.wheelsetColor = [NSArray arrayWithObject:]
+    }
+    else if (self.wheelSetColorSegmented.selectedSegmentIndex == 2)
+    {
+//         bicycle.wheelsetColor = [NSArray arrayWithObject:]
+    }
+    else if (self.wheelSetColorSegmented.selectedSegmentIndex == 3)
+    {
+//         bicycle.wheelsetColor = [NSArray arrayWithObject:]
+    }
+    
+    //Setting Extra Classic Wheels
+    if (self.classicSeriesWheelsetSegmented.selectedSegmentIndex == 0)
+    {
+//        bicycle.extraWheel = [NSArray arrayWithObjects
+    }
+    else if (self.classicSeriesWheelsetSegmented.selectedSegmentIndex == 1)
+    {
+//        bicycle.extraWheel = [NSArray arrayWithObject:<#(id)#>]
+    }
+    else if (self.classicSeriesWheelsetSegmented.selectedSegmentIndex == 2)
+    {
+//        bicycle.extraWheel = [NSArray arrayWithObject:]]
+    }
+    
+//    self.addToCartArray = [NS]
+    
 }
 
 
