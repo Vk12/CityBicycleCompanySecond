@@ -7,7 +7,9 @@
 //
 
 #import "BicycleViewController.h"
-
+#import "BicycleCollectionViewCell.h"
+#import <Parse/Parse.h>
+#import "Bicycle.h"
 @interface BicycleViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -20,7 +22,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *addtoCartButton;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-
+@property NSArray *bikeArray;
+@property NSMutableArray *addToCartArray;
 @end
 
 @implementation BicycleViewController
@@ -28,8 +31,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [self getImages];
 }
+
+- (void) getImages
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+    [query getObjectInBackgroundWithId:@"7EVNkO14kE" block:^(PFObject *object, NSError *error)
+    {
+        if (error) {
+            NSLog(@"%@",error.localizedDescription);
+        }else{
+            self.bikeArray = [NSArray arrayWithObjects:object, nil];
+            [self.collectionView reloadData];
+        }
+    } ];
+}
+
+- (IBAction)onCartButtonPressed:(UIButton *)sender
+{
+    Bicycle *bicycle = [[Bicycle alloc]init];
+    if (self.sizeSegmentedController.selectedSegmentIndex == 0)
+    {
+
+        
+    }
+}
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -38,22 +66,22 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    BicycleCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"bicycleCell" forIndexPath:indexPath];
+    
+    PFObject *photoObject = self.bikeArray[indexPath.row];
+    PFFile *file = [photoObject objectForKey:@"productPhoto"];
+    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        cell.bicycleImageView.image = [UIImage imageWithData:data];
+
+    }];
+    return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 0;
+    return self.bikeArray.count;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
