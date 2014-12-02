@@ -8,12 +8,12 @@
 
 #import "ProductViewController.h"
 #import "ProductCollectionViewCell.h"
+#import <Parse/Parse.h>
 
 @interface ProductViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *productCollectionView;
 @property (strong, nonatomic) IBOutlet UIButton *accessoriesButton;
 @property NSMutableArray *productArray;
-
 @end
 
 @implementation ProductViewController
@@ -22,6 +22,21 @@
 {
     [super viewDidLoad];
 
+}
+
+- (void)queryAllObjects
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Bicycle"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error)
+        {
+            NSLog(@"%@",error.localizedDescription);
+        }
+        else
+        {
+//            self.productArray.
+        }
+    }];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

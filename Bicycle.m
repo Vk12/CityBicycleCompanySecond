@@ -25,6 +25,7 @@
 @dynamic salePrice;
 @dynamic size;
 @dynamic bicyclePhoto;
+@dynamic extraWheel;
 
 + (void) load
 {

@@ -57,6 +57,9 @@
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)shareButtonPressed:(UIButton *)sender
+{
+}
 
 
 /*
