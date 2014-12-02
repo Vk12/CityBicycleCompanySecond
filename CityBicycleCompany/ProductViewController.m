@@ -66,12 +66,15 @@
 }
 
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(ProductCollectionViewCell *)sender
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    BicycleViewController *vc = [segue destinationViewController];
-    NSInteger bicycleIndexSelected = [self.productCollectionView indexPathForCell:sender].row;
-    Bicycle *theBike = [self.productArray objectAtIndex:bicycleIndexSelected];
-    vc.bicycleFromParse = theBike;
+    if ([segue.identifier  isEqual: @"bicycleSegue"]) {
+        BicycleViewController *vc = [segue destinationViewController];
+        NSInteger bicycleIndexSelected = [self.productCollectionView indexPathForCell:sender].row;
+        Bicycle *theBike = [self.productArray objectAtIndex:bicycleIndexSelected];
+        vc.bicycleFromParse = theBike;
+    }
+   
     
 }
 
