@@ -161,7 +161,7 @@ NSString *const STPTestPaymentSectionTitlePayment = @"Payment";
     NSString *title = self.sectionTitles[indexPath.section];
     if ([title isEqualToString:STPTestPaymentSectionTitlePayment]) {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        PKPaymentSummaryItem *item = self.summaryItems[indexPath.row];
+        PKPaymentSummaryItem *item = [self.summaryItems firstObject][indexPath.row];
         NSString *text = [item.label uppercaseString];
         if (indexPath.row == [self.tableView numberOfRowsInSection:indexPath.section] - 1) {
             if (text == nil) {

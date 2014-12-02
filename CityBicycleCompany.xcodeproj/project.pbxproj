@@ -69,6 +69,8 @@
 		FB0E0B6D1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB0E0B6E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7F27A81A2A9FDB00328CE8 /* Constants.m */; };
+		FBCF66AB1A2D1D22006487DD /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCF66AA1A2D1D22006487DD /* PaymentViewController.m */; };
+		FBCF66AE1A2D1D5F006487DD /* ShippingManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCF66AD1A2D1D5F006487DD /* ShippingManagerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +172,10 @@
 		FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPTestShippingMethodStore.m; sourceTree = "<group>"; };
 		FB7F27A71A2A9FDB00328CE8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FB7F27A81A2A9FDB00328CE8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		FBCF66A91A2D1D22006487DD /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentViewController.h; path = ../PaymentViewController.h; sourceTree = "<group>"; };
+		FBCF66AA1A2D1D22006487DD /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentViewController.m; path = ../PaymentViewController.m; sourceTree = "<group>"; };
+		FBCF66AC1A2D1D5F006487DD /* ShippingManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingManagerViewController.h; sourceTree = "<group>"; };
+		FBCF66AD1A2D1D5F006487DD /* ShippingManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingManagerViewController.m; sourceTree = "<group>"; };
 		FBDEE0E31A26B5E4006A974E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		FBDEE0E41A26B5E4006A974E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		FBDEE0E51A26B5E4006A974E /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -307,6 +313,10 @@
 				39C528C21A2684700018C017 /* ProfileViewController.m */,
 				3928AF351A26852200BE9DBC /* ShoppingCartViewController.h */,
 				3928AF361A26852200BE9DBC /* ShoppingCartViewController.m */,
+				FBCF66A91A2D1D22006487DD /* PaymentViewController.h */,
+				FBCF66AA1A2D1D22006487DD /* PaymentViewController.m */,
+				FBCF66AC1A2D1D5F006487DD /* ShippingManagerViewController.h */,
+				FBCF66AD1A2D1D5F006487DD /* ShippingManagerViewController.m */,
 				39DE84231A2680D300BB47FB /* Images.xcassets */,
 				39DE84251A2680D300BB47FB /* LaunchScreen.xib */,
 				39DE84161A2680D300BB47FB /* Supporting Files */,
@@ -515,6 +525,7 @@
 					};
 					39DE842B1A2680D300BB47FB = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = E2V48AYLA7;
 						TestTargetID = 39DE84121A2680D300BB47FB;
 					};
 				};
@@ -586,6 +597,7 @@
 				FB0E0B3E1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */,
 				FB0E0B691A2943EB0053F9D1 /* STPTestPaymentSummaryViewController.m in Sources */,
 				FB0E0B611A2943EB0053F9D1 /* STPTestAddressStore.m in Sources */,
+				FBCF66AE1A2D1D5F006487DD /* ShippingManagerViewController.m in Sources */,
 				FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */,
 				3928AF341A2684A800BE9DBC /* BicycleViewController.m in Sources */,
 				39DE843E1A26835500BB47FB /* ProductViewController.m in Sources */,
@@ -596,6 +608,7 @@
 				39C528C31A2684700018C017 /* ProfileViewController.m in Sources */,
 				FB0E0B5F1A2943EB0053F9D1 /* PKPayment+STPTestKeys.m in Sources */,
 				FB0E0B671A2943EB0053F9D1 /* STPTestPaymentAuthorizationViewController.m in Sources */,
+				FBCF66AB1A2D1D22006487DD /* PaymentViewController.m in Sources */,
 				3928AF371A26852200BE9DBC /* ShoppingCartViewController.m in Sources */,
 				FB0E0B651A2943EB0053F9D1 /* STPTestDataTableViewController.m in Sources */,
 				FB0E0B481A293EB50053F9D1 /* STPUtils.m in Sources */,
@@ -813,6 +826,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -824,6 +839,7 @@
 				INFOPLIST_FILE = CityBicycleCompanyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CityBicycleCompany.app/CityBicycleCompany";
 			};
 			name = Debug;
@@ -832,6 +848,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -839,6 +857,7 @@
 				INFOPLIST_FILE = CityBicycleCompanyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CityBicycleCompany.app/CityBicycleCompany";
 			};
 			name = Release;
