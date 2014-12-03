@@ -12,7 +12,7 @@
 
 @dynamic wheelsetColor;
 @dynamic coordinatePosition;
-@dynamic description;
+@dynamic bicycleDescription;
 @dynamic handleBars;
 @dynamic hasAluminumAlloy;
 @dynamic hasRearBreak;

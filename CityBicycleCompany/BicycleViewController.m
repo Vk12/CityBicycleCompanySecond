@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "Bicycle.h"
 #import "ChosenBike.h"
+#import "Photo.h"
 @interface BicycleViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -25,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property NSArray *bikeArray;
 @property NSMutableArray *addToCartArray;
+@property NSArray *bicycleImageArray;
 
 @property ChosenBike *localChosenBike;
 @end
@@ -36,22 +38,32 @@
     [super viewDidLoad];
     [self updateUserInterfaceWithOurBikeFromParse];
     self.localChosenBike = [[ChosenBike alloc]init];
-//    self.localChosenBike.chosenName = self.bicycleFromParse.name;
-    
-//    [self getImages];
-//    NSLog(@"hgfhgf %@", self.theChosenBicycleInformation.chosenName);
-    
 }
 
 - (void)updateUserInterfaceWithOurBikeFromParse
 {
     self.nameLabel.text = self.bicycleFromParse.name;
+    self.descriptionLabel.text = self.bicycleFromParse.bicycleDescription;
     int i = 0;
     [self.sizeSegmentedController removeAllSegments];
+    [self.wheelSetColorSegmented removeAllSegments];
+    [self.classicSeriesWheelsetSegmented removeAllSegments];
+    
     for (NSString *size in self.bicycleFromParse.size )
     {
         
         [self.sizeSegmentedController insertSegmentWithTitle:size atIndex:i animated:YES];
+        i++;
+    }
+    for (NSString *wheelSetColor in self.bicycleFromParse.wheelsetColor)
+    {
+        [self.wheelSetColorSegmented insertSegmentWithTitle:wheelSetColor atIndex:i animated:YES];
+        i++;
+    }
+    
+    for (NSString *classicSeries in self.bicycleFromParse.extraWheel)
+    {
+        [self.classicSeriesWheelsetSegmented insertSegmentWithTitle:classicSeries atIndex:i animated:YES];
         i++;
     }
     
@@ -60,10 +72,33 @@
 
 - (IBAction)onCartButtonPressed:(UIButton *)sender
 {
-    
+    self.localChosenBike.chosenName = self.bicycleFromParse.name;
     self.localChosenBike.chosenSize = self.bicycleFromParse.size[self.sizeSegmentedController.selectedSegmentIndex];
+    self.localChosenBike.chosenWheelSetColor = self.bicycleFromParse.wheelsetColor[self.wheelSetColorSegmented.selectedSegmentIndex];
+    self.localChosenBike.extraSeriesWheelset = self.bicycleFromParse.extraWheel[self.classicSeriesWheelsetSegmented.selectedSegmentIndex];
+    
+    
+    
+    
 }
 
+- (void)queryImages
+{
+    PFQuery *queryImages = [Photo query];
+//    [queryImages where]
+    [queryImages whereKey:@"productPhoto" containedIn:self.bicycleFromParse];
+    [queryImages findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error)
+        {
+            NSLog(@"%@",error.localizedDescription);
+        }
+        else
+        {
+            self.bicycleImageArray = objects;
+        }
+    }];
+     
+}
 
 -(void)viewDidAppear:(BOOL)animated
 {

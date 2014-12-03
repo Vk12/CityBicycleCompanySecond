@@ -12,7 +12,7 @@
 
 @property NSArray *wheelsetColor;
 @property NSString *coordinatePosition;
-@property NSString *description;
+@property NSString *bicycleDescription;
 @property NSArray *handleBars;
 @property BOOL hasAluminumAlloy;
 @property BOOL hasRearBreak;
