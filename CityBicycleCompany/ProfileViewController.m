@@ -14,7 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *profileName;
 @property (strong, nonatomic) IBOutlet UIButton *emailButton;
 @property (strong, nonatomic) IBOutlet UIButton *callButton;
-@property (strong, nonatomic) IBOutlet UIButton *shareButton;
 @property (strong, nonatomic) IBOutlet UISwitch *salesSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *productsSwitch;
 @property (strong, nonatomic) IBOutlet UIButton *adminLoginButton;
@@ -57,9 +56,12 @@
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)shareButtonPressed:(UIButton *)sender
+- (IBAction)onWebsiteButtonPressed:(UIButton *)sender
 {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.citybicycleco.com"]];
+
 }
+
 
 
 /*
