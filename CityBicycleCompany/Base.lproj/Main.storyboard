@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gg1-cF-bDY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gg1-cF-bDY">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -1257,24 +1257,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HP9-UK-u2G">
-                                <rect key="frame" x="203" y="285" width="195" height="44"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="citylogo" translatesAutoresizingMaskIntoConstraints="NO" id="mNX-Rd-s7f">
+                                <rect key="frame" x="141" y="20" width="318" height="113"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="195" id="CPv-98-nFO"/>
-                                    <constraint firstAttribute="height" constant="44" id="YtS-tt-1Zf"/>
+                                    <constraint firstAttribute="height" constant="112" id="Kvn-Gy-uxv"/>
+                                    <constraint firstAttribute="width" constant="368" id="aEt-ua-ppb"/>
                                 </constraints>
-                                <state key="normal" image="applePay">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onPayButtonTapped:" destination="jhQ-nE-lgy" eventType="touchUpInside" id="D0x-Uh-Cuz"/>
-                                </connections>
-                            </button>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Kvn-Gy-uxv"/>
+                                        <exclude reference="aEt-ua-ppb"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Kvn-Gy-uxv"/>
+                                        <include reference="aEt-ua-ppb"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsB-cM-Pfr">
+                                <rect key="frame" x="16" y="141" width="568" height="439"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="s3V-qb-gUh">
+                                        <rect key="frame" x="8" y="8" width="552" height="371"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="371" id="L1J-hv-UZ2"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vvG-QV-Txm">
+                                                <rect key="frame" x="0.0" y="0.0" width="552" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vvG-QV-Txm" id="p7G-3o-MD4">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="jhQ-nE-lgy" id="UPG-eU-281"/>
+                                            <outlet property="delegate" destination="jhQ-nE-lgy" id="ofk-Ha-mA5"/>
+                                        </connections>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HP9-UK-u2G">
+                                        <rect key="frame" x="187" y="387" width="195" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="195" id="Glb-Ej-x5g"/>
+                                        </constraints>
+                                        <state key="normal" image="applePay">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onPayButtonTapped:" destination="jhQ-nE-lgy" eventType="touchUpInside" id="D0x-Uh-Cuz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="s3V-qb-gUh" firstAttribute="trailing" secondItem="bsB-cM-Pfr" secondAttribute="trailingMargin" id="4zJ-OD-7IZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="HP9-UK-u2G" secondAttribute="bottom" constant="8" id="Hvb-NZ-sbb"/>
+                                    <constraint firstItem="s3V-qb-gUh" firstAttribute="top" secondItem="bsB-cM-Pfr" secondAttribute="topMargin" id="OME-qU-ikg"/>
+                                    <constraint firstItem="HP9-UK-u2G" firstAttribute="centerX" secondItem="s3V-qb-gUh" secondAttribute="centerX" id="Y9q-eX-C3S"/>
+                                    <constraint firstItem="HP9-UK-u2G" firstAttribute="top" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="8" symbolic="YES" id="hBM-zA-ewL"/>
+                                    <constraint firstItem="HP9-UK-u2G" firstAttribute="top" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="8" id="haC-UR-2dv"/>
+                                    <constraint firstItem="s3V-qb-gUh" firstAttribute="leading" secondItem="bsB-cM-Pfr" secondAttribute="leadingMargin" id="zcL-CD-V39"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Hvb-NZ-sbb"/>
+                                        <exclude reference="haC-UR-2dv"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HP9-UK-u2G" firstAttribute="top" secondItem="XbV-aa-qUb" secondAttribute="bottom" constant="265" id="d6B-wZ-UcY"/>
-                            <constraint firstAttribute="centerX" secondItem="HP9-UK-u2G" secondAttribute="centerX" id="qgW-MM-oUX"/>
+                            <constraint firstItem="bsB-cM-Pfr" firstAttribute="top" secondItem="Ovf-1D-KjN" secondAttribute="top" constant="141" id="34T-K0-hJS"/>
+                            <constraint firstItem="mNX-Rd-s7f" firstAttribute="top" secondItem="XbV-aa-qUb" secondAttribute="bottom" id="4j8-HD-J4p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mNX-Rd-s7f" secondAttribute="trailing" constant="125" id="ODC-zk-pMA"/>
+                            <constraint firstItem="bsB-cM-Pfr" firstAttribute="top" secondItem="mNX-Rd-s7f" secondAttribute="bottom" constant="8" symbolic="YES" id="Ohh-2V-7BI"/>
+                            <constraint firstItem="bsB-cM-Pfr" firstAttribute="leading" secondItem="Ovf-1D-KjN" secondAttribute="leadingMargin" id="YHN-WQ-Sne"/>
+                            <constraint firstAttribute="bottom" secondItem="bsB-cM-Pfr" secondAttribute="bottom" constant="20" symbolic="YES" id="gCd-e4-PcY"/>
+                            <constraint firstItem="mNX-Rd-s7f" firstAttribute="leading" secondItem="Ovf-1D-KjN" secondAttribute="leadingMargin" constant="125" id="rhR-MB-o4J"/>
+                            <constraint firstItem="bsB-cM-Pfr" firstAttribute="centerX" secondItem="mNX-Rd-s7f" secondAttribute="centerX" id="yrv-Ml-mfz"/>
                         </constraints>
                     </view>
                     <connections>

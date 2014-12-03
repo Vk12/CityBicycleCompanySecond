@@ -19,7 +19,7 @@
 #endif
 
 
-@interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate>
+@interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
 
 @end
@@ -40,6 +40,16 @@
 //                                    }
 //                                    }];
 
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
 }
 
 
