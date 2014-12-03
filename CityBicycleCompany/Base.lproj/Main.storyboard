@@ -1085,13 +1085,13 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PlP-cy-yyi">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PlP-cy-yyi">
                                                 <rect key="frame" x="0.0" y="8" width="568" height="192"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="568" id="PtC-6N-XfZ"/>
                                                     <constraint firstAttribute="height" constant="192" id="vR9-L7-8xj"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hn3-cU-0KL">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Hn3-cU-0KL">
                                                     <size key="itemSize" width="365" height="214"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1133,6 +1133,11 @@
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="PtC-6N-XfZ"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
                                                     <outlet property="dataSource" destination="a1L-zc-nEL" id="PPD-eo-UhO"/>
                                                     <outlet property="delegate" destination="a1L-zc-nEL" id="kAl-Ch-3oR"/>
@@ -1157,7 +1162,9 @@
                                             <constraint firstAttribute="centerX" secondItem="Y3R-M4-XjS" secondAttribute="centerX" id="jyD-RV-FqI"/>
                                             <constraint firstItem="PlP-cy-yyi" firstAttribute="top" secondItem="Odo-Ia-UW8" secondAttribute="top" constant="8" id="lWX-8d-cYT"/>
                                             <constraint firstAttribute="centerX" secondItem="j0D-Ld-3gA" secondAttribute="centerX" id="n7k-se-vad"/>
+                                            <constraint firstAttribute="trailing" secondItem="PlP-cy-yyi" secondAttribute="trailing" id="n9y-Tg-LxO"/>
                                             <constraint firstItem="Y3R-M4-XjS" firstAttribute="leading" secondItem="Odo-Ia-UW8" secondAttribute="leading" id="prZ-Uv-QK6"/>
+                                            <constraint firstItem="PlP-cy-yyi" firstAttribute="leading" secondItem="Odo-Ia-UW8" secondAttribute="leading" id="rJe-I5-6HJ"/>
                                             <constraint firstAttribute="centerX" secondItem="Hbn-pB-Zgc" secondAttribute="centerX" id="yrr-L4-7Gv"/>
                                         </constraints>
                                     </view>

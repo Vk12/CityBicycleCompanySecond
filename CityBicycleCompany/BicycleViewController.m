@@ -26,7 +26,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property NSArray *bikeArray;
 @property NSMutableArray *addToCartArray;
-@property NSArray *bicycleImageArray;
+@property NSMutableArray *bicycleImageArray;
 
 @property ChosenBike *localChosenBike;
 @end
@@ -38,6 +38,14 @@
     [super viewDidLoad];
     [self updateUserInterfaceWithOurBikeFromParse];
     self.localChosenBike = [[ChosenBike alloc]init];
+    self.bicycleImageArray = [@[]mutableCopy];
+    [self queryImages];
+    
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.widthConstraint.constant = self.scrollView.frame.size.width;
+    
 }
 
 - (void)updateUserInterfaceWithOurBikeFromParse
@@ -85,42 +93,43 @@
 - (void)queryImages
 {
     PFQuery *queryImages = [Photo query];
-//    [queryImages where]
-    [queryImages whereKey:@"productPhoto" containedIn:self.bicycleFromParse];
+    [queryImages whereKey:@"bicycle" equalTo:self.bicycleFromParse];
     [queryImages findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (error)
+        if (!error)
         {
-            NSLog(@"%@",error.localizedDescription);
+            for (Photo *photo in objects) {
+                [self.bicycleImageArray addObject:photo.productPhoto];
+            }
+
+            [self.collectionView reloadData];
+
         }
         else
         {
-            self.bicycleImageArray = objects;
+            NSLog(@"%@",error.localizedDescription);
         }
     }];
      
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    self.widthConstraint.constant = self.scrollView.frame.size.width;
-
-}
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     BicycleCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"bicycleCell" forIndexPath:indexPath];
     
-    PFObject *photoObject = self.bikeArray[indexPath.row];
-    PFFile *file = [photoObject objectForKey:@"productPhoto"];
-    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        cell.bicycleImageView.image = [UIImage imageWithData:data];
+    PFFile *file = self.bicycleImageArray[indexPath.row];
 
+    
+    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+    {
+        cell.bicycleImageView.image = [UIImage imageWithData:data];
     }];
+
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.bikeArray.count;
+    return self.bicycleImageArray.count;
 }
 
 
