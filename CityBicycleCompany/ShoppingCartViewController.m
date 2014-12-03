@@ -12,6 +12,8 @@
 #import "Stripe.h"
 #import "Constants.h"
 #import "ShippingManagerViewController.h"
+#import "Photo.h"
+#import "Bicycle.h"
 
 #if DEBUG
 #import "STPTestPaymentAuthorizationViewController.h"
@@ -21,6 +23,8 @@
 
 @interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
+@property NSArray *tempArrayForDisplay;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -41,6 +45,7 @@
 //                                    }];
 
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
