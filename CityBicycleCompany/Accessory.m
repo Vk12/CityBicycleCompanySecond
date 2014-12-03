@@ -11,7 +11,7 @@
 @implementation Accessory
 @dynamic name;
 @dynamic color;
-@dynamic description;
+@dynamic accessoryDescription;
 @dynamic detailSale;
 @dynamic accessoryPhoto;
 @dynamic originalPrice;

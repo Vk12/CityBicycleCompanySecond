@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "Bicycle.h"
 #import "ChosenBike.h"
+#import "Photo.h"
 @interface BicycleViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -25,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property NSArray *bikeArray;
 @property NSMutableArray *addToCartArray;
+@property NSMutableArray *bicycleImageArray;
 
 @property ChosenBike *localChosenBike;
 @end
@@ -36,22 +38,40 @@
     [super viewDidLoad];
     [self updateUserInterfaceWithOurBikeFromParse];
     self.localChosenBike = [[ChosenBike alloc]init];
-//    self.localChosenBike.chosenName = self.bicycleFromParse.name;
+    self.bicycleImageArray = [@[]mutableCopy];
+    [self queryImages];
     
-//    [self getImages];
-//    NSLog(@"hgfhgf %@", self.theChosenBicycleInformation.chosenName);
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.widthConstraint.constant = self.scrollView.frame.size.width;
     
 }
 
 - (void)updateUserInterfaceWithOurBikeFromParse
 {
     self.nameLabel.text = self.bicycleFromParse.name;
+    self.descriptionLabel.text = self.bicycleFromParse.bicycleDescription;
     int i = 0;
     [self.sizeSegmentedController removeAllSegments];
+    [self.wheelSetColorSegmented removeAllSegments];
+    [self.classicSeriesWheelsetSegmented removeAllSegments];
+    
     for (NSString *size in self.bicycleFromParse.size )
     {
         
         [self.sizeSegmentedController insertSegmentWithTitle:size atIndex:i animated:YES];
+        i++;
+    }
+    for (NSString *wheelSetColor in self.bicycleFromParse.wheelsetColor)
+    {
+        [self.wheelSetColorSegmented insertSegmentWithTitle:wheelSetColor atIndex:i animated:YES];
+        i++;
+    }
+    
+    for (NSString *classicSeries in self.bicycleFromParse.extraWheel)
+    {
+        [self.classicSeriesWheelsetSegmented insertSegmentWithTitle:classicSeries atIndex:i animated:YES];
         i++;
     }
     
@@ -60,32 +80,56 @@
 
 - (IBAction)onCartButtonPressed:(UIButton *)sender
 {
-    
+    self.localChosenBike.chosenName = self.bicycleFromParse.name;
     self.localChosenBike.chosenSize = self.bicycleFromParse.size[self.sizeSegmentedController.selectedSegmentIndex];
+    self.localChosenBike.chosenWheelSetColor = self.bicycleFromParse.wheelsetColor[self.wheelSetColorSegmented.selectedSegmentIndex];
+    self.localChosenBike.extraSeriesWheelset = self.bicycleFromParse.extraWheel[self.classicSeriesWheelsetSegmented.selectedSegmentIndex];
+    
+    
+    
+    
 }
 
-
--(void)viewDidAppear:(BOOL)animated
+- (void)queryImages
 {
-    self.widthConstraint.constant = self.scrollView.frame.size.width;
+    PFQuery *queryImages = [Photo query];
+    [queryImages whereKey:@"bicycle" equalTo:self.bicycleFromParse];
+    [queryImages findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error)
+        {
+            for (Photo *photo in objects) {
+                [self.bicycleImageArray addObject:photo.productPhoto];
+            }
 
+            [self.collectionView reloadData];
+
+        }
+        else
+        {
+            NSLog(@"%@",error.localizedDescription);
+        }
+    }];
+     
 }
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     BicycleCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"bicycleCell" forIndexPath:indexPath];
     
-    PFObject *photoObject = self.bikeArray[indexPath.row];
-    PFFile *file = [photoObject objectForKey:@"productPhoto"];
-    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        cell.bicycleImageView.image = [UIImage imageWithData:data];
+    PFFile *file = self.bicycleImageArray[indexPath.row];
 
+    
+    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+    {
+        cell.bicycleImageView.image = [UIImage imageWithData:data];
     }];
+
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.bikeArray.count;
+    return self.bicycleImageArray.count;
 }
 
 

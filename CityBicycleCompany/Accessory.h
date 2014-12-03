@@ -11,7 +11,7 @@
 @interface Accessory : PFObject <PFSubclassing>
 
 @property NSArray *color;
-@property NSString *description;
+@property NSString *accessoryDescription;
 @property NSString *detailSale;
 @property NSString *name;
 @property NSNumber *originalPrice;

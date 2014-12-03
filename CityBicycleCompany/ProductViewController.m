@@ -81,7 +81,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier  isEqual: @"bicycleSegue"]) {
+    if ([segue.identifier  isEqual: @"bicycleSegue"])
+    {
         BicycleViewController *vc = [segue destinationViewController];
         NSInteger bicycleIndexSelected = [self.productCollectionView indexPathForCell:sender].row;
         Bicycle *theBike = [self.bicycleArray objectAtIndex:bicycleIndexSelected];
