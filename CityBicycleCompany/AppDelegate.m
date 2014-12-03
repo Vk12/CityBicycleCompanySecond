@@ -20,27 +20,38 @@ NSString * const StripePublishableKey = @"pk_test_IQuLnTZduMwlnpJFVo9VLKkt";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Parse setApplicationId:@"srr6q0zfkpHLhFfGDIhEQIg4fNFtZ3DNigXlswBO" clientKey:@"MiUt4DiBSMZ6bgtWBuuPhAQwpUe0eEWRVmMyY5Os"];
+    
+//    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+//    [currentInstallation saveInBackground];
+    
     [Stripe setDefaultPublishableKey:StripePublishableKey];
     
     // Register for Push Notifications
-    UIUserNotificationType *userNotificationTypes = (UIUserNotificationTypeAlert |
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                      UIUserNotificationTypeBadge |
                                                      UIUserNotificationTypeSound);
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
+    
+    NSLog(@"didRegister for Push notifications");
     return YES;
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     // Store the device token in the current installation and save it to Parse.
+    NSLog(@"didRegisterForRemoteNotificationsWithDeviceToken");
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
-    currentInstallation.channels = @[ @"global"];
+//    currentInstallation.channels = @[ @"global"];
     [currentInstallation saveInBackground];
+    
 }
-
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    
+}
 // This method allows the notification to be received while the app is open (instead of in Notification Center)
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
