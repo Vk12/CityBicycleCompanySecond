@@ -16,7 +16,12 @@
 @interface ProductViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *productCollectionView;
 @property (strong, nonatomic) IBOutlet UIButton *accessoriesButton;
-@property NSArray *productArray;
+//@property (strong, nonatomic) IBOutlet UISegmentedControl *operatorSegmentControl;
+
+
+@property NSArray *bicycleArray;
+@property NSArray *accessoryArray;
+
 @end
 
 @implementation ProductViewController
@@ -25,6 +30,14 @@
 {
     [super viewDidLoad];
 }
+
+// - iboutlet segment control pressed
+//{
+//    if (self.operatorSegmentcontrol.selectedSegmentIndex == 0)
+//    {
+//        self.
+//    }
+//}
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -41,7 +54,7 @@
         }
         else
         {
-            self.productArray = objects;
+            self.bicycleArray = objects;
             [self.productCollectionView reloadData];
         }
     }];
@@ -50,7 +63,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ProductCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"productCell" forIndexPath:indexPath];
-    Bicycle *bike = self.productArray [indexPath.row];
+    Bicycle *bike = self.bicycleArray [indexPath.row];
     PFFile *file = bike.bicyclePhoto;
     [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         cell.imageView.image = [UIImage imageWithData:data];
@@ -62,7 +75,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.productArray.count;
+    return self.bicycleArray.count;
 }
 
 
@@ -71,7 +84,7 @@
     if ([segue.identifier  isEqual: @"bicycleSegue"]) {
         BicycleViewController *vc = [segue destinationViewController];
         NSInteger bicycleIndexSelected = [self.productCollectionView indexPathForCell:sender].row;
-        Bicycle *theBike = [self.productArray objectAtIndex:bicycleIndexSelected];
+        Bicycle *theBike = [self.bicycleArray objectAtIndex:bicycleIndexSelected];
         vc.bicycleFromParse = theBike;
     }
    
