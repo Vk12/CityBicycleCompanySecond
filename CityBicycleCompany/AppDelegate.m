@@ -21,9 +21,6 @@ NSString * const StripePublishableKey = @"pk_test_IQuLnTZduMwlnpJFVo9VLKkt";
 {
     [Parse setApplicationId:@"srr6q0zfkpHLhFfGDIhEQIg4fNFtZ3DNigXlswBO" clientKey:@"MiUt4DiBSMZ6bgtWBuuPhAQwpUe0eEWRVmMyY5Os"];
     
-//    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-//    [currentInstallation saveInBackground];
-    
     [Stripe setDefaultPublishableKey:StripePublishableKey];
     
     // Register for Push Notifications
@@ -40,11 +37,18 @@ NSString * const StripePublishableKey = @"pk_test_IQuLnTZduMwlnpJFVo9VLKkt";
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
+    // The Installation object is where you store all the data needed to target push notifications.
     // Store the device token in the current installation and save it to Parse.
-    NSLog(@"didRegisterForRemoteNotificationsWithDeviceToken");
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
-//    currentInstallation.channels = @[ @"global"];
+    
+    //    currentInstallation.channels = @[ @"global"];
+    [currentInstallation addUniqueObject:@"newSales" forKey:@"channels"];
+    [currentInstallation addUniqueObject:@"newProducts" forKey:@"channels"];
+    
+//    NSArray *subscribedChannels = [PFInstallation currentInstallation].channels;
+    
+
     [currentInstallation saveInBackground];
     
 }
