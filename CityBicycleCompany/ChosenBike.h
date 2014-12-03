@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSString *chosenBike;
 @property (strong, nonatomic) NSString *salePrice;
 @property (strong, nonatomic) NSString *chosenName;
+@property BOOL bicycleHasRearBrake;
 //@property (strong, nonatomic)
 
 @end

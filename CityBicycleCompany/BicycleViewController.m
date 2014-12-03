@@ -12,7 +12,7 @@
 #import "Bicycle.h"
 #import "ChosenBike.h"
 #import "Photo.h"
-@interface BicycleViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate>
+@interface BicycleViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate, UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
@@ -27,6 +27,8 @@
 @property NSArray *bikeArray;
 @property NSMutableArray *addToCartArray;
 @property NSMutableArray *bicycleImageArray;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *horizontalCollectionViewConstraint;
+@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property ChosenBike *localChosenBike;
 @end
@@ -39,12 +41,31 @@
     [self updateUserInterfaceWithOurBikeFromParse];
     self.localChosenBike = [[ChosenBike alloc]init];
     self.bicycleImageArray = [@[]mutableCopy];
+    self.addToCartArray = [@[]mutableCopy];
     [self queryImages];
+    [self.wheelSetColorSegmented setSelectedSegmentIndex:0];
     
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+        
+    self.widthConstraint.constant = self.scrollView.frame.size.width;
+    
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+    layout.itemSize = CGSizeMake(self.scrollView.frame.size.width, self.collectionView.frame.size.height);
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
-    self.widthConstraint.constant = self.scrollView.frame.size.width;
+    [super viewDidAppear:animated];
+    
     
 }
 
@@ -81,11 +102,49 @@
 - (IBAction)onCartButtonPressed:(UIButton *)sender
 {
     self.localChosenBike.chosenName = self.bicycleFromParse.name;
-    self.localChosenBike.chosenSize = self.bicycleFromParse.size[self.sizeSegmentedController.selectedSegmentIndex];
+    if (self.sizeSegmentedController.selectedSegmentIndex == -1)
+    {
+        NSLog(@"Its broken!");
+    }else
+    {
+        self.localChosenBike.chosenSize = self.bicycleFromParse.size[self.sizeSegmentedController.selectedSegmentIndex];
+    }
+    
+    
+    if (self.classicSeriesWheelsetSegmented.selectedSegmentIndex == -1)
+    {
+        NSLog(@"Add an extra Wheelset");
+    }else
+    {
+        self.localChosenBike.extraSeriesWheelset = self.bicycleFromParse.extraWheel[self.classicSeriesWheelsetSegmented.selectedSegmentIndex];
+    }
+    
+    if (![self.quantityTextField.text isEqualToString:@""])
+    {
+        NSNumberFormatter *quantityConversion = [[NSNumberFormatter alloc]init];
+        [quantityConversion setNumberStyle:NSNumberFormatterNoStyle];
+        NSNumber *myNumber = [quantityConversion numberFromString:self.quantityTextField.text];
+        self.localChosenBike.chosenQuantity = myNumber;
+    }
+    else
+    {
+        NSLog(@"Add a number to the quantity!");
+    }
+    
+    if (self.rearBreakController.selectedSegmentIndex == 1)
+    {
+        self.bicycleFromParse.hasRearBreak = YES;
+        self.localChosenBike.bicycleHasRearBrake = self.bicycleFromParse.hasRearBreak;
+    }
+    else
+    {
+        self.bicycleFromParse.hasRearBreak = NO;
+        self.localChosenBike.bicycleHasRearBrake = self.bicycleFromParse.hasRearBreak;
+    }
+    
     self.localChosenBike.chosenWheelSetColor = self.bicycleFromParse.wheelsetColor[self.wheelSetColorSegmented.selectedSegmentIndex];
-    self.localChosenBike.extraSeriesWheelset = self.bicycleFromParse.extraWheel[self.classicSeriesWheelsetSegmented.selectedSegmentIndex];
     
-    
+    [self.addToCartArray addObject:self.localChosenBike];
     
     
 }
@@ -102,7 +161,7 @@
             }
 
             [self.collectionView reloadData];
-
+            self.pageControl.numberOfPages = self.bicycleImageArray.count;
         }
         else
         {
@@ -118,10 +177,18 @@
     
     PFFile *file = self.bicycleImageArray[indexPath.row];
 
+    if (!file.isDataAvailable)
+    {
+        cell.bicycleImageView.alpha = 0;
+    }
     
     [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
     {
         cell.bicycleImageView.image = [UIImage imageWithData:data];
+        [UIView animateWithDuration:.2 animations:^{
+            cell.bicycleImageView.alpha = 1;
+        }];
+
     }];
 
     return cell;
@@ -131,6 +198,20 @@
 {
     return self.bicycleImageArray.count;
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    int pageNumber = roundf( self.collectionView.contentOffset.x/self.collectionView.frame.size.width );
+    self.pageControl.currentPage = pageNumber;
+}
+
+
+
+
+
+
+
+
 
 
 
