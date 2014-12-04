@@ -27,7 +27,6 @@
 @property NSArray *bikeArray;
 @property NSMutableArray *addToCartArray;
 @property NSMutableArray *bicycleImageArray;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *horizontalCollectionViewConstraint;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property ChosenBike *localChosenBike;

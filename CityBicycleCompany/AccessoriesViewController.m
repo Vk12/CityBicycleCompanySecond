@@ -7,6 +7,11 @@
 //
 
 #import "AccessoriesViewController.h"
+#import <Parse/Parse.h>
+#import "AccessoryCollectionViewCell.h"
+#import "ChosenAccessory.h"
+#import "Photo.h"
+
 
 @interface AccessoriesViewController ()<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -18,7 +23,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *addToCartButton;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
-
+@property ChosenAccessory *localChosenAccessory;
+@property NSMutableArray *accessoryImageArray;
+@property NSMutableArray *addToCartArray;
 @end
 
 @implementation AccessoriesViewController
@@ -26,21 +33,67 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.localChosenAccessory = [[ChosenAccessory alloc]init];
+    self.accessoryImageArray = [@[]mutableCopy];
+    self.addToCartArray = [@[]mutableCopy];
+    [self queryImages];
 
 }
--(void)viewDidAppear:(BOOL)animated
+
+- (void)viewDidLayoutSubviews
 {
+    [super viewDidLayoutSubviews];
+    
     self.widthConstraint.constant = self.scrollView.frame.size.width;
+    
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+    layout.itemSize = CGSizeMake(self.scrollView.frame.size.width, self.collectionView.frame.size.height);
+}
+
+- (void)queryImages
+{
+    PFQuery *queryImages = [Photo query];
+    [queryImages whereKey:@"accessory" equalTo:self.accessoryFromParse];
+    [queryImages findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error)
+        {
+            for (Photo *photo in objects) {
+                [self.accessoryImageArray addObject:photo.productPhoto];
+            }
+            
+            [self.collectionView reloadData];
+//            self.pageControl.numberOfPages = self.bicycleImageArray.count;
+        }
+        else
+        {
+            NSLog(@"%@",error.localizedDescription);
+        }
+    }];
+    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    AccessoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"accessoryCell" forIndexPath:indexPath];
+    PFFile *file = self.accessoryImageArray[indexPath.row];
+    
+    if (!file.isDataAvailable)
+    {
+        cell.accessoryImageView.alpha = 0;
+    }
+    
+    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        cell.accessoryImageView.image = [UIImage imageWithData:data];
+        [UIView animateWithDuration:.2 animations:^{
+            cell.accessoryImageView.alpha = 1;
+        }];
+    }];
+    return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 0;
+    return self.accessoryImageArray.count;
 }
 
 /*

@@ -150,21 +150,30 @@
                                                     <constraint firstAttribute="height" constant="192" id="xlI-CV-f3z"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f2M-bX-pkv">
-                                                    <size key="itemSize" width="486" height="214"/>
+                                                    <size key="itemSize" width="534" height="191"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Sxs-EG-Nfs">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="accessoryCell" id="FdY-5s-mkt" customClass="AccessoryCollectionViewCell">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="486" height="214"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="534" height="191"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NMj-uc-KPl">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="534" height="191"/>
+                                                                </imageView>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </view>
-                                                        <size key="customSize" width="486" height="214"/>
+                                                        <color key="backgroundColor" red="0.4419389205" green="0.4419389205" blue="0.4419389205" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <size key="customSize" width="534" height="191"/>
+                                                        <connections>
+                                                            <outlet property="accessoryImageView" destination="NMj-uc-KPl" id="xhM-Mh-Su6"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                                 <connections>
@@ -264,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6vs-C9-IPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-385" y="980"/>
+            <point key="canvasLocation" x="-226" y="1035"/>
         </scene>
         <!--Product View Controller-->
         <scene sceneID="TKK-th-ppK">
