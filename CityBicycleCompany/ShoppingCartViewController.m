@@ -15,6 +15,7 @@
 #import "Photo.h"
 #import "Bicycle.h"
 #import "ChosenBike.h"
+#import "ShoppingCartTableViewCell.h"
 
 #if DEBUG
 #import "STPTestPaymentAuthorizationViewController.h"
@@ -24,7 +25,6 @@
 
 @interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
-@property NSArray *tempArrayForDisplay;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -52,13 +52,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
+    ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    cell.productNameLabel.text = testBike.chosenName;
+    cell.colorLabel.text = testBike.chosenWheelSetColor;
+    cell.sizeLabel.text = testBike.chosenSize;
+    //TODO: not sure how to show rear brake because it's a bool
+    cell.extraWheelsetLabel.text = testBike.extraSeriesWheelset;
+    cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
+    return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.theChosenBike.passTheBikeArray.count;
     
+}
+
+- (IBAction)removeButton:(UIButton *)sender {
 }
 
 
