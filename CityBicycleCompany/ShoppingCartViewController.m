@@ -16,6 +16,8 @@
 #import "Bicycle.h"
 #import "ChosenBike.h"
 #import "ShoppingCartTableViewCell.h"
+#import "AccessoriesViewController.h"
+#import "ChosenAccessory.h"
 
 #if DEBUG
 #import "STPTestPaymentAuthorizationViewController.h"
@@ -36,6 +38,9 @@
     [super viewDidLoad];
     ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
     NSLog(@"slkfl;aslf;saljdfklasdkl;fsa;lf;lsaldkfklaslfksa;lfalsdflsadk %@",testBike.chosenName);
+    
+    ChosenAccessory *testAccessory = self.theChosenAccessory.passTheAccessoryArray[0];
+    NSLog(@"test %@", testAccessory.chosenQuantity);
 
 //    // Testing Cloud Code
 //    [PFCloud callFunctionInBackground:@"stripe"
