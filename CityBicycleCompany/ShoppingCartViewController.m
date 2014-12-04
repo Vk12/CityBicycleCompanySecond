@@ -74,7 +74,7 @@
     NSLog(@"button was tapped");
     
     // Generating a PKPaymentRequest to submit to Apple.
-    PKPaymentRequest *request = [Stripe paymentRequestWithMerchantIdentifier:@"merchant.com.citybicyclecompany"];
+    PKPaymentRequest *request = [Stripe paymentRequestWithMerchantIdentifier:@"merchant.MayVA.CityBicycleCompanyApp"];
     [request setRequiredShippingAddressFields:PKAddressFieldPostalAddress];
     [request setRequiredBillingAddressFields:PKAddressFieldPostalAddress];
 
@@ -84,15 +84,15 @@
     // Set the paymentSummaryItems to a NSArray of PKPaymentSummaryItems.  These are analogous to line items on a receipt.
     NSString *label = @"Premium llama food";
     NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:@"10.00"];
-    request.paymentSummaryItems = @[[self summaryItemsForShippingMethod]];
+//    request.paymentSummaryItems = @[[self summaryItemsForShippingMethod]];
+    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:label amount:number]];
     
     // Query to check if ApplePay is available for the phone user.
     if ([Stripe canSubmitPaymentRequest:request])
     {
-        
     // Create and display the payment request view controller.
 #if DEBUG
-        STPTestPaymentAuthorizationViewController *auth = [[STPTestPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
+        PKPaymentAuthorizationViewController *auth = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
 #else
         PKPaymentAuthorizationViewController *auth = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
 #endif
@@ -101,6 +101,8 @@
     }
     else
     {
+        // Show the user your own credit card form (Stripe PaymentKit or credit card form)
+        
 //        PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
         
     }
