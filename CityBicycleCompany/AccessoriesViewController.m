@@ -26,6 +26,8 @@
 @property ChosenAccessory *localChosenAccessory;
 @property NSMutableArray *accessoryImageArray;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet UILabel *colorLabel;
+@property (strong, nonatomic) IBOutlet UILabel *sizeLabel;
 @property NSMutableArray *addToCartArray;
 @end
 
@@ -40,6 +42,7 @@
    
     [self updateUserInterfaceWithOurAccessoryFromParse];
     [self queryImages];
+    [self.quantityTextField setDelegate:self];
 
 }
 
@@ -69,13 +72,18 @@
     if (self.sizeSegmentedControl.numberOfSegments == 0)
     {
         self.sizeSegmentedControl.hidden = YES;
+        self.sizeLabel.hidden = YES;
         
     }
     for (NSString *color in self.accessoryFromParse.color)
     {
         [self.colorSegmentedControl insertSegmentWithTitle:color atIndex:self.colorSegmentedControl.numberOfSegments animated:YES];
     }
-    
+    if (self.colorSegmentedControl.numberOfSegments == 0)
+    {
+        self.colorSegmentedControl.hidden = YES;
+        self.colorLabel.hidden = YES;
+    }
 }
 
 
@@ -91,7 +99,7 @@
             }
             
             [self.collectionView reloadData];
-//            self.pageControl.numberOfPages = self.bicycleImageArray.count;
+            self.pageControl.numberOfPages = self.accessoryImageArray.count;
         }
         else
         {
@@ -125,6 +133,7 @@
         [quantityConversion setNumberStyle:NSNumberFormatterNoStyle];
         NSNumber *myNumber = [quantityConversion numberFromString:self.quantityTextField.text];
         self.localChosenAccessory.chosenQuantity = myNumber;
+        [self.quantityTextField resignFirstResponder];
     }
     else
     {

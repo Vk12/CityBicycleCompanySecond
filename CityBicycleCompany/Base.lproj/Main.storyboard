@@ -1409,6 +1409,30 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PC7-sX-Gqc">
+                                <rect key="frame" x="532" y="28" width="52" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="52" id="Sq8-L7-LSr"/>
+                                    <constraint firstAttribute="height" constant="33" id="n0w-JW-pEb"/>
+                                    <constraint firstAttribute="height" constant="33" id="qgi-yc-h6j"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="shoppingCart">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="n0w-JW-pEb"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="n0w-JW-pEb"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="jhQ-nE-lgy" kind="presentation" id="Nte-5a-rKs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1419,11 +1443,13 @@
                             <constraint firstItem="Ief-hd-N9V" firstAttribute="leading" secondItem="Ksh-Jp-mh1" secondAttribute="leadingMargin" id="Igz-eK-F72"/>
                             <constraint firstItem="qIB-g6-neT" firstAttribute="top" secondItem="Ief-hd-N9V" secondAttribute="bottom" constant="8" id="JEG-oy-Y3X"/>
                             <constraint firstAttribute="centerX" secondItem="qIB-g6-neT" secondAttribute="centerX" id="N7T-9U-qHb"/>
+                            <constraint firstItem="PC7-sX-Gqc" firstAttribute="top" secondItem="JeZ-xA-XlX" secondAttribute="bottom" constant="8" id="Rav-fR-YJv"/>
                             <constraint firstItem="Ief-hd-N9V" firstAttribute="leading" secondItem="Ksh-Jp-mh1" secondAttribute="leadingMargin" id="SNk-zy-flQ"/>
                             <constraint firstItem="Ief-hd-N9V" firstAttribute="trailing" secondItem="Ksh-Jp-mh1" secondAttribute="trailingMargin" id="d1K-4A-iep"/>
                             <constraint firstItem="qIB-g6-neT" firstAttribute="top" secondItem="Ief-hd-N9V" secondAttribute="bottom" constant="8" id="dUt-s4-JOo"/>
                             <constraint firstAttribute="centerX" secondItem="j2e-h2-2TR" secondAttribute="centerX" constant="7" id="j7p-cw-VLT"/>
                             <constraint firstItem="j2e-h2-2TR" firstAttribute="top" secondItem="JeZ-xA-XlX" secondAttribute="bottom" id="juJ-qt-RpY"/>
+                            <constraint firstItem="PC7-sX-Gqc" firstAttribute="trailing" secondItem="Ksh-Jp-mh1" secondAttribute="trailingMargin" id="sha-LC-GeC"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -1431,12 +1457,14 @@
                     <connections>
                         <outlet property="addToCartButton" destination="qIB-g6-neT" id="VIt-ZA-Ck8"/>
                         <outlet property="collectionView" destination="0F5-Yf-7Wc" id="I5w-9z-faf"/>
+                        <outlet property="colorLabel" destination="Vhx-zQ-aqe" id="6ha-in-kIh"/>
                         <outlet property="colorSegmentedControl" destination="S0m-5x-IOx" id="yal-iV-6WG"/>
                         <outlet property="descriptionLabel" destination="ZM0-xr-S9F" id="uYe-TJ-plh"/>
                         <outlet property="nameLabel" destination="jMe-eT-bb0" id="6n5-F9-Nr0"/>
                         <outlet property="pageControl" destination="KBc-nY-hlM" id="Y5X-cL-bJ9"/>
                         <outlet property="quantityTextField" destination="g5P-J4-ThF" id="114-FG-I1E"/>
                         <outlet property="scrollView" destination="Ief-hd-N9V" id="elX-vN-6DO"/>
+                        <outlet property="sizeLabel" destination="APD-6D-dch" id="6Em-ib-RZF"/>
                         <outlet property="sizeSegmentedControl" destination="Bxf-zH-k90" id="vJn-kP-QBb"/>
                         <outlet property="widthConstraint" destination="GLM-MA-00y" id="6LJ-zy-gwY"/>
                     </connections>
@@ -1453,6 +1481,6 @@
         <image name="shoppingCart" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GBX-yU-qGM"/>
+        <segue reference="Nte-5a-rKs"/>
     </inferredMetricsTieBreakers>
 </document>
