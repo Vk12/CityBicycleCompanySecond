@@ -11,9 +11,9 @@
 #import "AccessoryCollectionViewCell.h"
 #import "ChosenAccessory.h"
 #import "Photo.h"
+#import "Accessory.h"
 
-
-@interface AccessoriesViewController ()<UITextFieldDelegate>
+@interface AccessoriesViewController ()<UITextFieldDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
 @property ChosenAccessory *localChosenAccessory;
 @property NSMutableArray *accessoryImageArray;
+@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property NSMutableArray *addToCartArray;
 @end
 
@@ -36,6 +37,7 @@
     self.localChosenAccessory = [[ChosenAccessory alloc]init];
     self.accessoryImageArray = [@[]mutableCopy];
     self.addToCartArray = [@[]mutableCopy];
+    [self updateUserInterfaceWithOurAccessoryFromParse];
     [self queryImages];
 
 }
@@ -49,6 +51,30 @@
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
     layout.itemSize = CGSizeMake(self.scrollView.frame.size.width, self.collectionView.frame.size.height);
 }
+
+- (void)updateUserInterfaceWithOurAccessoryFromParse
+{
+    self.nameLabel.text = self.accessoryFromParse.name;
+    self.descriptionLabel.text = self.accessoryFromParse.description;
+    int i = 0;
+    [self.sizeSegmentedControl removeAllSegments];
+    [self.colorSegmentedControl removeAllSegments];
+
+    
+    for (NSString *size in self.accessoryFromParse.size )
+    {
+        
+        [self.sizeSegmentedControl insertSegmentWithTitle:size atIndex:i animated:YES];
+        i++;
+    }
+    for (NSString *color in self.accessoryFromParse.color)
+    {
+        [self.colorSegmentedControl insertSegmentWithTitle:color atIndex:i animated:YES];
+        i++;
+    }
+    
+}
+
 
 - (void)queryImages
 {
@@ -94,6 +120,12 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.accessoryImageArray.count;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    int pageNumber = roundf( self.collectionView.contentOffset.x/self.collectionView.frame.size.width );
+    self.pageControl.currentPage = pageNumber;
 }
 
 /*
