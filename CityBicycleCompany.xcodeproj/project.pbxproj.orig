@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3914E1901A2E3E4A00301DD3 /* Cart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3914E18F1A2E3E4A00301DD3 /* Cart.m */; };
+		3914E1931A2E411400301DD3 /* ChosenBike.m in Sources */ = {isa = PBXBuildFile; fileRef = 3914E1921A2E411400301DD3 /* ChosenBike.m */; };
 		3928AF341A2684A800BE9DBC /* BicycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3928AF331A2684A800BE9DBC /* BicycleViewController.m */; };
 		3928AF371A26852200BE9DBC /* ShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3928AF361A26852200BE9DBC /* ShoppingCartViewController.m */; };
 		3928AF391A2685C100BE9DBC /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3928AF381A2685C100BE9DBC /* Accounts.framework */; };
@@ -42,6 +44,8 @@
 		87EAEB8A1A2CF7A2002FEBB4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB861A2CF7A2002FEBB4 /* Parse.framework */; };
 		87EAEB8B1A2CF7A2002FEBB4 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB871A2CF7A2002FEBB4 /* ParseFacebookUtils.framework */; };
 		87EAEB8C1A2CF7A2002FEBB4 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB881A2CF7A2002FEBB4 /* ParseUI.framework */; };
+		87EAEB951A2F9713002FEBB4 /* ChosenAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EAEB941A2F9713002FEBB4 /* ChosenAccessory.m */; };
+		87EAEB981A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EAEB971A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m */; };
 		FB0E0B3E1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B2C1A293EB50053F9D1 /* Stripe+ApplePay.m */; };
 		FB0E0B3F1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B2C1A293EB50053F9D1 /* Stripe+ApplePay.m */; };
 		FB0E0B401A293EB50053F9D1 /* STPAPIConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B2E1A293EB50053F9D1 /* STPAPIConnection.m */; };
@@ -75,8 +79,7 @@
 		FB0E0B6D1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB0E0B6E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7F27A81A2A9FDB00328CE8 /* Constants.m */; };
-		FBCF66AB1A2D1D22006487DD /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCF66AA1A2D1D22006487DD /* PaymentViewController.m */; };
-		FBCF66AE1A2D1D5F006487DD /* ShippingManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCF66AD1A2D1D5F006487DD /* ShippingManagerViewController.m */; };
+		FBCF66AE1A2D1D5F006487DD /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +93,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3914E18E1A2E3E4A00301DD3 /* Cart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cart.h; sourceTree = "<group>"; };
+		3914E18F1A2E3E4A00301DD3 /* Cart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cart.m; sourceTree = "<group>"; };
+		3914E1911A2E411400301DD3 /* ChosenBike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChosenBike.h; sourceTree = "<group>"; };
+		3914E1921A2E411400301DD3 /* ChosenBike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChosenBike.m; sourceTree = "<group>"; };
 		3928AF321A2684A800BE9DBC /* BicycleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BicycleViewController.h; sourceTree = "<group>"; };
 		3928AF331A2684A800BE9DBC /* BicycleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BicycleViewController.m; sourceTree = "<group>"; };
 		3928AF351A26852200BE9DBC /* ShoppingCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartViewController.h; sourceTree = "<group>"; };
@@ -141,6 +148,10 @@
 		87EAEB861A2CF7A2002FEBB4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		87EAEB871A2CF7A2002FEBB4 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		87EAEB881A2CF7A2002FEBB4 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		87EAEB931A2F9713002FEBB4 /* ChosenAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChosenAccessory.h; sourceTree = "<group>"; };
+		87EAEB941A2F9713002FEBB4 /* ChosenAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChosenAccessory.m; sourceTree = "<group>"; };
+		87EAEB961A2FC4AC002FEBB4 /* AccessoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryCollectionViewCell.h; sourceTree = "<group>"; };
+		87EAEB971A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryCollectionViewCell.m; sourceTree = "<group>"; };
 		FB0E0B2B1A293EB50053F9D1 /* Stripe+ApplePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Stripe+ApplePay.h"; sourceTree = "<group>"; };
 		FB0E0B2C1A293EB50053F9D1 /* Stripe+ApplePay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Stripe+ApplePay.m"; sourceTree = "<group>"; };
 		FB0E0B2D1A293EB50053F9D1 /* STPAPIConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPAPIConnection.h; sourceTree = "<group>"; };
@@ -177,32 +188,6 @@
 		FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPTestShippingMethodStore.m; sourceTree = "<group>"; };
 		FB7F27A71A2A9FDB00328CE8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FB7F27A81A2A9FDB00328CE8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
-		FBCF66A91A2D1D22006487DD /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentViewController.h; path = ../PaymentViewController.h; sourceTree = "<group>"; };
-		FBCF66AA1A2D1D22006487DD /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentViewController.m; path = ../PaymentViewController.m; sourceTree = "<group>"; };
-		FBCF66AC1A2D1D5F006487DD /* ShippingManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingManagerViewController.h; sourceTree = "<group>"; };
-		FBCF66AD1A2D1D5F006487DD /* ShippingManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingManagerViewController.m; sourceTree = "<group>"; };
-		FBDEE0E31A26B5E4006A974E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		FBDEE0E41A26B5E4006A974E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		FBDEE0E51A26B5E4006A974E /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		FBDEE0E71A26B5E4006A974E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		FBDEE0E81A26B5E4006A974E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		FBDEE0E91A26B5E4006A974E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		FBDEE0EB1A26B5E4006A974E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FBDEE0ED1A26B5E4006A974E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		FBDEE0EF1A26B5E4006A974E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ParseStarterProjectViewController.xib; sourceTree = "<group>"; };
-		FBDEE0F01A26B5E4006A974E /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
-		FBDEE0F11A26B5E4006A974E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FBDEE0F21A26B5E4006A974E /* ParseStarterProject-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ParseStarterProject-Info.plist"; sourceTree = "<group>"; };
-		FBDEE0F31A26B5E4006A974E /* ParseStarterProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParseStarterProject-Prefix.pch"; sourceTree = "<group>"; };
-		FBDEE0F41A26B5E4006A974E /* ParseStarterProjectAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseStarterProjectAppDelegate.h; sourceTree = "<group>"; };
-		FBDEE0F51A26B5E4006A974E /* ParseStarterProjectAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseStarterProjectAppDelegate.m; sourceTree = "<group>"; };
-		FBDEE0F61A26B5E4006A974E /* ParseStarterProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseStarterProjectViewController.h; sourceTree = "<group>"; };
-		FBDEE0F71A26B5E4006A974E /* ParseStarterProjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseStarterProjectViewController.m; sourceTree = "<group>"; };
-		FBDEE0F81A26B5E4006A974E /* ParseStarterProject.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ParseStarterProject.xcodeproj; sourceTree = "<group>"; };
-		FBDEE0FB1A26B5E4006A974E /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
->>>>>>> stripeApplePayTest
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +262,12 @@
 				39CA906F1A2D1FB5001FD52F /* Bicycle.m */,
 				39CA90711A2D21F7001FD52F /* Photo.h */,
 				39CA90721A2D21F7001FD52F /* Photo.m */,
+				3914E18E1A2E3E4A00301DD3 /* Cart.h */,
+				3914E18F1A2E3E4A00301DD3 /* Cart.m */,
+				3914E1911A2E411400301DD3 /* ChosenBike.h */,
+				3914E1921A2E411400301DD3 /* ChosenBike.m */,
+				87EAEB931A2F9713002FEBB4 /* ChosenAccessory.h */,
+				87EAEB941A2F9713002FEBB4 /* ChosenAccessory.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -317,18 +308,13 @@
 				39C528C21A2684700018C017 /* ProfileViewController.m */,
 				3928AF351A26852200BE9DBC /* ShoppingCartViewController.h */,
 				3928AF361A26852200BE9DBC /* ShoppingCartViewController.m */,
-<<<<<<< HEAD
 				39CA90611A2CD92D001FD52F /* ProductCollectionViewCell.h */,
 				39CA90621A2CD92D001FD52F /* ProductCollectionViewCell.m */,
 				39CA90651A2CE3BE001FD52F /* BicycleCollectionViewCell.h */,
 				39CA90661A2CE3BE001FD52F /* BicycleCollectionViewCell.m */,
+				87EAEB961A2FC4AC002FEBB4 /* AccessoryCollectionViewCell.h */,
+				87EAEB971A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m */,
 				39CA90741A2D22BA001FD52F /* Model */,
-=======
-				FBCF66A91A2D1D22006487DD /* PaymentViewController.h */,
-				FBCF66AA1A2D1D22006487DD /* PaymentViewController.m */,
-				FBCF66AC1A2D1D5F006487DD /* ShippingManagerViewController.h */,
-				FBCF66AD1A2D1D5F006487DD /* ShippingManagerViewController.m */,
->>>>>>> stripeApplePayTest
 				39DE84231A2680D300BB47FB /* Images.xcassets */,
 				39DE84251A2680D300BB47FB /* LaunchScreen.xib */,
 				39DE84161A2680D300BB47FB /* Supporting Files */,
@@ -482,6 +468,9 @@
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = E2V48AYLA7;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.GameCenter = {
 								enabled = 0;
 							};
@@ -556,7 +545,7 @@
 				FB0E0B3E1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */,
 				FB0E0B691A2943EB0053F9D1 /* STPTestPaymentSummaryViewController.m in Sources */,
 				FB0E0B611A2943EB0053F9D1 /* STPTestAddressStore.m in Sources */,
-				FBCF66AE1A2D1D5F006487DD /* ShippingManagerViewController.m in Sources */,
+				FBCF66AE1A2D1D5F006487DD /* (null) in Sources */,
 				FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */,
 				3928AF341A2684A800BE9DBC /* BicycleViewController.m in Sources */,
 				39DE843E1A26835500BB47FB /* ProductViewController.m in Sources */,
@@ -566,21 +555,21 @@
 				FB0E0B4C1A293EB50053F9D1 /* StripeError.m in Sources */,
 				39C528C31A2684700018C017 /* ProfileViewController.m in Sources */,
 				39CA906D1A2D1E2B001FD52F /* Accessory.m in Sources */,
+				87EAEB981A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m in Sources */,
+				3914E1901A2E3E4A00301DD3 /* Cart.m in Sources */,
 				FB0E0B5F1A2943EB0053F9D1 /* PKPayment+STPTestKeys.m in Sources */,
 				FB0E0B671A2943EB0053F9D1 /* STPTestPaymentAuthorizationViewController.m in Sources */,
-<<<<<<< HEAD
 				39CA90631A2CD92D001FD52F /* ProductCollectionViewCell.m in Sources */,
-=======
-				FBCF66AB1A2D1D22006487DD /* PaymentViewController.m in Sources */,
->>>>>>> stripeApplePayTest
 				3928AF371A26852200BE9DBC /* ShoppingCartViewController.m in Sources */,
 				FB0E0B651A2943EB0053F9D1 /* STPTestDataTableViewController.m in Sources */,
 				FB0E0B481A293EB50053F9D1 /* STPUtils.m in Sources */,
+				87EAEB951A2F9713002FEBB4 /* ChosenAccessory.m in Sources */,
 				FB0E0B461A293EB50053F9D1 /* STPToken.m in Sources */,
 				FB0E0B441A293EB50053F9D1 /* STPCard.m in Sources */,
 				FB0E0B4A1A293EB50053F9D1 /* Stripe.m in Sources */,
 				FB0E0B421A293EB50053F9D1 /* STPBankAccount.m in Sources */,
 				39CA90701A2D1FB5001FD52F /* Bicycle.m in Sources */,
+				3914E1931A2E411400301DD3 /* ChosenBike.m in Sources */,
 				FB0E0B631A2943EB0053F9D1 /* STPTestCardStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -721,7 +710,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+<<<<<<< HEAD
+=======
 				CODE_SIGN_ENTITLEMENTS = CityBicycleCompany/CityBicycleCompany.entitlements;
+>>>>>>> stripeApplePayTest2
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -735,6 +727,7 @@
 					STRIPE_ENABLE_APPLEPAY,
 				);
 				INFOPLIST_FILE = CityBicycleCompany/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -745,7 +738,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+<<<<<<< HEAD
+=======
 				CODE_SIGN_ENTITLEMENTS = CityBicycleCompany/CityBicycleCompany.entitlements;
+>>>>>>> stripeApplePayTest2
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -755,6 +751,7 @@
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = STRIPE_ENABLE_APPLEPAY;
 				INFOPLIST_FILE = CityBicycleCompany/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
