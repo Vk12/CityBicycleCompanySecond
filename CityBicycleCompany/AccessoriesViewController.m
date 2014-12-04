@@ -170,7 +170,7 @@
     ShoppingCartViewController *vc = segue.destinationViewController;
     ChosenAccessory *chosenAccessory = [[ChosenAccessory alloc]init];
     chosenAccessory.passTheAccessoryArray = self.addToCartArray;
-    vc.theChosenBike = chosenAccessory;
+    vc.theChosenAccessory = chosenAccessory;
 }
 
 
