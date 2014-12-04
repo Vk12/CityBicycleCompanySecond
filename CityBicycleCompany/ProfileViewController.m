@@ -63,9 +63,21 @@
 }
 
 - (IBAction)onSwitchSalesNotificationToggle:(UISwitch *)sender {
+    if (self.salesSwitch.on)
+    {
+        NSLog(@"notifications switch turned on");
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+    else
+    {
+        NSLog(@"notifications switch turned off");
+        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+    }
 }
 
-- (IBAction)onSwitchNewProductsNotificationToggle:(id)sender {
+- (IBAction)onSwitchNewProductsNotificationToggle:(id)sender
+{
+
 }
 
 /*
