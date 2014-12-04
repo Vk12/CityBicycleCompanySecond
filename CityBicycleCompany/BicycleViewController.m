@@ -44,6 +44,7 @@
     self.addToCartArray = [@[]mutableCopy];
     [self queryImages];
     [self.wheelSetColorSegmented setSelectedSegmentIndex:0];
+    [self.quantityTextField setDelegate:self];
     
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -205,6 +206,11 @@
     self.pageControl.currentPage = pageNumber;
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.quantityTextField resignFirstResponder];
+    return YES;
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
