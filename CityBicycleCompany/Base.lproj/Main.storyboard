@@ -303,6 +303,7 @@
         <!--Profile View Controller-->
         <scene sceneID="u4o-qS-d2e">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yyr-Tq-eo5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="P1O-Zu-8PT" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rl9-IK-X9k"/>
@@ -517,9 +518,8 @@
                         <outlet property="signoutButton" destination="Zki-3C-SBO" id="hJw-rr-f1I"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yyr-Tq-eo5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-967" y="835"/>
+            <point key="canvasLocation" x="-1065" y="1113"/>
         </scene>
         <!--Bicycle View Controller-->
         <scene sceneID="Vmv-V0-s3d">
@@ -932,7 +932,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXL-Ai-IQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="1085"/>
+            <point key="canvasLocation" x="423" y="1363"/>
         </scene>
         <!--Shopping Cart View Controller-->
         <scene sceneID="rfQ-Oa-OS8">
@@ -1471,7 +1471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKz-RC-sZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-267" y="1085"/>
+            <point key="canvasLocation" x="-333" y="1363"/>
         </scene>
     </scenes>
     <resources>
