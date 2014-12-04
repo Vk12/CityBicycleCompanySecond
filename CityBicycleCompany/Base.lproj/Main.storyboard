@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gg1-cF-bDY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gg1-cF-bDY">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -53,7 +53,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="jhQ-nE-lgy" kind="presentation" id="mtc-OC-7zp"/>
+                                    <segue destination="jhQ-nE-lgy" kind="presentation" id="Ogg-ix-IJt"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c0A-Qt-nbT">
@@ -157,7 +157,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="P1O-Zu-8PT" kind="presentation" id="RPs-Ij-phL"/>
+                                    <segue destination="P1O-Zu-8PT" kind="presentation" identifier="settingsToProfileSegue" id="RPs-Ij-phL"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D84-LG-uRm">
@@ -891,7 +891,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="jhQ-nE-lgy" kind="presentation" id="qpn-Tc-Wra"/>
+                                    <segue destination="jhQ-nE-lgy" kind="presentation" id="GBX-yU-qGM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1092,7 +1092,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUn-tD-V1l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="835"/>
+            <point key="canvasLocation" x="1223" y="420"/>
         </scene>
         <!--Accessories View Controller-->
         <scene sceneID="W5m-q6-ALi">
@@ -1429,6 +1429,6 @@
         <image name="shoppingCart" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qpn-Tc-Wra"/>
+        <segue reference="GBX-yU-qGM"/>
     </inferredMetricsTieBreakers>
 </document>

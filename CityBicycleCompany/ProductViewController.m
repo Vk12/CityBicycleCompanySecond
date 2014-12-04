@@ -186,6 +186,10 @@
         vc.accessoryFromParse = theAccessory;
 
     }
+    else if ([segue.identifier isEqual:@"settingsToProfileSegue"])
+    {
+        
+    }
    
     //*****************WHEN YOU WAKE UP LOOK AT THIS*************************
 }

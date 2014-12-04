@@ -133,13 +133,13 @@
     self.pageControl.currentPage = pageNumber;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    ShoppingCartViewController *vc = segue.destinationViewController;
-    ChosenAccessory *chosenAccessory = [[ChosenAccessory alloc]init];
-    chosenAccessory.passTheAccessoryArray = self.addToCartArray;
-    vc.theChosenBike = chosenAccessory;
-}
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    ShoppingCartViewController *vc = segue.destinationViewController;
+//    ChosenAccessory *chosenAccessory = [[ChosenAccessory alloc]init];
+//    chosenAccessory.passTheAccessoryArray = self.addToCartArray;
+//    vc.theChosenBike = chosenAccessory;
+//}
 
 
 

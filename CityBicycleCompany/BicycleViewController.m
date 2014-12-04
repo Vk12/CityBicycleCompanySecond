@@ -208,10 +208,13 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    ShoppingCartViewController *vc = segue.destinationViewController;
-    ChosenBike *chosenBike = [[ChosenBike alloc]init];
-    chosenBike.passTheBikeArray = self.addToCartArray;
-    vc.theChosenBike = chosenBike;
+    if ([segue.identifier isEqual:@"bicycleToCartSegue"])
+    {
+        ShoppingCartViewController *vc = segue.destinationViewController;
+        ChosenBike *chosenBike = [[ChosenBike alloc]init];
+        chosenBike.passTheBikeArray = self.addToCartArray;
+        vc.theChosenBike = chosenBike;
+    }
     
 }
 
