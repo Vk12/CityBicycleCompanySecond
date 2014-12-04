@@ -20,8 +20,46 @@ NSString * const StripePublishableKey = @"pk_test_IQuLnTZduMwlnpJFVo9VLKkt";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Parse setApplicationId:@"srr6q0zfkpHLhFfGDIhEQIg4fNFtZ3DNigXlswBO" clientKey:@"MiUt4DiBSMZ6bgtWBuuPhAQwpUe0eEWRVmMyY5Os"];
+    
     [Stripe setDefaultPublishableKey:StripePublishableKey];
+    
+    // Register for Push Notifications
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                     UIUserNotificationTypeBadge |
+                                                     UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
+    
+    NSLog(@"didRegister for Push notifications");
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    // The Installation object is where you store all the data needed to target push notifications.
+    // Store the device token in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    
+    //    currentInstallation.channels = @[ @"global"];
+    [currentInstallation addUniqueObject:@"newSales" forKey:@"channels"];
+    [currentInstallation addUniqueObject:@"newProducts" forKey:@"channels"];
+    
+//    NSArray *subscribedChannels = [PFInstallation currentInstallation].channels;
+    
+
+    [currentInstallation saveInBackground];
+    
+}
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    
+}
+// This method allows the notification to be received while the app is open (instead of in Notification Center)
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    [PFPush handlePush:userInfo];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
