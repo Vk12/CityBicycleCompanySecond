@@ -24,7 +24,6 @@
 
 @interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
-@property NSArray *tempArrayForDisplay;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -52,13 +51,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    cell.textLabel.text = @"test";
+    return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.theChosenBike.passTheBikeArray.count;
     
+}
+
+- (IBAction)removeButton:(UIButton *)sender {
 }
 
 

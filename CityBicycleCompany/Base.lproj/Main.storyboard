@@ -994,7 +994,7 @@
                                             <constraint firstAttribute="height" constant="342" id="L1J-hv-UZ2"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="119" id="vvG-QV-Txm">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="119" id="vvG-QV-Txm" customClass="ShoppingCartTableViewCell">
                                                 <rect key="frame" x="0.0" y="0.0" width="552" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vvG-QV-Txm" id="p7G-3o-MD4">
@@ -1029,6 +1029,9 @@
                                                             <state key="normal" title="Remove">
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="removeButton:" destination="jhQ-nE-lgy" eventType="touchUpInside" id="fYf-Q3-o01"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Qty" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gU-mo-uFF">
                                                             <rect key="frame" x="132" y="85" width="27" height="21"/>
@@ -1041,8 +1044,29 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rear Brake" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRW-fH-TUK">
+                                                            <rect key="frame" x="274" y="37" width="86" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Extra Wheelset" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lho-yz-C7o">
+                                                            <rect key="frame" x="382" y="37" width="116" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="colorLabel" destination="fqH-uK-QAr" id="efk-8z-IoZ"/>
+                                                    <outlet property="extraWheelsetLabel" destination="lho-yz-C7o" id="Qsb-6Y-aRo"/>
+                                                    <outlet property="priceLabel" destination="0K8-cg-WWU" id="aKi-M4-CWe"/>
+                                                    <outlet property="productNameLabel" destination="1Qg-9V-dho" id="4pb-YA-bg1"/>
+                                                    <outlet property="qtyTextField" destination="Xkn-9R-C02" id="OUR-gI-gfe"/>
+                                                    <outlet property="rearBrakeLabel" destination="eRW-fH-TUK" id="qX3-Lr-YPn"/>
+                                                    <outlet property="sizeLabel" destination="0xO-7R-bTt" id="OWP-kp-jxJ"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>

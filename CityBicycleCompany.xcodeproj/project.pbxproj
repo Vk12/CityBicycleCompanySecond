@@ -78,6 +78,7 @@
 		FB0E0B6C1A2943EB0053F9D1 /* STPTestPaymentSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB0E0B5C1A2943EB0053F9D1 /* STPTestPaymentSummaryViewController.xib */; };
 		FB0E0B6D1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB0E0B6E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
+		FB3338C41A311CA300FCE9C8 /* ShoppingCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */; };
 		FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7F27A81A2A9FDB00328CE8 /* Constants.m */; };
 		FBCF66AE1A2D1D5F006487DD /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
@@ -186,6 +187,8 @@
 		FB0E0B5C1A2943EB0053F9D1 /* STPTestPaymentSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STPTestPaymentSummaryViewController.xib; sourceTree = "<group>"; };
 		FB0E0B5D1A2943EB0053F9D1 /* STPTestShippingMethodStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPTestShippingMethodStore.h; sourceTree = "<group>"; };
 		FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPTestShippingMethodStore.m; sourceTree = "<group>"; };
+		FB3338C21A311CA300FCE9C8 /* ShoppingCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShoppingCartTableViewCell.h; path = ../ShoppingCartTableViewCell.h; sourceTree = "<group>"; };
+		FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingCartTableViewCell.m; path = ../ShoppingCartTableViewCell.m; sourceTree = "<group>"; };
 		FB7F27A71A2A9FDB00328CE8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FB7F27A81A2A9FDB00328CE8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -314,6 +317,8 @@
 				39CA90661A2CE3BE001FD52F /* BicycleCollectionViewCell.m */,
 				87EAEB961A2FC4AC002FEBB4 /* AccessoryCollectionViewCell.h */,
 				87EAEB971A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m */,
+				FB3338C21A311CA300FCE9C8 /* ShoppingCartTableViewCell.h */,
+				FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */,
 				39CA90741A2D22BA001FD52F /* Model */,
 				39DE84231A2680D300BB47FB /* Images.xcassets */,
 				39DE84251A2680D300BB47FB /* LaunchScreen.xib */,
@@ -561,6 +566,7 @@
 				FB0E0B671A2943EB0053F9D1 /* STPTestPaymentAuthorizationViewController.m in Sources */,
 				39CA90631A2CD92D001FD52F /* ProductCollectionViewCell.m in Sources */,
 				3928AF371A26852200BE9DBC /* ShoppingCartViewController.m in Sources */,
+				FB3338C41A311CA300FCE9C8 /* ShoppingCartTableViewCell.m in Sources */,
 				FB0E0B651A2943EB0053F9D1 /* STPTestDataTableViewController.m in Sources */,
 				FB0E0B481A293EB50053F9D1 /* STPUtils.m in Sources */,
 				87EAEB951A2F9713002FEBB4 /* ChosenAccessory.m in Sources */,
