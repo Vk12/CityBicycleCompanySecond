@@ -14,6 +14,7 @@
 #import "ShippingManagerViewController.h"
 #import "Photo.h"
 #import "Bicycle.h"
+#import "ChosenBike.h"
 
 #if DEBUG
 #import "STPTestPaymentAuthorizationViewController.h"
@@ -33,7 +34,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
+    NSLog(@"slkfl;aslf;saljdfklasdkl;fsa;lf;lsaldkfklaslfksa;lfalsdflsadk %@",testBike.chosenName);
+
 //    // Testing Cloud Code
 //    [PFCloud callFunctionInBackground:@"stripe"
 //                       withParameters:@{}

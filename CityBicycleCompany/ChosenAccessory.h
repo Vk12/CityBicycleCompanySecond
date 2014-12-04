@@ -16,5 +16,5 @@
 @property (strong, nonatomic) NSString *chosenAccessory;
 @property (strong, nonatomic) NSString *color;
 @property (strong, nonatomic) NSString *chosenSize;
-
+@property (strong, nonatomic) NSArray *passTheAccessoryArray;
 @end

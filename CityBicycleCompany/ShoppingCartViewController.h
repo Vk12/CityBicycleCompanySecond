@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChosenAccessory.h"
+#import "ChosenBike.h"
 
 @interface ShoppingCartViewController : UIViewController
 
+@property ChosenBike *theChosenBike;
+@property ChosenAccessory *theChosenAccessory;
 @end
