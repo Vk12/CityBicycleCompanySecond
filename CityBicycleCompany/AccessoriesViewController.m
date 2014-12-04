@@ -12,7 +12,7 @@
 #import "ChosenAccessory.h"
 #import "Photo.h"
 #import "Accessory.h"
-
+#import "ShoppingCartViewController.h"
 @interface AccessoriesViewController ()<UITextFieldDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -37,6 +37,7 @@
     self.localChosenAccessory = [[ChosenAccessory alloc]init];
     self.accessoryImageArray = [@[]mutableCopy];
     self.addToCartArray = [@[]mutableCopy];
+   
     [self updateUserInterfaceWithOurAccessoryFromParse];
     [self queryImages];
 
@@ -55,7 +56,7 @@
 - (void)updateUserInterfaceWithOurAccessoryFromParse
 {
     self.nameLabel.text = self.accessoryFromParse.name;
-    self.descriptionLabel.text = self.accessoryFromParse.description;
+    self.descriptionLabel.text = self.accessoryFromParse.accessoryDescription;
     int i = 0;
     [self.sizeSegmentedControl removeAllSegments];
     [self.colorSegmentedControl removeAllSegments];
@@ -97,6 +98,10 @@
     }];
     
 }
+- (IBAction)onAddToCartPressed:(id)sender
+{
+    
+}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -128,14 +133,14 @@
     self.pageControl.currentPage = pageNumber;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ShoppingCartViewController *vc = segue.destinationViewController;
+    ChosenAccessory *chosenAccessory = [[ChosenAccessory alloc]init];
+    chosenAccessory.passTheAccessoryArray = self.addToCartArray;
+    vc.theChosenBike = chosenAccessory;
 }
-*/
+
+
 
 @end

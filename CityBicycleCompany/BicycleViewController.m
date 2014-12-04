@@ -12,6 +12,7 @@
 #import "Bicycle.h"
 #import "ChosenBike.h"
 #import "Photo.h"
+#import "ShoppingCartViewController.h"
 @interface BicycleViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate, UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -205,9 +206,19 @@
 }
 
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ShoppingCartViewController *vc = segue.destinationViewController;
+    ChosenBike *chosenBike = [[ChosenBike alloc]init];
+    chosenBike.passTheBikeArray = self.addToCartArray;
+    vc.theChosenBike = chosenBike;
+    
+}
 
-
-
+//BicycleViewController *vc = [segue destinationViewController];
+//NSInteger bicycleIndexSelected = [self.productCollectionView indexPathForCell:sender].row;
+//Bicycle *theBike = [self.bicycleArray objectAtIndex:bicycleIndexSelected];
+//vc.bicycleFromParse = theBike;
 
 
 
