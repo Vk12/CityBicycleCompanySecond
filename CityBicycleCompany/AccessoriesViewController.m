@@ -57,7 +57,6 @@
 {
     self.nameLabel.text = self.accessoryFromParse.name;
     self.descriptionLabel.text = self.accessoryFromParse.accessoryDescription;
-    int i = 0;
     [self.sizeSegmentedControl removeAllSegments];
     [self.colorSegmentedControl removeAllSegments];
 
@@ -65,13 +64,16 @@
     for (NSString *size in self.accessoryFromParse.size )
     {
         
-        [self.sizeSegmentedControl insertSegmentWithTitle:size atIndex:i animated:YES];
-        i++;
+        [self.sizeSegmentedControl insertSegmentWithTitle:size atIndex:self.sizeSegmentedControl.numberOfSegments animated:YES];
+    }
+    if (self.sizeSegmentedControl.numberOfSegments == 0)
+    {
+        self.sizeSegmentedControl.hidden = YES;
+        
     }
     for (NSString *color in self.accessoryFromParse.color)
     {
-        [self.colorSegmentedControl insertSegmentWithTitle:color atIndex:i animated:YES];
-        i++;
+        [self.colorSegmentedControl insertSegmentWithTitle:color atIndex:self.colorSegmentedControl.numberOfSegments animated:YES];
     }
     
 }
@@ -100,7 +102,37 @@
 }
 - (IBAction)onAddToCartPressed:(id)sender
 {
+    if (self.sizeSegmentedControl.selectedSegmentIndex == -1)
+    {
+        NSLog(@"What Size");
+    }else
+    {
+        self.localChosenAccessory.chosenSize = self.accessoryFromParse.size[self.sizeSegmentedControl.selectedSegmentIndex];
+    }
     
+    
+    if (self.colorSegmentedControl.selectedSegmentIndex == -1)
+    {
+        NSLog(@"Choose Color");
+    }else
+    {
+        self.localChosenAccessory.color = self.accessoryFromParse.color[self.colorSegmentedControl.selectedSegmentIndex];
+    }
+    
+    if (![self.quantityTextField.text isEqualToString:@""])
+    {
+        NSNumberFormatter *quantityConversion = [[NSNumberFormatter alloc]init];
+        [quantityConversion setNumberStyle:NSNumberFormatterNoStyle];
+        NSNumber *myNumber = [quantityConversion numberFromString:self.quantityTextField.text];
+        self.localChosenAccessory.chosenQuantity = myNumber;
+    }
+    else
+    {
+        NSLog(@"Add a number to the quantity!");
+    }
+    
+    [self.addToCartArray addObject:self.localChosenAccessory];
+
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -133,13 +165,13 @@
     self.pageControl.currentPage = pageNumber;
 }
 
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    ShoppingCartViewController *vc = segue.destinationViewController;
-//    ChosenAccessory *chosenAccessory = [[ChosenAccessory alloc]init];
-//    chosenAccessory.passTheAccessoryArray = self.addToCartArray;
-//    vc.theChosenBike = chosenAccessory;
-//}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ShoppingCartViewController *vc = segue.destinationViewController;
+    ChosenAccessory *chosenAccessory = [[ChosenAccessory alloc]init];
+    chosenAccessory.passTheAccessoryArray = self.addToCartArray;
+    vc.theChosenBike = chosenAccessory;
+}
 
 
 
