@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import <MessageUI/MessageUI.h> 
 #import <MessageUI/MFMailComposeViewController.h>
+#import <Parse/Parse.h>
 
 @interface ProfileViewController ()<MFMailComposeViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *profileName;
@@ -66,18 +67,37 @@
     if (self.salesSwitch.on)
     {
         NSLog(@"notifications switch turned on");
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
+//        [[UIApplication sharedApplication] registerForRemoteNotifications];
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        [currentInstallation addUniqueObject:@"newSales" forKey:@"channels"];
+        [currentInstallation saveInBackground];
     }
     else
     {
         NSLog(@"notifications switch turned off");
-        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+//        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        [currentInstallation removeObject:@"newSales" forKey:@"channels"];
+        [currentInstallation saveInBackground];
+        
     }
 }
 
 - (IBAction)onSwitchNewProductsNotificationToggle:(id)sender
 {
-
+    if (self.productsSwitch.on) {
+        NSLog(@"notifications switch turned on");
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        [currentInstallation addUniqueObject:@"newProducts" forKey:@"channels"];
+        [currentInstallation saveInBackground];
+        
+    }
+    else
+    {
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        [currentInstallation removeObject:@"newProducts" forKey:@"channels"];
+        [currentInstallation saveInBackground];
+    }
 }
 
 /*
