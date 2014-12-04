@@ -303,7 +303,6 @@
         <!--Profile View Controller-->
         <scene sceneID="u4o-qS-d2e">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yyr-Tq-eo5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="P1O-Zu-8PT" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rl9-IK-X9k"/>
@@ -518,6 +517,7 @@
                         <outlet property="signoutButton" destination="Zki-3C-SBO" id="hJw-rr-f1I"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yyr-Tq-eo5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1065" y="1113"/>
         </scene>
@@ -932,7 +932,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXL-Ai-IQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="1363"/>
+            <point key="canvasLocation" x="699" y="1479"/>
         </scene>
         <!--Shopping Cart View Controller-->
         <scene sceneID="rfQ-Oa-OS8">
@@ -1430,7 +1430,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="jhQ-nE-lgy" kind="presentation" id="Nte-5a-rKs"/>
+                                    <segue destination="jhQ-nE-lgy" kind="presentation" identifier="accessoryToCartSegue" id="Nte-5a-rKs"/>
                                 </connections>
                             </button>
                         </subviews>
