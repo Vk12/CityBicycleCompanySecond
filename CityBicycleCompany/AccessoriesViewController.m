@@ -174,6 +174,12 @@
     self.pageControl.currentPage = pageNumber;
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.quantityTextField resignFirstResponder];
+    return YES;
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     ShoppingCartViewController *vc = segue.destinationViewController;
