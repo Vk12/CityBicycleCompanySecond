@@ -44,6 +44,8 @@
 		87EAEB8A1A2CF7A2002FEBB4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB861A2CF7A2002FEBB4 /* Parse.framework */; };
 		87EAEB8B1A2CF7A2002FEBB4 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB871A2CF7A2002FEBB4 /* ParseFacebookUtils.framework */; };
 		87EAEB8C1A2CF7A2002FEBB4 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB881A2CF7A2002FEBB4 /* ParseUI.framework */; };
+		87EAEB951A2F9713002FEBB4 /* ChosenAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EAEB941A2F9713002FEBB4 /* ChosenAccessory.m */; };
+		87EAEB981A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EAEB971A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m */; };
 		FB0E0B3E1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B2C1A293EB50053F9D1 /* Stripe+ApplePay.m */; };
 		FB0E0B3F1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B2C1A293EB50053F9D1 /* Stripe+ApplePay.m */; };
 		FB0E0B401A293EB50053F9D1 /* STPAPIConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B2E1A293EB50053F9D1 /* STPAPIConnection.m */; };
@@ -77,8 +79,7 @@
 		FB0E0B6D1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB0E0B6E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7F27A81A2A9FDB00328CE8 /* Constants.m */; };
-		FBCF66AB1A2D1D22006487DD /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCF66AA1A2D1D22006487DD /* PaymentViewController.m */; };
-		FBCF66AE1A2D1D5F006487DD /* ShippingManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCF66AD1A2D1D5F006487DD /* ShippingManagerViewController.m */; };
+		FBCF66AE1A2D1D5F006487DD /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,10 @@
 		87EAEB861A2CF7A2002FEBB4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		87EAEB871A2CF7A2002FEBB4 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		87EAEB881A2CF7A2002FEBB4 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		87EAEB931A2F9713002FEBB4 /* ChosenAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChosenAccessory.h; sourceTree = "<group>"; };
+		87EAEB941A2F9713002FEBB4 /* ChosenAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChosenAccessory.m; sourceTree = "<group>"; };
+		87EAEB961A2FC4AC002FEBB4 /* AccessoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryCollectionViewCell.h; sourceTree = "<group>"; };
+		87EAEB971A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryCollectionViewCell.m; sourceTree = "<group>"; };
 		FB0E0B2B1A293EB50053F9D1 /* Stripe+ApplePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Stripe+ApplePay.h"; sourceTree = "<group>"; };
 		FB0E0B2C1A293EB50053F9D1 /* Stripe+ApplePay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Stripe+ApplePay.m"; sourceTree = "<group>"; };
 		FB0E0B2D1A293EB50053F9D1 /* STPAPIConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPAPIConnection.h; sourceTree = "<group>"; };
@@ -261,6 +266,8 @@
 				3914E18F1A2E3E4A00301DD3 /* Cart.m */,
 				3914E1911A2E411400301DD3 /* ChosenBike.h */,
 				3914E1921A2E411400301DD3 /* ChosenBike.m */,
+				87EAEB931A2F9713002FEBB4 /* ChosenAccessory.h */,
+				87EAEB941A2F9713002FEBB4 /* ChosenAccessory.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -305,6 +312,8 @@
 				39CA90621A2CD92D001FD52F /* ProductCollectionViewCell.m */,
 				39CA90651A2CE3BE001FD52F /* BicycleCollectionViewCell.h */,
 				39CA90661A2CE3BE001FD52F /* BicycleCollectionViewCell.m */,
+				87EAEB961A2FC4AC002FEBB4 /* AccessoryCollectionViewCell.h */,
+				87EAEB971A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m */,
 				39CA90741A2D22BA001FD52F /* Model */,
 				39DE84231A2680D300BB47FB /* Images.xcassets */,
 				39DE84251A2680D300BB47FB /* LaunchScreen.xib */,
@@ -533,7 +542,7 @@
 				FB0E0B3E1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */,
 				FB0E0B691A2943EB0053F9D1 /* STPTestPaymentSummaryViewController.m in Sources */,
 				FB0E0B611A2943EB0053F9D1 /* STPTestAddressStore.m in Sources */,
-				FBCF66AE1A2D1D5F006487DD /* ShippingManagerViewController.m in Sources */,
+				FBCF66AE1A2D1D5F006487DD /* (null) in Sources */,
 				FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */,
 				3928AF341A2684A800BE9DBC /* BicycleViewController.m in Sources */,
 				39DE843E1A26835500BB47FB /* ProductViewController.m in Sources */,
@@ -543,6 +552,7 @@
 				FB0E0B4C1A293EB50053F9D1 /* StripeError.m in Sources */,
 				39C528C31A2684700018C017 /* ProfileViewController.m in Sources */,
 				39CA906D1A2D1E2B001FD52F /* Accessory.m in Sources */,
+				87EAEB981A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m in Sources */,
 				3914E1901A2E3E4A00301DD3 /* Cart.m in Sources */,
 				FB0E0B5F1A2943EB0053F9D1 /* PKPayment+STPTestKeys.m in Sources */,
 				FB0E0B671A2943EB0053F9D1 /* STPTestPaymentAuthorizationViewController.m in Sources */,
@@ -550,6 +560,7 @@
 				3928AF371A26852200BE9DBC /* ShoppingCartViewController.m in Sources */,
 				FB0E0B651A2943EB0053F9D1 /* STPTestDataTableViewController.m in Sources */,
 				FB0E0B481A293EB50053F9D1 /* STPUtils.m in Sources */,
+				87EAEB951A2F9713002FEBB4 /* ChosenAccessory.m in Sources */,
 				FB0E0B461A293EB50053F9D1 /* STPToken.m in Sources */,
 				FB0E0B441A293EB50053F9D1 /* STPCard.m in Sources */,
 				FB0E0B4A1A293EB50053F9D1 /* Stripe.m in Sources */,

@@ -18,6 +18,7 @@
 @property NSNumber *quantity;
 @property NSNumber *salePrice;
 @property NSArray *size;
-@property Photo *accessoryPhoto;
+//@property Photo *accessoryPhoto;
+@property PFFile *accessoryPhoto;
 
 @end

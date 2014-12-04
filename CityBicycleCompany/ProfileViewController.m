@@ -62,7 +62,11 @@
 
 }
 
+- (IBAction)onSwitchSalesNotificationToggle:(UISwitch *)sender {
+}
 
+- (IBAction)onSwitchNewProductsNotificationToggle:(id)sender {
+}
 
 /*
 #pragma mark - Navigation

@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ChosenAccessory.h"
+#import "ProductViewController.h"
+
+@class Accessory;
+
 @interface AccessoriesViewController : UIViewController
+
+@property Accessory *accessoryFromParse;
 
 @end
