@@ -891,7 +891,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="jhQ-nE-lgy" kind="presentation" id="GBX-yU-qGM"/>
+                                    <segue destination="jhQ-nE-lgy" kind="presentation" identifier="bicycleToCartSegue" id="GBX-yU-qGM"/>
                                 </connections>
                             </button>
                         </subviews>
