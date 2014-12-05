@@ -16,6 +16,8 @@
 #import "Bicycle.h"
 #import "ChosenBike.h"
 #import "ShoppingCartTableViewCell.h"
+#import "AccessoriesViewController.h"
+#import "ChosenAccessory.h"
 
 #if DEBUG
 #import "STPTestPaymentAuthorizationViewController.h"
@@ -26,6 +28,7 @@
 @interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property NSMutableArray *shoppingCartArray;
 
 @end
 
@@ -36,6 +39,12 @@
     [super viewDidLoad];
     ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
     NSLog(@"slkfl;aslf;saljdfklasdkl;fsa;lf;lsaldkfklaslfksa;lfalsdflsadk %@",testBike.chosenName);
+    
+    ChosenAccessory *testAccessory = self.theChosenAccessory.passTheAccessoryArray[0];
+    NSLog(@"test %@", testAccessory.chosenQuantity);
+    
+    self.shoppingCartArray = [@[]mutableCopy];
+    self.shoppingCartArray = [self.theChosenBike.passTheBikeArray addObjectsFromArray:];
 
 //    // Testing Cloud Code
 //    [PFCloud callFunctionInBackground:@"stripe"
