@@ -57,6 +57,7 @@
     
 }
 
+
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -74,6 +75,12 @@
     
 }
 
+
+
+- (IBAction)dismissOnTapped:(UIButton *)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 - (void)updateUserInterfaceWithOurBikeFromParse
 {
     self.nameLabel.text = self.bicycleFromParse.name;

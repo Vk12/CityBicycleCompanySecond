@@ -51,6 +51,10 @@
         [self presentViewController:self.mailCount animated:YES completion:nil];
     }
 }
+- (IBAction)onDismissButtonTapped:(UIButton *)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {

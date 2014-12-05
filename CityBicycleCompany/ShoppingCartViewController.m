@@ -121,6 +121,10 @@
     return @[foodItem, totalItem];
 }
 
+- (IBAction)onDismissButtonTapped:(UIButton *)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (IBAction)onPayButtonTapped:(UIButton *)sender
 {
