@@ -57,6 +57,7 @@
     
 }
 
+
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -73,7 +74,37 @@
     
     
 }
+- (IBAction)onCartButtonTapped:(UIButton *)sender
+{
+//    self shouldPerformSegueWithIdentifier:@"bicycleToCartSegue" sender:sender
+//    if (<#condition#>) {
+//        <#statements#>
+//    }
+}
 
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if (self.sizeSegmentedController.selectedSegmentIndex >= 0 && self.wheelSetColorSegmented.selectedSegmentIndex >= 0 && self.classicSeriesWheelsetSegmented.selectedSegmentIndex >= 0 && self.rearBreakController.selectedSegmentIndex >= 0)
+    {
+        [self performSegueWithIdentifier:@"bicycleToCartSegue" sender:sender];
+        return YES;
+    } else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
+                                                        message:@"Please select all items before proceding"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return NO;
+        
+    }
+}
+
+- (IBAction)dismissOnTapped:(UIButton *)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 - (void)updateUserInterfaceWithOurBikeFromParse
 {
     self.nameLabel.text = self.bicycleFromParse.name;
@@ -180,6 +211,8 @@
     }
     
     self.localChosenBike.chosenWheelSetColor = self.bicycleFromParse.wheelsetColor[self.wheelSetColorSegmented.selectedSegmentIndex];
+    
+   
     
     [self.addToCartArray addObject:self.localChosenBike];
     

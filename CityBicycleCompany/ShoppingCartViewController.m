@@ -43,9 +43,9 @@
     ChosenAccessory *testAccessory = self.theChosenAccessory.passTheAccessoryArray[0];
     NSLog(@"test %@", testAccessory.chosenQuantity);
     
-//    self.shoppingCartArray = [@[]mutableCopy];
-//    self.shoppingCartArray = [NSMutableArray arrayWithArray:self.theChosenBike.passTheBikeArray];
-//    [self.shoppingCartArray addObject:testAccessory];
+    self.shoppingCartArray = [@[]mutableCopy];
+    self.shoppingCartArray = [NSMutableArray arrayWithArray:self.theChosenBike.passTheBikeArray];
+    [self.shoppingCartArray addObjectsFromArray:self.theChosenAccessory.passTheAccessoryArray];
 
 //    // Testing Cloud Code
 //    [PFCloud callFunctionInBackground:@"stripe"
@@ -96,6 +96,10 @@
     return @[foodItem, totalItem];
 }
 
+- (IBAction)onDismissButtonTapped:(UIButton *)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (IBAction)onPayButtonTapped:(UIButton *)sender
 {
