@@ -904,6 +904,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <action selector="onCartButtonTapped:" destination="a1L-zc-nEL" eventType="touchUpInside" id="FGj-6J-Zkm"/>
                                     <segue destination="jhQ-nE-lgy" kind="presentation" identifier="bicycleToCartSegue" id="GBX-yU-qGM"/>
                                 </connections>
                             </button>
