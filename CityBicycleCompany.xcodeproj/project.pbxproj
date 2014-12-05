@@ -40,6 +40,7 @@
 		39DE84331A2680D300BB47FB /* CityBicycleCompanyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE84321A2680D300BB47FB /* CityBicycleCompanyTests.m */; };
 		39DE843E1A26835500BB47FB /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE843D1A26835500BB47FB /* ProductViewController.m */; };
 		39DE84411A2683AF00BB47FB /* AccessoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE84401A2683AF00BB47FB /* AccessoriesViewController.m */; };
+		87BB30EB1A315D0C00462501 /* AccessoryCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BB30EA1A315D0C00462501 /* AccessoryCartTableViewCell.m */; };
 		87EAEB891A2CF7A2002FEBB4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB851A2CF7A2002FEBB4 /* Bolts.framework */; };
 		87EAEB8A1A2CF7A2002FEBB4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB861A2CF7A2002FEBB4 /* Parse.framework */; };
 		87EAEB8B1A2CF7A2002FEBB4 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB871A2CF7A2002FEBB4 /* ParseFacebookUtils.framework */; };
@@ -147,6 +148,8 @@
 		39DE843F1A2683AF00BB47FB /* AccessoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoriesViewController.h; sourceTree = "<group>"; };
 		39DE84401A2683AF00BB47FB /* AccessoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoriesViewController.m; sourceTree = "<group>"; };
 		7C3385CE7AD27122E6DDBED5 /* Pods-CityBicycleCompany.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityBicycleCompany.release.xcconfig"; path = "Pods/Target Support Files/Pods-CityBicycleCompany/Pods-CityBicycleCompany.release.xcconfig"; sourceTree = "<group>"; };
+		87BB30E91A315D0C00462501 /* AccessoryCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccessoryCartTableViewCell.h; path = ../AccessoryCartTableViewCell.h; sourceTree = "<group>"; };
+		87BB30EA1A315D0C00462501 /* AccessoryCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccessoryCartTableViewCell.m; path = ../AccessoryCartTableViewCell.m; sourceTree = "<group>"; };
 		87EAEB851A2CF7A2002FEBB4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		87EAEB861A2CF7A2002FEBB4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		87EAEB871A2CF7A2002FEBB4 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -326,6 +329,8 @@
 				87EAEB971A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m */,
 				FB3338C21A311CA300FCE9C8 /* ShoppingCartTableViewCell.h */,
 				FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */,
+				87BB30E91A315D0C00462501 /* AccessoryCartTableViewCell.h */,
+				87BB30EA1A315D0C00462501 /* AccessoryCartTableViewCell.m */,
 				39CA90741A2D22BA001FD52F /* Model */,
 				39DE84231A2680D300BB47FB /* Images.xcassets */,
 				39DE84251A2680D300BB47FB /* LaunchScreen.xib */,
@@ -606,6 +611,7 @@
 				3928AF341A2684A800BE9DBC /* BicycleViewController.m in Sources */,
 				39DE843E1A26835500BB47FB /* ProductViewController.m in Sources */,
 				39DE84191A2680D300BB47FB /* main.m in Sources */,
+				87BB30EB1A315D0C00462501 /* AccessoryCartTableViewCell.m in Sources */,
 				FB0E0B6D1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */,
 				FB0E0B401A293EB50053F9D1 /* STPAPIConnection.m in Sources */,
 				FB0E0B4C1A293EB50053F9D1 /* StripeError.m in Sources */,
@@ -773,6 +779,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/stripe-ios-master",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -788,7 +795,7 @@
 					"-l\"c++\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c8aa4800-176a-432a-86ae-b89f5cba87b0";
 			};
 			name = Debug;
 		};
@@ -802,6 +809,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/stripe-ios-master",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = STRIPE_ENABLE_APPLEPAY;
@@ -813,7 +821,7 @@
 					"-l\"c++\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c8aa4800-176a-432a-86ae-b89f5cba87b0";
 			};
 			name = Release;
 		};
@@ -834,7 +842,7 @@
 				INFOPLIST_FILE = CityBicycleCompanyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c8aa4800-176a-432a-86ae-b89f5cba87b0";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CityBicycleCompany.app/CityBicycleCompany";
 			};
 			name = Debug;
@@ -852,7 +860,7 @@
 				INFOPLIST_FILE = CityBicycleCompanyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c8aa4800-176a-432a-86ae-b89f5cba87b0";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CityBicycleCompany.app/CityBicycleCompany";
 			};
 			name = Release;

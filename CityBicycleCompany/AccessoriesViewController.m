@@ -55,6 +55,10 @@
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
     layout.itemSize = CGSizeMake(self.scrollView.frame.size.width, self.collectionView.frame.size.height);
 }
+- (IBAction)onDIsmissButtonTapped:(UIButton *)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)updateUserInterfaceWithOurAccessoryFromParse
 {

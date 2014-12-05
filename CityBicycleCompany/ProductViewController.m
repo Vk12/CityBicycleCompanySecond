@@ -20,8 +20,9 @@
 
 @interface ProductViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *productCollectionView;
-//@property (strong, nonatomic) IBOutlet UIButton *accessoriesButton;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
+@property (strong, nonatomic) IBOutlet UIButton *shoppingCartButton;
+@property (strong, nonatomic) IBOutlet UIButton *profileButton;
 
 
 @property NSArray *bicycleArray;

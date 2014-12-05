@@ -44,7 +44,8 @@
     NSLog(@"test %@", testAccessory.chosenQuantity);
     
     self.shoppingCartArray = [@[]mutableCopy];
-//    self.shoppingCartArray = [self.theChosenBike.passTheBikeArray addObjectsFromArray:];
+    self.shoppingCartArray = [NSMutableArray arrayWithArray:self.theChosenBike.passTheBikeArray];
+    [self.shoppingCartArray addObjectsFromArray:self.theChosenAccessory.passTheAccessoryArray];
 
 //    // Testing Cloud Code
 //    [PFCloud callFunctionInBackground:@"stripe"
@@ -61,8 +62,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
-    ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bicycleCell"];
     cell.productNameLabel.text = testBike.chosenName;
     cell.colorLabel.text = testBike.chosenWheelSetColor;
     cell.sizeLabel.text = testBike.chosenSize;
@@ -70,6 +72,8 @@
     cell.extraWheelsetLabel.text = testBike.extraSeriesWheelset;
     cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
     return cell;
+    
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -92,6 +96,10 @@
     return @[foodItem, totalItem];
 }
 
+- (IBAction)onDismissButtonTapped:(UIButton *)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (IBAction)onPayButtonTapped:(UIButton *)sender
 {
