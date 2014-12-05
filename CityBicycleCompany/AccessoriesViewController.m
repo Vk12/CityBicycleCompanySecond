@@ -166,6 +166,8 @@
         [alert show];
     }
     
+    self.localChosenAccessory.chosenPrice = self.accessoryFromParse.originalPrice;
+    
     [self.addToCartArray addObject:self.localChosenAccessory];
 
 }

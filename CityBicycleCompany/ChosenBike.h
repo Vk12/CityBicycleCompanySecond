@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSString *chosenBike;
 @property (strong, nonatomic) NSString *salePrice;
 @property (strong, nonatomic) NSString *chosenName;
+@property (strong, nonatomic) NSNumber *chosenPrice;
 @property BOOL bicycleHasRearBrake;
 @property NSArray *passTheBikeArray;
 //@property (strong, nonatomic)
