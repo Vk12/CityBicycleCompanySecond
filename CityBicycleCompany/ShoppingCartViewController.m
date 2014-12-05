@@ -63,14 +63,35 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
+//    self.shoppingCartArray = [@[]mutableCopy];
+//    self.shoppingCartArray = [NSMutableArray arrayWithArray:self.theChosenBike.passTheBikeArray];
+//    [self.shoppingCartArray addObjectsFromArray:self.theChosenAccessory.passTheAccessoryArray];
+    
     ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bicycleCell"];
-    cell.productNameLabel.text = testBike.chosenName;
-    cell.colorLabel.text = testBike.chosenWheelSetColor;
-    cell.sizeLabel.text = testBike.chosenSize;
-    //TODO: not sure how to show rear brake because it's a bool
-    cell.extraWheelsetLabel.text = testBike.extraSeriesWheelset;
-    cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
+    id shoppingCartItem = [self.shoppingCartArray objectAtIndex:indexPath.row];
+    
+    if ([shoppingCartItem isKindOfClass:[ChosenBike class]])
+    {
+        ChosenBike *testBike = (ChosenBike *)shoppingCartItem;
+        
+        cell.productNameLabel.text = testBike.chosenName;
+        cell.colorLabel.text = testBike.chosenWheelSetColor;
+        cell.sizeLabel.text = testBike.chosenSize;
+        //TODO: not sure how to show rear brake because it's a bool
+        cell.extraWheelsetLabel.text = testBike.extraSeriesWheelset;
+        cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
+
+    } else if ([shoppingCartItem isKindOfClass:[ChosenAccessory class]]){
+        
+        ChosenAccessory *testAccessory = (ChosenAccessory *)shoppingCartItem;
+
+        cell.productNameLabel.text = testAccessory.chosenName;
+        
+    }
+    
+//    ChosenAccessory *testAccessory = self.theChosenAccessory.passTheAccessoryArray[0];
+//    ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
+//    ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bicycleCell"];
     return cell;
     
 
@@ -78,7 +99,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.theChosenBike.passTheBikeArray.count;
+    return self.shoppingCartArray.count;
     
 }
 
