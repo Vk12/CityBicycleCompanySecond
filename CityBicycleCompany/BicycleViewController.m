@@ -29,6 +29,10 @@
 @property NSMutableArray *addToCartArray;
 @property NSMutableArray *bicycleImageArray;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet UILabel *sizeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *rearBreakLabel;
+@property (strong, nonatomic) IBOutlet UILabel *wheelSetColor;
+@property (strong, nonatomic) IBOutlet UILabel *extraCityWheelsetLabel;
 
 @property ChosenBike *localChosenBike;
 @end
@@ -85,10 +89,25 @@
         [self.sizeSegmentedController insertSegmentWithTitle:size atIndex:i animated:YES];
         i++;
     }
+    
+    if (self.sizeSegmentedController.numberOfSegments == 0)
+    {
+        [self.sizeSegmentedController removeAllSegments];
+        self.sizeSegmentedController.hidden = YES;
+        self.sizeLabel.hidden = YES;
+    }
+    
     for (NSString *wheelSetColor in self.bicycleFromParse.wheelsetColor)
     {
         [self.wheelSetColorSegmented insertSegmentWithTitle:wheelSetColor atIndex:i animated:YES];
         i++;
+    }
+    
+    if (self.wheelSetColorSegmented.numberOfSegments == 0)
+    {
+        [self.wheelSetColorSegmented removeAllSegments];
+        self.wheelSetColorSegmented.hidden = YES;
+        self.wheelSetColor.hidden = YES;
     }
     
     for (NSString *classicSeries in self.bicycleFromParse.extraWheel)
@@ -96,14 +115,19 @@
         [self.classicSeriesWheelsetSegmented insertSegmentWithTitle:classicSeries atIndex:i animated:YES];
         i++;
     }
-    
+    if (self.classicSeriesWheelsetSegmented.numberOfSegments == 0)
+    {
+        [self.classicSeriesWheelsetSegmented removeAllSegments];
+        self.classicSeriesWheelsetSegmented.hidden = YES;
+        self.extraCityWheelsetLabel.hidden = YES;
+    }
 }
 
 
 - (IBAction)onCartButtonPressed:(UIButton *)sender
 {
     self.localChosenBike.chosenName = self.bicycleFromParse.name;
-    if (self.sizeSegmentedController.selectedSegmentIndex == -1)
+    if (self.sizeSegmentedController.selectedSegmentIndex == -1 && self.sizeSegmentedController.hidden == NO)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
                                                         message:@"Please select a size"
@@ -111,6 +135,7 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+        return;
     }else
     {
         self.localChosenBike.chosenSize = self.bicycleFromParse.size[self.sizeSegmentedController.selectedSegmentIndex];
@@ -140,6 +165,7 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+        return;
     }
     
     if (self.rearBreakController.selectedSegmentIndex == 1)

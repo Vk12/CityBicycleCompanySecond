@@ -298,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfX-dy-UJZ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="38"/>
+            <point key="canvasLocation" x="299" y="86"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="u4o-qS-d2e">
@@ -519,7 +519,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyr-Tq-eo5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1065" y="1113"/>
+            <point key="canvasLocation" x="-921" y="1127"/>
         </scene>
         <!--Bicycle View Controller-->
         <scene sceneID="Vmv-V0-s3d">
@@ -920,19 +920,23 @@
                         <outlet property="classicSeriesWheelsetSegmented" destination="FrH-SJ-nTD" id="QcK-tg-olz"/>
                         <outlet property="collectionView" destination="PlP-cy-yyi" id="cVE-gp-8IA"/>
                         <outlet property="descriptionLabel" destination="XaT-SA-o33" id="e08-NL-c9a"/>
+                        <outlet property="extraCityWheelsetLabel" destination="zaj-OI-QfD" id="de2-7q-ZPz"/>
                         <outlet property="nameLabel" destination="fdc-iD-TS6" id="eNs-We-1qm"/>
                         <outlet property="pageControl" destination="g2O-kR-X8J" id="ych-tT-hJA"/>
                         <outlet property="quantityTextField" destination="Sb5-M3-8CT" id="rtC-NV-TTU"/>
                         <outlet property="rearBreakController" destination="GXc-yO-xYd" id="zz3-FM-Qp9"/>
+                        <outlet property="rearBreakLabel" destination="j0D-Ld-3gA" id="iFd-Sz-qyv"/>
                         <outlet property="scrollView" destination="xqQ-HP-SRF" id="usv-Bl-rlq"/>
+                        <outlet property="sizeLabel" destination="Hbn-pB-Zgc" id="cWW-YI-rc1"/>
                         <outlet property="sizeSegmentedController" destination="H04-mt-RRm" id="rf4-ke-S95"/>
+                        <outlet property="wheelSetColor" destination="WXg-7L-dt5" id="31l-4C-l2k"/>
                         <outlet property="wheelSetColorSegmented" destination="iWh-0H-Dsv" id="qsh-lF-Qe2"/>
                         <outlet property="widthConstraint" destination="e5M-Ip-zza" id="dNy-8D-q7Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXL-Ai-IQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="699" y="1479"/>
+            <point key="canvasLocation" x="695" y="1377"/>
         </scene>
         <!--Shopping Cart View Controller-->
         <scene sceneID="rfQ-Oa-OS8">
@@ -1116,7 +1120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUn-tD-V1l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1223" y="420"/>
+            <point key="canvasLocation" x="1443" y="1127"/>
         </scene>
         <!--Accessories View Controller-->
         <scene sceneID="W5m-q6-ALi">
@@ -1471,7 +1475,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKz-RC-sZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-333" y="1363"/>
+            <point key="canvasLocation" x="-145" y="1377"/>
         </scene>
     </scenes>
     <resources>
@@ -1481,6 +1485,6 @@
         <image name="shoppingCart" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nte-5a-rKs"/>
+        <segue reference="GBX-yU-qGM"/>
     </inferredMetricsTieBreakers>
 </document>

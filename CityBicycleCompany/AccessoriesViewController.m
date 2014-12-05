@@ -71,6 +71,7 @@
     }
     if (self.sizeSegmentedControl.numberOfSegments == 0)
     {
+        [self.sizeSegmentedControl removeAllSegments];
         self.sizeSegmentedControl.hidden = YES;
         self.sizeLabel.hidden = YES;
         
@@ -81,6 +82,7 @@
     }
     if (self.colorSegmentedControl.numberOfSegments == 0)
     {
+        [self.colorSegmentedControl removeAllSegments];
         self.colorSegmentedControl.hidden = YES;
         self.colorLabel.hidden = YES;
     }
@@ -110,7 +112,9 @@
 }
 - (IBAction)onAddToCartPressed:(id)sender
 {
-    if (self.sizeSegmentedControl.selectedSegmentIndex == -1)
+    self.localChosenAccessory.chosenName = self.accessoryFromParse.name;
+
+    if (self.sizeSegmentedControl.selectedSegmentIndex == -1 && self.sizeSegmentedControl.hidden == NO)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
                                                         message:@"Please select a size"
@@ -118,13 +122,15 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+        
+        return;
     }else
     {
         self.localChosenAccessory.chosenSize = self.accessoryFromParse.size[self.sizeSegmentedControl.selectedSegmentIndex];
     }
     
     
-    if (self.colorSegmentedControl.selectedSegmentIndex == -1)
+    if (self.colorSegmentedControl.selectedSegmentIndex == -1 && self.colorSegmentedControl.hidden == NO)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
                                                         message:@"Please select a color"
@@ -132,6 +138,7 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+
     }else
     {
         self.localChosenAccessory.color = self.accessoryFromParse.color[self.colorSegmentedControl.selectedSegmentIndex];
