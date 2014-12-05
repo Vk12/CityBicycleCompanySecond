@@ -210,6 +210,7 @@
         ChosenAccessory *chosenAccessory = [[ChosenAccessory alloc]init];
         chosenAccessory.passTheAccessoryArray = self.addToCartArray;
         vc.theChosenAccessory = chosenAccessory;
+        
     }
     
     

@@ -28,6 +28,7 @@
 @interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property NSMutableArray *shoppingCartArray;
 
 @end
 
@@ -41,6 +42,9 @@
     
     ChosenAccessory *testAccessory = self.theChosenAccessory.passTheAccessoryArray[0];
     NSLog(@"test %@", testAccessory.chosenQuantity);
+    
+    self.shoppingCartArray = [@[]mutableCopy];
+    self.shoppingCartArray = [self.theChosenBike.passTheBikeArray addObjectsFromArray:];
 
 //    // Testing Cloud Code
 //    [PFCloud callFunctionInBackground:@"stripe"
