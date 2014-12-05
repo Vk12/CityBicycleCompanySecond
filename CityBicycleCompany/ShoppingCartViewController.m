@@ -29,6 +29,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *shoppingCartArray;
+@property NSString *priceSummary;
+@property NSString *itemLineSummary;
 
 @end
 
@@ -80,6 +82,9 @@
         //TODO: not sure how to show rear brake because it's a bool
         cell.extraWheelsetLabel.text = testBike.extraSeriesWheelset;
         cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
+        cell.priceLabel.text = [testBike.chosenPrice stringValue];
+        self.priceSummary = cell.priceLabel.text;
+        self.itemLineSummary = cell.productNameLabel.text;
 
     } else if ([shoppingCartItem isKindOfClass:[ChosenAccessory class]]){
         
@@ -90,7 +95,12 @@
         cell.qtyTextField.text = [testAccessory.chosenQuantity stringValue];
         cell.colorLabel.text = testAccessory.color;
         cell.sizeLabel.text = testAccessory.chosenSize;
-        
+        cell.priceLabel.text = [testAccessory.chosenPrice stringValue];
+        self.priceSummary = cell.priceLabel.text;
+        self.itemLineSummary = cell.productNameLabel.text;
+
+        [cell.rearBrakeLabel setHidden:YES];
+        [cell.extraWheelsetLabel setHidden:YES];
     }
     
 //    ChosenAccessory *testAccessory = self.theChosenAccessory.passTheAccessoryArray[0];
@@ -111,15 +121,15 @@
 }
 
 
-- (NSArray *)summaryItemsForShippingMethod
-{
-    NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:@"10.00"];
-
-    PKPaymentSummaryItem *foodItem = [PKPaymentSummaryItem summaryItemWithLabel:@"Premium Llama food" amount:number];
-    NSDecimalNumber *total = [foodItem.amount decimalNumberByAdding:number];
-    PKPaymentSummaryItem *totalItem = [PKPaymentSummaryItem summaryItemWithLabel:@"Llama Food Services, Inc." amount:total];
-    return @[foodItem, totalItem];
-}
+//- (NSArray *)summaryItemsForShippingMethod
+//{
+//    NSDecimalNumber *number = self.priceSummary;
+//
+//    PKPaymentSummaryItem *foodItem = [PKPaymentSummaryItem summaryItemWithLabel:@"Premium Llama food" amount:number];
+//    NSDecimalNumber *total = [foodItem.amount decimalNumberByAdding:number];
+//    PKPaymentSummaryItem *totalItem = [PKPaymentSummaryItem summaryItemWithLabel:@"Llama Food Services, Inc." amount:total];
+//    return @[foodItem, totalItem];
+//}
 
 - (IBAction)onDismissButtonTapped:(UIButton *)sender
 {
@@ -139,8 +149,10 @@
 //TODO: CONFIGURE REQUEST.
     
     // Set the paymentSummaryItems to a NSArray of PKPaymentSummaryItems.  These are analogous to line items on a receipt.
-    NSString *label = @"Premium llama food";
-    NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:@"10.00"];
+    NSString *label = @"City Bicycle Co.";
+    NSString *paymentSummary = self.priceSummary;
+
+    NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:paymentSummary];
 //    request.paymentSummaryItems = @[[self summaryItemsForShippingMethod]];
     request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:label amount:number]];
     
