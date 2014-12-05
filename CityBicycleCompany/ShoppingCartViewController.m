@@ -86,6 +86,10 @@
         ChosenAccessory *testAccessory = (ChosenAccessory *)shoppingCartItem;
 
         cell.productNameLabel.text = testAccessory.chosenName;
+        cell.priceLabel.text = testAccessory.salePrice;
+        cell.qtyTextField.text = [testAccessory.chosenQuantity stringValue];
+        cell.colorLabel.text = testAccessory.color;
+        cell.sizeLabel.text = testAccessory.chosenSize;
         
     }
     
