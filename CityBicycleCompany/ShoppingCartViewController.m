@@ -44,7 +44,8 @@
     NSLog(@"test %@", testAccessory.chosenQuantity);
     
     self.shoppingCartArray = [@[]mutableCopy];
-    self.shoppingCartArray = [self.theChosenBike.passTheBikeArray addObjectsFromArray:];
+    self.shoppingCartArray = [NSMutableArray arrayWithArray:self.theChosenBike.passTheBikeArray];
+    [self.shoppingCartArray addObject:testAccessory];
 
 //    // Testing Cloud Code
 //    [PFCloud callFunctionInBackground:@"stripe"
