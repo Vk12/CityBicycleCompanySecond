@@ -16,6 +16,7 @@
 #import "ChosenBike.h"
 #import "Accessory.h"
 #import "AccessoryCollectionViewCell.h"
+#import <pop/POP.h>
 
 @interface ProductViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *productCollectionView;
