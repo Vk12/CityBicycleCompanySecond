@@ -18,6 +18,8 @@
 #import "AccessoryCollectionViewCell.h"
 #import <pop/POP.h>
 
+#define kImageAspectRatioScale 0.65625
+
 @interface ProductViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *productCollectionView;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
@@ -43,7 +45,7 @@
     [super viewDidLayoutSubviews];
 
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.productCollectionView.collectionViewLayout;
-    layout.itemSize = CGSizeMake(self.productCollectionView.frame.size.width, self.productCollectionView.frame.size.height);
+    layout.itemSize = CGSizeMake(self.productCollectionView.frame.size.width, (self.productCollectionView.frame.size.width * kImageAspectRatioScale));
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -107,6 +109,7 @@
 }
 
 
+#pragma mark CollectionView Delegates
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -157,6 +160,8 @@
 
 }
 
+
+#pragma mark Segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
