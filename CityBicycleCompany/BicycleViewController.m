@@ -105,7 +105,12 @@
     self.localChosenBike.chosenName = self.bicycleFromParse.name;
     if (self.sizeSegmentedController.selectedSegmentIndex == -1)
     {
-        NSLog(@"Its broken!");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
+                                                        message:@"Please select a size"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }else
     {
         self.localChosenBike.chosenSize = self.bicycleFromParse.size[self.sizeSegmentedController.selectedSegmentIndex];
@@ -129,7 +134,12 @@
     }
     else
     {
-        NSLog(@"Add a number to the quantity!");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
+                                                        message:@"Please enter quantity"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }
     
     if (self.rearBreakController.selectedSegmentIndex == 1)

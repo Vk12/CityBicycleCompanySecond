@@ -112,7 +112,12 @@
 {
     if (self.sizeSegmentedControl.selectedSegmentIndex == -1)
     {
-        NSLog(@"What Size");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
+                                                        message:@"Please select a size"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }else
     {
         self.localChosenAccessory.chosenSize = self.accessoryFromParse.size[self.sizeSegmentedControl.selectedSegmentIndex];
@@ -121,7 +126,12 @@
     
     if (self.colorSegmentedControl.selectedSegmentIndex == -1)
     {
-        NSLog(@"Choose Color");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
+                                                        message:@"Please select a color"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }else
     {
         self.localChosenAccessory.color = self.accessoryFromParse.color[self.colorSegmentedControl.selectedSegmentIndex];
@@ -137,7 +147,12 @@
     }
     else
     {
-        NSLog(@"Add a number to the quantity!");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
+                                                        message:@"Please enter a quantity"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }
     
     [self.addToCartArray addObject:self.localChosenAccessory];
@@ -182,10 +197,15 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    ShoppingCartViewController *vc = segue.destinationViewController;
-    ChosenAccessory *chosenAccessory = [[ChosenAccessory alloc]init];
-    chosenAccessory.passTheAccessoryArray = self.addToCartArray;
-    vc.theChosenAccessory = chosenAccessory;
+    if ([segue.identifier isEqual:@"accessoryToCartSegue"])
+    {
+        ShoppingCartViewController *vc = segue.destinationViewController;
+        ChosenAccessory *chosenAccessory = [[ChosenAccessory alloc]init];
+        chosenAccessory.passTheAccessoryArray = self.addToCartArray;
+        vc.theChosenAccessory = chosenAccessory;
+    }
+    
+    
 }
 
 
