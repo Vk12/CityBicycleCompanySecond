@@ -43,9 +43,9 @@
     ChosenAccessory *testAccessory = self.theChosenAccessory.passTheAccessoryArray[0];
     NSLog(@"test %@", testAccessory.chosenQuantity);
     
-    self.shoppingCartArray = [@[]mutableCopy];
-    self.shoppingCartArray = [NSMutableArray arrayWithArray:self.theChosenBike.passTheBikeArray];
-    [self.shoppingCartArray addObject:testAccessory];
+//    self.shoppingCartArray = [@[]mutableCopy];
+//    self.shoppingCartArray = [NSMutableArray arrayWithArray:self.theChosenBike.passTheBikeArray];
+//    [self.shoppingCartArray addObject:testAccessory];
 
 //    // Testing Cloud Code
 //    [PFCloud callFunctionInBackground:@"stripe"
@@ -62,6 +62,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
     ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bicycleCell"];
     cell.productNameLabel.text = testBike.chosenName;
@@ -71,6 +72,8 @@
     cell.extraWheelsetLabel.text = testBike.extraSeriesWheelset;
     cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
     return cell;
+    
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
