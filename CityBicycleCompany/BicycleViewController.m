@@ -212,7 +212,7 @@
     
     self.localChosenBike.chosenWheelSetColor = self.bicycleFromParse.wheelsetColor[self.wheelSetColorSegmented.selectedSegmentIndex];
     
-   
+    self.localChosenBike.chosenPrice = self.bicycleFromParse.originalPrice;
     
     [self.addToCartArray addObject:self.localChosenBike];
     
