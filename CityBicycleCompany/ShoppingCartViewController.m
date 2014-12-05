@@ -63,7 +63,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
-    ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bicycleCell"];
     cell.productNameLabel.text = testBike.chosenName;
     cell.colorLabel.text = testBike.chosenWheelSetColor;
     cell.sizeLabel.text = testBike.chosenSize;
