@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "BicycleViewController.h"
 
+
 @interface Cart : NSObject  // THIS IS OUR SINGLETON CLASS.
+@property NSMutableArray *cartArray;
 
 + (Cart *)sharedManager;    // Class method to return the singleton object
-
 - (void)addItemToCart:(id)object;
 - (void)removeItemFromCart:(id)object;
 - (void)emptyAllItemsFromCart:(id)object;

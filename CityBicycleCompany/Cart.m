@@ -12,28 +12,41 @@
 
 // @property NSMutableArray *cartArray;
 
-NSMutableArray *cartArray;
+//NSMutableArray *cartArray;
+
+static Cart *sharedInstance;
 
 + (Cart *)sharedManager
 {
-    Cart *cartObject = [[Cart alloc]init];
-    cartArray = [NSMutableArray new];
-    return cartObject;
+//    Cart *cartObject = [[Cart alloc]init];
+////    self.cartArray = [NSMutableArray new];
+//    return cartObject;
 
+    if (!sharedInstance)
+    {
+        sharedInstance = [[Cart alloc] init];
+        sharedInstance.cartArray = [NSMutableArray new];
+        //        cartArray = [NSMutableArray new];
+    }
+    return sharedInstance;
 }
-
 - (void)addItemToCart:(id)object
 {
-//    if(!cartArray){
-//    
-//        cartArray = [NSMutableArray new];
-//    }
-//    
-    [cartArray addObject:object];
-
-
+    if(!self.cartArray){
+    
+        self.cartArray = [NSMutableArray new];
+    }
+    
+    [self.cartArray addObject:object];
 }
-- (void)removeItemFromCart:(id)object{}
-- (void)emptyAllItemsFromCart:(id)object{}
+- (void)removeItemFromCart:(id)object
+{
+    [self.cartArray removeObject:object];
+}
+- (void)emptyAllItemsFromCart:(id)object
+{
+    [self.cartArray removeAllObjects];
+}
+
 
 @end
