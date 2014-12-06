@@ -218,8 +218,8 @@
     
     [self.addToCartArray addObject:self.localChosenBike];
     
-    Cart *test = [Cart new];
-    [test addItemToCart:self.localChosenBike];
+    Cart *cartArray = [Cart new];
+    [cartArray addItemToCart:self.localChosenBike];
     
    
 }

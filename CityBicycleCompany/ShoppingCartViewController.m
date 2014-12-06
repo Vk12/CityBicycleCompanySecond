@@ -18,6 +18,7 @@
 #import "ShoppingCartTableViewCell.h"
 #import "AccessoriesViewController.h"
 #import "ChosenAccessory.h"
+#import "Cart.h"
 
 #if DEBUG
 #import "STPTestPaymentAuthorizationViewController.h"
@@ -42,8 +43,8 @@
     ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
     NSLog(@"slkfl;aslf;saljdfklasdkl;fsa;lf;lsaldkfklaslfksa;lfalsdflsadk %@",testBike.chosenName);
     
-    ChosenAccessory *testAccessory = self.theChosenAccessory.passTheAccessoryArray[0];
-    NSLog(@"test %@", testAccessory.chosenQuantity);
+//    ChosenAccessory *testAccessory = self.theChosenAccessory.passTheAccessoryArray[0];
+//    NSLog(@"test %@", testAccessory.chosenQuantity);
     
     self.shoppingCartArray = [@[]mutableCopy];
     self.shoppingCartArray = [NSMutableArray arrayWithArray:self.theChosenBike.passTheBikeArray];
@@ -71,6 +72,9 @@
     
     ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bicycleCell"];
     id shoppingCartItem = [self.shoppingCartArray objectAtIndex:indexPath.row];
+    Cart *test = [Cart sharedManager];
+    id testShoppingItem = [test.cartArray objectAtIndex:indexPath.row];
+
     
     if ([shoppingCartItem isKindOfClass:[ChosenBike class]])
     {
@@ -85,6 +89,7 @@
         cell.priceLabel.text = [testBike.chosenPrice stringValue];
         self.priceSummary = cell.priceLabel.text;
         self.itemLineSummary = cell.productNameLabel.text;
+        
 
     } else if ([shoppingCartItem isKindOfClass:[ChosenAccessory class]]){
         
