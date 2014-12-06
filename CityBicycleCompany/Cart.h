@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Cart : NSObject
+@interface Cart : NSObject  // THIS IS OUR SINGLETON CLASS.
 
-@property NSArray *cartArray;
++ (Cart *)sharedManager;    // Class method to return the singleton object
+
+- (void)addItemToCart:(id)object;
+- (void)removeItemFromCart:(id)object;
+- (void)emptyAllItemsFromCart:(id)object;
+- (NSMutableArray *)returnArray;
 
 @end
