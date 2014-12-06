@@ -10,6 +10,7 @@
 #import <MessageUI/MessageUI.h> 
 #import <MessageUI/MFMailComposeViewController.h>
 #import <Parse/Parse.h>
+#import <pop/POP.h>
 
 @interface ProfileViewController ()<MFMailComposeViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *profileName;
@@ -28,7 +29,17 @@
 {
     [super viewDidLoad];
     self.mailCount = [[MFMailComposeViewController alloc]init];
+
+    //Grabbing view
+    //self.view = [[UIView alloc] init];
+    [self.view setFrame:CGRectMake(self.view.frame.size.width * .60, self.view.frame.size.width *.6, 200, 300)];
+    [self.view setBackgroundColor:[UIColor blueColor]];
+    [self.view addGestureRecognizer:[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(profileVCAnimate:)]];
+
+
 }
+
+
 - (IBAction)onEmailButtonTapped:(UIButton *)sender
 {
     [self sendEmail];
@@ -102,6 +113,18 @@
         [currentInstallation removeObject:@"newProducts" forKey:@"channels"];
         [currentInstallation saveInBackground];
     }
+}
+//- (IBAction)onSwipeDismissProfileController:(UISwipeGestureRecognizer *)sender {
+//
+//    [self.presentingViewController dismissViewControllerAnimated:@selector(profileVCAnimate:) completion:nil];
+//
+//    POPSpringAnimation *dismissProfile = [pop]
+//
+//}
+
+-(void)profileVCAnimate:(UISwipeGestureRecognizer *)swipe
+{
+
 }
 
 /*
