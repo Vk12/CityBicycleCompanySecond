@@ -21,11 +21,12 @@ static Cart *sharedInstance;
 //    Cart *cartObject = [[Cart alloc]init];
 ////    self.cartArray = [NSMutableArray new];
 //    return cartObject;
- 
+
     if (!sharedInstance)
     {
         sharedInstance = [[Cart alloc] init];
-//        cartArray = [NSMutableArray new];
+        sharedInstance.cartArray = [NSMutableArray new];
+        //        cartArray = [NSMutableArray new];
     }
     return sharedInstance;
 }
@@ -37,7 +38,6 @@ static Cart *sharedInstance;
     }
     
     [self.cartArray addObject:object];
-
 }
 - (void)removeItemFromCart:(id)object
 {

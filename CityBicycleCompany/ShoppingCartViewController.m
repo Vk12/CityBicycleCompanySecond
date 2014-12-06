@@ -71,45 +71,45 @@
 //    [self.shoppingCartArray addObjectsFromArray:self.theChosenAccessory.passTheAccessoryArray];
     
     ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bicycleCell"];
-    id shoppingCartItem = [self.shoppingCartArray objectAtIndex:indexPath.row];
+//    id shoppingCartItem = [self.shoppingCartArray objectAtIndex:indexPath.row];
     Cart *test = [Cart sharedManager];
     id testShoppingItem = [test.cartArray objectAtIndex:indexPath.row];
 
-    
-    if ([shoppingCartItem isKindOfClass:[ChosenBike class]])
-    {
-        ChosenBike *testBike = (ChosenBike *)shoppingCartItem;
-        
-        cell.productNameLabel.text = testBike.chosenName;
-        cell.colorLabel.text = testBike.chosenWheelSetColor;
-        cell.sizeLabel.text = testBike.chosenSize;
-        //TODO: not sure how to show rear brake because it's a bool
-        cell.extraWheelsetLabel.text = testBike.extraSeriesWheelset;
-        cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
-        cell.priceLabel.text = [testBike.chosenPrice stringValue];
-        self.priceSummary = cell.priceLabel.text;
-        self.itemLineSummary = cell.productNameLabel.text;
-        
 
-    } else if ([shoppingCartItem isKindOfClass:[ChosenAccessory class]]){
-        
-        ChosenAccessory *testAccessory = (ChosenAccessory *)shoppingCartItem;
-
-        cell.productNameLabel.text = testAccessory.chosenName;
-        cell.priceLabel.text = testAccessory.salePrice;
-        cell.qtyTextField.text = [testAccessory.chosenQuantity stringValue];
-        cell.colorLabel.text = testAccessory.color;
-        cell.sizeLabel.text = testAccessory.chosenSize;
-        cell.priceLabel.text = [testAccessory.chosenPrice stringValue];
-        self.priceSummary = cell.priceLabel.text;
-        self.itemLineSummary = cell.productNameLabel.text;
-
-        [cell.rearBrakeLabel setHidden:YES];
-        [cell.extraWheelsetLabel setHidden:YES];
-    }
-    
-//    ChosenAccessory *testAccessory = self.theChosenAccessory.passTheAccessoryArray[0];
-//    ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
+//        if ([shoppingCartItem isKindOfClass:[ChosenBike class]])
+//    {
+//        ChosenBike *testBike = (ChosenBike *)shoppingCartItem;
+//        
+//        cell.productNameLabel.text = testBike.chosenName;
+//        cell.colorLabel.text = testBike.chosenWheelSetColor;
+//        cell.sizeLabel.text = testBike.chosenSize;
+//        //TODO: not sure how to show rear brake because it's a bool
+//        cell.extraWheelsetLabel.text = testBike.extraSeriesWheelset;
+//        cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
+//        cell.priceLabel.text = [testBike.chosenPrice stringValue];
+//        self.priceSummary = cell.priceLabel.text;
+//        self.itemLineSummary = cell.productNameLabel.text;
+//        
+//
+//    } else if ([shoppingCartItem isKindOfClass:[ChosenAccessory class]]){
+//        
+//        ChosenAccessory *testAccessory = (ChosenAccessory *)shoppingCartItem;
+//
+//        cell.productNameLabel.text = testAccessory.chosenName;
+//        cell.priceLabel.text = testAccessory.salePrice;
+//        cell.qtyTextField.text = [testAccessory.chosenQuantity stringValue];
+//        cell.colorLabel.text = testAccessory.color;
+//        cell.sizeLabel.text = testAccessory.chosenSize;
+//        cell.priceLabel.text = [testAccessory.chosenPrice stringValue];
+//        self.priceSummary = cell.priceLabel.text;
+//        self.itemLineSummary = cell.productNameLabel.text;
+//
+//        [cell.rearBrakeLabel setHidden:YES];
+//        [cell.extraWheelsetLabel setHidden:YES];
+//    }
+//    
+    ChosenAccessory *testAccessory = self.theChosenAccessory.passTheAccessoryArray[0];
+    ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
 //    ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bicycleCell"];
     return cell;
     
