@@ -13,6 +13,8 @@
 #import "ChosenBike.h"
 #import "Photo.h"
 #import "ShoppingCartViewController.h"
+#import "Cart.h" // Singleton class
+
 @interface BicycleViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate, UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -216,8 +218,13 @@
     
     [self.addToCartArray addObject:self.localChosenBike];
     
+    Cart *test = [Cart new];
+    [test addItemToCart:self.localChosenBike];
     
+   
 }
+
+
 
 - (void)queryImages
 {
@@ -238,8 +245,10 @@
             NSLog(@"%@",error.localizedDescription);
         }
     }];
-     
+
 }
+
+
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {

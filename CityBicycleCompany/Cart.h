@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BicycleViewController.h"
 
 @interface Cart : NSObject  // THIS IS OUR SINGLETON CLASS.
 
