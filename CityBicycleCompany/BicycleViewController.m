@@ -218,8 +218,8 @@
     
     [self.addToCartArray addObject:self.localChosenBike];
     
-    Cart *cartArray = [Cart new];
-    [cartArray addItemToCart:self.localChosenBike];
+    Cart *singleton = [Cart sharedManager];
+    [singleton addItemToCart:self.localChosenBike];
     
    
 }
