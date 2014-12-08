@@ -13,6 +13,7 @@
 #import "Photo.h"
 #import "Accessory.h"
 #import "ShoppingCartViewController.h"
+#import "Cart.h"
 @interface AccessoriesViewController ()<UITextFieldDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -166,7 +167,19 @@
         [alert show];
     }
     
+    self.localChosenAccessory.chosenPrice = self.accessoryFromParse.originalPrice;
+    
     [self.addToCartArray addObject:self.localChosenAccessory];
+    
+//    Cart *cart = [Cart new];
+//    [cartArray addItemToCart:self.localChosenAccessory];
+    
+    Cart *singleton = [Cart sharedManager];
+    [singleton addItemToCart:self.localChosenAccessory];
+//
+//    Cart *mySingleton = [Cart sharedManager];
+//    mySingleton.cartArray = self.addToCartArray;
+    
 
 }
 
