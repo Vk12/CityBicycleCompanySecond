@@ -40,15 +40,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //    ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
 //    NSLog(@"slkfl;aslf;saljdfklasdkl;fsa;lf;lsaldkfklaslfksa;lfalsdflsadk %@",testBike.chosenName);
 //    
-=======
-    ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
-    NSLog(@"slkfl;aslf;saljdfklasdkl;fsa;lf;lsaldkfklaslfksa;lfalsdflsadk %@",testBike.chosenName);
+//=======
+//    ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
+//    NSLog(@"slkfl;aslf;saljdfklasdkl;fsa;lf;lsaldkfklaslfksa;lfalsdflsadk %@",testBike.chosenName);
     
->>>>>>> shoppingCart2
+//>>>>>>> shoppingCart2
 //    ChosenAccessory *testAccessory = self.theChosenAccessory.passTheAccessoryArray[0];
 //    NSLog(@"test %@", testAccessory.chosenQuantity);
     

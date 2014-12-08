@@ -17,6 +17,7 @@
 #import "Accessory.h"
 #import "AccessoryCollectionViewCell.h"
 #import <pop/POP.h>
+#import "Cart.h"
 
 #define kImageAspectRatioScale 0.65625
 
@@ -25,12 +26,13 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (strong, nonatomic) IBOutlet UIButton *shoppingCartButton;
 @property (strong, nonatomic) IBOutlet UIButton *profileButton;
+@property (strong, nonatomic) IBOutlet UILabel *shoppingCartCounter;
 
 
 @property NSArray *bicycleArray;
 @property NSArray *accessoryArray;
 @property NSArray *currentProductsArray;
-
+@property Cart *singleton;
 @end
 
 @implementation ProductViewController
@@ -38,6 +40,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.singleton = [Cart sharedManager];
+    
+    
 }
 
 - (void)viewDidLayoutSubviews
@@ -52,7 +57,7 @@
 {
     [super viewWillAppear:animated];
     [self queryAllObjects];
-
+    [self.shoppingCartCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
 
 }
 

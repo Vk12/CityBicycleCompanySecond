@@ -27,9 +27,11 @@
 @property ChosenAccessory *localChosenAccessory;
 @property NSMutableArray *accessoryImageArray;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet UILabel *shoppingCartSizeCounter;
 @property (strong, nonatomic) IBOutlet UILabel *colorLabel;
 @property (strong, nonatomic) IBOutlet UILabel *sizeLabel;
 @property NSMutableArray *addToCartArray;
+@property Cart *singleton;
 @end
 
 @implementation AccessoriesViewController
@@ -44,6 +46,8 @@
     [self updateUserInterfaceWithOurAccessoryFromParse];
     [self queryImages];
     [self.quantityTextField setDelegate:self];
+    self.singleton = [Cart sharedManager];
+    [self.shoppingCartSizeCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
 
 }
 
@@ -179,7 +183,7 @@
 //
 //    Cart *mySingleton = [Cart sharedManager];
 //    mySingleton.cartArray = self.addToCartArray;
-    
+    [self.shoppingCartSizeCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)singleton.cartArray.count]];
 
 }
 
