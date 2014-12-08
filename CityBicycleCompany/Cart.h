@@ -18,5 +18,7 @@
 - (void)removeItemFromCart:(id)object;
 - (void)emptyAllItemsFromCart:(id)object;
 - (NSMutableArray *)returnArray;
+- (void)save;
+- (void)load;
 
 @end
