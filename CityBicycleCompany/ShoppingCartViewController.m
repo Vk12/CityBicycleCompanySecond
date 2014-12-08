@@ -41,35 +41,25 @@
 {
     [super viewDidLoad];
 
-//    ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
-//    NSLog(@"slkfl;aslf;saljdfklasdkl;fsa;lf;lsaldkfklaslfksa;lfalsdflsadk %@",testBike.chosenName);
-//
-
-    ChosenBike *testBike = self.theChosenBike.passTheBikeArray[0];
-    NSLog(@"slkfl;aslf;saljdfklasdkl;fsa;lf;lsaldkfklaslfksa;lfalsdflsadk %@",testBike.chosenName);
+#if TARGET_IPHONE_SIMULATOR
+    // where are you?
+    NSLog(@"Documents Directory: %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
+#endif
     
-
-//    ChosenAccessory *testAccessory = self.theChosenAccessory.passTheAccessoryArray[0];
-//    NSLog(@"test %@", testAccessory.chosenQuantity);
+//    Cart *loadCart = [Cart sharedManager];
+//    [loadCart load];
     
-//    self.shoppingCartArray = [@[]mutableCopy];
-//    self.shoppingCartArray = [NSMutableArray arrayWithArray:self.theChosenBike.passTheBikeArray];
-//    [self.shoppingCartArray addObjectsFromArray:self.theChosenAccessory.passTheAccessoryArray];
-
-    
-    
-//    // Testing Cloud Code
-//    [PFCloud callFunctionInBackground:@"stripe"
-//                       withParameters:@{}
-//                                block:^(NSString *result, NSError *error) {
-//                                    if (!error) {
-//                                        // result is hello world
-//                                        
-//                                    }
-//                                    }];
+    Cart *test = [Cart sharedManager];
+    self.shoppingCartArray = test.cartArray;
 
 }
-
+- (void)viewDidDisappear:(BOOL)animated
+{
+    // Put save method here.
+    Cart *saveCart = [Cart sharedManager];
+    [saveCart save];
+    
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -124,8 +114,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    Cart *test = [Cart sharedManager];
-    self.shoppingCartArray = test.cartArray;
+//    Cart *test = [Cart sharedManager];
+//    self.shoppingCartArray = test.cartArray;
     return self.shoppingCartArray.count;
     
 }
