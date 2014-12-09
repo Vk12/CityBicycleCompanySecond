@@ -25,18 +25,17 @@
 
 @implementation ProfileViewController
 
++ (ProfileViewController *)newFromStoryboard
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    return [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.mailCount = [[MFMailComposeViewController alloc]init];
-
-    //Grabbing view
-    //self.view = [[UIView alloc] init];
-    [self.view setFrame:CGRectMake(self.view.frame.size.width * .60, self.view.frame.size.width *.6, 200, 300)];
-    [self.view setBackgroundColor:[UIColor blueColor]];
-    [self.view addGestureRecognizer:[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(profileVCAnimate:)]];
-
-
 }
 
 
@@ -114,27 +113,6 @@
         [currentInstallation saveInBackground];
     }
 }
-//- (IBAction)onSwipeDismissProfileController:(UISwipeGestureRecognizer *)sender {
-//
-//    [self.presentingViewController dismissViewControllerAnimated:@selector(profileVCAnimate:) completion:nil];
-//
-//    POPSpringAnimation *dismissProfile = [pop]
-//
-//}
 
--(void)profileVCAnimate:(UISwipeGestureRecognizer *)swipe
-{
-
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

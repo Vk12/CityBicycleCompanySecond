@@ -45,7 +45,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="jhQ-nE-lgy" kind="presentation" id="Ogg-ix-IJt"/>
+                                    <action selector="shoppingCartButtonTapped:" destination="gg1-cF-bDY" eventType="touchUpInside" id="W6Q-KF-dHK"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c0A-Qt-nbT">
@@ -147,7 +147,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="P1O-Zu-8PT" kind="presentation" identifier="settingsToProfileSegue" id="RPs-Ij-phL"/>
+                                    <action selector="profileButtonTapped:" destination="gg1-cF-bDY" eventType="touchUpInside" id="0bI-tE-GWp"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vbl-cj-YPP">
@@ -247,7 +247,7 @@
         <!--Profile View Controller-->
         <scene sceneID="u4o-qS-d2e">
             <objects>
-                <viewController id="P1O-Zu-8PT" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="P1O-Zu-8PT" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rl9-IK-X9k"/>
                         <viewControllerLayoutGuide type="bottom" id="QRo-pV-38b"/>
@@ -914,7 +914,7 @@
         <!--Shopping Cart View Controller-->
         <scene sceneID="rfQ-Oa-OS8">
             <objects>
-                <viewController id="jhQ-nE-lgy" customClass="ShoppingCartViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShoppingCartViewController" id="jhQ-nE-lgy" customClass="ShoppingCartViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XbV-aa-qUb"/>
                         <viewControllerLayoutGuide type="bottom" id="JvZ-3J-v31"/>

@@ -6,21 +6,35 @@
 //  Copyright (c) 2014 MVA. All rights reserved.
 //
 
-#import "Bicycle.h"
+//View Controllers
 #import "ProductViewController.h"
-#import "ProductCollectionViewCell.h"
-#import <Parse/Parse.h>
 #import "BicycleViewController.h"
 #import "AccessoriesViewController.h"
-#import "BicycleCollectionViewCell.h"
+#import "ProfileViewController.h"
+#import "ShoppingCartViewController.h"
+
+//Model Classes
+#import "Bicycle.h"
 #import "ChosenBike.h"
 #import "Accessory.h"
+
+//Custom Cells
 #import "AccessoryCollectionViewCell.h"
+#import "BicycleCollectionViewCell.h"
+#import "ProductCollectionViewCell.h"
+
+//Frameworks
+#import <Parse/Parse.h>
 #import <pop/POP.h>
+
+//Animations
+#import "PresentingAnimator.h"
+#import "DismissingAnimator.h"
+#import "ModalViewController.h"
 
 #define kImageAspectRatioScale 0.65625
 
-@interface ProductViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface ProductViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UIViewControllerTransitioningDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *productCollectionView;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (strong, nonatomic) IBOutlet UIButton *shoppingCartButton;
@@ -38,7 +52,64 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [self addPresentButton];
+
+
 }
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+    return [PresentingAnimator new];
+
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    return  [DismissingAnimator new];
+}
+
+
+#pragma mark - Private Instance methods
+
+- (void)addPresentButton
+{
+    UIButton *presentButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    presentButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [presentButton setTitle:@"Present Modal View Controller" forState:UIControlStateNormal];
+    [presentButton addTarget:self action:@selector(present:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:presentButton];
+
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:presentButton
+                                                          attribute:NSLayoutAttributeCenterX
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeCenterX
+                                                         multiplier:1.f
+                                                           constant:0.f]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:presentButton
+                                                          attribute:NSLayoutAttributeCenterY
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeCenterY
+                                                         multiplier:1.f
+                                                           constant:0.f]];
+
+}
+
+- (void)present:(id)sender
+{
+    ModalViewController *modalViewController = [ModalViewController new];
+    modalViewController.transitioningDelegate = self;
+    modalViewController.modalPresentationStyle = UIModalPresentationCustom;
+
+    [self presentViewController:modalViewController
+                                            animated:YES
+                                          completion:nil];
+}
+
 
 - (void)viewDidLayoutSubviews
 {
@@ -158,6 +229,31 @@
     }
 
 
+}
+
+- (IBAction)profileButtonTapped:(id)sender {
+
+    ProfileViewController *vc = [ProfileViewController newFromStoryboard];
+
+    vc.transitioningDelegate = self;
+    vc.modalPresentationStyle = UIModalPresentationCustom;
+
+    [self presentViewController:vc
+                       animated:YES
+                     completion:nil];
+
+
+
+}
+
+- (IBAction)shoppingCartButtonTapped:(id)sender {
+
+    ShoppingCartViewController *vc = [ShoppingCartViewController newFromStoryboard];
+
+    vc.transitioningDelegate = self;
+    vc.modalPresentationStyle = UIModalPresentationCustom;
+
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 

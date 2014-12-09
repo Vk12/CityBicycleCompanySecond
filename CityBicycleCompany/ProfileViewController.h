@@ -10,4 +10,6 @@
 
 @interface ProfileViewController : UIViewController
 
++ (ProfileViewController *)newFromStoryboard;
+
 @end

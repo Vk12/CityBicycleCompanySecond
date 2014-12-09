@@ -37,6 +37,13 @@
 
 @implementation ShoppingCartViewController
 
++ (ShoppingCartViewController *)newFromStoryboard;
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    return  [storyboard instantiateViewControllerWithIdentifier:@"ShoppingCartViewController"];
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

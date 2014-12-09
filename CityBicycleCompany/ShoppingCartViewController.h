@@ -14,4 +14,8 @@
 
 @property ChosenBike *theChosenBike;
 @property ChosenAccessory *theChosenAccessory;
+
++ (ShoppingCartViewController *)newFromStoryboard;
+
+
 @end
