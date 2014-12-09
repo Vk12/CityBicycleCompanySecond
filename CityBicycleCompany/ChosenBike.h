@@ -22,4 +22,7 @@
 @property NSArray *passTheBikeArray;
 //@property (strong, nonatomic)
 
+- (NSDictionary *)encodeForUserDefaults;
+- (id) initWithDictionary:(NSDictionary *)dictionary;
+
 @end

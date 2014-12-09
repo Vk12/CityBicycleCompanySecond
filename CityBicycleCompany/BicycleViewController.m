@@ -220,8 +220,8 @@
     
     Cart *singleton = [Cart sharedManager];
     [singleton addItemToCart:self.localChosenBike];
-    
-   
+    [singleton save];
+
 }
 
 
