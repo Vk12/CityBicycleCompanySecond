@@ -32,6 +32,18 @@
 @property (strong, nonatomic) IBOutlet UILabel *sizeLabel;
 @property NSMutableArray *addToCartArray;
 @property Cart *singleton;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *colorLabelHeight;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *colorSegHeight;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *sizeLabelHeight;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *sizeSegHeight;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *quantityHeight;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *quantityTextFieldHeight;
+@property (strong, nonatomic) IBOutlet UILabel *quantityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *priceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *saleLabel;
+
+
+
 @end
 
 @implementation AccessoriesViewController
@@ -94,7 +106,38 @@
         [self.colorSegmentedControl removeAllSegments];
         self.colorSegmentedControl.hidden = YES;
         self.colorLabel.hidden = YES;
+        
     }
+    
+    if (self.colorSegmentedControl.numberOfSegments == 0 && self.sizeSegmentedControl.numberOfSegments == 0)
+    {
+        [self.colorSegmentedControl removeAllSegments];
+        self.colorSegmentedControl.hidden = YES;
+        self.colorLabel.hidden = YES;
+        
+        [self.sizeSegmentedControl removeAllSegments];
+        self.sizeSegmentedControl.hidden = YES;
+        self.sizeLabel.hidden = YES;
+        
+    }
+    
+    
+    
+    if (self.sizeLabel.hidden == YES && self.sizeSegmentedControl.hidden == YES) {
+        self.quantityHeight.constant = 188;
+    }
+    
+    if (self.colorLabel.hidden == YES && self.colorSegmentedControl.hidden == YES) {
+        self.sizeLabelHeight.constant = 83;
+        self.quantityHeight.constant = 188;
+    }
+    
+    if (self.colorLabel.hidden == YES && self.colorSegmentedControl.hidden == YES && self.sizeSegmentedControl.hidden == YES && self.sizeLabel.hidden == YES)
+    {
+        self.quantityHeight.constant = 83;
+        
+    }
+    
 }
 
 
@@ -102,7 +145,8 @@
 {
     PFQuery *queryImages = [Photo query];
     [queryImages whereKey:@"accessory" equalTo:self.accessoryFromParse];
-    [queryImages findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [queryImages findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+    {
         if (!error)
         {
             for (Photo *photo in objects) {
