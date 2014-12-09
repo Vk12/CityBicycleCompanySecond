@@ -79,6 +79,7 @@ static Cart *sharedInstance;
 }
 -(void)load
 {
+    [self.cartArray removeAllObjects];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];  // gets shared user defaults
     
     // gets objects in tableViewCartData and puts into items array

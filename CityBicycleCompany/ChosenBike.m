@@ -16,14 +16,14 @@
     
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     
-    [result setObject:self.chosenQuantity forKey:@"chosenQuantity"];
     [result setObject:self.chosenSize forKey:@"chosenSize"];
+    [result setObject:[NSNumber numberWithBool:self.bicycleHasRearBrake] forKey:@"bicycleHasRearBrake"];
     [result setObject:self.chosenWheelSetColor forKey:@"chosenWheelSetColor"];
+    [result setObject:self.chosenQuantity forKey:@"chosenQuantity"];
     [result setObject:self.extraSeriesWheelset forKey:@"extraSeriesWheelset"];
 //    [result setObject:self.salePrice forKey:@"salePrice"];
     [result setObject:self.chosenName forKey:@"chosenName"];
     [result setObject:self.chosenPrice forKey:@"chosenPrice"];
-//    [result setObject:[NSNumber numberWithBool:self.bicycleHasRearBrake] forKey:@"bicycleHasRearBrake"];
 //    [result setObject:self.passTheBikeArray forKey:@"passTheBikeArray"];
     
     return result;

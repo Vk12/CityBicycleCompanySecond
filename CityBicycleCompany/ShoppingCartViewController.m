@@ -59,6 +59,7 @@
     [super viewDidAppear:YES];
     Cart *loadCart = [Cart sharedManager];
     [loadCart load];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
