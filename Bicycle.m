@@ -19,7 +19,7 @@
 @dynamic isOnSale;
 @dynamic name;
 @dynamic originalPrice;
-@dynamic pedalStrap;
+@dynamic pedalStrap; // Is this necessary??
 @dynamic quantity;
 @dynamic saleDetail;
 @dynamic salePrice;
@@ -36,4 +36,6 @@
 {
     return @"Bicycle";
 }
+
+
 @end

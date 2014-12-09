@@ -180,6 +180,8 @@
     
     Cart *singleton = [Cart sharedManager];
     [singleton addItemToCart:self.localChosenAccessory];
+    [singleton save];
+    
 //
 //    Cart *mySingleton = [Cart sharedManager];
 //    mySingleton.cartArray = self.addToCartArray;

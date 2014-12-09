@@ -53,11 +53,20 @@
     self.shoppingCartArray = test.cartArray;
 
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    Cart *loadCart = [Cart sharedManager];
+    [loadCart load];
+    [self.tableView reloadData];
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
-    // Put save method here.
-    Cart *saveCart = [Cart sharedManager];
-    [saveCart save];
+    [super viewDidDisappear:YES];
+ 
+    
     
 }
 

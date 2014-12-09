@@ -18,4 +18,7 @@
 @property (strong, nonatomic) NSString *chosenSize;
 @property (strong, nonatomic) NSArray *passTheAccessoryArray;
 @property (strong, nonatomic) NSNumber *chosenPrice;
+
+- (NSDictionary *)encodeForUserDefaults;
+- (id) initWithDictionary:(NSDictionary *)dictionary;
 @end
