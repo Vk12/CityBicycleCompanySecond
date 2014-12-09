@@ -53,7 +53,7 @@
 {
     [super viewDidLoad];
 
-    [self addPresentButton];
+    //[self addPresentButton];
 
 
 }
@@ -74,30 +74,30 @@
 
 #pragma mark - Private Instance methods
 
-- (void)addPresentButton
-{
-    UIButton *presentButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    presentButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [presentButton setTitle:@"Present Modal View Controller" forState:UIControlStateNormal];
-    [presentButton addTarget:self action:@selector(present:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:presentButton];
-
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:presentButton
-                                                          attribute:NSLayoutAttributeCenterX
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeCenterX
-                                                         multiplier:1.f
-                                                           constant:0.f]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:presentButton
-                                                          attribute:NSLayoutAttributeCenterY
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeCenterY
-                                                         multiplier:1.f
-                                                           constant:0.f]];
-
-}
+//- (void)addPresentButton
+//{
+//    UIButton *presentButton = [UIButton buttonWithType:UIButtonTypeSystem];
+//    presentButton.translatesAutoresizingMaskIntoConstraints = NO;
+//    [presentButton setTitle:@"Present Modal View Controller" forState:UIControlStateNormal];
+//    [presentButton addTarget:self action:@selector(present:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:presentButton];
+//
+//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:presentButton
+//                                                          attribute:NSLayoutAttributeCenterX
+//                                                          relatedBy:NSLayoutRelationEqual
+//                                                             toItem:self.view
+//                                                          attribute:NSLayoutAttributeCenterX
+//                                                         multiplier:1.f
+//                                                           constant:0.f]];
+//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:presentButton
+//                                                          attribute:NSLayoutAttributeCenterY
+//                                                          relatedBy:NSLayoutRelationEqual
+//                                                             toItem:self.view
+//                                                          attribute:NSLayoutAttributeCenterY
+//                                                         multiplier:1.f
+//                                                           constant:0.f]];
+//
+//}
 
 - (void)present:(id)sender
 {
@@ -186,23 +186,26 @@
 {
     ProductCollectionViewCell *productCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"productCell" forIndexPath:indexPath];
     PFFile *file;
+    //PFObject *name;
+
 
 
     if (self.segmentControl.selectedSegmentIndex == 0)
     {
         Bicycle *bike = self.bicycleArray [indexPath.row];
         file = bike.bicyclePhoto;
+        productCell.productName.text = bike.name;
     }
     else
     {
         Accessory *accessory = self.accessoryArray [indexPath.row];
         file = accessory.accessoryPhoto;
+        productCell.productName.text = accessory.name;
     }
 
     [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         productCell.imageView.image = [UIImage imageWithData:data];
     }];
-
 
     return productCell;
 
@@ -220,12 +223,40 @@
 
     if (self.segmentControl.selectedSegmentIndex == 0)
     {
-        [self performSegueWithIdentifier:@"bicycleSegue" sender:cell];
+        BicycleViewController *vc = [BicycleViewController newFromStoryboard];
+
+        vc.transitioningDelegate = self;
+        vc.modalPresentationStyle = UIModalPresentationCustom;
+
+        //NSInteger bicycleIndexSelected = [self.productCollectionView indexPathForCell:sender].row;
+        //NSInteger bicycleIndexSelected = [self.productCollectionView indexPathForCell:indexPath.row];
+
+
+        //NSInteger bicycleIndexSelected = [self.productCollectionView indexPathForCell:indexPath.row];
+        NSInteger bicycleIndexSelected = [self.productCollectionView indexPathForCell:cell].row;
+        Bicycle *theBike = [self.bicycleArray objectAtIndex:bicycleIndexSelected];
+        vc.bicycleFromParse = theBike;
+
+        [self presentViewController:vc
+                           animated:YES
+                         completion:nil];
+
 
     }
     else
     {
-        [self performSegueWithIdentifier:@"accessorySegue" sender:cell];
+        AccessoriesViewController *vc = [AccessoriesViewController newFromStoryboard];
+
+        vc.transitioningDelegate = self;
+        vc.modalPresentationStyle = UIModalPresentationCustom;
+
+        NSInteger accessoriesIndexSelected = [self.productCollectionView indexPathForCell:cell].row;
+        Accessory *theAccessory = [self.accessoryArray objectAtIndex:accessoriesIndexSelected];
+        vc.accessoryFromParse = theAccessory;
+
+        [self presentViewController:vc
+                           animated:YES
+                         completion:nil];
     }
 
 

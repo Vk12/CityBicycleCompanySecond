@@ -15,5 +15,7 @@
 
 @interface BicycleViewController : UIViewController
 
++ (BicycleViewController *)newFromStoryboard;
+
 @property Bicycle *bicycleFromParse;
 @end

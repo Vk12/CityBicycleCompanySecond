@@ -17,4 +17,7 @@
 
 @property Accessory *accessoryFromParse;
 
++ (AccessoriesViewController *)newFromStoryboard;
+
+
 @end

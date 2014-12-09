@@ -41,6 +41,12 @@
 
 @implementation BicycleViewController
 
++ (BicycleViewController *)newFromStoryboard;
+{
+    UIStoryboard *bicycleVC = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    return [bicycleVC instantiateViewControllerWithIdentifier:@"BicycleViewController"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

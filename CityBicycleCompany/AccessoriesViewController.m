@@ -34,6 +34,12 @@
 
 @implementation AccessoriesViewController
 
++ (AccessoriesViewController *)newFromStoryboard;
+{
+    UIStoryboard *accessoriesVC = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    return [accessoriesVC instantiateViewControllerWithIdentifier:@"AccessoriesViewController"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
