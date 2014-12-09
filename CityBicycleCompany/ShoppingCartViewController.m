@@ -51,6 +51,9 @@
     
     Cart *test = [Cart sharedManager];
     self.shoppingCartArray = test.cartArray;
+    
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    [self.tableView reloadData];
 
 }
 
@@ -65,7 +68,6 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:YES];
- 
     
     
 }
@@ -115,7 +117,6 @@
         [cell.extraWheelsetLabel setHidden:YES];
     }
 
-
     return cell;
     
 
@@ -129,8 +130,32 @@
     
 }
 
-- (IBAction)removeButton:(UIButton *)sender {
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
 }
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.shoppingCartArray removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        Cart *cart = [Cart sharedManager];
+        [cart save];
+    }
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    self.tableView.allowsMultipleSelectionDuringEditing = editing;
+    [super setEditing:editing animated:animated];
+}
+
+- (IBAction)removeButton:(UIButton *)sender {
+    
+    NSLog(@"test");
+}
+
 
 
 //- (NSArray *)summaryItemsForShippingMethod
