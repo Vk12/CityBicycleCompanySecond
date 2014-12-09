@@ -222,11 +222,10 @@
     
     [self.addToCartArray addObject:self.localChosenBike];
     
-    
-    [self.singleton addItemToCart:self.localChosenBike];
-    
+    Cart *singleton = [Cart sharedManager];
+    [singleton addItemToCart:self.localChosenBike];
+    [singleton save];
 
-    [self.shoppingCartCounterLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
 }
 
 
