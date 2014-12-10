@@ -222,9 +222,12 @@
         self.localChosenBike.bicycleHasRearBrake = self.bicycleFromParse.hasRearBreak;
     }
     
+    
     self.localChosenBike.chosenWheelSetColor = self.bicycleFromParse.wheelsetColor[self.wheelSetColorSegmented.selectedSegmentIndex];
     
     self.localChosenBike.chosenPrice = self.bicycleFromParse.originalPrice;
+    
+    
     
     [self.addToCartArray addObject:self.localChosenBike];
     
@@ -277,9 +280,21 @@
         [UIView animateWithDuration:.2 animations:^{
             cell.bicycleImageView.alpha = 1;
         }];
+        
+        if (self.bicycleFromParse.isOnSale == YES)
+        {
+            cell.originalPriceLabel.hidden = YES;
+            [cell.salePriceLabel setText:[NSString stringWithFormat:@"%@",self.bicycleFromParse.salePrice]];
+        }
+        else
+        {
+            cell.salePriceLabel.hidden = YES;
+            [cell.originalPriceLabel setText:[NSString stringWithFormat:@"%@",self.bicycleFromParse.originalPrice]];
+
+        }
+        
 
     }];
-
     return cell;
 }
 

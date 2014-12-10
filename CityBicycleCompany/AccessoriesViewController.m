@@ -35,12 +35,10 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *colorLabelHeight;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *colorSegHeight;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *sizeLabelHeight;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *sizeSegHeight;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *quantityHeight;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *quantityTextFieldHeight;
 @property (strong, nonatomic) IBOutlet UILabel *quantityLabel;
-@property (strong, nonatomic) IBOutlet UILabel *priceLabel;
-@property (strong, nonatomic) IBOutlet UILabel *saleLabel;
+
 
 
 
@@ -254,6 +252,18 @@
         [UIView animateWithDuration:.2 animations:^{
             cell.accessoryImageView.alpha = 1;
         }];
+        if (self.accessoryFromParse.isOnSale == YES)
+        {
+            cell.originalPriceLabel.hidden = YES;
+            [cell.salePriceLabel setText:[NSString stringWithFormat:@"%@",self.accessoryFromParse.salePrice]];
+        }
+        else
+        {
+            cell.salePriceLabel.hidden = YES;
+            [cell.originalPriceLabel setText:[NSString stringWithFormat:@"%@",self.accessoryFromParse.originalPrice]];
+            
+        }
+
     }];
     return cell;
 }
