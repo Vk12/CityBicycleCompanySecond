@@ -39,7 +39,8 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *productCollectionView;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (strong, nonatomic) IBOutlet UIButton *shoppingCartButton;
-@property (strong, nonatomic) IBOutlet UIButton *profileButton;
+//Changed to uiView from UIButton for pop animation in profileButtonPressed Method
+@property (strong, nonatomic) IBOutlet UIView *profileButton;
 @property (strong, nonatomic) IBOutlet UILabel *shoppingCartCounter;
 
 
@@ -264,6 +265,14 @@
 }
 
 - (IBAction)profileButtonTapped:(id)sender {
+
+//    POPSpringAnimation *profileButtonAnimation = [POPSpringAnimation animation];
+//    profileButtonAnimation.property = [POPAnimatableProperty propertyWithName:kPOPLayerSize];
+//    profileButtonAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(25, 25)];
+//    profileButtonAnimation.springBounciness = 10.0;
+//    profileButtonAnimation.springSpeed = 10.0;
+//
+//    [profileButtonAnimation pop_addAnimation:self.profileButton forKey:@"profileButtonPop"];
 
     ProfileViewController *vc = [ProfileViewController newFromStoryboard];
 

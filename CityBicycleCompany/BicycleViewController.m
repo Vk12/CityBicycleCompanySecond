@@ -23,7 +23,9 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *rearBreakController;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *wheelSetColorSegmented;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *classicSeriesWheelsetSegmented;
-@property (strong, nonatomic) IBOutlet UITextField *quantityTextField;
+//@property (strong, nonatomic) IBOutlet UITextField *quantityTextField;
+@property (strong, nonatomic) IBOutlet UILabel *quantityCounterLabel;
+
 @property (strong, nonatomic) IBOutlet UIButton *addtoCartButton;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -58,7 +60,6 @@
     self.addToCartArray = [@[]mutableCopy];
     [self queryImages];
     [self.wheelSetColorSegmented setSelectedSegmentIndex:0];
-    [self.quantityTextField setDelegate:self];
     self.singleton = [Cart sharedManager];
     [self.shoppingCartCounterLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
     
@@ -117,6 +118,26 @@
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)onIncrementButtonTapped:(UIButton *)sender
+{
+
+    
+    if ([self.quantityCounterLabel.text intValue] >= 0 && [self.quantityCounterLabel.text intValue] <= 8)
+    {
+        self.quantityCounterLabel.text = [[NSNumber numberWithInt:([self.quantityCounterLabel.text intValue] + 1)] stringValue];
+        
+    }
+}
+
+- (IBAction)onDecrementCounterTapped:(UIButton *)sender
+{
+    if (![self.quantityCounterLabel.text intValue] <= 0)
+    {
+        self.quantityCounterLabel.text = [[NSNumber numberWithInt:([self.quantityCounterLabel.text intValue] - 1)] stringValue];
+    }
+}
+
 - (void)updateUserInterfaceWithOurBikeFromParse
 {
     self.nameLabel.text = self.bicycleFromParse.name;
@@ -193,11 +214,11 @@
         self.localChosenBike.extraSeriesWheelset = self.bicycleFromParse.extraWheel[self.classicSeriesWheelsetSegmented.selectedSegmentIndex];
     }
     
-    if (![self.quantityTextField.text isEqualToString:@""])
+    if (![self.quantityCounterLabel.text isEqualToString:@"0"])
     {
         NSNumberFormatter *quantityConversion = [[NSNumberFormatter alloc]init];
         [quantityConversion setNumberStyle:NSNumberFormatterNoStyle];
-        NSNumber *myNumber = [quantityConversion numberFromString:self.quantityTextField.text];
+        NSNumber *myNumber = [quantityConversion numberFromString:self.quantityCounterLabel.text];
         self.localChosenBike.chosenQuantity = myNumber;
         
     }
@@ -223,15 +244,37 @@
         self.localChosenBike.bicycleHasRearBrake = self.bicycleFromParse.hasRearBreak;
     }
     
+    
     self.localChosenBike.chosenWheelSetColor = self.bicycleFromParse.wheelsetColor[self.wheelSetColorSegmented.selectedSegmentIndex];
     
     self.localChosenBike.chosenPrice = self.bicycleFromParse.originalPrice;
     
-    [self.addToCartArray addObject:self.localChosenBike];
     
-    Cart *singleton = [Cart sharedManager];
-    [singleton addItemToCart:self.localChosenBike];
-    [singleton save];
+    
+    
+    
+    if (self.rearBreakController.selectedSegmentIndex >= -1 && self.classicSeriesWheelsetSegmented.selectedSegmentIndex >= -1 && self.sizeSegmentedController.selectedSegmentIndex >= -1 && self.wheelSetColorSegmented.selectedSegmentIndex >= -1 && self.quantityCounterLabel.text.length > 0)
+    {
+        [self.addToCartArray addObject:self.localChosenBike];
+        
+        Cart *singleton = [Cart sharedManager];
+        [singleton addItemToCart:self.localChosenBike];
+        [singleton save];
+        
+        UIAlertView *successfulAlert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
+                                                        message:@"Bicycle Added Successfully!"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [successfulAlert show];
+    }else{
+        UIAlertView *failtureAlert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
+                                                        message:@"Please make all selections"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [failtureAlert show];
+    }
 
 }
 
@@ -278,9 +321,21 @@
         [UIView animateWithDuration:.2 animations:^{
             cell.bicycleImageView.alpha = 1;
         }];
+        
+        if (self.bicycleFromParse.isOnSale == YES)
+        {
+            cell.originalPriceLabel.hidden = YES;
+            [cell.salePriceLabel setText:[NSString stringWithFormat:@"%@",self.bicycleFromParse.salePrice]];
+        }
+        else
+        {
+            cell.salePriceLabel.hidden = YES;
+            [cell.originalPriceLabel setText:[NSString stringWithFormat:@"%@",self.bicycleFromParse.originalPrice]];
+
+        }
+        
 
     }];
-
     return cell;
 }
 
@@ -293,12 +348,6 @@
 {
     int pageNumber = roundf( self.collectionView.contentOffset.x/self.collectionView.frame.size.width );
     self.pageControl.currentPage = pageNumber;
-}
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [self.quantityTextField resignFirstResponder];
-    return YES;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

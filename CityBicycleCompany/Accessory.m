@@ -18,7 +18,7 @@
 @dynamic quantity;
 @dynamic salePrice;
 @dynamic size;
-
+@dynamic isOnSale;
 + (void) load
 {
     [self registerSubclass];
