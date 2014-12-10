@@ -72,13 +72,8 @@
     [self.tableView reloadData];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:YES];
-    
-    
-}
 
+#pragma mark - UITABLEVIEW DELEGATE METHODS
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -97,6 +92,7 @@
         ChosenBike *testBike = (ChosenBike *)testShoppingItem;
         
         cell.productNameLabel.text = testBike.chosenName;
+//        cell.colorLabel.text = [testBike.chosenQuantity stringValue];
         cell.colorLabel.text = testBike.chosenWheelSetColor;
         cell.sizeLabel.text = testBike.chosenSize;
         //TODO: not sure how to show rear brake because it's a bool
@@ -105,6 +101,11 @@
         cell.priceLabel.text = [testBike.chosenPrice stringValue];
         self.priceSummary = cell.priceLabel.text;
         self.itemLineSummary = cell.productNameLabel.text;
+        cell.qtyTextField.enabled = NO;
+        [cell.qtyTextField setBorderStyle:UITextBorderStyleNone];
+//        Cart *save = [Cart sharedManager];
+//        [save save];
+
         
 
     } else if ([testShoppingItem isKindOfClass:[ChosenAccessory class]]){
@@ -124,9 +125,10 @@
         [cell.extraWheelsetLabel setHidden:YES];
     }
 
+    
     return cell;
     
-
+   
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -137,9 +139,12 @@
     
 }
 
+
+#pragma mark - UITABLEVIEW EDITING MODE DELEGATE METHODS
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+return YES;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -152,6 +157,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.shoppingCartArray removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
         Cart *cart = [Cart sharedManager];
         [cart save];
     }
@@ -164,37 +170,76 @@
 //    self.tableView.allowsMultipleSelectionDuringEditing = editing;
     [super setEditing:editing animated:animated];
     NSLog(@"setEditing is on");
-}
-
-- (IBAction)removeButton:(UIButton *)sender {
     
-    NSLog(@"test");
 }
 
 
+#pragma mark - UIBUTTON METHODS
 
-//- (NSArray *)summaryItemsForShippingMethod
-//{
-//    NSDecimalNumber *number = self.priceSummary;
-//
-//    PKPaymentSummaryItem *foodItem = [PKPaymentSummaryItem summaryItemWithLabel:@"Premium Llama food" amount:number];
-//    NSDecimalNumber *total = [foodItem.amount decimalNumberByAdding:number];
-//    PKPaymentSummaryItem *totalItem = [PKPaymentSummaryItem summaryItemWithLabel:@"Llama Food Services, Inc." amount:total];
-//    return @[foodItem, totalItem];
-//}
 - (IBAction)onEditButtonTapped:(UIButton *)sender
 {
+    
+    // for each item in our data array, update quanity
+    int counter = 0;
+    for(id item in self.shoppingCartArray){
+    
+        // get corresponding cell in table view
+        ShoppingCartTableViewCell *cell = (ShoppingCartTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:counter inSection:0]];
+        
+        if([item isKindOfClass:[ChosenBike class]]){
+ 
+            ChosenBike *bike = (ChosenBike *)item;
+            int quantity = [cell.qtyTextField.text integerValue];
+            bike.chosenQuantity = [NSNumber numberWithInt:quantity];
+        
+        }else if ([item isKindOfClass:[ChosenAccessory class]]){
+        
+            // add me
+        
+        }
+    
+        counter ++;
+    }
+    
+    
+    
+    
+    
+    NSIndexPath *indexPath= [[NSIndexPath alloc] init];
+    //take the count of the shopping cart array
+    //make a for loop for all the indexpaths (rows 0 - X) and enable them.
+    indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    ShoppingCartTableViewCell *cell =  (ShoppingCartTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    cell.qtyTextField.enabled = YES;
+    [cell.qtyTextField setBorderStyle:UITextBorderStyleLine];
+    
+//    for (<#initialization#>; <#condition#>; <#increment#>) {
+//        <#statements#>
+//    }
+//    
+//    for (id item in self.shoppingCartArray)
+//    {
+//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:<#(NSInteger)#> inSection:<#(NSInteger)#>];
+//    }
+
+    
+    Cart *save = [Cart sharedManager];
+    [save save];
+    
     [self setEditing:YES];
     if ([self.tableView isEditing])
     {
         [self.tableView setEditing:NO animated:YES];
         [sender setTitle:@"Edit" forState:UIControlStateNormal];
+    
     }
     else
     {
         [sender setTitle:@"Done" forState:UIControlStateNormal];
         [self.tableView setEditing:YES animated:YES];
     }
+
 }
 
 - (IBAction)onDismissButtonTapped:(UIButton *)sender
@@ -210,6 +255,7 @@
     PKPaymentRequest *request = [Stripe paymentRequestWithMerchantIdentifier:@"merchant.MayVA.CityBicycleCompanyApp"];
     [request setRequiredShippingAddressFields:PKAddressFieldPostalAddress];
     [request setRequiredBillingAddressFields:PKAddressFieldPostalAddress];
+    
 
     
 //TODO: CONFIGURE REQUEST.

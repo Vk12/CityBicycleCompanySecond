@@ -199,6 +199,7 @@
         [quantityConversion setNumberStyle:NSNumberFormatterNoStyle];
         NSNumber *myNumber = [quantityConversion numberFromString:self.quantityTextField.text];
         self.localChosenBike.chosenQuantity = myNumber;
+        
     }
     else
     {
