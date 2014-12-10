@@ -7,27 +7,21 @@
 //
 
 #import "Cart.h"
-
+#import "Bicycle.h"
+#import "Accessory.h"
+#import "ChosenAccessory.h"
+#import "ChosenBike.h"
 @implementation Cart
-
-// @property NSMutableArray *cartArray;
-
-//NSMutableArray *cartArray;
 
 static Cart *sharedInstance;
 
 + (Cart *)sharedManager
 {
-//    Cart *cartObject = [[Cart alloc]init];
-////    self.cartArray = [NSMutableArray new];
-//    return cartObject;
 
     if (!sharedInstance)
     {
         sharedInstance = [[Cart alloc] init];
         sharedInstance.cartArray = [NSMutableArray new];
-//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//        [defaults setObject:sharedInstance.cartArray forKey:@"tableViewCartData"];
     }
     return sharedInstance;
 }
@@ -49,30 +43,67 @@ static Cart *sharedInstance;
 {
     [self.cartArray removeAllObjects];
 }
-
+// Ni hao ma?
+// Wo yao qu cesuo.
+// Xie xie.
 
 - (void)save
 {   // This method SAVES / stores the information.
-    // This method gets the standardUserDefault obj´ects, stores the UITableView cartArray data against a key, synchronizes the defaults.
-//    self.cartArray = [NSMutableArray new];
+    // This method also:
+    //      gets the standardUserDefault objects
+    //      gets every object in cartArray and puts it into an cartICanSave (b/c self.cartArray contains different objects from custom classes - can't put into plist)
+    //      synchronizes the defaults.
+
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];  // gets shared user defaults
-    [userDefaults setObject:[self.cartArray copy] forKey:@"tableViewCartData"];
+    
+    NSMutableArray *cartICanSave = [NSMutableArray array];
+    for (id item in self.cartArray)
+    {
+        if ([item isMemberOfClass:[ChosenBike class]])
+        {
+            ChosenBike *aBike = item;
+            [cartICanSave addObject:[aBike encodeForUserDefaults]];
+            
+        }
+        else if ([item isMemberOfClass:[ChosenAccessory class]])
+        {
+            ChosenAccessory *anAccessory = item;
+            NSDictionary *dict = [anAccessory encodeForUserDefaults];
+            [cartICanSave addObject:dict];
+            
+        }
+    }
+    [userDefaults setObject:cartICanSave forKey:@"tableViewCartData"];
     [userDefaults synchronize];
-    NSURL *plistURL = [[self documentsDirectory]URLByAppendingPathComponent:@"cartItems.plist"];
-    [[self.cartArray copy] writeToURL:plistURL atomically:YES];
+    
 }
 -(void)load
 {
-    // This method LOADS / retrieves the information.
-    NSURL *plistURL = [[self documentsDirectory]URLByAppendingPathComponent:@"cartItems.plist"];
-    // This URL points to the location of cartItems.plist.
-    // If cartItems.plist doesn't yet exist, it will be created.  If it already exists, it will be overwritten.
-    // cartItems.plist is a file that gets created in Documents Directory.  In the save method, there will be a writeToURL:cartItems.plist.
-    self.cartArray = [NSMutableArray arrayWithContentsOfURL:plistURL];
-    if (self.cartArray == nil)
+    [self.cartArray removeAllObjects];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];  // gets shared user defaults
+    
+    // gets objects in tableViewCartData and puts into items array
+    NSArray *items = [userDefaults objectForKey:@"tableViewCartData"];
+    
+    // iterates through items and puts into NSDictionary
+    for (NSDictionary *d in items)
     {
-        self.cartArray = [NSMutableArray new];
+        // Figure out whether I have a bike or an accessory
+        // I only have to do this check once for a property that ChosenBike and ChosenAccessory do not share.
+        if (d[@"chosenWheelSetColor"])
+        {
+            // I must have a bike
+            ChosenBike *aBike = [[ChosenBike alloc] initWithDictionary:d];
+            [self.cartArray addObject:aBike];
+        }
+        else
+        {
+            // I must have an accessory
+            ChosenAccessory *aAccessory = [[ChosenAccessory alloc] initWithDictionary:d];
+            [self.cartArray addObject:aAccessory];
+        }
     }
+    
 }
 -(NSURL *)documentsDirectory
 {   // This method returns a directory URL of NSDocumentDirectory (Documents Directory) I think.

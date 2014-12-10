@@ -35,8 +35,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *rearBreakLabel;
 @property (strong, nonatomic) IBOutlet UILabel *wheelSetColor;
 @property (strong, nonatomic) IBOutlet UILabel *extraCityWheelsetLabel;
+@property (strong, nonatomic) IBOutlet UILabel *shoppingCartCounterLabel;
 
 @property ChosenBike *localChosenBike;
+@property Cart *singleton;
 @end
 
 @implementation BicycleViewController
@@ -57,6 +59,8 @@
     [self queryImages];
     [self.wheelSetColorSegmented setSelectedSegmentIndex:0];
     [self.quantityTextField setDelegate:self];
+    self.singleton = [Cart sharedManager];
+    [self.shoppingCartCounterLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
     
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -226,8 +230,8 @@
     
     Cart *singleton = [Cart sharedManager];
     [singleton addItemToCart:self.localChosenBike];
-    
-   
+    [singleton save];
+
 }
 
 

@@ -26,4 +26,5 @@
 @property NSArray *size;
 @property PFFile *bicyclePhoto;
 @property NSArray *extraWheel;
+
 @end

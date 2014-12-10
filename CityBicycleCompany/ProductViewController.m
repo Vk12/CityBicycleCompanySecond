@@ -26,6 +26,7 @@
 //Frameworks
 #import <Parse/Parse.h>
 #import <pop/POP.h>
+#import "Cart.h"
 
 //Animations
 #import "PresentingAnimator.h"
@@ -39,12 +40,13 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (strong, nonatomic) IBOutlet UIButton *shoppingCartButton;
 @property (strong, nonatomic) IBOutlet UIButton *profileButton;
+@property (strong, nonatomic) IBOutlet UILabel *shoppingCartCounter;
 
 
 @property NSArray *bicycleArray;
 @property NSArray *accessoryArray;
 @property NSArray *currentProductsArray;
-
+@property Cart *singleton;
 @end
 
 @implementation ProductViewController
@@ -52,10 +54,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    //[self addPresentButton];
-
-
+    self.singleton = [Cart sharedManager];
+    
+    
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate
@@ -123,7 +124,7 @@
 {
     [super viewWillAppear:animated];
     [self queryAllObjects];
-
+    [self.shoppingCartCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
 
 }
 
