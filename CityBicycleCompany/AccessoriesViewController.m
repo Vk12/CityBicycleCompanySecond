@@ -20,7 +20,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *sizeSegmentedControl;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *colorSegmentedControl;
-@property (strong, nonatomic) IBOutlet UITextField *quantityTextField;
+//@property (strong, nonatomic) IBOutlet UITextField *quantityTextField;
 @property (strong, nonatomic) IBOutlet UILabel *quantityCounterLabel;
 
 @property (strong, nonatomic) IBOutlet UIButton *addToCartButton;
@@ -63,7 +63,7 @@
    
     [self updateUserInterfaceWithOurAccessoryFromParse];
     [self queryImages];
-    [self.quantityTextField setDelegate:self];
+//    [self.quantityTextField setDelegate:self];
     self.singleton = [Cart sharedManager];
     [self.shoppingCartSizeCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
 
@@ -86,12 +86,24 @@
 
 - (IBAction)onIncrementQuantityButtonTapped:(UIButton *)sender
 {
+    
+    if ([self.quantityCounterLabel.text intValue] >= 0 && [self.quantityCounterLabel.text intValue] <= 8)
+    {
+        self.quantityCounterLabel.text = [[NSNumber numberWithInt:([self.quantityCounterLabel.text intValue] + 1)] stringValue];
+        
+    }
+    
+
+    
 }
 
 
 - (IBAction)onDecrementQuantityButtonTapped:(UIButton *)sender
 {
-    
+   if (![self.quantityCounterLabel.text intValue] <= 0)
+   {
+         self.quantityCounterLabel.text = [[NSNumber numberWithInt:([self.quantityCounterLabel.text intValue] - 1)] stringValue];
+    }
 }
 
 - (void)updateUserInterfaceWithOurAccessoryFromParse
@@ -214,13 +226,12 @@
         self.localChosenAccessory.color = self.accessoryFromParse.color[self.colorSegmentedControl.selectedSegmentIndex];
     }
     
-    if (![self.quantityTextField.text isEqualToString:@""])
+    if (![self.quantityCounterLabel.text  isEqual: @"0"])
     {
         NSNumberFormatter *quantityConversion = [[NSNumberFormatter alloc]init];
         [quantityConversion setNumberStyle:NSNumberFormatterNoStyle];
-        NSNumber *myNumber = [quantityConversion numberFromString:self.quantityTextField.text];
+        NSNumber *myNumber = [quantityConversion numberFromString:self.quantityCounterLabel.text];
         self.localChosenAccessory.chosenQuantity = myNumber;
-        [self.quantityTextField resignFirstResponder];
     }
     else
     {
@@ -234,7 +245,7 @@
     
     self.localChosenAccessory.chosenPrice = self.accessoryFromParse.originalPrice;
     
-    if (self.colorSegmentedControl.selectedSegmentIndex >= -1 && self.sizeSegmentedControl.selectedSegmentIndex >= -1 && self.quantityTextField.text.length > 0)
+    if (self.colorSegmentedControl.selectedSegmentIndex >= -1 && self.sizeSegmentedControl.selectedSegmentIndex >= -1 && self.quantityCounterLabel.text.length > 0)
     {
         [self.addToCartArray addObject:self.localChosenAccessory];
         
@@ -300,11 +311,11 @@
     self.pageControl.currentPage = pageNumber;
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [self.quantityTextField resignFirstResponder];
-    return YES;
-}
+//-(BOOL)textFieldShouldReturn:(UITextField *)textField
+//{
+//    [self.quantityTextField resignFirstResponder];
+//    return YES;
+//}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

@@ -23,7 +23,7 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *rearBreakController;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *wheelSetColorSegmented;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *classicSeriesWheelsetSegmented;
-@property (strong, nonatomic) IBOutlet UITextField *quantityTextField;
+//@property (strong, nonatomic) IBOutlet UITextField *quantityTextField;
 @property (strong, nonatomic) IBOutlet UILabel *quantityCounterLabel;
 
 @property (strong, nonatomic) IBOutlet UIButton *addtoCartButton;
@@ -60,7 +60,6 @@
     self.addToCartArray = [@[]mutableCopy];
     [self queryImages];
     [self.wheelSetColorSegmented setSelectedSegmentIndex:0];
-    [self.quantityTextField setDelegate:self];
     self.singleton = [Cart sharedManager];
     [self.shoppingCartCounterLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
     
@@ -122,9 +121,21 @@
 
 - (IBAction)onIncrementButtonTapped:(UIButton *)sender
 {
+
+    
+    if ([self.quantityCounterLabel.text intValue] >= 0 && [self.quantityCounterLabel.text intValue] <= 8)
+    {
+        self.quantityCounterLabel.text = [[NSNumber numberWithInt:([self.quantityCounterLabel.text intValue] + 1)] stringValue];
+        
+    }
 }
 
-- (IBAction)onDecrementCounterTapped:(UIButton *)sender {
+- (IBAction)onDecrementCounterTapped:(UIButton *)sender
+{
+    if (![self.quantityCounterLabel.text intValue] <= 0)
+    {
+        self.quantityCounterLabel.text = [[NSNumber numberWithInt:([self.quantityCounterLabel.text intValue] - 1)] stringValue];
+    }
 }
 
 - (void)updateUserInterfaceWithOurBikeFromParse
@@ -203,11 +214,11 @@
         self.localChosenBike.extraSeriesWheelset = self.bicycleFromParse.extraWheel[self.classicSeriesWheelsetSegmented.selectedSegmentIndex];
     }
     
-    if (![self.quantityTextField.text isEqualToString:@""])
+    if (![self.quantityCounterLabel.text isEqualToString:@"0"])
     {
         NSNumberFormatter *quantityConversion = [[NSNumberFormatter alloc]init];
         [quantityConversion setNumberStyle:NSNumberFormatterNoStyle];
-        NSNumber *myNumber = [quantityConversion numberFromString:self.quantityTextField.text];
+        NSNumber *myNumber = [quantityConversion numberFromString:self.quantityCounterLabel.text];
         self.localChosenBike.chosenQuantity = myNumber;
     }
     else
@@ -241,7 +252,7 @@
     
     
     
-    if (self.rearBreakController.selectedSegmentIndex >= -1 && self.classicSeriesWheelsetSegmented.selectedSegmentIndex >= -1 && self.sizeSegmentedController.selectedSegmentIndex >= -1 && self.wheelSetColorSegmented.selectedSegmentIndex >= -1 && self.quantityTextField.text.length > 0)
+    if (self.rearBreakController.selectedSegmentIndex >= -1 && self.classicSeriesWheelsetSegmented.selectedSegmentIndex >= -1 && self.sizeSegmentedController.selectedSegmentIndex >= -1 && self.wheelSetColorSegmented.selectedSegmentIndex >= -1 && self.quantityCounterLabel.text.length > 0)
     {
         [self.addToCartArray addObject:self.localChosenBike];
         
@@ -336,12 +347,6 @@
 {
     int pageNumber = roundf( self.collectionView.contentOffset.x/self.collectionView.frame.size.width );
     self.pageControl.currentPage = pageNumber;
-}
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [self.quantityTextField resignFirstResponder];
-    return YES;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

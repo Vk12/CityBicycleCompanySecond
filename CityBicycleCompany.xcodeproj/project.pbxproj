@@ -46,7 +46,6 @@
 		8758D6F71A362A2700172026 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8758D6F61A362A2700172026 /* UIKit.framework */; };
 		8758D6FA1A362ED900172026 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8758D6F91A362ED900172026 /* UIColor+CustomColors.m */; };
 		87BB30EB1A315D0C00462501 /* AccessoryCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BB30EA1A315D0C00462501 /* AccessoryCartTableViewCell.m */; };
-		87E706E11A37A16400BB0655 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E706E01A37A16400BB0655 /* TestViewController.m */; };
 		87EAEB891A2CF7A2002FEBB4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB851A2CF7A2002FEBB4 /* Bolts.framework */; };
 		87EAEB8A1A2CF7A2002FEBB4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB861A2CF7A2002FEBB4 /* Parse.framework */; };
 		87EAEB8B1A2CF7A2002FEBB4 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB871A2CF7A2002FEBB4 /* ParseFacebookUtils.framework */; };
@@ -165,8 +164,6 @@
 		8758D6F91A362ED900172026 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColors.m"; sourceTree = "<group>"; };
 		87BB30E91A315D0C00462501 /* AccessoryCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccessoryCartTableViewCell.h; path = ../AccessoryCartTableViewCell.h; sourceTree = "<group>"; };
 		87BB30EA1A315D0C00462501 /* AccessoryCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccessoryCartTableViewCell.m; path = ../AccessoryCartTableViewCell.m; sourceTree = "<group>"; };
-		87E706DF1A37A16400BB0655 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		87E706E01A37A16400BB0655 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		87EAEB851A2CF7A2002FEBB4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		87EAEB861A2CF7A2002FEBB4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		87EAEB871A2CF7A2002FEBB4 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -374,8 +371,6 @@
 		8758D6E81A36243B00172026 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				87E706DF1A37A16400BB0655 /* TestViewController.h */,
-				87E706E01A37A16400BB0655 /* TestViewController.m */,
 				39DE843F1A2683AF00BB47FB /* AccessoriesViewController.h */,
 				39DE84401A2683AF00BB47FB /* AccessoriesViewController.m */,
 				3928AF321A2684A800BE9DBC /* BicycleViewController.h */,
@@ -710,7 +705,6 @@
 				87EAEB951A2F9713002FEBB4 /* ChosenAccessory.m in Sources */,
 				FB0E0B461A293EB50053F9D1 /* STPToken.m in Sources */,
 				FB0E0B441A293EB50053F9D1 /* STPCard.m in Sources */,
-				87E706E11A37A16400BB0655 /* TestViewController.m in Sources */,
 				FB0E0B4A1A293EB50053F9D1 /* Stripe.m in Sources */,
 				FB0E0B421A293EB50053F9D1 /* STPBankAccount.m in Sources */,
 				39CA90701A2D1FB5001FD52F /* Bicycle.m in Sources */,
