@@ -35,7 +35,7 @@
     // After saving to NSUserDefaults, we need to "unpack" the NSDictionary so that we can put it back into an array.
     self = [super init];
     
-    self.chosenQuantity = dictionary[@"quantity"];
+    self.chosenQuantity = dictionary[@"chosenQuantity"];
     self.chosenSize = dictionary[@"chosenSize"];
     self.chosenWheelSetColor = dictionary[@"chosenWheelSetColor"];
     self.extraSeriesWheelset = dictionary[@"extraSeriesWheelset"];

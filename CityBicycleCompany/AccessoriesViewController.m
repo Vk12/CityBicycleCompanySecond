@@ -221,20 +221,28 @@
     
     self.localChosenAccessory.chosenPrice = self.accessoryFromParse.originalPrice;
     
-    [self.addToCartArray addObject:self.localChosenAccessory];
-    
-//    Cart *cart = [Cart new];
-//    [cartArray addItemToCart:self.localChosenAccessory];
-    
-    Cart *singleton = [Cart sharedManager];
-    [singleton addItemToCart:self.localChosenAccessory];
-    [singleton save];
-    
-//
-//    Cart *mySingleton = [Cart sharedManager];
-//    mySingleton.cartArray = self.addToCartArray;
-    [self.shoppingCartSizeCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)singleton.cartArray.count]];
-
+    if (self.colorSegmentedControl.selectedSegmentIndex >= -1 && self.sizeSegmentedControl.selectedSegmentIndex >= -1 && self.quantityTextField.text.length > 0)
+    {
+        [self.addToCartArray addObject:self.localChosenAccessory];
+        
+        Cart *singleton = [Cart sharedManager];
+        [singleton addItemToCart:self.localChosenAccessory];
+        [singleton save];
+        
+        UIAlertView *successfulAlert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
+                                                                  message:@"Accessory Added Successfully!"
+                                                                 delegate:self
+                                                        cancelButtonTitle:@"OK"
+                                                        otherButtonTitles:nil];
+        [successfulAlert show];
+    }else{
+        UIAlertView *failtureAlert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
+                                                                message:@"Please make all selections"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+        [failtureAlert show];
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
