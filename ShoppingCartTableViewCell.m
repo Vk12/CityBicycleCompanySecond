@@ -9,12 +9,20 @@
 #import "ShoppingCartTableViewCell.h"
 
 
-@implementation ShoppingCartTableViewCell
+@implementation ShoppingCartTableViewCell 
 
 
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.qtyTextField.delegate = self;
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    int quantity = [string integerValue];
+
+    [self.delegate updatedQty:[NSNumber numberWithInt:quantity] fromCell:self];
+    return YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

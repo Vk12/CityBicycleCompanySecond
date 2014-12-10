@@ -26,7 +26,7 @@
 #endif
 
 
-@interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate, UITableViewDataSource, UITableViewDelegate,ShoppingCartCellDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *shoppingCartArray;
@@ -72,17 +72,22 @@
     [self.tableView reloadData];
 }
 
+-(void)updatedQty:(NSNumber *)qty fromCell:(ShoppingCartTableViewCell *)cell
+{
+    NSIndexPath *p = [self.tableView indexPathForCell:cell];
+    id item = self.shoppingCartArray[p.row];
+    [item setChosenQuantity:qty];
+}
 
 #pragma mark - UITABLEVIEW DELEGATE METHODS
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-//    self.shoppingCartArray = [@[]mutableCopy];
-//    self.shoppingCartArray = [NSMutableArray arrayWithArray:self.theChosenBike.passTheBikeArray];
-//    [self.shoppingCartArray addObjectsFromArray:self.theChosenAccessory.passTheAccessoryArray];
     
     ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bicycleCell"];
-//    id shoppingCartItem = [self.shoppingCartArray objectAtIndex:indexPath.row];
+
+    cell.delegate = self;
+    
     Cart *test = [Cart sharedManager];
     id testShoppingItem = [test.cartArray objectAtIndex:indexPath.row];
 
@@ -125,6 +130,16 @@
         [cell.extraWheelsetLabel setHidden:YES];
     }
 
+    if (self.tableView.isEditing)
+    {
+        [cell.qtyTextField setBorderStyle:UITextBorderStyleRoundedRect];
+        cell.qtyTextField.enabled = YES;
+    }
+    else
+    {
+        [cell.qtyTextField setBorderStyle:UITextBorderStyleNone];
+        cell.qtyTextField.enabled = NO;
+    }
     
     return cell;
     
@@ -133,8 +148,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    Cart *test = [Cart sharedManager];
-//    self.shoppingCartArray = test.cartArray;
     return self.shoppingCartArray.count;
     
 }
@@ -166,9 +179,8 @@ return YES;
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
-    [super setEditing:editing animated:animated];
-//    self.tableView.allowsMultipleSelectionDuringEditing = editing;
-    [super setEditing:editing animated:animated];
+    self.tableView.editing = YES;
+    [self.tableView reloadData];
     NSLog(@"setEditing is on");
     
 }
@@ -178,67 +190,50 @@ return YES;
 
 - (IBAction)onEditButtonTapped:(UIButton *)sender
 {
-    
     // for each item in our data array, update quanity
-    int counter = 0;
-    for(id item in self.shoppingCartArray){
-    
-        // get corresponding cell in table view
-        ShoppingCartTableViewCell *cell = (ShoppingCartTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:counter inSection:0]];
-        
-        if([item isKindOfClass:[ChosenBike class]]){
- 
-            ChosenBike *bike = (ChosenBike *)item;
-            int quantity = [cell.qtyTextField.text integerValue];
-            bike.chosenQuantity = [NSNumber numberWithInt:quantity];
-        
-        }else if ([item isKindOfClass:[ChosenAccessory class]]){
-        
-            // add me
-        
-        }
-    
-        counter ++;
-    }
-    
-    
-    
-    
-    
-    NSIndexPath *indexPath= [[NSIndexPath alloc] init];
-    //take the count of the shopping cart array
-    //make a for loop for all the indexpaths (rows 0 - X) and enable them.
-    indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    
-    ShoppingCartTableViewCell *cell =  (ShoppingCartTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    cell.qtyTextField.enabled = YES;
-    [cell.qtyTextField setBorderStyle:UITextBorderStyleLine];
-    
-//    for (<#initialization#>; <#condition#>; <#increment#>) {
-//        <#statements#>
-//    }
+//    int counter = 0;
+//    for(id item in self.shoppingCartArray){
 //    
-//    for (id item in self.shoppingCartArray)
-//    {
-//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:<#(NSInteger)#> inSection:<#(NSInteger)#>];
+////         get corresponding cell in table view
+//        ShoppingCartTableViewCell *cell = (ShoppingCartTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:counter inSection:0]];
+////        cell.qtyTextField.enabled = YES;
+////        [cell.qtyTextField setBorderStyle:UITextBorderStyleRoundedRect];
+//        
+//        if([item isKindOfClass:[ChosenBike class]]){
+// 
+//            ChosenBike *bike = (ChosenBike *)item;
+//            int quantity = [cell.qtyTextField.text integerValue];
+//            bike.chosenQuantity = [NSNumber numberWithInt:quantity];
+//        
+//        }else if ([item isKindOfClass:[ChosenAccessory class]]){
+//        
+//            ChosenAccessory *accessory = (ChosenAccessory *)item;
+//            int quantity = [cell.qtyTextField.text integerValue];
+//            accessory.chosenQuantity = [NSNumber numberWithInt:quantity];
+//        
+//        }
+//    
+//        counter ++;
 //    }
-
     
-    Cart *save = [Cart sharedManager];
-    [save save];
+    self.tableView.editing = !self.tableView.isEditing;
+    [self.tableView reloadData];
     
-    [self setEditing:YES];
     if ([self.tableView isEditing])
     {
-        [self.tableView setEditing:NO animated:YES];
-        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
     
     }
     else
     {
-        [sender setTitle:@"Done" forState:UIControlStateNormal];
-        [self.tableView setEditing:YES animated:YES];
+
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
     }
+    
+    
+    Cart *cart = [Cart sharedManager];
+    [cart save];
+    
 
 }
 
