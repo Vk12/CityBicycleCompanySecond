@@ -11,5 +11,7 @@
 @interface AccessoryCollectionViewCell : UICollectionViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *accessoryImageView;
+@property (strong, nonatomic) IBOutlet UILabel *originalPriceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *salePriceLabel;
 
 @end

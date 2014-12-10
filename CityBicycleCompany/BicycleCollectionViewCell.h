@@ -10,5 +10,7 @@
 
 @interface BicycleCollectionViewCell : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *bicycleImageView;
+@property (strong, nonatomic) IBOutlet UILabel *originalPriceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *salePriceLabel;
 
 @end

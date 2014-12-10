@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rearBrakeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *extraWheelsetLabel;
+@property (strong, nonatomic) IBOutlet UILabel *quantityLabel;
 
 @end
