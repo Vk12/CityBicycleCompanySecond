@@ -21,6 +21,8 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *sizeSegmentedControl;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *colorSegmentedControl;
 @property (strong, nonatomic) IBOutlet UITextField *quantityTextField;
+@property (strong, nonatomic) IBOutlet UILabel *quantityCounterLabel;
+
 @property (strong, nonatomic) IBOutlet UIButton *addToCartButton;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
@@ -79,6 +81,17 @@
 - (IBAction)onDIsmissButtonTapped:(UIButton *)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (IBAction)onIncrementQuantityButtonTapped:(UIButton *)sender
+{
+}
+
+
+- (IBAction)onDecrementQuantityButtonTapped:(UIButton *)sender
+{
+    
 }
 
 - (void)updateUserInterfaceWithOurAccessoryFromParse

@@ -24,6 +24,8 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *wheelSetColorSegmented;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *classicSeriesWheelsetSegmented;
 @property (strong, nonatomic) IBOutlet UITextField *quantityTextField;
+@property (strong, nonatomic) IBOutlet UILabel *quantityCounterLabel;
+
 @property (strong, nonatomic) IBOutlet UIButton *addtoCartButton;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -117,6 +119,14 @@
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)onIncrementButtonTapped:(UIButton *)sender
+{
+}
+
+- (IBAction)onDecrementCounterTapped:(UIButton *)sender {
+}
+
 - (void)updateUserInterfaceWithOurBikeFromParse
 {
     self.nameLabel.text = self.bicycleFromParse.name;
