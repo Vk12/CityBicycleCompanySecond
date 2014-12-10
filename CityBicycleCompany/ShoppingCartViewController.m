@@ -33,6 +33,7 @@
 @property NSString *priceSummary;
 @property NSString *itemLineSummary;
 
+
 @end
 
 @implementation ShoppingCartViewController
@@ -59,7 +60,6 @@
     Cart *test = [Cart sharedManager];
     self.shoppingCartArray = test.cartArray;
     
-    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     [self.tableView reloadData];
 
 }
@@ -142,6 +142,11 @@
     return YES;
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -150,12 +155,15 @@
         Cart *cart = [Cart sharedManager];
         [cart save];
     }
+    
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
-    self.tableView.allowsMultipleSelectionDuringEditing = editing;
     [super setEditing:editing animated:animated];
+//    self.tableView.allowsMultipleSelectionDuringEditing = editing;
+    [super setEditing:editing animated:animated];
+    NSLog(@"setEditing is on");
 }
 
 - (IBAction)removeButton:(UIButton *)sender {
@@ -176,7 +184,17 @@
 //}
 - (IBAction)onEditButtonTapped:(UIButton *)sender
 {
-
+    [self setEditing:YES];
+    if ([self.tableView isEditing])
+    {
+        [self.tableView setEditing:NO animated:YES];
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        [self.tableView setEditing:YES animated:YES];
+    }
 }
 
 - (IBAction)onDismissButtonTapped:(UIButton *)sender
