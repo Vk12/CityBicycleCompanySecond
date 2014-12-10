@@ -266,13 +266,13 @@
 
 - (IBAction)profileButtonTapped:(id)sender {
 
-    POPSpringAnimation *profileButtonAnimation = [POPSpringAnimation animation];
-    profileButtonAnimation.property = [POPAnimatableProperty propertyWithName:kPOPLayerSize];
-    profileButtonAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(25, 25)];
-    profileButtonAnimation.springBounciness = 10.0;
-    profileButtonAnimation.springSpeed = 10.0;
-
-    [profileButtonAnimation pop_addAnimation:self.profileButton forKey:@"profileButtonPop"];
+//    POPSpringAnimation *profileButtonAnimation = [POPSpringAnimation animation];
+//    profileButtonAnimation.property = [POPAnimatableProperty propertyWithName:kPOPLayerSize];
+//    profileButtonAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(25, 25)];
+//    profileButtonAnimation.springBounciness = 10.0;
+//    profileButtonAnimation.springSpeed = 10.0;
+//
+//    [profileButtonAnimation pop_addAnimation:self.profileButton forKey:@"profileButtonPop"];
 
     ProfileViewController *vc = [ProfileViewController newFromStoryboard];
 
