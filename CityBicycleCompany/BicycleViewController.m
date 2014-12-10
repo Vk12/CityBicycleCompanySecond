@@ -232,15 +232,37 @@
         self.localChosenBike.bicycleHasRearBrake = self.bicycleFromParse.hasRearBreak;
     }
     
+    
     self.localChosenBike.chosenWheelSetColor = self.bicycleFromParse.wheelsetColor[self.wheelSetColorSegmented.selectedSegmentIndex];
     
     self.localChosenBike.chosenPrice = self.bicycleFromParse.originalPrice;
     
-    [self.addToCartArray addObject:self.localChosenBike];
     
-    Cart *singleton = [Cart sharedManager];
-    [singleton addItemToCart:self.localChosenBike];
-    [singleton save];
+    
+    
+    
+    if (self.rearBreakController.selectedSegmentIndex >= -1 && self.classicSeriesWheelsetSegmented.selectedSegmentIndex >= -1 && self.sizeSegmentedController.selectedSegmentIndex >= -1 && self.wheelSetColorSegmented.selectedSegmentIndex >= -1 && self.quantityTextField.text.length > 0)
+    {
+        [self.addToCartArray addObject:self.localChosenBike];
+        
+        Cart *singleton = [Cart sharedManager];
+        [singleton addItemToCart:self.localChosenBike];
+        [singleton save];
+        
+        UIAlertView *successfulAlert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
+                                                        message:@"Bicycle Added Successfully!"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [successfulAlert show];
+    }else{
+        UIAlertView *failtureAlert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
+                                                        message:@"Please make all selections"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [failtureAlert show];
+    }
 
 }
 
@@ -287,9 +309,21 @@
         [UIView animateWithDuration:.2 animations:^{
             cell.bicycleImageView.alpha = 1;
         }];
+        
+        if (self.bicycleFromParse.isOnSale == YES)
+        {
+            cell.originalPriceLabel.hidden = YES;
+            [cell.salePriceLabel setText:[NSString stringWithFormat:@"%@",self.bicycleFromParse.salePrice]];
+        }
+        else
+        {
+            cell.salePriceLabel.hidden = YES;
+            [cell.originalPriceLabel setText:[NSString stringWithFormat:@"%@",self.bicycleFromParse.originalPrice]];
+
+        }
+        
 
     }];
-
     return cell;
 }
 

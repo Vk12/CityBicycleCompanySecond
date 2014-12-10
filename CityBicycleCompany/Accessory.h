@@ -18,6 +18,7 @@
 @property NSNumber *quantity;
 @property NSNumber *salePrice;
 @property NSArray *size;
+@property BOOL isOnSale;
 //@property Photo *accessoryPhoto;
 @property PFFile *accessoryPhoto;
 

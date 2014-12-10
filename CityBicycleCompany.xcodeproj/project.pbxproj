@@ -571,7 +571,7 @@
 				TargetAttributes = {
 					39DE84121A2680D300BB47FB = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = CMJ2XZ8S23;
+						DevelopmentTeam = NBT9DPT8GS;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -857,7 +857,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CityBicycleCompany/CityBicycleCompany.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -877,7 +877,7 @@
 					"-l\"c++\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3ec650bd-0189-4eda-b158-80819640c716";
 			};
 			name = Debug;
 		};
@@ -903,7 +903,7 @@
 					"-l\"c++\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3ec650bd-0189-4eda-b158-80819640c716";
 			};
 			name = Release;
 		};
