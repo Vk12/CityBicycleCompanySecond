@@ -33,6 +33,7 @@
 @property NSString *priceSummary;
 @property NSString *itemLineSummary;
 
+
 @end
 
 @implementation ShoppingCartViewController
