@@ -69,7 +69,32 @@
     //UIViewController *modalSplashVideoViewController = [[UIViewController alloc] init];
 
     if (![[[NSUserDefaults standardUserDefaults] objectForKey:kSplashVideoPlayed] boolValue]) {
-        NSString *moviepath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"splashvideo.mp4"];
+
+        CGFloat screenSize = [[UIApplication sharedApplication] keyWindow].frame.size.height;
+        NSString *filename;
+
+
+        if (screenSize == 480) {
+            filename = @"splashVideoFourS.mp4";
+            NSLog(@"4 video ran");
+        }
+        else if (screenSize == 568)
+        {
+            filename = @"splashVideoFive.mp4";
+        }
+        else if (screenSize == 667)
+        {
+            filename = @"splashvideoSix.mp4";
+        }
+        else if (screenSize == 1104)
+        {
+            filename = @"videoSplashSixPlus.mp4";
+        }
+
+
+        
+
+        NSString *moviepath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:filename];
 
         MPMoviePlayerViewController *controller = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:moviepath]];
         controller.moviePlayer.controlStyle = MPMovieControlStyleNone;
