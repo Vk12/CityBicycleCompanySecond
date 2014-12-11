@@ -859,7 +859,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CityBicycleCompany/CityBicycleCompany.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: May Yang (4E3CN9PP49)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -880,7 +880,7 @@
 					"-l\"c++\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3ec650bd-0189-4eda-b158-80819640c716";
+				PROVISIONING_PROFILE = "d07c9a3b-6cc6-4bbe-a694-6dede0fda812";
 			};
 			name = Debug;
 		};
@@ -908,7 +908,7 @@
 					"-force_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3ec650bd-0189-4eda-b158-80819640c716";
+				PROVISIONING_PROFILE = "d07c9a3b-6cc6-4bbe-a694-6dede0fda812";
 			};
 			name = Release;
 		};
