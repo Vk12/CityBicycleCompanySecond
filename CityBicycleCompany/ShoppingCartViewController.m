@@ -33,6 +33,7 @@
 @property NSString *priceSummary;
 @property NSString *itemLineSummary;
 @property (strong, nonatomic) IBOutlet UILabel *subTotalLabel;
+@property NSString *subtotalSummary;
 
 
 @end
@@ -49,6 +50,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.subtotalSummary = self.subTotalLabel.text;
+
+    
 
 #if TARGET_IPHONE_SIMULATOR
     // where are you?
@@ -60,9 +64,9 @@
     
     Cart *test = [Cart sharedManager];
     self.shoppingCartArray = test.cartArray;
-    
+    [test load];
     [self.tableView reloadData];
-
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -70,7 +74,18 @@
     [super viewDidAppear:YES];
     Cart *loadCart = [Cart sharedManager];
     [loadCart load];
+    self.subtotalSummary = self.subTotalLabel.text;
+
     [self.tableView reloadData];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    self.subtotalSummary = self.subTotalLabel.text;
+
+//    Cart *loadCart = [Cart sharedManager];
+//    [loadCart load];
 }
 
 -(void)updatedQty:(NSNumber *)qty fromCell:(ShoppingCartTableViewCell *)cell
@@ -81,13 +96,21 @@
     
     // When quantity is updated, update chosenPrice.
     
-    CGFloat cartTotal = 0.0;
+ 
     for (item in self.shoppingCartArray)
     {
+        CGFloat cartTotal = 0.0;
         CGFloat totalItemPrice = [[item chosenQuantity] floatValue] * [[item chosenPrice] floatValue];
         cartTotal = cartTotal + totalItemPrice;
+        self.subTotalLabel.text = [NSString stringWithFormat:@"%f", cartTotal];
+
     }
-    //todo
+  
+     self.subtotalSummary = self.subTotalLabel.text;
+    
+    Cart *cart = [Cart sharedManager];
+    [cart save];
+    
 }
 
 #pragma mark - UITABLEVIEW DELEGATE METHODS
@@ -116,14 +139,14 @@
         cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
         
         CGFloat totalPrice = [testBike.chosenPrice floatValue] * [testBike.chosenQuantity floatValue];
+        
         cell.priceLabel.text = [NSString stringWithFormat:@"%3.2f",totalPrice];
         self.priceSummary = cell.priceLabel.text;
         self.itemLineSummary = cell.productNameLabel.text;
         cell.qtyTextField.enabled = NO;
         [cell.qtyTextField setBorderStyle:UITextBorderStyleNone];
-//        Cart *save = [Cart sharedManager];
-//        [save save];
 
+        self.subTotalLabel.text = cell.priceLabel.text;
         
 
     } else if ([testShoppingItem isKindOfClass:[ChosenAccessory class]]){
@@ -154,6 +177,8 @@
         [cell.qtyTextField setBorderStyle:UITextBorderStyleNone];
         cell.qtyTextField.enabled = NO;
     }
+    
+//    self.subTotalLabel.text = self.subtotalSummary;
     
     return cell;
     
