@@ -37,6 +37,8 @@
 @import MediaPlayer;
 
 #define kImageAspectRatioScale 0.65625
+#define kSplashVideoPlayed @"ranOnce"
+
 
 @interface ProductViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UIViewControllerTransitioningDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *productCollectionView;
@@ -57,11 +59,47 @@
 
 @implementation ProductViewController
 
-+(void)showSplashVideo
+-(void)showSplashVideo
 {
-    UIViewController *modalSplashVideoViewController = [[UIViewController alloc] init];
-    NSString *moviepath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"splashvideo.mov"];
-    modalSplashVideoViewController.view = moviepath;
+    //check to see if NSUSERDEFAULTS contains YES for key: kSplashVideoPlayed
+    //if yes, dont play video
+    //if no, play video, and then set the vale for key: kSplashVideoPlayed to YES
+
+
+    //UIViewController *modalSplashVideoViewController = [[UIViewController alloc] init];
+
+    if (![[[NSUserDefaults standardUserDefaults] objectForKey:kSplashVideoPlayed] boolValue]) {
+        NSString *moviepath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"splashvideo.mp4"];
+
+        MPMoviePlayerViewController *controller = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:moviepath]];
+        controller.moviePlayer.controlStyle = MPMovieControlStyleNone;
+        [controller.moviePlayer prepareToPlay];
+        [controller.moviePlayer play];
+
+        [self presentMoviePlayerViewControllerAnimated:controller];
+        [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:kSplashVideoPlayed];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
+//    NSString *moviepath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"splashvideo.mp4"];
+//
+//    MPMoviePlayerViewController *controller = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:moviepath]];
+//    controller.moviePlayer.controlStyle = MPMovieControlStyleNone;
+//    [controller.moviePlayer prepareToPlay];
+//    [controller.moviePlayer play];
+//
+//    [self presentMoviePlayerViewControllerAnimated:controller];
+
+
+
+
+    //moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
+
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:(movieFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:moviePlayer];
+    //[moviePlayer play];
+
+
+    //modalSplashVideoViewController.view = moviepath;
 
     
 }
@@ -72,6 +110,12 @@
     self.singleton = [Cart sharedManager];
     [self.shoppingCartCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
     
+}
+
+-( void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self showSplashVideo];
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate

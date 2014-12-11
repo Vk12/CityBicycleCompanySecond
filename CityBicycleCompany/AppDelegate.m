@@ -34,9 +34,6 @@ NSString * const StripePublishableKey = @"pk_test_IQuLnTZduMwlnpJFVo9VLKkt";
     
     NSLog(@"didRegister for Push notifications");
 
-    //Call splash screen
-    [ProductViewController showSplashVideo];
-
     return YES;
 }
 

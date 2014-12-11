@@ -10,6 +10,6 @@
 
 @interface ProductViewController : UIViewController
 
-+(void)showSplashVideo
+-(void)showSplashVideo;
 
 @end

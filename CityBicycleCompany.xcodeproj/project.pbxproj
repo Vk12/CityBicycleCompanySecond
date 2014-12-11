@@ -46,6 +46,7 @@
 		8758D6F71A362A2700172026 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8758D6F61A362A2700172026 /* UIKit.framework */; };
 		8758D6FA1A362ED900172026 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8758D6F91A362ED900172026 /* UIColor+CustomColors.m */; };
 		87AE3F2C1A3930DE007813CB /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AE3F2B1A3930DE007813CB /* MediaPlayer.framework */; };
+		87AE3F2E1A3A1210007813CB /* splashvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 87AE3F2D1A3A0A7A007813CB /* splashvideo.mp4 */; };
 		87BB30EB1A315D0C00462501 /* AccessoryCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BB30EA1A315D0C00462501 /* AccessoryCartTableViewCell.m */; };
 		87EAEB891A2CF7A2002FEBB4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB851A2CF7A2002FEBB4 /* Bolts.framework */; };
 		87EAEB8A1A2CF7A2002FEBB4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB861A2CF7A2002FEBB4 /* Parse.framework */; };
@@ -164,6 +165,7 @@
 		8758D6F81A362ED900172026 /* UIColor+CustomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColors.h"; sourceTree = "<group>"; };
 		8758D6F91A362ED900172026 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColors.m"; sourceTree = "<group>"; };
 		87AE3F2B1A3930DE007813CB /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		87AE3F2D1A3A0A7A007813CB /* splashvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = splashvideo.mp4; sourceTree = "<group>"; };
 		87BB30E91A315D0C00462501 /* AccessoryCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccessoryCartTableViewCell.h; path = ../AccessoryCartTableViewCell.h; sourceTree = "<group>"; };
 		87BB30EA1A315D0C00462501 /* AccessoryCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccessoryCartTableViewCell.m; path = ../AccessoryCartTableViewCell.m; sourceTree = "<group>"; };
 		87EAEB851A2CF7A2002FEBB4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				FB7F27A81A2A9FDB00328CE8 /* Constants.m */,
 				39DE84171A2680D300BB47FB /* Info.plist */,
 				39DE84181A2680D300BB47FB /* main.m */,
+				87AE3F2D1A3A0A7A007813CB /* splashvideo.mp4 */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39DE84221A2680D300BB47FB /* Main.storyboard in Resources */,
+				87AE3F2E1A3A1210007813CB /* splashvideo.mp4 in Resources */,
 				39DE84271A2680D300BB47FB /* LaunchScreen.xib in Resources */,
 				FB0E0B6B1A2943EB0053F9D1 /* STPTestPaymentSummaryViewController.xib in Resources */,
 				39DE84241A2680D300BB47FB /* Images.xcassets in Resources */,
