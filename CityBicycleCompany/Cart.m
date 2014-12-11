@@ -15,13 +15,19 @@
 
 static Cart *sharedInstance;
 
+- (id) init
+{
+    self = [super init];
+    self.cartArray = [NSMutableArray new];
+    [self load];
+    return self;
+}
 + (Cart *)sharedManager
 {
 
     if (!sharedInstance)
     {
         sharedInstance = [[Cart alloc] init];
-        sharedInstance.cartArray = [NSMutableArray new];
     }
     return sharedInstance;
 }
@@ -34,6 +40,9 @@ static Cart *sharedInstance;
     }
     
     [self.cartArray addObject:object];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"cartChanged" object:nil];
+
+    
 }
 - (void)removeItemFromCart:(id)object
 {
@@ -42,6 +51,9 @@ static Cart *sharedInstance;
 - (void)emptyAllItemsFromCart:(id)object
 {
     [self.cartArray removeAllObjects];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"cartChanged" object:nil];
+
+    
 }
 // Ni hao ma?
 // Wo yao qu cesuo.
@@ -101,6 +113,7 @@ static Cart *sharedInstance;
             // I must have an accessory
             ChosenAccessory *aAccessory = [[ChosenAccessory alloc] initWithDictionary:d];
             [self.cartArray addObject:aAccessory];
+            
         }
     }
     

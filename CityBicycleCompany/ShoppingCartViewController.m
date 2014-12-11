@@ -243,6 +243,8 @@ return YES;
         [self refreshTotal];
         Cart *cart = [Cart sharedManager];
         [cart save];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"cartChanged" object:nil];
+
     }
     
 }
