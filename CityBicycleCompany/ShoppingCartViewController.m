@@ -32,6 +32,7 @@
 @property NSMutableArray *shoppingCartArray;
 @property NSString *priceSummary;
 @property NSString *itemLineSummary;
+@property (strong, nonatomic) IBOutlet UILabel *subTotalLabel;
 
 
 @end
