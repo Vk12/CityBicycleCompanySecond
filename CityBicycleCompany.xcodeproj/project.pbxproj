@@ -566,7 +566,7 @@
 				TargetAttributes = {
 					39DE84121A2680D300BB47FB = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = NBT9DPT8GS;
+						DevelopmentTeam = 58F4WQDE9T;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -587,7 +587,7 @@
 					};
 					39DE842B1A2680D300BB47FB = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = E2V48AYLA7;
+						DevelopmentTeam = 58F4WQDE9T;
 						TestTargetID = 39DE84121A2680D300BB47FB;
 					};
 				};
@@ -851,12 +851,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CityBicycleCompany/CityBicycleCompany.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: May Yang (4E3CN9PP49)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/stripe-ios-master",
-					"$(PROJECT_DIR)",s
+					"$(PROJECT_DIR)",
+					s,
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -871,7 +872,7 @@
 					"-l\"c++\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3ec650bd-0189-4eda-b158-80819640c716";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -899,7 +900,7 @@
 					"-force_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3ec650bd-0189-4eda-b158-80819640c716";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
