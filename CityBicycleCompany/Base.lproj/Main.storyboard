@@ -1056,7 +1056,7 @@
                                                                 <constraint firstAttribute="height" constant="98" id="nUN-Yy-D5e"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K8-cg-WWU">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K8-cg-WWU">
                                                             <rect key="frame" x="447" y="88" width="94" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="94" id="4zy-3s-2wr"/>
@@ -1187,6 +1187,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomOfTableView" destination="amz-ib-aiW" id="ajy-Tl-7LV"/>
                         <outlet property="buyWithIpayButton" destination="HP9-UK-u2G" id="cin-3i-tPZ"/>
                         <outlet property="subTotalLabel" destination="D3t-wC-sOy" id="h19-rT-A5T"/>
                         <outlet property="tableView" destination="s3V-qb-gUh" id="yHm-nX-Yxh"/>
