@@ -33,6 +33,9 @@
 #import "DismissingAnimator.h"
 #import "ModalViewController.h"
 
+//Media
+@import MediaPlayer;
+
 #define kImageAspectRatioScale 0.65625
 
 @interface ProductViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UIViewControllerTransitioningDelegate>
@@ -57,7 +60,8 @@
 +(void)showSplashVideo
 {
     UIViewController *modalSplashVideoViewController = [[UIViewController alloc] init];
-    modalSplashVideoViewController.view = nil;
+    NSString *moviepath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"splashvideo.mov"];
+    modalSplashVideoViewController.view = moviepath;
 
     
 }
