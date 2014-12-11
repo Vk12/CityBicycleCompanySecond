@@ -35,6 +35,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *subTotalLabel;
 @property NSString *subtotalSummary;
 
+@property NSString *chosenBikePriceSubtotal;
+@property NSMutableArray *combinedPrices;
+@property NSString *accessoryPriceSubtotal;
 
 @end
 
@@ -50,8 +53,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.subtotalSummary = self.subTotalLabel.text;
-
+    self.combinedPrices = [NSMutableArray new];
     
 
 #if TARGET_IPHONE_SIMULATOR
@@ -65,6 +67,9 @@
     Cart *test = [Cart sharedManager];
     self.shoppingCartArray = test.cartArray;
     [test load];
+    
+
+    
     [self.tableView reloadData];
     
 }
@@ -74,7 +79,8 @@
     [super viewDidAppear:YES];
     Cart *loadCart = [Cart sharedManager];
     [loadCart load];
-    self.subtotalSummary = self.subTotalLabel.text;
+    
+
 
     [self.tableView reloadData];
 }
@@ -82,7 +88,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    self.subtotalSummary = self.subTotalLabel.text;
 
 //    Cart *loadCart = [Cart sharedManager];
 //    [loadCart load];
@@ -105,8 +110,6 @@
         self.subTotalLabel.text = [NSString stringWithFormat:@"%f", cartTotal];
 
     }
-  
-     self.subtotalSummary = self.subTotalLabel.text;
     
     Cart *cart = [Cart sharedManager];
     [cart save];
@@ -147,6 +150,8 @@
         [cell.qtyTextField setBorderStyle:UITextBorderStyleNone];
 
         self.subTotalLabel.text = cell.priceLabel.text;
+        self.chosenBikePriceSubtotal = cell.priceLabel.text;
+        [self.combinedPrices addObject:self.chosenBikePriceSubtotal];
         
 
     } else if ([testShoppingItem isKindOfClass:[ChosenAccessory class]]){
@@ -162,10 +167,34 @@
         cell.priceLabel.text = [NSString stringWithFormat:@"%3.2f",totalPrice];
         self.priceSummary = cell.priceLabel.text;
         self.itemLineSummary = cell.productNameLabel.text;
-
+        
+        self.subTotalLabel.text = cell.priceLabel.text;
+        self.accessoryPriceSubtotal = cell.priceLabel.text;
+        
+        [self.combinedPrices addObject:self.accessoryPriceSubtotal];
+        
         [cell.rearBrakeLabel setHidden:YES];
         [cell.extraWheelsetLabel setHidden:YES];
     }
+    
+    if ([self.combinedPrices containsObject:self.chosenBikePriceSubtotal] && [self.combinedPrices containsObject:self.accessoryPriceSubtotal])
+    {
+
+        NSString *stringValue = self.chosenBikePriceSubtotal;
+        float value = [stringValue floatValue];
+        
+        NSString *stringValue2 = self.accessoryPriceSubtotal;
+        float value2 = [stringValue2 floatValue];
+        
+        float value3 = value + value2;
+        
+        NSString *stringValue3 = [NSString stringWithFormat:@"%f", value3];
+        
+        self.subTotalLabel.text = stringValue3;
+        
+        
+    }
+    
 
     if (self.tableView.isEditing)
     {
