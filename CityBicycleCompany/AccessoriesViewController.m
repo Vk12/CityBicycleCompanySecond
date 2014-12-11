@@ -66,6 +66,8 @@
 //    [self.quantityTextField setDelegate:self];
     self.singleton = [Cart sharedManager];
     [self.shoppingCartSizeCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
+    self.sizeSegmentedControl.selectedSegmentIndex = 0;
+    self.colorSegmentedControl.selectedSegmentIndex = 0;
 
 }
 
