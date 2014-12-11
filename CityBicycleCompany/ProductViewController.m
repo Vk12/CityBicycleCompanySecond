@@ -107,15 +107,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.singleton = [Cart sharedManager];
-    [self.shoppingCartCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
     
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"cartChanged" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        self.singleton = [Cart sharedManager];
+        [self.shoppingCartCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
+    }];
 }
 
 -( void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self showSplashVideo];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"cartChanged" object:nil];
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate
