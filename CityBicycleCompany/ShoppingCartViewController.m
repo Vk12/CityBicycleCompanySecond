@@ -33,7 +33,11 @@
 @property NSString *priceSummary;
 @property NSString *itemLineSummary;
 @property (strong, nonatomic) IBOutlet UILabel *subTotalLabel;
+@property NSString *subtotalSummary;
 
+@property NSString *chosenBikePriceSubtotal;
+@property NSMutableArray *combinedPrices;
+@property NSString *accessoryPriceSubtotal;
 
 @end
 
@@ -49,6 +53,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.combinedPrices = [NSMutableArray new];
+    
 
 #if TARGET_IPHONE_SIMULATOR
     // where are you?
@@ -60,9 +66,12 @@
     
     Cart *test = [Cart sharedManager];
     self.shoppingCartArray = test.cartArray;
+    [test load];
+    
+
     
     [self.tableView reloadData];
-
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -70,7 +79,29 @@
     [super viewDidAppear:YES];
     Cart *loadCart = [Cart sharedManager];
     [loadCart load];
+    
+
+
     [self.tableView reloadData];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self refreshTotal];
+//    Cart *loadCart = [Cart sharedManager];
+//    [loadCart load];
+}
+
+-(void)refreshTotal
+{
+    CGFloat cartTotal = 0.0;
+    for (id item in self.shoppingCartArray)
+    {
+        CGFloat totalItemPrice = [[item chosenQuantity] floatValue] * [[item chosenPrice] floatValue];
+        cartTotal = cartTotal + totalItemPrice;
+    }
+    self.subTotalLabel.text = [NSString stringWithFormat:@"$%3.2f", cartTotal];
 }
 
 -(void)updatedQty:(NSNumber *)qty fromCell:(ShoppingCartTableViewCell *)cell
@@ -81,13 +112,12 @@
     
     // When quantity is updated, update chosenPrice.
     
-    CGFloat cartTotal = 0.0;
-    for (item in self.shoppingCartArray)
-    {
-        CGFloat totalItemPrice = [[item chosenQuantity] floatValue] * [[item chosenPrice] floatValue];
-        cartTotal = cartTotal + totalItemPrice;
-    }
-    //todo
+ 
+    [self refreshTotal];
+    
+    Cart *cart = [Cart sharedManager];
+    [cart save];
+    
 }
 
 #pragma mark - UITABLEVIEW DELEGATE METHODS
@@ -116,14 +146,16 @@
         cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
         
         CGFloat totalPrice = [testBike.chosenPrice floatValue] * [testBike.chosenQuantity floatValue];
-        cell.priceLabel.text = [NSString stringWithFormat:@"%3.2f",totalPrice];
+        
+        cell.priceLabel.text = [NSString stringWithFormat:@"$%3.2f",totalPrice];
         self.priceSummary = cell.priceLabel.text;
+        
         self.itemLineSummary = cell.productNameLabel.text;
         cell.qtyTextField.enabled = NO;
         [cell.qtyTextField setBorderStyle:UITextBorderStyleNone];
-//        Cart *save = [Cart sharedManager];
-//        [save save];
 
+        self.chosenBikePriceSubtotal = cell.priceLabel.text;
+        [self.combinedPrices addObject:self.chosenBikePriceSubtotal];
         
 
     } else if ([testShoppingItem isKindOfClass:[ChosenAccessory class]]){
@@ -136,13 +168,36 @@
         cell.colorLabel.text = testAccessory.color;
         cell.sizeLabel.text = testAccessory.chosenSize;
         CGFloat totalPrice = [testAccessory.chosenPrice floatValue] * [testAccessory.chosenQuantity floatValue];
-        cell.priceLabel.text = [NSString stringWithFormat:@"%3.2f",totalPrice];
+        cell.priceLabel.text = [NSString stringWithFormat:@"$%3.2f",totalPrice];
         self.priceSummary = cell.priceLabel.text;
         self.itemLineSummary = cell.productNameLabel.text;
-
+        
+        self.accessoryPriceSubtotal = cell.priceLabel.text;
+        
+        [self.combinedPrices addObject:self.accessoryPriceSubtotal];
+        
         [cell.rearBrakeLabel setHidden:YES];
         [cell.extraWheelsetLabel setHidden:YES];
     }
+    
+//    else if ([self.combinedPrices containsObject:self.chosenBikePriceSubtotal] && [self.combinedPrices containsObject:self.accessoryPriceSubtotal])
+//    {
+//
+//        NSString *stringValue = self.chosenBikePriceSubtotal;
+//        float value = [stringValue floatValue];
+//        
+//        NSString *stringValue2 = self.accessoryPriceSubtotal;
+//        float value2 = [stringValue2 floatValue];
+//        
+//        float value3 = value + value2;
+//        
+//        NSString *stringValue3 = [NSString stringWithFormat:@"Subtotal: $%f", value3];
+//        
+//        self.subTotalLabel.text = stringValue3;
+//        
+//        
+//    }
+//    
 
     if (self.tableView.isEditing)
     {
@@ -185,6 +240,7 @@ return YES;
         [self.shoppingCartArray removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         
+        [self refreshTotal];
         Cart *cart = [Cart sharedManager];
         [cart save];
     }
@@ -204,32 +260,6 @@ return YES;
 
 - (IBAction)onEditButtonTapped:(UIButton *)sender
 {
-    // for each item in our data array, update quanity
-//    int counter = 0;
-//    for(id item in self.shoppingCartArray){
-//    
-////         get corresponding cell in table view
-//        ShoppingCartTableViewCell *cell = (ShoppingCartTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:counter inSection:0]];
-////        cell.qtyTextField.enabled = YES;
-////        [cell.qtyTextField setBorderStyle:UITextBorderStyleRoundedRect];
-//        
-//        if([item isKindOfClass:[ChosenBike class]]){
-// 
-//            ChosenBike *bike = (ChosenBike *)item;
-//            int quantity = [cell.qtyTextField.text integerValue];
-//            bike.chosenQuantity = [NSNumber numberWithInt:quantity];
-//        
-//        }else if ([item isKindOfClass:[ChosenAccessory class]]){
-//        
-//            ChosenAccessory *accessory = (ChosenAccessory *)item;
-//            int quantity = [cell.qtyTextField.text integerValue];
-//            accessory.chosenQuantity = [NSNumber numberWithInt:quantity];
-//        
-//        }
-//    
-//        counter ++;
-//    }
-    
     self.tableView.editing = !self.tableView.isEditing;
     [self.tableView reloadData];
     
