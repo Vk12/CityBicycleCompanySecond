@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ProductViewController.h"
 #import "Stripe.h"
 #import <Parse/Parse.h>
 
@@ -32,6 +33,10 @@ NSString * const StripePublishableKey = @"pk_test_IQuLnTZduMwlnpJFVo9VLKkt";
     [application registerForRemoteNotifications];
     
     NSLog(@"didRegister for Push notifications");
+
+    //Call splash screen
+    [ProductViewController showSplashVideo];
+
     return YES;
 }
 

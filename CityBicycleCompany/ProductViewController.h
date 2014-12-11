@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductViewController : UIViewController 
+@interface ProductViewController : UIViewController
+
++(void)showSplashVideo
 
 @end

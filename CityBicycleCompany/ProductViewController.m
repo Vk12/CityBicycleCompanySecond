@@ -48,9 +48,19 @@
 @property NSArray *accessoryArray;
 @property NSArray *currentProductsArray;
 @property Cart *singleton;
+
+
 @end
 
 @implementation ProductViewController
+
++(void)showSplashVideo
+{
+    UIViewController *modalSplashVideoViewController = [[UIViewController alloc] init];
+    modalSplashVideoViewController.view = nil;
+
+    
+}
 
 - (void)viewDidLoad
 {
