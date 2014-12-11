@@ -1056,7 +1056,7 @@
                                                                 <constraint firstAttribute="height" constant="98" id="nUN-Yy-D5e"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K8-cg-WWU">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K8-cg-WWU">
                                                             <rect key="frame" x="447" y="88" width="94" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="94" id="4zy-3s-2wr"/>
