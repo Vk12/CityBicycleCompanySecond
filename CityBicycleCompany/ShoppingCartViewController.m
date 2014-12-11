@@ -32,6 +32,7 @@
 @property NSMutableArray *shoppingCartArray;
 @property NSString *priceSummary;
 @property NSString *itemLineSummary;
+@property (strong, nonatomic) IBOutlet UILabel *subTotalLabel;
 
 
 @end
@@ -77,6 +78,16 @@
     NSIndexPath *p = [self.tableView indexPathForCell:cell];
     id item = self.shoppingCartArray[p.row];
     [item setChosenQuantity:qty];
+    
+    // When quantity is updated, update chosenPrice.
+    
+    CGFloat cartTotal = 0.0;
+    for (item in self.shoppingCartArray)
+    {
+        CGFloat totalItemPrice = [[item chosenQuantity] floatValue] * [[item chosenPrice] floatValue];
+        cartTotal = cartTotal + totalItemPrice;
+    }
+    //todo
 }
 
 #pragma mark - UITABLEVIEW DELEGATE METHODS
@@ -103,7 +114,9 @@
         //TODO: not sure how to show rear brake because it's a bool
         cell.extraWheelsetLabel.text = testBike.extraSeriesWheelset;
         cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
-        cell.priceLabel.text = [testBike.chosenPrice stringValue];
+        
+        CGFloat totalPrice = [testBike.chosenPrice floatValue] * [testBike.chosenQuantity floatValue];
+        cell.priceLabel.text = [NSString stringWithFormat:@"%3.2f",totalPrice];
         self.priceSummary = cell.priceLabel.text;
         self.itemLineSummary = cell.productNameLabel.text;
         cell.qtyTextField.enabled = NO;
@@ -122,7 +135,8 @@
         cell.qtyTextField.text = [testAccessory.chosenQuantity stringValue];
         cell.colorLabel.text = testAccessory.color;
         cell.sizeLabel.text = testAccessory.chosenSize;
-        cell.priceLabel.text = [testAccessory.chosenPrice stringValue];
+        CGFloat totalPrice = [testAccessory.chosenPrice floatValue] * [testAccessory.chosenQuantity floatValue];
+        cell.priceLabel.text = [NSString stringWithFormat:@"%3.2f",totalPrice];
         self.priceSummary = cell.priceLabel.text;
         self.itemLineSummary = cell.productNameLabel.text;
 

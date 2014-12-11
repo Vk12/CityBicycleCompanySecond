@@ -62,7 +62,7 @@
     [self.wheelSetColorSegmented setSelectedSegmentIndex:0];
     self.singleton = [Cart sharedManager];
     [self.shoppingCartCounterLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
-    
+    self.classicSeriesWheelsetSegmented.selectedSegmentIndex = 0;
 }
 - (void)viewWillAppear:(BOOL)animated
 {

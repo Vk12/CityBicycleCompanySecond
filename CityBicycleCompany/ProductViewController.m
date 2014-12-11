@@ -66,7 +66,7 @@
 {
     [super viewDidLoad];
     self.singleton = [Cart sharedManager];
-    
+    [self.shoppingCartCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
     
 }
 
