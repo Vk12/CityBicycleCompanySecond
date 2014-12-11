@@ -1188,7 +1188,7 @@
                     </view>
                     <connections>
                         <outlet property="buyWithIpayButton" destination="HP9-UK-u2G" id="cin-3i-tPZ"/>
-                        <outlet property="subTotalLabel" destination="D3t-wC-sOy" id="xhS-1g-QFy"/>
+                        <outlet property="subTotalLabel" destination="D3t-wC-sOy" id="h19-rT-A5T"/>
                         <outlet property="tableView" destination="s3V-qb-gUh" id="yHm-nX-Yxh"/>
                     </connections>
                 </viewController>
