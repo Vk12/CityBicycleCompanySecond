@@ -19,6 +19,7 @@
 #import "AccessoriesViewController.h"
 #import "ChosenAccessory.h"
 #import "Cart.h"
+#define kOFFSET_FOR_KEYBOARD 80.0
 
 #if DEBUG
 #import "STPTestPaymentAuthorizationViewController.h"
@@ -26,7 +27,7 @@
 #endif
 
 
-@interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate, UITableViewDataSource, UITableViewDelegate,ShoppingCartCellDelegate>
+@interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate, UITableViewDataSource, UITableViewDelegate,ShoppingCartCellDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *shoppingCartArray;
@@ -34,10 +35,9 @@
 @property NSString *itemLineSummary;
 @property (strong, nonatomic) IBOutlet UILabel *subTotalLabel;
 @property NSString *subtotalSummary;
-
-@property NSString *chosenBikePriceSubtotal;
-@property NSMutableArray *combinedPrices;
-@property NSString *accessoryPriceSubtotal;
+@property BOOL isKeyBoardShowing;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomOfTableView;
+@property CGFloat initialBottomOfTableView;
 
 @end
 
@@ -53,22 +53,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.combinedPrices = [NSMutableArray new];
-    
-
-#if TARGET_IPHONE_SIMULATOR
-    // where are you?
-    NSLog(@"Documents Directory: %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
-#endif
-    
-//    Cart *loadCart = [Cart sharedManager];
-//    [loadCart load];
     
     Cart *test = [Cart sharedManager];
     self.shoppingCartArray = test.cartArray;
     [test load];
     
-
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
     
     [self.tableView reloadData];
     
@@ -80,7 +78,7 @@
     Cart *loadCart = [Cart sharedManager];
     [loadCart load];
     
-
+    self.initialBottomOfTableView = self.bottomOfTableView.constant;
 
     [self.tableView reloadData];
 }
@@ -88,11 +86,33 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    
+    
     [self refreshTotal];
-//    Cart *loadCart = [Cart sharedManager];
-//    [loadCart load];
 }
 
+#pragma mark - KEYBOARD HIDE
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    if (self.isKeyBoardShowing)
+    return;
+    
+    NSDictionary *userInfo = [notification userInfo];
+    
+    // get the size of the keyboard
+    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    
+    
+    self.bottomOfTableView.constant = keyboardSize.height;
+    
+}
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    self.bottomOfTableView.constant = self.initialBottomOfTableView;
+}
+
+
+#pragma mark - HELPER METHODS FOR SHOPPING CART TABLEVIEW
 -(void)refreshTotal
 {
     CGFloat cartTotal = 0.0;
@@ -153,9 +173,6 @@
         self.itemLineSummary = cell.productNameLabel.text;
         cell.qtyTextField.enabled = NO;
         [cell.qtyTextField setBorderStyle:UITextBorderStyleNone];
-
-        self.chosenBikePriceSubtotal = cell.priceLabel.text;
-        [self.combinedPrices addObject:self.chosenBikePriceSubtotal];
         
 
     } else if ([testShoppingItem isKindOfClass:[ChosenAccessory class]]){
@@ -171,33 +188,11 @@
         cell.priceLabel.text = [NSString stringWithFormat:@"$%3.2f",totalPrice];
         self.priceSummary = cell.priceLabel.text;
         self.itemLineSummary = cell.productNameLabel.text;
-        
-        self.accessoryPriceSubtotal = cell.priceLabel.text;
-        
-        [self.combinedPrices addObject:self.accessoryPriceSubtotal];
+    
         
         [cell.rearBrakeLabel setHidden:YES];
         [cell.extraWheelsetLabel setHidden:YES];
     }
-    
-//    else if ([self.combinedPrices containsObject:self.chosenBikePriceSubtotal] && [self.combinedPrices containsObject:self.accessoryPriceSubtotal])
-//    {
-//
-//        NSString *stringValue = self.chosenBikePriceSubtotal;
-//        float value = [stringValue floatValue];
-//        
-//        NSString *stringValue2 = self.accessoryPriceSubtotal;
-//        float value2 = [stringValue2 floatValue];
-//        
-//        float value3 = value + value2;
-//        
-//        NSString *stringValue3 = [NSString stringWithFormat:@"Subtotal: $%f", value3];
-//        
-//        self.subTotalLabel.text = stringValue3;
-//        
-//        
-//    }
-//    
 
     if (self.tableView.isEditing)
     {
