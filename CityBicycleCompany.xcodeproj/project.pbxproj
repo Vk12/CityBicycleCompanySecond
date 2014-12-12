@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23F47D671A3A313400CA2900 /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F47D651A3A2D7D00CA2900 /* pop.framework */; };
-		23F47D681A3A313400CA2900 /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23F47D651A3A2D7D00CA2900 /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3914E1901A2E3E4A00301DD3 /* Cart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3914E18F1A2E3E4A00301DD3 /* Cart.m */; };
 		3914E1931A2E411400301DD3 /* ChosenBike.m in Sources */ = {isa = PBXBuildFile; fileRef = 3914E1921A2E411400301DD3 /* ChosenBike.m */; };
 		3928AF341A2684A800BE9DBC /* BicycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3928AF331A2684A800BE9DBC /* BicycleViewController.m */; };
@@ -93,6 +91,8 @@
 		FB0E0B6E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB3338C41A311CA300FCE9C8 /* ShoppingCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */; };
 		FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7F27A81A2A9FDB00328CE8 /* Constants.m */; };
+		FBBD37431A3A79770006C153 /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBD37421A3A79770006C153 /* pop.framework */; };
+		FBBD37441A3A79770006C153 /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FBBD37421A3A79770006C153 /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,13 +106,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		23F47D691A3A313400CA2900 /* Embed Frameworks */ = {
+		FBBD37451A3A79770006C153 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				23F47D681A3A313400CA2900 /* pop.framework in Embed Frameworks */,
+				FBBD37441A3A79770006C153 /* pop.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +235,7 @@
 		FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingCartTableViewCell.m; path = ../ShoppingCartTableViewCell.m; sourceTree = "<group>"; };
 		FB7F27A71A2A9FDB00328CE8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FB7F27A81A2A9FDB00328CE8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		FBBD37421A3A79770006C153 /* pop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = pop.framework; path = "/Users/mayyang/Library/Developer/Xcode/DerivedData/ArchersFather-edorqmjumizawnglvruorodgxomo/Build/Products/Debug-iphoneos/pop.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,7 +251,6 @@
 				87EAEB8C1A2CF7A2002FEBB4 /* ParseUI.framework in Frameworks */,
 				396881081A26AD68001D1AE7 /* PassKit.framework in Frameworks */,
 				3928AF601A26867400BE9DBC /* Foundation.framework in Frameworks */,
-				23F47D671A3A313400CA2900 /* pop.framework in Frameworks */,
 				3928AF431A2685F500BE9DBC /* Security.framework in Frameworks */,
 				3928AF531A26863800BE9DBC /* MessageUI.framework in Frameworks */,
 				3928AF511A26863200BE9DBC /* AudioToolbox.framework in Frameworks */,
@@ -263,6 +263,7 @@
 				3928AF3F1A2685D800BE9DBC /* SystemConfiguration.framework in Frameworks */,
 				3928AF3D1A2685CD00BE9DBC /* Social.framework in Frameworks */,
 				3928AF3B1A2685C700BE9DBC /* AdSupport.framework in Frameworks */,
+				FBBD37431A3A79770006C153 /* pop.framework in Frameworks */,
 				3928AF391A2685C100BE9DBC /* Accounts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +330,7 @@
 		39DE840A1A2680D300BB47FB = {
 			isa = PBXGroup;
 			children = (
+				FBBD37421A3A79770006C153 /* pop.framework */,
 				39DE84201A2680D300BB47FB /* Main.storyboard */,
 				39DE84151A2680D300BB47FB /* CityBicycleCompany */,
 				39DE842F1A2680D300BB47FB /* CityBicycleCompanyTests */,
@@ -553,7 +555,7 @@
 				39DE840F1A2680D300BB47FB /* Sources */,
 				39DE84101A2680D300BB47FB /* Frameworks */,
 				39DE84111A2680D300BB47FB /* Resources */,
-				23F47D691A3A313400CA2900 /* Embed Frameworks */,
+				FBBD37451A3A79770006C153 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -593,7 +595,7 @@
 				TargetAttributes = {
 					39DE84121A2680D300BB47FB = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 58F4WQDE9T;
+						DevelopmentTeam = NBT9DPT8GS;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -854,6 +856,7 @@
 					"$(PROJECT_DIR)",
 					s,
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TestWorkspace-bgolumntdqngotgsnddtydxyzwgc/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ArchersFather-edorqmjumizawnglvruorodgxomo/Build/Products/Debug-iphoneos",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -867,7 +870,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-l\"c++\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d07c9a3b-6cc6-4bbe-a694-6dede0fda812";
+				PROVISIONING_PROFILE = "a7ba6224-257f-458b-89b6-c2d6babfb5ff";
 			};
 			name = Debug;
 		};
@@ -882,6 +885,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TestWorkspace-bgolumntdqngotgsnddtydxyzwgc/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ArchersFather-edorqmjumizawnglvruorodgxomo/Build/Products/Debug-iphoneos",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = STRIPE_ENABLE_APPLEPAY;
 				HEADER_SEARCH_PATHS = "";
@@ -889,13 +893,9 @@
 				INSTALL_PATH = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-l\"c++\"",
-					"$(BUILT_PRODUCTS_DIR)/libpop.a",
-					"-force_load",
-				);
+				OTHER_LDFLAGS = "-l\"c++\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d07c9a3b-6cc6-4bbe-a694-6dede0fda812";
+				PROVISIONING_PROFILE = "a7ba6224-257f-458b-89b6-c2d6babfb5ff";
 			};
 			name = Release;
 		};
