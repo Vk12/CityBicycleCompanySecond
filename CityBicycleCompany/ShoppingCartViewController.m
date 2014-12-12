@@ -121,7 +121,7 @@
         CGFloat totalItemPrice = [[item chosenQuantity] floatValue] * [[item chosenPrice] floatValue];
         cartTotal = cartTotal + totalItemPrice;
     }
-    
+    self.priceSummary =
     self.subTotalLabel.text = [NSString stringWithFormat:@"%3.2f", cartTotal];
 }
 
@@ -345,9 +345,16 @@ return YES;
     }
     else
     {
-        // Show the user your own credit card form (Stripe PaymentKit or credit card form)
+        // Put an alert view that takes you to the website.
         
-        //        PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Apple Pay not found"
+                                                        message:@"Please register for Apple Pay on this device."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+        // Show the user your own credit card form (Stripe PaymentKit or credit card form)
         
     }
     
