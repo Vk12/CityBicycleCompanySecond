@@ -121,7 +121,7 @@
         CGFloat totalItemPrice = [[item chosenQuantity] floatValue] * [[item chosenPrice] floatValue];
         cartTotal = cartTotal + totalItemPrice;
     }
-    self.subTotalLabel.text = [NSString stringWithFormat:@"$%3.2f", cartTotal];
+    self.subTotalLabel.text = [NSString stringWithFormat:@"%3.2f", cartTotal];
 }
 
 -(void)updatedQty:(NSNumber *)qty fromCell:(ShoppingCartTableViewCell *)cell
@@ -176,7 +176,7 @@
         
         CGFloat totalPrice = [testBike.chosenPrice floatValue] * [testBike.chosenQuantity floatValue];
         
-        cell.priceLabel.text = [NSString stringWithFormat:@"$%3.2f",totalPrice];
+        cell.priceLabel.text = [NSString stringWithFormat:@"%3.2f",totalPrice];
         self.priceSummary = cell.priceLabel.text;
         
         self.itemLineSummary = cell.productNameLabel.text;
@@ -308,16 +308,11 @@ return YES;
     
     // Set the paymentSummaryItems to a NSArray of PKPaymentSummaryItems.  These are analogous to line items on a receipt.
     NSString *label = @"City Bicycle Co.";
-    NSString *paymentSummary = self.priceSummary;
+    NSString *paymentSummary = self.subTotalLabel.text;
     
     NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:paymentSummary];
     
-    NSString *test = @"10";
-    NSDecimalNumber *test2 = [NSDecimalNumber decimalNumberWithString:test];
-    
-    //    request.paymentSummaryItems = @[[self summaryItemsForShippingMethod]];
-//    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:@"llama" amount:]];
-    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:label amount:test2]];
+    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:label amount:number]];
 
     
     // Query to check if ApplePay is available for the phone user.
