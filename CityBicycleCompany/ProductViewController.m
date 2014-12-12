@@ -137,6 +137,7 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:@"cartChanged" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         self.singleton = [Cart sharedManager];
         [self.shoppingCartCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
+        [self upDateCartColorCounter];
     }];
 }
 
@@ -147,7 +148,12 @@
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"cartChanged" object:nil];
 }
-
+- (void)upDateCartColorCounter
+{
+    if (self.singleton.cartArray.count > 0) {
+        self.shoppingCartCounter.textColor = [UIColor redColor];
+    }
+}
 #pragma mark - UIViewControllerTransitioningDelegate
 //
 //- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source

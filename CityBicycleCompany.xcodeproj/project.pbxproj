@@ -25,6 +25,7 @@
 		3928AF511A26863200BE9DBC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3928AF501A26863200BE9DBC /* AudioToolbox.framework */; };
 		3928AF531A26863800BE9DBC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3928AF521A26863800BE9DBC /* MessageUI.framework */; };
 		3928AF601A26867400BE9DBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3928AF5F1A26867400BE9DBC /* Foundation.framework */; };
+		395F9E3E1A3AD36E00641FB1 /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395F9E3D1A3AD36E00641FB1 /* PrivacyPolicyViewController.m */; };
 		396881081A26AD68001D1AE7 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396881071A26AD68001D1AE7 /* PassKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		39C528C31A2684700018C017 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C528C21A2684700018C017 /* ProfileViewController.m */; };
 		39CA90631A2CD92D001FD52F /* ProductCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CA90621A2CD92D001FD52F /* ProductCollectionViewCell.m */; };
@@ -126,6 +127,8 @@
 		3928AF521A26863800BE9DBC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3928AF5F1A26867400BE9DBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3928AF621A269DC100BE9DBC /* CityBicycleCompany.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CityBicycleCompany.entitlements; sourceTree = "<group>"; };
+		395F9E3C1A3AD36E00641FB1 /* PrivacyPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyViewController.h; sourceTree = "<group>"; };
+		395F9E3D1A3AD36E00641FB1 /* PrivacyPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyViewController.m; sourceTree = "<group>"; };
 		396881071A26AD68001D1AE7 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		39C528C11A2684700018C017 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		39C528C21A2684700018C017 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
@@ -402,6 +405,8 @@
 				FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */,
 				87BB30E91A315D0C00462501 /* AccessoryCartTableViewCell.h */,
 				87BB30EA1A315D0C00462501 /* AccessoryCartTableViewCell.m */,
+				395F9E3C1A3AD36E00641FB1 /* PrivacyPolicyViewController.h */,
+				395F9E3D1A3AD36E00641FB1 /* PrivacyPolicyViewController.m */,
 				8758D6F51A3626F700172026 /* ModalVCForAnimation */,
 			);
 			name = "View Controllers";
@@ -685,6 +690,7 @@
 				39CA90701A2D1FB5001FD52F /* Bicycle.m in Sources */,
 				3914E1931A2E411400301DD3 /* ChosenBike.m in Sources */,
 				FB0E0B631A2943EB0053F9D1 /* STPTestCardStore.m in Sources */,
+				395F9E3E1A3AD36E00641FB1 /* PrivacyPolicyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
