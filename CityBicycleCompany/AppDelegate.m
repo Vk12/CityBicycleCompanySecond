@@ -14,7 +14,7 @@
 @interface AppDelegate ()
 
 @end
-NSString * const StripePublishableKey = @"pk_test_IQuLnTZduMwlnpJFVo9VLKkt";
+NSString * const StripePublishableKey = @"pk_live_jdLUuUSwbsYw2exOCHsaxMbU";
 @implementation AppDelegate
 
 

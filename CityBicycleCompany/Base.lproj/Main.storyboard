@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gg1-cF-bDY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gg1-cF-bDY">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Unknown constraint types" minToolsVersion="5.1"/>
     </dependencies>
@@ -156,14 +156,14 @@
                                     <outlet property="delegate" destination="gg1-cF-bDY" id="Bi9-s0-NkY"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9e-Wk-aXj">
-                                <rect key="frame" x="16" y="28" width="30" height="30"/>
+                            <button opaque="NO" alpha="0.75" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9e-Wk-aXj">
+                                <rect key="frame" x="16" y="28" width="30" height="27"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="1WL-NG-Y6q"/>
-                                    <constraint firstAttribute="height" constant="30" id="h1X-da-I4o"/>
+                                    <constraint firstAttribute="width" constant="30" id="MEN-xn-87M"/>
                                     <constraint firstAttribute="width" constant="47" id="mV8-Xd-ne7"/>
+                                    <constraint firstAttribute="height" constant="27" id="wjC-4r-l1T"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="gear">
+                                <state key="normal" backgroundImage="gear">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -180,17 +180,6 @@
                                     <action selector="profileButtonTapped:" destination="gg1-cF-bDY" eventType="touchUpInside" id="0bI-tE-GWp"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vbl-cj-YPP">
-                                <rect key="frame" x="8" y="66" width="584" height="29"/>
-                                <segments>
-                                    <segment title="Bicycle"/>
-                                    <segment title="Accessory"/>
-                                </segments>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="onSegmentControlPressed:" destination="gg1-cF-bDY" eventType="valueChanged" id="8Kr-9P-HpL"/>
-                                </connections>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWJ-fl-dKf">
                                 <rect key="frame" x="550" y="34" width="44" height="21"/>
                                 <constraints>
@@ -208,6 +197,17 @@
                                     <constraint firstAttribute="width" constant="339" id="ziD-k1-MTD"/>
                                 </constraints>
                             </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vbl-cj-YPP">
+                                <rect key="frame" x="8" y="66" width="584" height="29"/>
+                                <segments>
+                                    <segment title="Bicycle"/>
+                                    <segment title="Accessory"/>
+                                </segments>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="onSegmentControlPressed:" destination="gg1-cF-bDY" eventType="valueChanged" id="8Kr-9P-HpL"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -215,11 +215,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Vbl-cj-YPP" secondAttribute="trailing" constant="-8" id="8Qc-85-m1E"/>
                             <constraint firstItem="tQ1-Ny-dag" firstAttribute="trailing" secondItem="clu-5o-LE5" secondAttribute="trailingMargin" id="A7t-M0-YgH"/>
                             <constraint firstItem="tQ1-Ny-dag" firstAttribute="top" secondItem="GRG-Mb-nt7" secondAttribute="bottom" constant="13" id="ATI-xS-p7U"/>
+                            <constraint firstItem="Vbl-cj-YPP" firstAttribute="top" secondItem="GRG-Mb-nt7" secondAttribute="bottom" constant="46" id="Aba-Eg-PDB"/>
                             <constraint firstItem="Ifb-H9-avf" firstAttribute="leading" secondItem="e9e-Wk-aXj" secondAttribute="trailing" constant="7" id="Bm0-dF-ZZf"/>
-                            <constraint firstItem="Vbl-cj-YPP" firstAttribute="top" secondItem="e9e-Wk-aXj" secondAttribute="bottom" constant="8" id="Cad-p2-03N"/>
-                            <constraint firstItem="e9e-Wk-aXj" firstAttribute="leading" secondItem="clu-5o-LE5" secondAttribute="leadingMargin" id="FNm-oV-co9"/>
                             <constraint firstItem="Ifb-H9-avf" firstAttribute="top" secondItem="GRG-Mb-nt7" secondAttribute="bottom" id="GQ4-DV-fE7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c0A-Qt-nbT" secondAttribute="trailing" constant="-16" id="H6N-Xl-WWo"/>
+                            <constraint firstItem="e9e-Wk-aXj" firstAttribute="leading" secondItem="clu-5o-LE5" secondAttribute="leadingMargin" id="KVj-ad-59y"/>
                             <constraint firstItem="c0A-Qt-nbT" firstAttribute="top" secondItem="Vbl-cj-YPP" secondAttribute="bottom" constant="8" id="Kji-RY-EWB"/>
                             <constraint firstItem="Phk-4L-9a2" firstAttribute="top" secondItem="c0A-Qt-nbT" secondAttribute="bottom" id="LZT-rd-3Ar"/>
                             <constraint firstItem="c0A-Qt-nbT" firstAttribute="leading" secondItem="clu-5o-LE5" secondAttribute="leadingMargin" constant="-16" id="OfW-m3-en4"/>
@@ -231,10 +231,10 @@
                             <constraint firstItem="e9e-Wk-aXj" firstAttribute="top" secondItem="GRG-Mb-nt7" secondAttribute="bottom" constant="7" id="daz-1A-TXU"/>
                             <constraint firstItem="c0A-Qt-nbT" firstAttribute="leading" secondItem="clu-5o-LE5" secondAttribute="leadingMargin" constant="-16" id="gg4-ue-2re"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c0A-Qt-nbT" secondAttribute="trailing" constant="-16" id="ghr-6d-mUe"/>
-                            <constraint firstItem="e9e-Wk-aXj" firstAttribute="top" secondItem="GRG-Mb-nt7" secondAttribute="bottom" constant="8" id="iKW-Qr-JmQ"/>
                             <constraint firstItem="tQ1-Ny-dag" firstAttribute="trailing" secondItem="clu-5o-LE5" secondAttribute="trailingMargin" id="jp2-1w-hix"/>
                             <constraint firstItem="c0A-Qt-nbT" firstAttribute="leading" secondItem="clu-5o-LE5" secondAttribute="leading" id="kah-vZ-rq6"/>
                             <constraint firstItem="tQ1-Ny-dag" firstAttribute="leading" secondItem="Ifb-H9-avf" secondAttribute="trailing" constant="2" id="mGE-AT-yr5"/>
+                            <constraint firstItem="e9e-Wk-aXj" firstAttribute="top" secondItem="GRG-Mb-nt7" secondAttribute="bottom" constant="8" id="oV5-Ow-aLb"/>
                             <constraint firstItem="c0A-Qt-nbT" firstAttribute="top" secondItem="Ifb-H9-avf" secondAttribute="bottom" constant="58" id="qeR-Bl-YsB"/>
                             <constraint firstItem="KWJ-fl-dKf" firstAttribute="top" secondItem="GRG-Mb-nt7" secondAttribute="bottom" constant="14" id="tHY-H2-FJ8"/>
                             <constraint firstItem="c0A-Qt-nbT" firstAttribute="bottom" secondItem="Phk-4L-9a2" secondAttribute="top" id="w68-qD-Ksw"/>
@@ -1043,19 +1043,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsB-cM-Pfr">
                                 <rect key="frame" x="16" y="82" width="568" height="498"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HP9-UK-u2G">
-                                        <rect key="frame" x="187" y="438" width="195" height="52"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="HeX-Ef-qTY"/>
-                                            <constraint firstAttribute="width" constant="195" id="SgP-vi-xDL"/>
-                                        </constraints>
-                                        <state key="normal" image="ApplePay2">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onPayButtonTapped:" destination="jhQ-nE-lgy" eventType="touchUpInside" id="D0x-Uh-Cuz"/>
-                                        </connections>
-                                    </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="97" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="s3V-qb-gUh">
                                         <rect key="frame" x="8" y="28" width="552" height="401"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1149,11 +1136,24 @@
                                             <outlet property="delegate" destination="jhQ-nE-lgy" id="ofk-Ha-mA5"/>
                                         </connections>
                                     </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HP9-UK-u2G">
+                                        <rect key="frame" x="187" y="424" width="195" height="79"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="79" id="HeX-Ef-qTY"/>
+                                            <constraint firstAttribute="width" constant="195" id="SgP-vi-xDL"/>
+                                        </constraints>
+                                        <state key="normal" image="ApplePay2">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onPayButtonTapped:" destination="jhQ-nE-lgy" eventType="touchUpInside" id="D0x-Uh-Cuz"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="s3V-qb-gUh" secondAttribute="trailing" constant="8" id="29e-Xs-lQN"/>
-                                    <constraint firstItem="HP9-UK-u2G" firstAttribute="top" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="8" id="AK0-oJ-EYC"/>
+                                    <constraint firstItem="HP9-UK-u2G" firstAttribute="top" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="-5" id="AK0-oJ-EYC"/>
                                     <constraint firstItem="s3V-qb-gUh" firstAttribute="leading" secondItem="bsB-cM-Pfr" secondAttribute="leading" constant="8" id="F32-9r-2Nm"/>
                                     <constraint firstAttribute="bottom" secondItem="HP9-UK-u2G" secondAttribute="bottom" constant="8" id="Hvb-NZ-sbb"/>
                                     <constraint firstAttribute="centerX" secondItem="HP9-UK-u2G" secondAttribute="centerX" id="ZKO-Wl-DnI"/>
@@ -1431,11 +1431,11 @@ City Bicycle Company
                                                 <rect key="frame" x="0.0" y="375" width="568" height="492"/>
                                                 <subviews>
                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="S0m-5x-IOx">
-                                                        <rect key="frame" x="119" y="72" width="331" height="29"/>
+                                                        <rect key="frame" x="150" y="72" width="270" height="29"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="54O-6A-j77"/>
-                                                            <constraint firstAttribute="width" constant="331" id="vda-WL-vdc"/>
+                                                            <constraint firstAttribute="width" constant="270" id="vda-WL-vdc"/>
                                                         </constraints>
                                                         <segments>
                                                             <segment title="Black"/>
@@ -1446,10 +1446,11 @@ City Bicycle Company
                                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </segmentedControl>
                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Bxf-zH-k90">
-                                                        <rect key="frame" x="17" y="177" width="534" height="29"/>
+                                                        <rect key="frame" x="150" y="177" width="270" height="29"/>
                                                         <color key="backgroundColor" red="0.99877683080000002" green="0.99877683080000002" blue="0.99877683080000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="386" id="XIQ-IJ-cXK"/>
+                                                            <constraint firstAttribute="width" constant="270" id="ckJ-Py-rEq"/>
                                                         </constraints>
                                                         <segments>
                                                             <segment title="50cm (5'2&quot; = 5'6&quot;)"/>
@@ -1525,14 +1526,12 @@ City Bicycle Company
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="PqH-7W-qlS" secondAttribute="trailing" constant="222" id="09j-eW-bvZ"/>
                                                     <constraint firstItem="bK0-aB-qwn" firstAttribute="leading" secondItem="0Xb-oP-XGz" secondAttribute="leading" constant="214" id="4lY-qG-a3R"/>
-                                                    <constraint firstItem="Bxf-zH-k90" firstAttribute="leading" secondItem="0Xb-oP-XGz" secondAttribute="leading" constant="17" id="70w-fy-e9R"/>
                                                     <constraint firstAttribute="trailing" secondItem="PqH-7W-qlS" secondAttribute="trailing" constant="222" id="7Ep-gM-qKL"/>
-                                                    <constraint firstAttribute="centerX" secondItem="S0m-5x-IOx" secondAttribute="centerX" id="A8C-sq-Jaa"/>
-                                                    <constraint firstAttribute="centerX" secondItem="Bxf-zH-k90" secondAttribute="centerX" id="ARB-nm-Pcw"/>
+                                                    <constraint firstAttribute="centerX" secondItem="S0m-5x-IOx" secondAttribute="centerX" constant="-1" id="A8C-sq-Jaa"/>
+                                                    <constraint firstAttribute="centerX" secondItem="Bxf-zH-k90" secondAttribute="centerX" constant="-1" id="ARB-nm-Pcw"/>
                                                     <constraint firstItem="jgo-nO-CWr" firstAttribute="top" secondItem="0Xb-oP-XGz" secondAttribute="top" constant="249" id="CUV-U4-CCI"/>
                                                     <constraint firstItem="APD-6D-dch" firstAttribute="top" secondItem="0Xb-oP-XGz" secondAttribute="top" constant="148" id="DqC-WL-V6z"/>
                                                     <constraint firstAttribute="centerX" secondItem="Vhx-zQ-aqe" secondAttribute="centerX" id="JFo-Y5-KCN"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Bxf-zH-k90" secondAttribute="trailing" constant="17" id="Kl8-WR-iMu"/>
                                                     <constraint firstAttribute="width" constant="568" id="Pmn-YO-tiH"/>
                                                     <constraint firstAttribute="height" constant="492" id="Pzw-wK-abI"/>
                                                     <constraint firstAttribute="bottom" secondItem="bK0-aB-qwn" secondAttribute="bottom" constant="191" id="g0f-8k-lAg"/>

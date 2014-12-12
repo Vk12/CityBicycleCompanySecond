@@ -451,24 +451,7 @@ return YES;
                                 }];
     
     
-    //    NSURL *url = [NSURL URLWithString:@"https://example.com/token"];
-    //    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    //    request.HTTPMethod = @"POST";
-    //    NSString *body     = [NSString stringWithFormat:@"stripeToken=%@", token.tokenId];
-    //    request.HTTPBody   = [body dataUsingEncoding:NSUTF8StringEncoding];
-    //
-    //    [NSURLConnection sendAsynchronousRequest:request
-    //                                       queue:[NSOperationQueue mainQueue]
-    //                           completionHandler:^(NSURLResponse *response,
-    //                                               NSData *data,
-    //                                               NSError *error) {
-    //                               if (error) {
-    //                                   completion(PKPaymentAuthorizationStatusFailure);
-    //                               } else {
-    //                                   completion(PKPaymentAuthorizationStatusSuccess);
-    //                               }
-    //                           }];
-}
+    }
 
 
 @end
