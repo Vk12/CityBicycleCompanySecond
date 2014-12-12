@@ -288,7 +288,8 @@
         }];
         if (self.accessoryFromParse.isOnSale == YES)
         {
-            cell.originalPriceLabel.hidden = YES;
+            cell.originalPriceLabel.text = @"SALE";
+            cell.originalPriceLabel.textColor = [UIColor colorWithRed:(255.0/255.0) green:(51.0/255) blue:(51.0/255) alpha:1];;
             [cell.salePriceLabel setText:[NSString stringWithFormat:@"%@",self.accessoryFromParse.salePrice]];
         }
         else
