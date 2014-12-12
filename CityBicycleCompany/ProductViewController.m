@@ -25,12 +25,12 @@
 
 //Frameworks
 #import <Parse/Parse.h>
-#import <pop/POP.h>
+//#import <pop/POP.h>
 #import "Cart.h"
 
-//Animations
-#import "PresentingAnimator.h"
-#import "DismissingAnimator.h"
+////Animations
+//#import "PresentingAnimator.h"
+//#import "DismissingAnimator.h"
 #import "ModalViewController.h"
 
 //Media
@@ -149,17 +149,17 @@
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
-{
-    return [PresentingAnimator new];
-
-}
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
-{
-    return  [DismissingAnimator new];
-}
+//
+//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+//{
+//    return [PresentingAnimator new];
+//
+//}
+//
+//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+//{
+//    return  [DismissingAnimator new];
+//}
 
 
 #pragma mark - Private Instance methods
@@ -364,8 +364,8 @@
 
     ProfileViewController *vc = [ProfileViewController newFromStoryboard];
 
-    vc.transitioningDelegate = self;
-    vc.modalPresentationStyle = UIModalPresentationCustom;
+//    vc.transitioningDelegate = self;
+//    vc.modalPresentationStyle = UIModalPresentationCustom;
 
     [self presentViewController:vc
                        animated:YES

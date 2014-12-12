@@ -40,8 +40,6 @@
 		39DE84331A2680D300BB47FB /* CityBicycleCompanyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE84321A2680D300BB47FB /* CityBicycleCompanyTests.m */; };
 		39DE843E1A26835500BB47FB /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE843D1A26835500BB47FB /* ProductViewController.m */; };
 		39DE84411A2683AF00BB47FB /* AccessoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE84401A2683AF00BB47FB /* AccessoriesViewController.m */; };
-		8758D6EB1A3624B000172026 /* DismissingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8758D6EA1A3624B000172026 /* DismissingAnimator.m */; };
-		8758D6EF1A3624CE00172026 /* PresentingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8758D6EE1A3624CE00172026 /* PresentingAnimator.m */; };
 		8758D6F41A3626E900172026 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8758D6F31A3626E900172026 /* ModalViewController.m */; };
 		8758D6F71A362A2700172026 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8758D6F61A362A2700172026 /* UIKit.framework */; };
 		8758D6FA1A362ED900172026 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8758D6F91A362ED900172026 /* UIColor+CustomColors.m */; };
@@ -91,8 +89,6 @@
 		FB0E0B6E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB3338C41A311CA300FCE9C8 /* ShoppingCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */; };
 		FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7F27A81A2A9FDB00328CE8 /* Constants.m */; };
-		FBBD37431A3A79770006C153 /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBD37421A3A79770006C153 /* pop.framework */; };
-		FBBD37441A3A79770006C153 /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FBBD37421A3A79770006C153 /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,20 +100,6 @@
 			remoteInfo = CityBicycleCompany;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		FBBD37451A3A79770006C153 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				FBBD37441A3A79770006C153 /* pop.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		23F47D651A3A2D7D00CA2900 /* pop.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = pop.framework; path = "../../../Library/Developer/Xcode/DerivedData/TestWorkspace-bgolumntdqngotgsnddtydxyzwgc/Build/Products/Debug-iphoneos/pop.framework"; sourceTree = "<group>"; };
@@ -235,7 +217,6 @@
 		FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingCartTableViewCell.m; path = ../ShoppingCartTableViewCell.m; sourceTree = "<group>"; };
 		FB7F27A71A2A9FDB00328CE8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FB7F27A81A2A9FDB00328CE8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		FBBD37421A3A79770006C153 /* pop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = pop.framework; path = "/Users/mayyang/Library/Developer/Xcode/DerivedData/ArchersFather-edorqmjumizawnglvruorodgxomo/Build/Products/Debug-iphoneos/pop.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,7 +244,6 @@
 				3928AF3F1A2685D800BE9DBC /* SystemConfiguration.framework in Frameworks */,
 				3928AF3D1A2685CD00BE9DBC /* Social.framework in Frameworks */,
 				3928AF3B1A2685C700BE9DBC /* AdSupport.framework in Frameworks */,
-				FBBD37431A3A79770006C153 /* pop.framework in Frameworks */,
 				3928AF391A2685C100BE9DBC /* Accounts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,7 +310,6 @@
 		39DE840A1A2680D300BB47FB = {
 			isa = PBXGroup;
 			children = (
-				FBBD37421A3A79770006C153 /* pop.framework */,
 				39DE84201A2680D300BB47FB /* Main.storyboard */,
 				39DE84151A2680D300BB47FB /* CityBicycleCompany */,
 				39DE842F1A2680D300BB47FB /* CityBicycleCompanyTests */,
@@ -555,7 +534,6 @@
 				39DE840F1A2680D300BB47FB /* Sources */,
 				39DE84101A2680D300BB47FB /* Frameworks */,
 				39DE84111A2680D300BB47FB /* Resources */,
-				FBBD37451A3A79770006C153 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -673,7 +651,6 @@
 			files = (
 				39CA90731A2D21F7001FD52F /* Photo.m in Sources */,
 				39CA90671A2CE3BE001FD52F /* BicycleCollectionViewCell.m in Sources */,
-				8758D6EF1A3624CE00172026 /* PresentingAnimator.m in Sources */,
 				39DE841C1A2680D300BB47FB /* AppDelegate.m in Sources */,
 				39DE84411A2683AF00BB47FB /* AccessoriesViewController.m in Sources */,
 				FB0E0B3E1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */,
@@ -693,7 +670,6 @@
 				39CA906D1A2D1E2B001FD52F /* Accessory.m in Sources */,
 				87EAEB981A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m in Sources */,
 				3914E1901A2E3E4A00301DD3 /* Cart.m in Sources */,
-				8758D6EB1A3624B000172026 /* DismissingAnimator.m in Sources */,
 				FB0E0B5F1A2943EB0053F9D1 /* PKPayment+STPTestKeys.m in Sources */,
 				FB0E0B671A2943EB0053F9D1 /* STPTestPaymentAuthorizationViewController.m in Sources */,
 				39CA90631A2CD92D001FD52F /* ProductCollectionViewCell.m in Sources */,

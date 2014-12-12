@@ -10,7 +10,7 @@
 #import <MessageUI/MessageUI.h> 
 #import <MessageUI/MFMailComposeViewController.h>
 #import <Parse/Parse.h>
-#import <pop/POP.h>
+//#import <pop/POP.h>
 
 @interface ProfileViewController ()<MFMailComposeViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *profileName;
