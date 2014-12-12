@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23F47D671A3A313400CA2900 /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F47D651A3A2D7D00CA2900 /* pop.framework */; };
+		23F47D681A3A313400CA2900 /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23F47D651A3A2D7D00CA2900 /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3914E1901A2E3E4A00301DD3 /* Cart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3914E18F1A2E3E4A00301DD3 /* Cart.m */; };
 		3914E1931A2E411400301DD3 /* ChosenBike.m in Sources */ = {isa = PBXBuildFile; fileRef = 3914E1921A2E411400301DD3 /* ChosenBike.m */; };
 		3928AF341A2684A800BE9DBC /* BicycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3928AF331A2684A800BE9DBC /* BicycleViewController.m */; };
@@ -57,7 +59,6 @@
 		87EAEB8C1A2CF7A2002FEBB4 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EAEB881A2CF7A2002FEBB4 /* ParseUI.framework */; };
 		87EAEB951A2F9713002FEBB4 /* ChosenAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EAEB941A2F9713002FEBB4 /* ChosenAccessory.m */; };
 		87EAEB981A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EAEB971A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m */; };
-		E982619AA94CD9B7D9F3B91D /* libPods-CityBicycleCompany.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4819A1A3D38F9FD804BD2F /* libPods-CityBicycleCompany.a */; };
 		FB0E0B3E1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B2C1A293EB50053F9D1 /* Stripe+ApplePay.m */; };
 		FB0E0B3F1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B2C1A293EB50053F9D1 /* Stripe+ApplePay.m */; };
 		FB0E0B401A293EB50053F9D1 /* STPAPIConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B2E1A293EB50053F9D1 /* STPAPIConnection.m */; };
@@ -92,7 +93,6 @@
 		FB0E0B6E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB3338C41A311CA300FCE9C8 /* ShoppingCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */; };
 		FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7F27A81A2A9FDB00328CE8 /* Constants.m */; };
-		FBCF66AE1A2D1D5F006487DD /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +105,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		23F47D691A3A313400CA2900 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				23F47D681A3A313400CA2900 /* pop.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		23F47D651A3A2D7D00CA2900 /* pop.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = pop.framework; path = "../../../Library/Developer/Xcode/DerivedData/TestWorkspace-bgolumntdqngotgsnddtydxyzwgc/Build/Products/Debug-iphoneos/pop.framework"; sourceTree = "<group>"; };
 		3914E18E1A2E3E4A00301DD3 /* Cart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cart.h; sourceTree = "<group>"; };
 		3914E18F1A2E3E4A00301DD3 /* Cart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cart.m; sourceTree = "<group>"; };
 		3914E1911A2E411400301DD3 /* ChosenBike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChosenBike.h; sourceTree = "<group>"; };
@@ -157,7 +172,6 @@
 		39DE843D1A26835500BB47FB /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
 		39DE843F1A2683AF00BB47FB /* AccessoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoriesViewController.h; sourceTree = "<group>"; };
 		39DE84401A2683AF00BB47FB /* AccessoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoriesViewController.m; sourceTree = "<group>"; };
-		7C3385CE7AD27122E6DDBED5 /* Pods-CityBicycleCompany.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityBicycleCompany.release.xcconfig"; path = "Pods/Target Support Files/Pods-CityBicycleCompany/Pods-CityBicycleCompany.release.xcconfig"; sourceTree = "<group>"; };
 		8758D6E91A3624B000172026 /* DismissingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissingAnimator.h; sourceTree = "<group>"; };
 		8758D6EA1A3624B000172026 /* DismissingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissingAnimator.m; sourceTree = "<group>"; };
 		8758D6ED1A3624CE00172026 /* PresentingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentingAnimator.h; sourceTree = "<group>"; };
@@ -182,7 +196,6 @@
 		87EAEB941A2F9713002FEBB4 /* ChosenAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChosenAccessory.m; sourceTree = "<group>"; };
 		87EAEB961A2FC4AC002FEBB4 /* AccessoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryCollectionViewCell.h; sourceTree = "<group>"; };
 		87EAEB971A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryCollectionViewCell.m; sourceTree = "<group>"; };
-		B3B78D10A93EDB324FCB080F /* Pods-CityBicycleCompany.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityBicycleCompany.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CityBicycleCompany/Pods-CityBicycleCompany.debug.xcconfig"; sourceTree = "<group>"; };
 		DC4819A1A3D38F9FD804BD2F /* libPods-CityBicycleCompany.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CityBicycleCompany.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB0E0B2B1A293EB50053F9D1 /* Stripe+ApplePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Stripe+ApplePay.h"; sourceTree = "<group>"; };
 		FB0E0B2C1A293EB50053F9D1 /* Stripe+ApplePay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Stripe+ApplePay.m"; sourceTree = "<group>"; };
@@ -237,6 +250,7 @@
 				87EAEB8C1A2CF7A2002FEBB4 /* ParseUI.framework in Frameworks */,
 				396881081A26AD68001D1AE7 /* PassKit.framework in Frameworks */,
 				3928AF601A26867400BE9DBC /* Foundation.framework in Frameworks */,
+				23F47D671A3A313400CA2900 /* pop.framework in Frameworks */,
 				3928AF431A2685F500BE9DBC /* Security.framework in Frameworks */,
 				3928AF531A26863800BE9DBC /* MessageUI.framework in Frameworks */,
 				3928AF511A26863200BE9DBC /* AudioToolbox.framework in Frameworks */,
@@ -250,7 +264,6 @@
 				3928AF3D1A2685CD00BE9DBC /* Social.framework in Frameworks */,
 				3928AF3B1A2685C700BE9DBC /* AdSupport.framework in Frameworks */,
 				3928AF391A2685C100BE9DBC /* Accounts.framework in Frameworks */,
-				E982619AA94CD9B7D9F3B91D /* libPods-CityBicycleCompany.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				87AE3F2B1A3930DE007813CB /* MediaPlayer.framework */,
+				23F47D651A3A2D7D00CA2900 /* pop.framework */,
 				8758D6F61A362A2700172026 /* UIKit.framework */,
 				87EAEB851A2CF7A2002FEBB4 /* Bolts.framework */,
 				87EAEB861A2CF7A2002FEBB4 /* Parse.framework */,
@@ -460,8 +474,6 @@
 		DFA87A5C7FC8F2086505DFE8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B3B78D10A93EDB324FCB080F /* Pods-CityBicycleCompany.debug.xcconfig */,
-				7C3385CE7AD27122E6DDBED5 /* Pods-CityBicycleCompany.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -538,11 +550,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39DE84361A2680D300BB47FB /* Build configuration list for PBXNativeTarget "CityBicycleCompany" */;
 			buildPhases = (
-				C490F62FE83CF778C79EE3C7 /* Check Pods Manifest.lock */,
 				39DE840F1A2680D300BB47FB /* Sources */,
 				39DE84101A2680D300BB47FB /* Frameworks */,
 				39DE84111A2680D300BB47FB /* Resources */,
-				E7645FE84448E84572865864 /* Copy Pods Resources */,
+				23F47D691A3A313400CA2900 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -582,7 +593,7 @@
 				TargetAttributes = {
 					39DE84121A2680D300BB47FB = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = NBT9DPT8GS;
+						DevelopmentTeam = 58F4WQDE9T;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -603,7 +614,7 @@
 					};
 					39DE842B1A2680D300BB47FB = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = E2V48AYLA7;
+						DevelopmentTeam = 58F4WQDE9T;
 						TestTargetID = 39DE84121A2680D300BB47FB;
 					};
 				};
@@ -653,39 +664,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		C490F62FE83CF778C79EE3C7 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		E7645FE84448E84572865864 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CityBicycleCompany/Pods-CityBicycleCompany-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		39DE840F1A2680D300BB47FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -699,7 +677,6 @@
 				FB0E0B3E1A293EB50053F9D1 /* Stripe+ApplePay.m in Sources */,
 				FB0E0B691A2943EB0053F9D1 /* STPTestPaymentSummaryViewController.m in Sources */,
 				FB0E0B611A2943EB0053F9D1 /* STPTestAddressStore.m in Sources */,
-				FBCF66AE1A2D1D5F006487DD /* (null) in Sources */,
 				FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */,
 				3928AF341A2684A800BE9DBC /* BicycleViewController.m in Sources */,
 				39DE843E1A26835500BB47FB /* ProductViewController.m in Sources */,
@@ -867,7 +844,6 @@
 		};
 		39DE84371A2680D300BB47FB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3B78D10A93EDB324FCB080F /* Pods-CityBicycleCompany.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CityBicycleCompany/CityBicycleCompany.entitlements;
@@ -875,22 +851,21 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/stripe-ios-master",
 					"$(PROJECT_DIR)",
 					s,
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TestWorkspace-bgolumntdqngotgsnddtydxyzwgc/Build/Products/Debug-iphoneos",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 					STRIPE_ENABLE_APPLEPAY,
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = CityBicycleCompany/Info.plist;
+				INSTALL_PATH = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-l\"Pods-CityBicycleCompany-pop\"",
-					"-l\"c++\"",
-				);
+				OTHER_LDFLAGS = "-l\"c++\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d07c9a3b-6cc6-4bbe-a694-6dede0fda812";
 			};
@@ -898,7 +873,6 @@
 		};
 		39DE84381A2680D300BB47FB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C3385CE7AD27122E6DDBED5 /* Pods-CityBicycleCompany.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CityBicycleCompany/CityBicycleCompany.entitlements;
@@ -906,15 +880,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/stripe-ios-master",
 					"$(PROJECT_DIR)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TestWorkspace-bgolumntdqngotgsnddtydxyzwgc/Build/Products/Debug-iphoneos",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = STRIPE_ENABLE_APPLEPAY;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = CityBicycleCompany/Info.plist;
+				INSTALL_PATH = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
-					"-l\"Pods-CityBicycleCompany-pop\"",
 					"-l\"c++\"",
 					"$(BUILT_PRODUCTS_DIR)/libpop.a",
 					"-force_load",
