@@ -170,8 +170,16 @@
             [cell.rearBrakeLabel setHidden:YES];
         }
         
+        if ([testBike.extraSeriesWheelset  isEqual: @"None"])
+        {
+            [cell.extraWheelsetLabel setHidden:YES];
+        }
+        else
+        {
+            cell.extraWheelsetLabel.text = [NSString stringWithFormat:@"%@ wheelset: $80", testBike.extraSeriesWheelset];
+
+        }
         
-        cell.extraWheelsetLabel.text = testBike.extraSeriesWheelset;
         cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
         
         CGFloat totalPrice = [testBike.chosenPrice floatValue] * [testBike.chosenQuantity floatValue];
