@@ -71,7 +71,7 @@
     if (![[[NSUserDefaults standardUserDefaults] objectForKey:kSplashVideoPlayed] boolValue]) {
 
         CGFloat screenSize = [[UIApplication sharedApplication] keyWindow].frame.size.height;
-        NSString *filename;
+        NSString *filename = @"videoSplashSixPlus.mp4";
 
 
         if (screenSize == 480) {
@@ -80,16 +80,19 @@
         }
         else if (screenSize == 568)
         {
-            filename = @"splashVideoFive.mp4";
+            filename = @"splashVideofive.mp4";
         }
         else if (screenSize == 667)
         {
             filename = @"splashvideoSix.mp4";
         }
-        else if (screenSize == 1104)
+        else if (screenSize == 736)
         {
             filename = @"videoSplashSixPlus.mp4";
         }
+        
+        
+    
 
 
         

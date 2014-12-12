@@ -36,6 +36,8 @@ NSString * const StripePublishableKey = @"pk_test_IQuLnTZduMwlnpJFVo9VLKkt";
 
     return YES;
 }
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+}
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
