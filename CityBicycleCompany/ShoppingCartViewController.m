@@ -158,12 +158,22 @@
         
         cell.productNameLabel.text = testBike.chosenName;
 //        cell.colorLabel.text = [testBike.chosenQuantity stringValue];
-        cell.colorLabel.text = testBike.chosenWheelSetColor;
+        
+        if ([testBike.chosenWheelSetColor isEqualToString:@"Black"])
+        {
+            cell.colorLabel.text = @"Black wheelset";
+        }
+        else
+        {
+            cell.colorLabel.text = [NSString stringWithFormat:@"%@ wheelset: 15.00", testBike.chosenWheelSetColor];
+
+        }
+
         cell.sizeLabel.text = testBike.chosenSize;
 
         if (testBike.bicycleHasRearBrake == YES)
         {
-            cell.rearBrakeLabel.text = @"Rear brake: $30";
+            cell.rearBrakeLabel.text = @"Rear brake: 30.00";
         }
         else
         {
@@ -176,7 +186,7 @@
         }
         else
         {
-            cell.extraWheelsetLabel.text = [NSString stringWithFormat:@"%@ wheelset: $80", testBike.extraSeriesWheelset];
+            cell.extraWheelsetLabel.text = [NSString stringWithFormat:@"Extra %@ wheelset: 80.00", testBike.extraSeriesWheelset];
 
         }
         
@@ -203,7 +213,7 @@
         cell.colorLabel.text = testAccessory.color;
         cell.sizeLabel.text = testAccessory.chosenSize;
         CGFloat totalPrice = [testAccessory.chosenPrice floatValue] * [testAccessory.chosenQuantity floatValue];
-        cell.priceLabel.text = [NSString stringWithFormat:@"$%3.2f",totalPrice];
+        cell.priceLabel.text = [NSString stringWithFormat:@"%3.2f",totalPrice];
         self.priceSummary = cell.priceLabel.text;
         self.itemLineSummary = cell.productNameLabel.text;
     
@@ -398,10 +408,25 @@ return YES;
         completion(PKPaymentAuthorizationStatusSuccess);
         return;
     }
+    // First, convert subtotal (NSString) to float.
+    float total = [self.subTotalLabel.text floatValue];
+    
+    // Multiply the float value by 100 so that the total is represented in cents.
+    float total2 = total * 100;
+    
+    // Use NSNumberFormatter to get rid of the trailing zeroes that occur when converting a float to a string.
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setMaximumFractionDigits:total2];
+    [formatter setMinimumFractionDigits:0];
+    
+    // Convert to a string to put into NSDictionary.
+    NSString *result = [formatter stringFromNumber:[NSNumber numberWithFloat:total2]];
+    
+    
     NSDictionary *chargeParams = @{
                                    @"token": token.tokenId,
                                    @"currency": @"usd",
-                                   @"amount": @"1000", // this is in cents (i.e. $10)
+                                   @"amount": result // this is in cents (i.e. 1000 cents = $10)
                                    };
     // This passes the token off to our payment backend, which will then actually complete charging the card using your account's
     [PFCloud callFunctionInBackground:@"charge"

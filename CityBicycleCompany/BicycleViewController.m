@@ -254,7 +254,7 @@
         [singleton save];
         
         UIAlertView *successfulAlert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
-                                                        message:@"Bicycle added auccessfully!"
+                                                        message:@"Bicycle added successfully!"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];

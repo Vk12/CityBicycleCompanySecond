@@ -256,14 +256,14 @@
         [singleton save];
         
         UIAlertView *successfulAlert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
-                                                                  message:@"Accessory Added Successfully!"
+                                                                  message:@"Accessory added successfully!"
                                                                  delegate:self
                                                         cancelButtonTitle:@"OK"
                                                         otherButtonTitles:nil];
         [successfulAlert show];
     }else{
         UIAlertView *failtureAlert = [[UIAlertView alloc] initWithTitle:@"City Bicycle Company"
-                                                                message:@"Please make all selections"
+                                                                message:@"Please make all selections."
                                                                delegate:self
                                                       cancelButtonTitle:@"OK"
                                                       otherButtonTitles:nil];
