@@ -846,7 +846,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-l\"c++\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "56e14709-5f50-4e9d-a1bd-c6c1da3abd99";
+				PROVISIONING_PROFILE = "a7ba6224-257f-458b-89b6-c2d6babfb5ff";
 			};
 			name = Debug;
 		};
@@ -871,7 +871,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-l\"c++\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "56e14709-5f50-4e9d-a1bd-c6c1da3abd99";
+				PROVISIONING_PROFILE = "a7ba6224-257f-458b-89b6-c2d6babfb5ff";
 			};
 			name = Release;
 		};

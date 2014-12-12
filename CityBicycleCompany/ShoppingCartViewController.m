@@ -144,8 +144,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    // if string doesn't equal black, add $15.
-    
     ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bicycleCell"];
 
     cell.delegate = self;
@@ -162,7 +160,17 @@
 //        cell.colorLabel.text = [testBike.chosenQuantity stringValue];
         cell.colorLabel.text = testBike.chosenWheelSetColor;
         cell.sizeLabel.text = testBike.chosenSize;
-        //TODO: not sure how to show rear brake because it's a bool
+
+        if (testBike.bicycleHasRearBrake == YES)
+        {
+            cell.rearBrakeLabel.text = @"Rear brake: $30";
+        }
+        else
+        {
+            [cell.rearBrakeLabel setHidden:YES];
+        }
+        
+        
         cell.extraWheelsetLabel.text = testBike.extraSeriesWheelset;
         cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
         
@@ -174,6 +182,7 @@
         self.itemLineSummary = cell.productNameLabel.text;
         cell.qtyTextField.enabled = NO;
         [cell.qtyTextField setBorderStyle:UITextBorderStyleNone];
+        
         
 
     } else if ([testShoppingItem isKindOfClass:[ChosenAccessory class]]){
@@ -295,21 +304,26 @@ return YES;
     
 
     
-//TODO: CONFIGURE REQUEST.
+    //TODO: CONFIGURE REQUEST.
     
     // Set the paymentSummaryItems to a NSArray of PKPaymentSummaryItems.  These are analogous to line items on a receipt.
     NSString *label = @"City Bicycle Co.";
+    NSString *paymentSummary = self.priceSummary;
     
-    NSString *paymentSummary = self.subTotalLabel.text;
-
     NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:paymentSummary];
-//    request.paymentSummaryItems = @[[self summaryItemsForShippingMethod]];
-    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:label amount:number]];
+    
+    NSString *test = @"10";
+    NSDecimalNumber *test2 = [NSDecimalNumber decimalNumberWithString:test];
+    
+    //    request.paymentSummaryItems = @[[self summaryItemsForShippingMethod]];
+//    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:@"llama" amount:]];
+    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:label amount:test2]];
+
     
     // Query to check if ApplePay is available for the phone user.
     if ([Stripe canSubmitPaymentRequest:request])
     {
-    // Create and display the payment request view controller.
+        // Create and display the payment request view controller.
 #if DEBUG
         PKPaymentAuthorizationViewController *auth = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
 #else
@@ -322,7 +336,7 @@ return YES;
     {
         // Show the user your own credit card form (Stripe PaymentKit or credit card form)
         
-//        PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
+        //        PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
         
     }
     
@@ -342,7 +356,7 @@ return YES;
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-
+    
 }
 
 #pragma mark PKPaymentAuthorizationViewControllerDelegate Helper Methods
@@ -384,7 +398,7 @@ return YES;
     NSDictionary *chargeParams = @{
                                    @"token": token.tokenId,
                                    @"currency": @"usd",
-                                   @"amount": self.subTotalLabel.text, // this is in cents (i.e. $10)
+                                   @"amount": @"1000", // this is in cents (i.e. $10)
                                    };
     // This passes the token off to our payment backend, which will then actually complete charging the card using your account's
     [PFCloud callFunctionInBackground:@"charge"
@@ -403,6 +417,24 @@ return YES;
                                     }
                                 }];
     
+    
+    //    NSURL *url = [NSURL URLWithString:@"https://example.com/token"];
+    //    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    //    request.HTTPMethod = @"POST";
+    //    NSString *body     = [NSString stringWithFormat:@"stripeToken=%@", token.tokenId];
+    //    request.HTTPBody   = [body dataUsingEncoding:NSUTF8StringEncoding];
+    //
+    //    [NSURLConnection sendAsynchronousRequest:request
+    //                                       queue:[NSOperationQueue mainQueue]
+    //                           completionHandler:^(NSURLResponse *response,
+    //                                               NSData *data,
+    //                                               NSError *error) {
+    //                               if (error) {
+    //                                   completion(PKPaymentAuthorizationStatusFailure);
+    //                               } else {
+    //                                   completion(PKPaymentAuthorizationStatusSuccess);
+    //                               }
+    //                           }];
 }
 
 

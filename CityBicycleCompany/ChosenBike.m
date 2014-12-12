@@ -24,9 +24,8 @@
 //    [result setObject:self.salePrice forKey:@"salePrice"];
     [result setObject:self.chosenName forKey:@"chosenName"];
     [result setObject:self.chosenPrice forKey:@"chosenPrice"];
-//    [result setObject:self.passTheBikeArray forKey:@"passTheBikeArray"];
-    
     return result;
+
     
 }
 
@@ -43,7 +42,7 @@
 //    self.salePrice = dictionary[@"salePrice"];
     self.chosenName = dictionary[@"chosenName"];
     self.chosenPrice = dictionary[@"chosenPrice"];
-//    self.bicycleHasRearBrake = [dictionary[@"bicycleHasRearBrake"] boolValue];
+    self.bicycleHasRearBrake = [dictionary[@"bicycleHasRearBrake"] boolValue];
     self.passTheBikeArray = dictionary[@"passTheBikeArray"];
     return self;
 }
