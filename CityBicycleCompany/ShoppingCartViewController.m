@@ -144,6 +144,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    // if string doesn't equal black, add $15.
     
     ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bicycleCell"];
 
@@ -298,7 +299,8 @@ return YES;
     
     // Set the paymentSummaryItems to a NSArray of PKPaymentSummaryItems.  These are analogous to line items on a receipt.
     NSString *label = @"City Bicycle Co.";
-    NSString *paymentSummary = self.priceSummary;
+    
+    NSString *paymentSummary = self.subTotalLabel.text;
 
     NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:paymentSummary];
 //    request.paymentSummaryItems = @[[self summaryItemsForShippingMethod]];
@@ -382,7 +384,7 @@ return YES;
     NSDictionary *chargeParams = @{
                                    @"token": token.tokenId,
                                    @"currency": @"usd",
-                                   @"amount": @"1000", // this is in cents (i.e. $10)
+                                   @"amount": self.subTotalLabel.text, // this is in cents (i.e. $10)
                                    };
     // This passes the token off to our payment backend, which will then actually complete charging the card using your account's
     [PFCloud callFunctionInBackground:@"charge"
@@ -401,24 +403,6 @@ return YES;
                                     }
                                 }];
     
-    
-//    NSURL *url = [NSURL URLWithString:@"https://example.com/token"];
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-//    request.HTTPMethod = @"POST";
-//    NSString *body     = [NSString stringWithFormat:@"stripeToken=%@", token.tokenId];
-//    request.HTTPBody   = [body dataUsingEncoding:NSUTF8StringEncoding];
-//    
-//    [NSURLConnection sendAsynchronousRequest:request
-//                                       queue:[NSOperationQueue mainQueue]
-//                           completionHandler:^(NSURLResponse *response,
-//                                               NSData *data,
-//                                               NSError *error) {
-//                               if (error) {
-//                                   completion(PKPaymentAuthorizationStatusFailure);
-//                               } else {
-//                                   completion(PKPaymentAuthorizationStatusSuccess);
-//                               }
-//                           }];
 }
 
 
