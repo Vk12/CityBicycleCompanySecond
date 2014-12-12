@@ -327,12 +327,12 @@
             cell.originalPriceLabel.text = @"SALE";
             cell.originalPriceLabel.textColor = [UIColor whiteColor];
             cell.originalPriceLabel.backgroundColor = [UIColor colorWithRed:(255.0/255.0) green:(51.0/255) blue:(51.0/255) alpha:1];
-            [cell.salePriceLabel setText:[NSString stringWithFormat:@"%@",self.bicycleFromParse.salePrice]];
+            [cell.salePriceLabel setText:[NSString stringWithFormat:@"$%@",self.bicycleFromParse.salePrice]];
         }
         else
         {
             cell.salePriceLabel.hidden = YES;
-            [cell.originalPriceLabel setText:[NSString stringWithFormat:@"%@",self.bicycleFromParse.originalPrice]];
+            [cell.originalPriceLabel setText:[NSString stringWithFormat:@"$%@",self.bicycleFromParse.originalPrice]];
 
         }
         
