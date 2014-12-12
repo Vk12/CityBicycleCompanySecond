@@ -121,6 +121,7 @@
         CGFloat totalItemPrice = [[item chosenQuantity] floatValue] * [[item chosenPrice] floatValue];
         cartTotal = cartTotal + totalItemPrice;
     }
+    
     self.subTotalLabel.text = [NSString stringWithFormat:@"%3.2f", cartTotal];
 }
 
@@ -195,9 +196,7 @@
         CGFloat totalPrice = [testBike.chosenPrice floatValue] * [testBike.chosenQuantity floatValue];
         
         cell.priceLabel.text = [NSString stringWithFormat:@"%3.2f",totalPrice];
-        self.priceSummary = cell.priceLabel.text;
         
-        self.itemLineSummary = cell.productNameLabel.text;
         cell.qtyTextField.enabled = NO;
         [cell.qtyTextField setBorderStyle:UITextBorderStyleNone];
         
@@ -214,7 +213,6 @@
         cell.sizeLabel.text = testAccessory.chosenSize;
         CGFloat totalPrice = [testAccessory.chosenPrice floatValue] * [testAccessory.chosenQuantity floatValue];
         cell.priceLabel.text = [NSString stringWithFormat:@"%3.2f",totalPrice];
-        self.priceSummary = cell.priceLabel.text;
         self.itemLineSummary = cell.productNameLabel.text;
     
         
