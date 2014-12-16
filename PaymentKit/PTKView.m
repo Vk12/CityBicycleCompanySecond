@@ -19,11 +19,11 @@
 #define kPTKViewCardExpiryFieldEndX 84
 #define kPTKViewCardCVCFieldEndX 177
 
-static NSString *const kPTKLocalizedStringsTableName = @"PaymentKit";
-static NSString *const kPTKOldLocalizedStringsTableName = @"STPaymentLocalizable";
-
 #import "PTKView.h"
 #import "PTKTextField.h"
+
+static NSString *const kPTKLocalizedStringsTableName = @"PaymentKit";
+static NSString *const kPTKOldLocalizedStringsTableName = @"STPaymentLocalizable";
 
 @interface PTKView () <PTKTextFieldDelegate> {
 @private

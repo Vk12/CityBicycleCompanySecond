@@ -120,6 +120,7 @@
 		FBB3A1821A3FD506005AF308 /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB3A1641A3FD506005AF308 /* gradient@2x.png */; };
 		FBB3A1831A3FD506005AF308 /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB3A1651A3FD506005AF308 /* textfield.png */; };
 		FBB3A1841A3FD506005AF308 /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB3A1661A3FD506005AF308 /* textfield@2x.png */; };
+		FBB3A1871A3FD77A005AF308 /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB3A1861A3FD77A005AF308 /* PaymentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,6 +291,8 @@
 		FBB3A1641A3FD506005AF308 /* gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient@2x.png"; sourceTree = "<group>"; };
 		FBB3A1651A3FD506005AF308 /* textfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfield.png; sourceTree = "<group>"; };
 		FBB3A1661A3FD506005AF308 /* textfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield@2x.png"; sourceTree = "<group>"; };
+		FBB3A1851A3FD77A005AF308 /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentViewController.h; path = ../PaymentKit/PaymentViewController.h; sourceTree = "<group>"; };
+		FBB3A1861A3FD77A005AF308 /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentViewController.m; path = ../PaymentKit/PaymentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -477,6 +480,8 @@
 				87BB30EA1A315D0C00462501 /* AccessoryCartTableViewCell.m */,
 				395F9E3C1A3AD36E00641FB1 /* PrivacyPolicyViewController.h */,
 				395F9E3D1A3AD36E00641FB1 /* PrivacyPolicyViewController.m */,
+				FBB3A1851A3FD77A005AF308 /* PaymentViewController.h */,
+				FBB3A1861A3FD77A005AF308 /* PaymentViewController.m */,
 				8758D6F51A3626F700172026 /* ModalVCForAnimation */,
 			);
 			name = "View Controllers";
@@ -855,6 +860,7 @@
 				39CA90701A2D1FB5001FD52F /* Bicycle.m in Sources */,
 				3914E1931A2E411400301DD3 /* ChosenBike.m in Sources */,
 				FB0E0B631A2943EB0053F9D1 /* STPTestCardStore.m in Sources */,
+				FBB3A1871A3FD77A005AF308 /* PaymentViewController.m in Sources */,
 				395F9E3E1A3AD36E00641FB1 /* PrivacyPolicyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1017,7 +1023,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-l\"c++\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a7ba6224-257f-458b-89b6-c2d6babfb5ff";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1042,7 +1048,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-l\"c++\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a7ba6224-257f-458b-89b6-c2d6babfb5ff";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
