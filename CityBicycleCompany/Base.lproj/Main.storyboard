@@ -1186,6 +1186,10 @@
                                                 <exclude reference="eOm-Xz-far"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="onCreditCartButtonTapped:" destination="jhQ-nE-lgy" eventType="touchUpInside" id="A1t-EG-Vke"/>
+                                            <segue destination="ohy-0j-IZO" kind="presentation" id="ewv-Ee-va0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1240,7 +1244,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUn-tD-V1l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1273" y="706"/>
+            <point key="canvasLocation" x="1280" y="761"/>
+        </scene>
+        <!--Payment View Controller-->
+        <scene sceneID="ojx-b9-OwU">
+            <objects>
+                <viewController id="ohy-0j-IZO" customClass="PaymentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZT2-X2-vFa"/>
+                        <viewControllerLayoutGuide type="bottom" id="h2K-vT-Ki6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WIO-59-rVw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O5f-Xw-ecP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1280" y="1454"/>
         </scene>
         <!--Privacy Policy View Controller-->
         <scene sceneID="Jpy-Np-ONo">

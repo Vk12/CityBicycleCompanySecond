@@ -19,6 +19,7 @@
 #import "AccessoriesViewController.h"
 #import "ChosenAccessory.h"
 #import "Cart.h"
+#import "PaymentViewController.h"
 #define kOFFSET_FOR_KEYBOARD 80.0
 
 #if DEBUG
@@ -309,6 +310,12 @@ return YES;
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)onCreditCartButtonTapped:(UIButton *)sender
+{
+    NSLog(@"Credit card button tapped");
+    
+}
+
 - (IBAction)onPayButtonTapped:(UIButton *)sender
 {
     NSLog(@"button was tapped");
@@ -318,9 +325,6 @@ return YES;
     [request setRequiredShippingAddressFields:PKAddressFieldPostalAddress];
     [request setRequiredBillingAddressFields:PKAddressFieldPostalAddress];
     
-
-    
-    //TODO: CONFIGURE REQUEST.
     
     // Set the paymentSummaryItems to a NSArray of PKPaymentSummaryItems.  These are analogous to line items on a receipt.
     NSString *label = @"City Bicycle Co.";
@@ -345,7 +349,7 @@ return YES;
     }
     else
     {
-        // Put an alert view that takes you to the website.
+        // Put an alert view that tells the user to register for Apple Pay.
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Apple Pay not found"
                                                         message:@"Please register for Apple Pay on this device."
@@ -353,8 +357,6 @@ return YES;
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-        
-        // Show the user your own credit card form (Stripe PaymentKit or credit card form)
         
     }
     
