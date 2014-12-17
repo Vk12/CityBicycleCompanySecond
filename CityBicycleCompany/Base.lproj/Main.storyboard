@@ -1044,7 +1044,7 @@
                                 <rect key="frame" x="16" y="82" width="568" height="498"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="97" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="s3V-qb-gUh">
-                                        <rect key="frame" x="8" y="28" width="552" height="401"/>
+                                        <rect key="frame" x="8" y="8" width="552" height="421"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bicycleCell" rowHeight="97" id="vvG-QV-Txm" customClass="ShoppingCartTableViewCell">
@@ -1159,6 +1159,9 @@
                                                 <exclude reference="kty-Ca-LZl"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="onPayButtonTapped:" destination="jhQ-nE-lgy" eventType="touchUpInside" id="vcK-om-mMK"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfx-nW-Qpa">
                                         <rect key="frame" x="8" y="437" width="272" height="53"/>
@@ -1200,7 +1203,7 @@
                                     <constraint firstAttribute="trailing" secondItem="I0Y-Ir-uCE" secondAttribute="trailing" constant="8" id="b1i-DT-eBO"/>
                                     <constraint firstAttribute="trailing" secondItem="I0Y-Ir-uCE" secondAttribute="trailing" constant="8" id="fNc-kC-fWQ"/>
                                     <constraint firstItem="I0Y-Ir-uCE" firstAttribute="height" secondItem="Zfx-nW-Qpa" secondAttribute="height" id="oqf-4t-JSf"/>
-                                    <constraint firstItem="s3V-qb-gUh" firstAttribute="top" secondItem="bsB-cM-Pfr" secondAttribute="top" constant="28" id="sv4-oo-roy"/>
+                                    <constraint firstItem="s3V-qb-gUh" firstAttribute="top" secondItem="bsB-cM-Pfr" secondAttribute="top" constant="8" id="sv4-oo-roy"/>
                                     <constraint firstItem="I0Y-Ir-uCE" firstAttribute="leading" secondItem="Zfx-nW-Qpa" secondAttribute="trailing" constant="8" id="tHR-LD-bQb"/>
                                 </constraints>
                                 <variation key="default">
