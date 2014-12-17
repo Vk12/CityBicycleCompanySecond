@@ -1136,39 +1136,51 @@
                                             <outlet property="delegate" destination="jhQ-nE-lgy" id="ofk-Ha-mA5"/>
                                         </connections>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfx-nW-Qpa">
-                                        <rect key="frame" x="8" y="446" width="272" height="44"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="272" id="eOm-Xz-far"/>
-                                            <constraint firstAttribute="height" constant="44" id="nDH-vu-8Bp"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                        <state key="normal" title="Credit Card">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="eOm-Xz-far"/>
-                                            </mask>
-                                        </variation>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0Y-Ir-uCE">
-                                        <rect key="frame" x="288" y="446" width="272" height="44"/>
+                                        <rect key="frame" x="288" y="437" width="272" height="53"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="272" id="261-lq-dOf"/>
-                                            <constraint firstAttribute="height" constant="44" id="5NY-RI-wXw"/>
+                                            <constraint firstAttribute="height" constant="53" id="5NY-RI-wXw"/>
                                             <constraint firstAttribute="width" constant="272" id="kty-Ca-LZl"/>
                                         </constraints>
-                                        <state key="normal" image="ApplePayBTN_44pt__white_logo_">
+                                        <state key="normal" image="ApplePayBTN_40pt__white_logo_">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="261-lq-dOf"/>
                                                 <exclude reference="kty-Ca-LZl"/>
+                                            </mask>
+                                        </variation>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfx-nW-Qpa">
+                                        <rect key="frame" x="8" y="437" width="272" height="53"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="272" id="eOm-Xz-far"/>
+                                            <constraint firstAttribute="height" constant="53" id="nDH-vu-8Bp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="Credit Card">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="eOm-Xz-far"/>
                                             </mask>
                                         </variation>
                                     </button>
@@ -1177,14 +1189,14 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="s3V-qb-gUh" secondAttribute="trailing" constant="8" id="29e-Xs-lQN"/>
                                     <constraint firstAttribute="bottom" secondItem="I0Y-Ir-uCE" secondAttribute="bottom" constant="8" id="4c4-hW-cr6"/>
-                                    <constraint firstItem="I0Y-Ir-uCE" firstAttribute="top" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="17" id="6jc-pu-GPA"/>
+                                    <constraint firstItem="I0Y-Ir-uCE" firstAttribute="top" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="8" id="6jc-pu-GPA"/>
                                     <constraint firstItem="Zfx-nW-Qpa" firstAttribute="leading" secondItem="bsB-cM-Pfr" secondAttribute="leading" constant="8" id="A3l-sf-pZE"/>
                                     <constraint firstItem="s3V-qb-gUh" firstAttribute="leading" secondItem="bsB-cM-Pfr" secondAttribute="leading" constant="8" id="F32-9r-2Nm"/>
                                     <constraint firstAttribute="bottom" secondItem="Zfx-nW-Qpa" secondAttribute="bottom" constant="8" id="GhF-aI-QiU"/>
                                     <constraint firstItem="I0Y-Ir-uCE" firstAttribute="width" secondItem="Zfx-nW-Qpa" secondAttribute="width" id="HfR-Hi-qqR"/>
                                     <constraint firstItem="I0Y-Ir-uCE" firstAttribute="leading" secondItem="Zfx-nW-Qpa" secondAttribute="trailing" constant="17" id="YF1-tw-zt0"/>
                                     <constraint firstAttribute="bottom" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="69" id="amz-ib-aiW"/>
-                                    <constraint firstItem="Zfx-nW-Qpa" firstAttribute="top" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="17" id="apP-2k-9lQ"/>
+                                    <constraint firstItem="Zfx-nW-Qpa" firstAttribute="top" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="8" id="apP-2k-9lQ"/>
                                     <constraint firstAttribute="trailing" secondItem="I0Y-Ir-uCE" secondAttribute="trailing" constant="8" id="b1i-DT-eBO"/>
                                     <constraint firstAttribute="trailing" secondItem="I0Y-Ir-uCE" secondAttribute="trailing" constant="8" id="fNc-kC-fWQ"/>
                                     <constraint firstItem="I0Y-Ir-uCE" firstAttribute="height" secondItem="Zfx-nW-Qpa" secondAttribute="height" id="oqf-4t-JSf"/>
@@ -1720,7 +1732,7 @@ City Bicycle Company
         </scene>
     </scenes>
     <resources>
-        <image name="ApplePayBTN_44pt__white_logo_" width="140" height="44"/>
+        <image name="ApplePayBTN_40pt__white_logo_" width="140" height="40"/>
         <image name="citylogo" width="990" height="765"/>
         <image name="email" width="600" height="429"/>
         <image name="gear" width="512" height="512"/>
