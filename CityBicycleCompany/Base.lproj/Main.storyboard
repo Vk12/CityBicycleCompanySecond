@@ -1136,35 +1136,65 @@
                                             <outlet property="delegate" destination="jhQ-nE-lgy" id="ofk-Ha-mA5"/>
                                         </connections>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HP9-UK-u2G">
-                                        <rect key="frame" x="187" y="424" width="195" height="79"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfx-nW-Qpa">
+                                        <rect key="frame" x="8" y="446" width="272" height="44"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="79" id="HeX-Ef-qTY"/>
-                                            <constraint firstAttribute="width" constant="195" id="SgP-vi-xDL"/>
+                                            <constraint firstAttribute="width" constant="272" id="eOm-Xz-far"/>
+                                            <constraint firstAttribute="height" constant="44" id="nDH-vu-8Bp"/>
                                         </constraints>
-                                        <state key="normal" image="ApplePay2">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Credit Card">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="onPayButtonTapped:" destination="jhQ-nE-lgy" eventType="touchUpInside" id="D0x-Uh-Cuz"/>
-                                        </connections>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="eOm-Xz-far"/>
+                                            </mask>
+                                        </variation>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0Y-Ir-uCE">
+                                        <rect key="frame" x="288" y="446" width="272" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="272" id="261-lq-dOf"/>
+                                            <constraint firstAttribute="height" constant="44" id="5NY-RI-wXw"/>
+                                            <constraint firstAttribute="width" constant="272" id="kty-Ca-LZl"/>
+                                        </constraints>
+                                        <state key="normal" image="ApplePayBTN_44pt__white_logo_">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="261-lq-dOf"/>
+                                                <exclude reference="kty-Ca-LZl"/>
+                                            </mask>
+                                        </variation>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="s3V-qb-gUh" secondAttribute="trailing" constant="8" id="29e-Xs-lQN"/>
-                                    <constraint firstItem="HP9-UK-u2G" firstAttribute="top" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="-5" id="AK0-oJ-EYC"/>
+                                    <constraint firstAttribute="bottom" secondItem="I0Y-Ir-uCE" secondAttribute="bottom" constant="8" id="4c4-hW-cr6"/>
+                                    <constraint firstItem="I0Y-Ir-uCE" firstAttribute="top" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="17" id="6jc-pu-GPA"/>
+                                    <constraint firstItem="Zfx-nW-Qpa" firstAttribute="leading" secondItem="bsB-cM-Pfr" secondAttribute="leading" constant="8" id="A3l-sf-pZE"/>
                                     <constraint firstItem="s3V-qb-gUh" firstAttribute="leading" secondItem="bsB-cM-Pfr" secondAttribute="leading" constant="8" id="F32-9r-2Nm"/>
-                                    <constraint firstAttribute="bottom" secondItem="HP9-UK-u2G" secondAttribute="bottom" constant="8" id="Hvb-NZ-sbb"/>
-                                    <constraint firstAttribute="centerX" secondItem="HP9-UK-u2G" secondAttribute="centerX" id="ZKO-Wl-DnI"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zfx-nW-Qpa" secondAttribute="bottom" constant="8" id="GhF-aI-QiU"/>
+                                    <constraint firstItem="I0Y-Ir-uCE" firstAttribute="width" secondItem="Zfx-nW-Qpa" secondAttribute="width" id="HfR-Hi-qqR"/>
+                                    <constraint firstItem="I0Y-Ir-uCE" firstAttribute="leading" secondItem="Zfx-nW-Qpa" secondAttribute="trailing" constant="17" id="YF1-tw-zt0"/>
                                     <constraint firstAttribute="bottom" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="69" id="amz-ib-aiW"/>
-                                    <constraint firstItem="HP9-UK-u2G" firstAttribute="top" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="8" id="haC-UR-2dv"/>
+                                    <constraint firstItem="Zfx-nW-Qpa" firstAttribute="top" secondItem="s3V-qb-gUh" secondAttribute="bottom" constant="17" id="apP-2k-9lQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="I0Y-Ir-uCE" secondAttribute="trailing" constant="8" id="b1i-DT-eBO"/>
+                                    <constraint firstAttribute="trailing" secondItem="I0Y-Ir-uCE" secondAttribute="trailing" constant="8" id="fNc-kC-fWQ"/>
+                                    <constraint firstItem="I0Y-Ir-uCE" firstAttribute="height" secondItem="Zfx-nW-Qpa" secondAttribute="height" id="oqf-4t-JSf"/>
                                     <constraint firstItem="s3V-qb-gUh" firstAttribute="top" secondItem="bsB-cM-Pfr" secondAttribute="top" constant="28" id="sv4-oo-roy"/>
+                                    <constraint firstItem="I0Y-Ir-uCE" firstAttribute="leading" secondItem="Zfx-nW-Qpa" secondAttribute="trailing" constant="8" id="tHR-LD-bQb"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="Hvb-NZ-sbb"/>
-                                        <exclude reference="haC-UR-2dv"/>
+                                        <exclude reference="YF1-tw-zt0"/>
+                                        <exclude reference="b1i-DT-eBO"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -1189,7 +1219,6 @@
                     </view>
                     <connections>
                         <outlet property="bottomOfTableView" destination="amz-ib-aiW" id="ajy-Tl-7LV"/>
-                        <outlet property="buyWithIpayButton" destination="HP9-UK-u2G" id="cin-3i-tPZ"/>
                         <outlet property="subTotalLabel" destination="D3t-wC-sOy" id="h19-rT-A5T"/>
                         <outlet property="tableView" destination="s3V-qb-gUh" id="yHm-nX-Yxh"/>
                     </connections>
@@ -1691,7 +1720,7 @@ City Bicycle Company
         </scene>
     </scenes>
     <resources>
-        <image name="ApplePay2" width="194" height="61"/>
+        <image name="ApplePayBTN_44pt__white_logo_" width="140" height="44"/>
         <image name="citylogo" width="990" height="765"/>
         <image name="email" width="600" height="429"/>
         <image name="gear" width="512" height="512"/>
