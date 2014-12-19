@@ -78,10 +78,12 @@ static NSString *const kPTKOldLocalizedStringsTableName = @"STPaymentLocalizable
 {
     _isInitialState = YES;
     _isValidState = NO;
-
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 290, 46);
+    
+    
+    // Change the width of credit card text field (current 290)
+    self.frame = CGRectMake(self.frame.origin.x, self.center.y, 290, 46);
     self.backgroundColor = [UIColor clearColor];
-
+    
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
     backgroundImageView.image = [[UIImage imageNamed:@"textfield"]
             resizableImageWithCapInsets:UIEdgeInsetsMake(0, 8, 0, 8)];

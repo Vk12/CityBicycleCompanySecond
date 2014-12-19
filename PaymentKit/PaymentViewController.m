@@ -17,6 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Sets textfield below the navigation bar
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
     self.paymentView = [[PTKView alloc] initWithFrame:CGRectMake(15, 25, 290, 55)];
     self.paymentView.delegate = self;
     [self.view addSubview:self.paymentView];

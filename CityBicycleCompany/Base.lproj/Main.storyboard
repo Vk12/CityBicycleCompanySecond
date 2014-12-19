@@ -1043,11 +1043,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsB-cM-Pfr">
                                 <rect key="frame" x="16" y="82" width="568" height="498"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="97" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="s3V-qb-gUh">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="s3V-qb-gUh">
                                         <rect key="frame" x="8" y="8" width="552" height="421"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bicycleCell" rowHeight="97" id="vvG-QV-Txm" customClass="ShoppingCartTableViewCell">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bicycleCell" rowHeight="101" id="vvG-QV-Txm" customClass="ShoppingCartTableViewCell">
                                                 <rect key="frame" x="0.0" y="0.0" width="552" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vvG-QV-Txm" id="p7G-3o-MD4">
@@ -1188,7 +1188,7 @@
                                         </variation>
                                         <connections>
                                             <action selector="onCreditCartButtonTapped:" destination="jhQ-nE-lgy" eventType="touchUpInside" id="A1t-EG-Vke"/>
-                                            <segue destination="ohy-0j-IZO" kind="presentation" id="ewv-Ee-va0"/>
+                                            <segue destination="yuT-T1-Ybk" kind="presentation" id="ewv-Ee-va0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1259,10 +1259,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="pZB-y6-UZh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5f-Xw-ecP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1280" y="1454"/>
+            <point key="canvasLocation" x="2092" y="1454"/>
         </scene>
         <!--Privacy Policy View Controller-->
         <scene sceneID="Jpy-Np-ONo">
@@ -1754,6 +1755,24 @@ City Bicycle Company
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKz-RC-sZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4" y="1011"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jkh-nz-JV2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yuT-T1-Ybk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ASd-QQ-mOM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ohy-0j-IZO" kind="relationship" relationship="rootViewController" id="2At-za-Ozh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NVH-yx-23k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1295" y="1753"/>
         </scene>
     </scenes>
     <resources>
