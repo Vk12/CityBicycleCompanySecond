@@ -35,6 +35,9 @@
     // Setup cancel button
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
     self.navigationItem.leftBarButtonItem = cancelButton;
+    
+    // Setup pay button
+    
 }
 
 - (void)cancel:(id)sender

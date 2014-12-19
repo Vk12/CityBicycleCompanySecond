@@ -317,7 +317,13 @@ return YES;
     
     PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:paymentViewController];
+
+    // Convert subtotal (string) to NSDecimalNumber and pass it to paymentViewController.
+    paymentViewController.amount = [NSDecimalNumber decimalNumberWithString:self.subTotalLabel.text];
+
+    
     [self presentViewController:navController animated:YES completion:nil];
+    
 }
 
 - (IBAction)onPayButtonTapped:(UIButton *)sender
