@@ -59,6 +59,7 @@
     self.shoppingCartArray = test.cartArray;
     [test load];
     
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -68,7 +69,7 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-    
+        
     [self.tableView reloadData];
     
 }
@@ -314,6 +315,9 @@ return YES;
 {
     NSLog(@"Credit card button tapped");
     
+    PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:paymentViewController];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (IBAction)onPayButtonTapped:(UIButton *)sender

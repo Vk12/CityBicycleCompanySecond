@@ -1188,7 +1188,6 @@
                                         </variation>
                                         <connections>
                                             <action selector="onCreditCartButtonTapped:" destination="jhQ-nE-lgy" eventType="touchUpInside" id="A1t-EG-Vke"/>
-                                            <segue destination="yuT-T1-Ybk" kind="presentation" id="gRZ-0n-ytY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1271,7 +1270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5f-Xw-ecP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1920" y="1403"/>
+            <point key="canvasLocation" x="1280" y="1451"/>
         </scene>
         <!--Privacy Policy View Controller-->
         <scene sceneID="Jpy-Np-ONo">
@@ -1763,24 +1762,6 @@ City Bicycle Company
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKz-RC-sZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4" y="1011"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="jkh-nz-JV2">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yuT-T1-Ybk" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ASd-QQ-mOM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ohy-0j-IZO" kind="relationship" relationship="rootViewController" id="2At-za-Ozh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NVH-yx-23k" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1287" y="1403"/>
         </scene>
     </scenes>
     <resources>
