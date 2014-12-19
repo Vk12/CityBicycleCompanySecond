@@ -102,10 +102,24 @@
 - (void)hasToken:(STPToken *)token {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
+    // I currently have self.amount which is a NSDecimalNumber.
+    // Convert to a string.
+    NSString *amount = [self.amount stringValue];
+
+    // Then convert to a float.
+    float floatAmount = [amount floatValue];
+    
+    // Multiply by 100 so the total is represented in cents.
+    float total = floatAmount * 100;
+    
+    // Convert to a string to put into NSDictionary.
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    NSString *result = [formatter stringFromNumber:[NSNumber numberWithFloat:total]];
+    
     NSDictionary *chargeParams = @{
                                    @"token": token.tokenId,
                                    @"currency": @"usd",
-                                   @"amount": @"10000", // this is in cents (i.e. $10)
+                                   @"amount": result, // this is in cents (i.e. 1000 = $10)
                                    };
     
     if (!ParseApplicationId || !ParseClientKey) {
