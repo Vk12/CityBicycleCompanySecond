@@ -19,6 +19,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"Checkout";
     
     // Sets textfield below the navigation bar
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
@@ -30,6 +31,15 @@
     self.paymentView = [[PTKView alloc] initWithFrame:CGRectMake(X_Co, 25, 290, 55)];
     self.paymentView.delegate = self;
     [self.view addSubview:self.paymentView];
+    
+    // Setup cancel button
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+    self.navigationItem.leftBarButtonItem = cancelButton;
+}
+
+- (void)cancel:(id)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) paymentView:(PTKView *)paymentView withCard:(PTKCard *)card isValid:(BOOL)valid
