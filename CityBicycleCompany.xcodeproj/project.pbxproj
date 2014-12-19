@@ -90,6 +90,7 @@
 		FB0E0B6E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB3338C41A311CA300FCE9C8 /* ShoppingCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */; };
 		FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7F27A81A2A9FDB00328CE8 /* Constants.m */; };
+		FB8E910E1A44DBDD00BBC295 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8E910D1A44DBDD00BBC295 /* MBProgressHUD.m */; };
 		FBB3A1671A3FD506005AF308 /* PTKAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB3A13E1A3FD506005AF308 /* PTKAddressZip.m */; };
 		FBB3A1681A3FD506005AF308 /* PTKCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB3A1401A3FD506005AF308 /* PTKCard.m */; };
 		FBB3A1691A3FD506005AF308 /* PTKCardCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB3A1421A3FD506005AF308 /* PTKCardCVC.m */; };
@@ -251,6 +252,8 @@
 		FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingCartTableViewCell.m; path = ../ShoppingCartTableViewCell.m; sourceTree = "<group>"; };
 		FB7F27A71A2A9FDB00328CE8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FB7F27A81A2A9FDB00328CE8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		FB8E910C1A44DBDD00BBC295 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		FB8E910D1A44DBDD00BBC295 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		FBB3A13D1A3FD506005AF308 /* PTKAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTKAddressZip.h; sourceTree = "<group>"; };
 		FBB3A13E1A3FD506005AF308 /* PTKAddressZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTKAddressZip.m; sourceTree = "<group>"; };
 		FBB3A13F1A3FD506005AF308 /* PTKCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTKCard.h; sourceTree = "<group>"; };
@@ -542,6 +545,7 @@
 		FB0E0B291A293EB50053F9D1 /* Stripe */ = {
 			isa = PBXGroup;
 			children = (
+				FB8E910B1A44DBDD00BBC295 /* MBProgressHUD */,
 				FBB3A13C1A3FD506005AF308 /* PaymentKit */,
 				FB0E0B2A1A293EB50053F9D1 /* ApplePay */,
 				FB0E0B2D1A293EB50053F9D1 /* STPAPIConnection.h */,
@@ -603,6 +607,16 @@
 			);
 			name = "ApplePayStubs Classes";
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		FB8E910B1A44DBDD00BBC295 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				FB8E910C1A44DBDD00BBC295 /* MBProgressHUD.h */,
+				FB8E910D1A44DBDD00BBC295 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			path = ../MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		FBB3A13C1A3FD506005AF308 /* PaymentKit */ = {
@@ -846,6 +860,7 @@
 				FB0E0B671A2943EB0053F9D1 /* STPTestPaymentAuthorizationViewController.m in Sources */,
 				39CA90631A2CD92D001FD52F /* ProductCollectionViewCell.m in Sources */,
 				FBB3A16F1A3FD506005AF308 /* PTKView.m in Sources */,
+				FB8E910E1A44DBDD00BBC295 /* MBProgressHUD.m in Sources */,
 				3928AF371A26852200BE9DBC /* ShoppingCartViewController.m in Sources */,
 				FB3338C41A311CA300FCE9C8 /* ShoppingCartTableViewCell.m in Sources */,
 				FB0E0B651A2943EB0053F9D1 /* STPTestDataTableViewController.m in Sources */,
