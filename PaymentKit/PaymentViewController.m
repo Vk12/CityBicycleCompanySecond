@@ -105,7 +105,7 @@
     NSDictionary *chargeParams = @{
                                    @"token": token.tokenId,
                                    @"currency": @"usd",
-                                   @"amount": @"1000", // this is in cents (i.e. $10)
+                                   @"amount": @"10000", // this is in cents (i.e. $10)
                                    };
     
     if (!ParseApplicationId || !ParseClientKey) {

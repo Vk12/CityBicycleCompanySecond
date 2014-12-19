@@ -1,7 +1,7 @@
 var Stripe = require('stripe');
 
 // Replace this with your Stripe secret key, found at https://dashboard.stripe.com/account/apikeys
-var stripe_secret_key = "sk_live_Z5XSWuAonFpb5rI7bLBaFyBj";
+var stripe_secret_key = "sk_test_45wd20YjiQTPoP8YcSwp1EcZ";
 
 Stripe.initialize(stripe_secret_key);
 
