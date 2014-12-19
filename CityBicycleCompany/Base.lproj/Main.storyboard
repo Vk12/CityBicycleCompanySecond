@@ -1188,7 +1188,7 @@
                                         </variation>
                                         <connections>
                                             <action selector="onCreditCartButtonTapped:" destination="jhQ-nE-lgy" eventType="touchUpInside" id="A1t-EG-Vke"/>
-                                            <segue destination="yuT-T1-Ybk" kind="presentation" id="ewv-Ee-va0"/>
+                                            <segue destination="yuT-T1-Ybk" kind="presentation" id="gRZ-0n-ytY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1259,11 +1259,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pZB-y6-UZh"/>
+                    <navigationItem key="navigationItem" id="pZB-y6-UZh">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="I0R-lL-IGR">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ohI-DY-nTY">
+                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5f-Xw-ecP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2092" y="1454"/>
+            <point key="canvasLocation" x="1920" y="1403"/>
         </scene>
         <!--Privacy Policy View Controller-->
         <scene sceneID="Jpy-Np-ONo">
@@ -1772,7 +1780,7 @@ City Bicycle Company
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVH-yx-23k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1295" y="1753"/>
+            <point key="canvasLocation" x="1287" y="1403"/>
         </scene>
     </scenes>
     <resources>

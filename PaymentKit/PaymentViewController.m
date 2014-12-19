@@ -23,7 +23,9 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
-    self.paymentView = [[PTKView alloc] initWithFrame:CGRectMake(15, 25, 290, 55)];
+    // Centers textfield in view
+    float X_Co = (self.view.frame.size.width - 290)/2;
+    self.paymentView = [[PTKView alloc] initWithFrame:CGRectMake(X_Co, 25, 290, 55)];
     self.paymentView.delegate = self;
     [self.view addSubview:self.paymentView];
 }
