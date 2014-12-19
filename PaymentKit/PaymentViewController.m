@@ -26,8 +26,9 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
-    // Centers textfield in view
+    // Centers payment textfield in view
     float X_Co = (self.view.frame.size.width - 290)/2;
+    // Setup payment textfield
     self.paymentView = [[PTKView alloc] initWithFrame:CGRectMake(X_Co, 25, 290, 55)];
     self.paymentView.delegate = self;
     [self.view addSubview:self.paymentView];
@@ -37,6 +38,11 @@
     self.navigationItem.leftBarButtonItem = cancelButton;
     
     // Setup pay button
+    NSString *title = [NSString stringWithFormat:@"Pay $%@", self.amount];
+    UIBarButtonItem *payButton = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleDone target:self action:@selector(pay:)];
+    payButton.enabled = NO;
+    self.navigationItem.rightBarButtonItem = payButton;
+    
     
 }
 
@@ -44,6 +50,12 @@
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)pay:(id)sender
+{
+    
+}
+
 
 - (void) paymentView:(PTKView *)paymentView withCard:(PTKCard *)card isValid:(BOOL)valid
 {
