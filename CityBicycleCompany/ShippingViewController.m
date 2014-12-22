@@ -13,6 +13,7 @@
 
 @interface ShippingViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -22,7 +23,24 @@
 {
     [super viewDidLoad];
 
-    self.priceLabel.text = self.subtotal;
+    // add extra spaces between Total: and %@
+    self.priceLabel.text = [NSString stringWithFormat:@"Total: %*s %@", 5, "", self.subtotal];
+    
+    [self.tableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    
+    [self.tableView reloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    [self.tableView reloadData];
 }
 
 - (IBAction)onXDismissedPressed:(UIButton *)sender
@@ -42,14 +60,14 @@
     {
         // Make a ChosenBike item object and let Xcode know we're getting back a ChosenBike item.
         ChosenBike *aBike = (ChosenBike *)cartShoppingItem;
-        cell.textLabel.text = aBike.chosenName;
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ x %@", aBike.chosenName, aBike.chosenQuantity];
         cell.detailTextLabel.text = [aBike.chosenPrice stringValue];
     }
     else if ([cartShoppingItem isKindOfClass:[ChosenAccessory class]])
     {
         // Make a ChosenAccessory item object and let Xcode know we're getting back a ChosenAccessoryItem.
         ChosenAccessory *anAccessory = (ChosenAccessory *)cartShoppingItem;
-        cell.textLabel.text = anAccessory.chosenName;
+        cell.textLabel.text = [NSString stringWithFormat:@"%@%@", anAccessory.chosenName, anAccessory.chosenQuantity];
         
         // Convert chosenPrice into a CGFloat
         CGFloat totalPrice = [anAccessory.chosenPrice floatValue];
