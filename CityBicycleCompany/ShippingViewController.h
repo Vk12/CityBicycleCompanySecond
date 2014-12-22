@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ShippingViewController : UIViewController <UITextFieldDelegate>
+@property NSString *subtotal;
 
 @end

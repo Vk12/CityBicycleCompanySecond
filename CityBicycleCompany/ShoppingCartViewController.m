@@ -11,7 +11,7 @@
 #import "Stripe+ApplePay.h"
 #import "Stripe.h"
 #import "Constants.h"
-#import "ShippingManagerViewController.h"
+#import "ShippingViewController.h"
 #import "Photo.h"
 #import "Bicycle.h"
 #import "ChosenBike.h"
@@ -160,7 +160,6 @@
         ChosenBike *testBike = (ChosenBike *)testShoppingItem;
         
         cell.productNameLabel.text = testBike.chosenName;
-//        cell.colorLabel.text = [testBike.chosenQuantity stringValue];
         
         if ([testBike.chosenWheelSetColor isEqualToString:@"Black"])
         {
@@ -315,6 +314,7 @@ return YES;
 {
     NSLog(@"Credit card button tapped");
 
+
 //    PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
 //    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:paymentViewController];
 //
@@ -464,6 +464,19 @@ return YES;
     
     
     }
+
+#pragma mark - SEGUE
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"shippingSegue"])
+    {
+        ShippingViewController *vc = segue.destinationViewController;
+        vc.subtotal = self.subTotalLabel.text;
+        
+    }
+}
+
+
 
 
 @end
