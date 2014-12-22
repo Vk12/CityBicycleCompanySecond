@@ -11,6 +11,7 @@
 
 @interface PaymentViewController : UIViewController <PTKViewDelegate>
 @property IBOutlet PTKView *paymentView;
+@property IBOutlet PTKAddressZip *addressZip;
 @property (nonatomic) NSDecimalNumber *amount;
 
 @end

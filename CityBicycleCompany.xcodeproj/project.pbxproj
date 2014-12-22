@@ -89,6 +89,7 @@
 		FB0E0B6D1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB0E0B6E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB3338C41A311CA300FCE9C8 /* ShoppingCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */; };
+		FB78A8971A47E2B20093901C /* ShippingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB78A8961A47E2B20093901C /* ShippingViewController.m */; };
 		FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7F27A81A2A9FDB00328CE8 /* Constants.m */; };
 		FB8E910E1A44DBDD00BBC295 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8E910D1A44DBDD00BBC295 /* MBProgressHUD.m */; };
 		FBB3A1671A3FD506005AF308 /* PTKAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB3A13E1A3FD506005AF308 /* PTKAddressZip.m */; };
@@ -250,6 +251,8 @@
 		FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPTestShippingMethodStore.m; sourceTree = "<group>"; };
 		FB3338C21A311CA300FCE9C8 /* ShoppingCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShoppingCartTableViewCell.h; path = ../ShoppingCartTableViewCell.h; sourceTree = "<group>"; };
 		FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingCartTableViewCell.m; path = ../ShoppingCartTableViewCell.m; sourceTree = "<group>"; };
+		FB78A8951A47E2B20093901C /* ShippingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingViewController.h; sourceTree = "<group>"; };
+		FB78A8961A47E2B20093901C /* ShippingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingViewController.m; sourceTree = "<group>"; };
 		FB7F27A71A2A9FDB00328CE8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FB7F27A81A2A9FDB00328CE8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		FB8E910C1A44DBDD00BBC295 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -471,6 +474,8 @@
 				39C528C21A2684700018C017 /* ProfileViewController.m */,
 				3928AF351A26852200BE9DBC /* ShoppingCartViewController.h */,
 				3928AF361A26852200BE9DBC /* ShoppingCartViewController.m */,
+				FB78A8951A47E2B20093901C /* ShippingViewController.h */,
+				FB78A8961A47E2B20093901C /* ShippingViewController.m */,
 				39CA90611A2CD92D001FD52F /* ProductCollectionViewCell.h */,
 				39CA90621A2CD92D001FD52F /* ProductCollectionViewCell.m */,
 				39CA90651A2CE3BE001FD52F /* BicycleCollectionViewCell.h */,
@@ -873,6 +878,7 @@
 				FBB3A16C1A3FD506005AF308 /* PTKComponent.m in Sources */,
 				FB0E0B421A293EB50053F9D1 /* STPBankAccount.m in Sources */,
 				39CA90701A2D1FB5001FD52F /* Bicycle.m in Sources */,
+				FB78A8971A47E2B20093901C /* ShippingViewController.m in Sources */,
 				3914E1931A2E411400301DD3 /* ChosenBike.m in Sources */,
 				FB0E0B631A2943EB0053F9D1 /* STPTestCardStore.m in Sources */,
 				FBB3A1871A3FD77A005AF308 /* PaymentViewController.m in Sources */,

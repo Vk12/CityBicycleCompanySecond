@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "MBProgressHUD.h"
 #import <Parse/Parse.h>
+#import "PTKAddressZip.h"
 
 @interface PaymentViewController ()
 
@@ -45,7 +46,6 @@
     UIBarButtonItem *payButton = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleDone target:self action:@selector(pay:)];
     payButton.enabled = NO;
     self.navigationItem.rightBarButtonItem = payButton;
-    
     
 }
 
