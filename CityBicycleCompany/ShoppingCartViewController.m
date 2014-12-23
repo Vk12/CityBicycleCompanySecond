@@ -188,7 +188,9 @@
         }
         else
         {
-            cell.extraWheelsetLabel.text = [NSString stringWithFormat:@"Extra %@ wheelset: 80.00", testBike.extraSeriesWheelset];
+            cell.extraWheelsetLabel.text = @"Extra wheelset: 80.00";
+            // Took below out because constraints looked weird (lines too long on one line).
+//            [NSString stringWithFormat:@"Extra wheelset: 80.00", testBike.extraSeriesWheelset];
 
         }
         
