@@ -1307,6 +1307,15 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90U-GW-XhR">
+                                <rect key="frame" x="16" y="108" width="568" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="qQE-j7-gmj"/>
+                                    <constraint firstAttribute="width" constant="568" id="twF-Xt-b0t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total: $0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOX-M7-QpP">
                                 <rect key="frame" x="366" y="51" width="207" height="21"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1369,15 +1378,25 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90U-GW-XhR">
-                                <rect key="frame" x="16" y="108" width="568" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0UP-OS-3pj">
+                                <rect key="frame" x="0.0" y="443" width="600" height="66"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="qQE-j7-gmj"/>
-                                    <constraint firstAttribute="width" constant="568" id="twF-Xt-b0t"/>
+                                    <constraint firstAttribute="width" constant="600" id="Th6-Ob-uhu"/>
+                                    <constraint firstAttribute="height" constant="66" id="bJG-5B-fWX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Checkout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="87" y="550" width="227" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="checkoutButtonTapped:" destination="jRS-CD-hbe" eventType="touchUpInside" id="Ev1-Nn-YO8"/>
+                                    <action selector="onCartButtonPressed:" destination="a1L-zc-nEL" eventType="touchUpInside" id="IBM-Et-RhS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1391,6 +1410,7 @@
                             <constraint firstAttribute="centerX" secondItem="Yfw-15-Fzw" secondAttribute="centerX" id="Eda-oZ-ae5"/>
                             <constraint firstItem="cEm-Ra-cM9" firstAttribute="trailing" secondItem="E6P-d5-D1b" secondAttribute="trailingMargin" id="IL8-vy-KOZ"/>
                             <constraint firstItem="pTB-aP-0Ve" firstAttribute="top" secondItem="90U-GW-XhR" secondAttribute="bottom" constant="27" id="InJ-9n-Fb3"/>
+                            <constraint firstItem="0UP-OS-3pj" firstAttribute="leading" secondItem="E6P-d5-D1b" secondAttribute="leadingMargin" constant="-16" id="Lou-9b-GGX"/>
                             <constraint firstItem="nAK-yK-wwZ" firstAttribute="leading" secondItem="E6P-d5-D1b" secondAttribute="leadingMargin" id="MH4-Ar-Eiu"/>
                             <constraint firstItem="nAK-yK-wwZ" firstAttribute="trailing" secondItem="E6P-d5-D1b" secondAttribute="trailingMargin" id="Ocw-P3-sgX"/>
                             <constraint firstItem="90U-GW-XhR" firstAttribute="top" secondItem="bOX-M7-QpP" secondAttribute="bottom" constant="36" id="TPr-Ad-P5g"/>
@@ -1403,12 +1423,14 @@
                             <constraint firstItem="90U-GW-XhR" firstAttribute="top" secondItem="E6P-d5-D1b" secondAttribute="topMargin" constant="199" id="nrP-3Y-caR"/>
                             <constraint firstItem="uCb-xD-hS3" firstAttribute="top" secondItem="cEm-Ra-cM9" secondAttribute="bottom" constant="41" id="oTb-D3-Kw0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="90U-GW-XhR" secondAttribute="trailing" id="qz4-yI-V0n"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0UP-OS-3pj" secondAttribute="trailing" constant="-16" id="rce-K9-eje"/>
                             <constraint firstItem="cEm-Ra-cM9" firstAttribute="leading" secondItem="E6P-d5-D1b" secondAttribute="leadingMargin" id="t8T-uO-YWm"/>
                             <constraint firstItem="nAK-yK-wwZ" firstAttribute="top" secondItem="PJf-bV-6GR" secondAttribute="bottom" constant="50" id="u7Y-g2-ekl"/>
                             <constraint firstItem="90U-GW-XhR" firstAttribute="leading" secondItem="E6P-d5-D1b" secondAttribute="leadingMargin" id="ugY-s5-QIv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bOX-M7-QpP" secondAttribute="trailing" constant="11" id="ujm-KN-G4z"/>
                             <constraint firstItem="0F1-ck-pZa" firstAttribute="trailing" secondItem="E6P-d5-D1b" secondAttribute="trailingMargin" id="vtA-8N-pdP"/>
                             <constraint firstItem="PJf-bV-6GR" firstAttribute="top" secondItem="pTB-aP-0Ve" secondAttribute="bottom" constant="8" id="w5w-WQ-U8y"/>
+                            <constraint firstItem="0UP-OS-3pj" firstAttribute="top" secondItem="uCb-xD-hS3" secondAttribute="bottom" constant="40" id="yag-Lu-wco"/>
                             <constraint firstItem="uCb-xD-hS3" firstAttribute="leading" secondItem="E6P-d5-D1b" secondAttribute="leadingMargin" id="zJ6-7j-hGR"/>
                         </constraints>
                         <variation key="default">
@@ -1418,6 +1440,11 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="addressTextField" destination="cEm-Ra-cM9" id="ZBj-9T-odh"/>
+                        <outlet property="cityStateTextField" destination="nAK-yK-wwZ" id="XUj-pV-hDg"/>
+                        <outlet property="emailTextField" destination="PJf-bV-6GR" id="5bw-sX-za3"/>
+                        <outlet property="nameTextField" destination="pTB-aP-0Ve" id="SzF-FT-4v7"/>
+                        <outlet property="postalCodeTextField" destination="uCb-xD-hS3" id="rqs-Sh-Ouq"/>
                         <outlet property="priceLabel" destination="bOX-M7-QpP" id="NfW-t6-ryU"/>
                     </connections>
                 </viewController>

@@ -10,10 +10,18 @@
 #import "Cart.h"
 #import "ChosenAccessory.h"
 #import "ChosenBike.h"
+#import <Parse/Parse.h>
+#import "PaymentViewController.h"
 
-@interface ShippingViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ShippingViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property UIGestureRecognizer *tapper;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *addressTextField;
+@property (weak, nonatomic) IBOutlet UITextField *cityStateTextField;
+@property (weak, nonatomic) IBOutlet UITextField *postalCodeTextField;
+@property NSMutableArray *shippingInfo;
 
 @end
 
@@ -30,6 +38,8 @@
     [self.tapper setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:self.tapper];
     
+    self.shippingInfo = [NSMutableArray new];
+
     
 }
 
@@ -49,6 +59,30 @@
 {
     [self.view endEditing:YES];
 }
+
+- (IBAction)checkoutButtonTapped:(UIButton *)sender
+{
+    NSString *nameString = self.nameTextField.text;
+    NSString *emailString = self.emailTextField.text;
+    NSString *addressString = self.addressTextField.text;
+    NSString *cityStateString = self.cityStateTextField.text;
+    NSString *postalCodeString = self.postalCodeTextField.text;
+    [self.shippingInfo addObject:nameString];
+    [self.shippingInfo addObject:emailString];
+    [self.shippingInfo addObject:addressString];
+    [self.shippingInfo addObject:cityStateString];
+    [self.shippingInfo addObject:postalCodeString];
+    
+    PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:paymentViewController];
+    
+//    Convert subtotal (string) to NSDecimalNumber. Pass to paymentViewController.
+    paymentViewController.amount = [NSDecimalNumber decimalNumberWithString:self.subtotal];
+
+    [self presentViewController:navController animated:YES completion:nil];
+    
+}
+
 
 - (IBAction)onXDismissedPressed:(UIButton *)sender
 {
