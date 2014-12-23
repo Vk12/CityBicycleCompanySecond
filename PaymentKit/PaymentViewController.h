@@ -13,5 +13,6 @@
 @property IBOutlet PTKView *paymentView;
 @property IBOutlet PTKAddressZip *addressZip;
 @property (nonatomic) NSDecimalNumber *amount;
+@property (nonatomic)NSMutableArray *shippingInfo;
 
 @end

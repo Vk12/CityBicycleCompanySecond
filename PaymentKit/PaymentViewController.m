@@ -12,14 +12,32 @@
 #import "MBProgressHUD.h"
 #import <Parse/Parse.h>
 #import "PTKAddressZip.h"
+#import "Cart.h"
+#import "ChosenAccessory.h"
 
 @interface PaymentViewController ()
+@property NSString *bikeName;
+@property NSString *bikeSize;
+@property BOOL bicycleHasRearBrake;
+@property NSString *bikeWheelSetColor;
+@property NSString *bikeExtraWheelset;
+@property NSNumber *bikeQty;
+@property NSString *shippingName;
+@property NSString *email;
+@property NSString *shippingAddress;
+@property NSString *cityState;
+@property NSString *zipcode;
+@property NSString *accessoryName;
+@property NSNumber *accessoryQty;
+@property NSString *accessoryColor;
+@property NSString *accessorySize;
 
 @end
 
 @implementation PaymentViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -116,12 +134,62 @@
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     NSString *result = [formatter stringFromNumber:[NSNumber numberWithFloat:total]];
     
+    
+    // Enumerate through cartArray to get every item.
+    Cart *cartObject = [Cart sharedManager];
+    for (id object in cartObject.cartArray)
+    {
+        if ([object isKindOfClass:[ChosenBike class]])
+        {
+            ChosenBike *bikeObject = (ChosenBike *)object;
+            self.bikeName = bikeObject.chosenName;
+            self.bikeSize = bikeObject.chosenSize;
+            self.bicycleHasRearBrake = bikeObject.bicycleHasRearBrake;
+            self.bikeWheelSetColor = bikeObject.chosenWheelSetColor;
+            self.bikeExtraWheelset = bikeObject.extraSeriesWheelset;
+            self.bikeQty = bikeObject.chosenQuantity;
+
+        }
+        else if ([object isKindOfClass:[ChosenAccessory class]])
+        {
+            ChosenAccessory *accessoryObject = (ChosenAccessory *)object;
+            self.accessoryName = accessoryObject.chosenName;
+            self.accessoryQty = accessoryObject.chosenQuantity;
+            self.accessoryColor = accessoryObject.color;
+            self.accessorySize = accessoryObject.chosenSize;
+            
+        }
+    }
+    
+    // Enumerate through shippingInfo to get every item.
+    for (id object in self.shippingInfo)
+    {
+        self.shippingName = [self.shippingInfo objectAtIndex:0];
+        self.email = [self.shippingInfo objectAtIndex:1];
+        self.shippingAddress = [self.shippingInfo objectAtIndex:2];
+        self.cityState = [self.shippingInfo objectAtIndex:3];
+        self.zipcode = [self.shippingInfo objectAtIndex:4];
+        
+        NSLog(@"%@",object);
+        
+    }
+    
     NSDictionary *chargeParams = @{
                                    @"token": token.tokenId,
                                    @"currency": @"usd",
                                    @"amount": result, // this is in cents (i.e. 1000 = $10)
+                                   @"bikeName": self.bikeName,
+                                   @"bikeSize": self.bikeSize,
+                                   @"bikeHasRearBrake": [NSNumber numberWithBool:self.bicycleHasRearBrake],
+                                   @"bikeColor": self.bikeWheelSetColor,
+                                   @"bikeExtraWheelset": self.bikeExtraWheelset,
+                                   @"bikeQty": [self.bikeQty stringValue],
+                                   @"accessoryName": self.accessoryName,
+                                   @"accessoryQty": [self.accessoryQty stringValue],
+                                   @"accessoryColor": self.accessoryColor,
+                                   @"accessorySize": self.accessorySize,
                                    };
-    
+
     if (!ParseApplicationId || !ParseClientKey) {
         UIAlertView *message =
         [[UIAlertView alloc] initWithTitle:@"Todo: Submit this token to your backend"

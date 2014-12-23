@@ -38,7 +38,7 @@
     self.chosenSize = dictionary[@"chosenSize"];
     self.chosenWheelSetColor = dictionary[@"chosenWheelSetColor"];
     self.extraSeriesWheelset = dictionary[@"extraSeriesWheelset"];
-    self.chosenBike = dictionary[@"chosenBike"];
+//    self.chosenBike = dictionary[@"chosenBike"];
 //    self.salePrice = dictionary[@"salePrice"];
     self.chosenName = dictionary[@"chosenName"];
     self.chosenPrice = dictionary[@"chosenPrice"];

@@ -1477,7 +1477,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5f-Xw-ecP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1280" y="2118"/>
+            <point key="canvasLocation" x="1280" y="2137"/>
         </scene>
         <!--Privacy Policy View Controller-->
         <scene sceneID="Jpy-Np-ONo">

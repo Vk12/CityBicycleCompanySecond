@@ -211,6 +211,7 @@
     }else
     {
         self.localChosenAccessory.chosenSize = self.accessoryFromParse.size[self.sizeSegmentedControl.selectedSegmentIndex];
+        
     }
     
     

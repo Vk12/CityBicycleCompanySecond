@@ -20,7 +20,7 @@
 //    [dictionary setObject:self.salePrice forKey:@"salePrice"];
 //    [dictionary setObject:self.chosenAccessory forKey:@"chosenAccessory"];
     [dictionary setObject:self.color forKey:@"color"];
-//    [dictionary setObject:self.chosenSize forKey:@"chosenSize"];
+    [dictionary setObject:self.chosenSize forKey:@"chosenSize"];
 //    [dictionary setObject:self.passTheAccessoryArray forKey:@"passTheAccessoryArray"];
     [dictionary setObject:self.chosenPrice forKey:@"chosenPrice"];
     return dictionary;

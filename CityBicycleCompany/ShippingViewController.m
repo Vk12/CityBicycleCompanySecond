@@ -78,6 +78,9 @@
     
 //    Convert subtotal (string) to NSDecimalNumber. Pass to paymentViewController.
     paymentViewController.amount = [NSDecimalNumber decimalNumberWithString:self.subtotal];
+    
+    // pass array to paymentViewController.
+    paymentViewController.shippingInfo = self.shippingInfo;
 
     [self presentViewController:navController animated:YES completion:nil];
     
