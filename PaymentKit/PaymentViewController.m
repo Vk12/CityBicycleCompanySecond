@@ -81,7 +81,7 @@
     if (![Stripe defaultPublishableKey])
     {
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"No Publishable Key"
-                                                          message:@"Please specify a Stripe Publishable Key in Constants.m"
+                                                          message:@"Please specify a Stripe Publishable Key i n Constants.m"
                                                          delegate:nil
                                                 cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
                                                 otherButtonTitles:nil, nil];
@@ -93,6 +93,7 @@
     card.number = self.paymentView.card.number;
     card.expMonth = self.paymentView.card.expMonth;
     card.expYear = self.paymentView.card.expYear;
+
     card.cvc = self.paymentView.card.cvc;
     [Stripe createTokenWithCard:card
                      completion:^(STPToken *token, NSError *error) {
@@ -103,7 +104,6 @@
                              [self hasToken:token];
                          }
                      }];
-
     
 
 }
@@ -188,6 +188,10 @@
                                    @"accessoryQty": [self.accessoryQty stringValue],
                                    @"accessoryColor": self.accessoryColor,
                                    @"accessorySize": self.accessorySize,
+                                   @"shippingName": self.shippingName,
+                                   @"shippingEmail": self.email,
+                                   @"cityState": self.cityState,
+                                   @"zipcode": self.zipcode,
                                    };
 
     if (!ParseApplicationId || !ParseClientKey) {
@@ -218,8 +222,8 @@
                                     }
                                     [self.presentingViewController dismissViewControllerAnimated:YES
                                                                                       completion:^{
-                                                                                          [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded"
-                                                                                                                      message:nil
+                                                                                          [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded!"
+                                                                                                                      message:[NSString stringWithFormat:@"An email confirmation was sent to %@", self.email]
                                                                                                                      delegate:nil
                                                                                                             cancelButtonTitle:nil
                                                                                                             otherButtonTitles:@"OK", nil] show];
