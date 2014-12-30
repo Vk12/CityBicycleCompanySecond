@@ -220,14 +220,15 @@
                                         [self hasError:error];
                                         return;
                                     }
-                                    [self.presentingViewController dismissViewControllerAnimated:YES
-                                                                                      completion:^{
-                                                                                          [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded!"
-                                                                                                                      message:[NSString stringWithFormat:@"An email confirmation was sent to %@", self.email]
-                                                                                                                     delegate:nil
-                                                                                                            cancelButtonTitle:nil
-                                                                                                            otherButtonTitles:@"OK", nil] show];
-                                                                                      }];
+                                    else
+                                    {
+                                        [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded!"
+                                                                    message:[NSString stringWithFormat:@"An email confirmation was sent to %@", self.email]
+                                                                   delegate:nil
+                                                          cancelButtonTitle:nil
+                                                          otherButtonTitles:@"OK", nil] show];
+                                    }
+                        
                                 }];
 }
 
