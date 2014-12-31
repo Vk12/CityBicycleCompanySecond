@@ -31,6 +31,7 @@
 @property NSNumber *accessoryQty;
 @property NSString *accessoryColor;
 @property NSString *accessorySize;
+@property NSMutableArray *lineItems;
 
 @end
 
@@ -64,6 +65,8 @@
     UIBarButtonItem *payButton = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleDone target:self action:@selector(pay:)];
     payButton.enabled = NO;
     self.navigationItem.rightBarButtonItem = payButton;
+    
+    self.lineItems = [NSMutableArray new];
     
 }
 
@@ -134,7 +137,6 @@
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     NSString *result = [formatter stringFromNumber:[NSNumber numberWithFloat:total]];
     
-    
     // Enumerate through cartArray to get every item.
     Cart *cartObject = [Cart sharedManager];
     for (id object in cartObject.cartArray)
@@ -142,24 +144,38 @@
         if ([object isKindOfClass:[ChosenBike class]])
         {
             ChosenBike *bikeObject = (ChosenBike *)object;
+            NSDictionary *attributes = @{@"bikeName": bikeObject.chosenName
+                                         
+                                         };
             self.bikeName = bikeObject.chosenName;
             self.bikeSize = bikeObject.chosenSize;
             self.bicycleHasRearBrake = bikeObject.bicycleHasRearBrake;
             self.bikeWheelSetColor = bikeObject.chosenWheelSetColor;
             self.bikeExtraWheelset = bikeObject.extraSeriesWheelset;
             self.bikeQty = bikeObject.chosenQuantity;
+            NSDictionary *lineItems = @{@"line_item_type": @"bike",
+                                        @"line_item_attributes": attributes};
+            [self.lineItems addObject:lineItems];
+        
 
         }
         else if ([object isKindOfClass:[ChosenAccessory class]])
         {
             ChosenAccessory *accessoryObject = (ChosenAccessory *)object;
+            NSDictionary *attributes = @{@"accessoryName": accessoryObject.chosenName
+                                         
+                                         };
             self.accessoryName = accessoryObject.chosenName;
             self.accessoryQty = accessoryObject.chosenQuantity;
             self.accessoryColor = accessoryObject.color;
             self.accessorySize = accessoryObject.chosenSize;
+            NSDictionary *lineItem = @{@"line_item_type": @"accessory",
+                                       @"line_item_attributes": attributes};
+            [self.lineItems addObject:lineItem];
             
         }
     }
+    
     
     // Enumerate through shippingInfo to get every item.
     for (id object in self.shippingInfo)
@@ -174,20 +190,12 @@
         
     }
     
+    
     NSDictionary *chargeParams = @{
                                    @"token": token.tokenId,
                                    @"currency": @"usd",
                                    @"amount": result, // this is in cents (i.e. 1000 = $10)
-                                   @"bikeName": self.bikeName,
-                                   @"bikeSize": self.bikeSize,
-                                   @"bikeHasRearBrake": [NSNumber numberWithBool:self.bicycleHasRearBrake],
-                                   @"bikeColor": self.bikeWheelSetColor,
-                                   @"bikeExtraWheelset": self.bikeExtraWheelset,
-                                   @"bikeQty": [self.bikeQty stringValue],
-                                   @"accessoryName": self.accessoryName,
-                                   @"accessoryQty": [self.accessoryQty stringValue],
-                                   @"accessoryColor": self.accessoryColor,
-                                   @"accessorySize": self.accessorySize,
+                                   @"lineItems": self.lineItems,
                                    @"shippingName": self.shippingName,
                                    @"shippingEmail": self.email,
                                    @"cityState": self.cityState,
