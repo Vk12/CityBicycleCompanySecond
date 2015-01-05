@@ -144,15 +144,14 @@
         if ([object isKindOfClass:[ChosenBike class]])
         {
             ChosenBike *bikeObject = (ChosenBike *)object;
-            NSDictionary *attributes = @{@"bikeName": bikeObject.chosenName
-                                         
+            NSDictionary *attributes = @{@"bikeName": bikeObject.chosenName,
+                                         @"bikeSize": bikeObject.chosenSize,
+                                         @"bikeHasRearBrake": [NSNumber numberWithBool:bikeObject.bicycleHasRearBrake],
+                                         @"bicycleWheelsetColor": bikeObject.chosenWheelSetColor,
+                                         @"bicycleExtraWheelset": bikeObject.extraSeriesWheelset,
+                                         @"bikeQty": bikeObject.chosenQuantity
+                                    
                                          };
-            self.bikeName = bikeObject.chosenName;
-            self.bikeSize = bikeObject.chosenSize;
-            self.bicycleHasRearBrake = bikeObject.bicycleHasRearBrake;
-            self.bikeWheelSetColor = bikeObject.chosenWheelSetColor;
-            self.bikeExtraWheelset = bikeObject.extraSeriesWheelset;
-            self.bikeQty = bikeObject.chosenQuantity;
             NSDictionary *lineItems = @{@"line_item_type": @"bike",
                                         @"line_item_attributes": attributes};
             [self.lineItems addObject:lineItems];
@@ -162,13 +161,12 @@
         else if ([object isKindOfClass:[ChosenAccessory class]])
         {
             ChosenAccessory *accessoryObject = (ChosenAccessory *)object;
-            NSDictionary *attributes = @{@"accessoryName": accessoryObject.chosenName
+            NSDictionary *attributes = @{@"accessoryName": accessoryObject.chosenName,
+                                         @"accessoryQty": accessoryObject.chosenQuantity,
+                                         @"accessoryColor": accessoryObject.color,
+                                         @"accessorySize": accessoryObject.chosenSize
                                          
                                          };
-            self.accessoryName = accessoryObject.chosenName;
-            self.accessoryQty = accessoryObject.chosenQuantity;
-            self.accessoryColor = accessoryObject.color;
-            self.accessorySize = accessoryObject.chosenSize;
             NSDictionary *lineItem = @{@"line_item_type": @"accessory",
                                        @"line_item_attributes": attributes};
             [self.lineItems addObject:lineItem];
@@ -196,8 +194,9 @@
                                    @"currency": @"usd",
                                    @"amount": result, // this is in cents (i.e. 1000 = $10)
                                    @"lineItems": self.lineItems,
-                                   @"shippingName": self.shippingName,
-                                   @"shippingEmail": self.email,
+                                   @"name": self.shippingName,
+                                   @"email": self.email,
+                                   @"address": self.shippingAddress,
                                    @"cityState": self.cityState,
                                    @"zipcode": self.zipcode,
                                    };
