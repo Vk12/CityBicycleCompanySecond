@@ -241,6 +241,7 @@
                                                               cancelButtonTitle:nil
                                                               otherButtonTitles:@"OK", nil] show];
                                         }];
+                                        [self clearShoppingCart];
                                     }
                         
                                 }];
@@ -254,6 +255,13 @@
     NSLog(@"Address zip: %@", card.addressZip);
     
      self.navigationItem.rightBarButtonItem.enabled = valid;
+}
+
+- (void)clearShoppingCart
+{
+    Cart *cart = [Cart sharedManager];
+    [cart.cartArray removeAllObjects];
+    
 }
 
 @end
