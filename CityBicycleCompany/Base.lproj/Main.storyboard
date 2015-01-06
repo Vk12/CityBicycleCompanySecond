@@ -9,7 +9,7 @@
         <!--Product View Controller-->
         <scene sceneID="TKK-th-ppK">
             <objects>
-                <viewController id="gg1-cF-bDY" customClass="ProductViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="id" id="gg1-cF-bDY" customClass="ProductViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GRG-Mb-nt7"/>
                         <viewControllerLayoutGuide type="bottom" id="Phk-4L-9a2"/>
@@ -1087,7 +1087,7 @@
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vvG-QV-Txm" id="p7G-3o-MD4">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rear Brake" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eRW-fH-TUK">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rear Brake" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eRW-fH-TUK">
                                                             <rect key="frame" x="408" y="45" width="136" height="17"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="17" id="xOd-gF-JVE"/>
@@ -1121,7 +1121,7 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K8-cg-WWU">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K8-cg-WWU">
                                                             <rect key="frame" x="450" y="71" width="94" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="94" id="4zy-3s-2wr"/>
@@ -1452,6 +1452,32 @@
             </objects>
             <point key="canvasLocation" x="1280" y="1457"/>
         </scene>
+        <!--Order Complete View Controller-->
+        <scene sceneID="Gam-9Q-IIU">
+            <objects>
+                <viewController id="1qH-US-cBd" customClass="OrderCompleteViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sFS-1o-jef"/>
+                        <viewControllerLayoutGuide type="bottom" id="wmc-zJ-gUG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9fQ-ZD-Hfc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Order Complete!!!!!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fo-nO-JaE">
+                                <rect key="frame" x="227" y="121" width="146" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mml-IY-MEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1280" y="2166"/>
+        </scene>
         <!--Payment View Controller-->
         <scene sceneID="ojx-b9-OwU">
             <objects>
@@ -1474,10 +1500,13 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="gg1-cF-bDY" kind="presentation" identifier="paymentSucceeded" id="XDa-RZ-TRp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5f-Xw-ecP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1280" y="2137"/>
+            <point key="canvasLocation" x="1238" y="70"/>
         </scene>
         <!--Privacy Policy View Controller-->
         <scene sceneID="Jpy-Np-ONo">

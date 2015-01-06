@@ -52,7 +52,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)sender

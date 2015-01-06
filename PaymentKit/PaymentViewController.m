@@ -14,6 +14,7 @@
 #import "PTKAddressZip.h"
 #import "Cart.h"
 #import "ChosenAccessory.h"
+#import "OrderCompleteViewController.h"
 
 @interface PaymentViewController ()
 @property NSString *bikeName;
@@ -229,11 +230,17 @@
                                     }
                                     else
                                     {
-                                        [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded!"
-                                                                    message:[NSString stringWithFormat:@"An email confirmation was sent to %@", self.email]
-                                                                   delegate:nil
-                                                          cancelButtonTitle:nil
-                                                          otherButtonTitles:@"OK", nil] show];
+                                        NSString *storyboardName = @"Main";
+                                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+                                        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"id"];
+                                        
+                                        [self presentViewController:vc animated:YES completion:^{
+                                            [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded!"
+                                                                        message:[NSString stringWithFormat:@"An email confirmation was sent to %@", self.email]
+                                                                       delegate:nil
+                                                              cancelButtonTitle:nil
+                                                              otherButtonTitles:@"OK", nil] show];
+                                        }];
                                     }
                         
                                 }];

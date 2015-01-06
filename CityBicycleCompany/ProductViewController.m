@@ -109,26 +109,6 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 
-//    NSString *moviepath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"splashvideo.mp4"];
-//
-//    MPMoviePlayerViewController *controller = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:moviepath]];
-//    controller.moviePlayer.controlStyle = MPMovieControlStyleNone;
-//    [controller.moviePlayer prepareToPlay];
-//    [controller.moviePlayer play];
-//
-//    [self presentMoviePlayerViewControllerAnimated:controller];
-
-
-
-
-    //moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
-
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:(movieFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:moviePlayer];
-    //[moviePlayer play];
-
-
-    //modalSplashVideoViewController.view = moviepath;
-
     
 }
 
@@ -142,6 +122,7 @@
         [self.shoppingCartCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
         [self upDateCartColorCounter];
     }];
+    
 }
 
 -( void)viewDidAppear:(BOOL)animated
@@ -150,6 +131,7 @@
     [self showSplashVideo];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"cartChanged" object:nil];
+    
 }
 - (void)upDateCartColorCounter
 {
