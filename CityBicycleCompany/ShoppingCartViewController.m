@@ -411,7 +411,13 @@ return YES;
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[[UIAlertView alloc] initWithTitle:@"Payment TEST"
+                                   message:[NSString stringWithFormat:@"An email confirmation was sent to %@", self.email]
+                                  delegate:nil
+                         cancelButtonTitle:nil
+                         otherButtonTitles:@"OK", nil] show];
+    }];
 }
 
 #pragma mark PKPaymentAuthorizationViewControllerDelegate Helper Methods
@@ -498,13 +504,7 @@ return YES;
                                         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
                                         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"id"];
                                         
-                                        [self presentViewController:vc animated:YES completion:^{
-                                            [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded"
-                                                                        message:[NSString stringWithFormat:@"An email confirmation was sent to %@", self.email]
-                                                                       delegate:nil
-                                                              cancelButtonTitle:nil
-                                                              otherButtonTitles:@"OK", nil] show];
-                                        }];
+                                        [self presentViewController:vc animated:YES completion:nil];
                                         
                                     }
                                 }];
