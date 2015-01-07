@@ -89,7 +89,6 @@
 		FB0E0B6D1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB0E0B6E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */; };
 		FB3338C41A311CA300FCE9C8 /* ShoppingCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */; };
-		FB4576091A5B6333003C9514 /* OrderCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4576081A5B6333003C9514 /* OrderCompleteViewController.m */; };
 		FB78A8971A47E2B20093901C /* ShippingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB78A8961A47E2B20093901C /* ShippingViewController.m */; };
 		FB7F27A91A2A9FDB00328CE8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7F27A81A2A9FDB00328CE8 /* Constants.m */; };
 		FB8E910E1A44DBDD00BBC295 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8E910D1A44DBDD00BBC295 /* MBProgressHUD.m */; };
@@ -252,8 +251,6 @@
 		FB0E0B5E1A2943EB0053F9D1 /* STPTestShippingMethodStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPTestShippingMethodStore.m; sourceTree = "<group>"; };
 		FB3338C21A311CA300FCE9C8 /* ShoppingCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShoppingCartTableViewCell.h; path = ../ShoppingCartTableViewCell.h; sourceTree = "<group>"; };
 		FB3338C31A311CA300FCE9C8 /* ShoppingCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingCartTableViewCell.m; path = ../ShoppingCartTableViewCell.m; sourceTree = "<group>"; };
-		FB4576071A5B6333003C9514 /* OrderCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCompleteViewController.h; sourceTree = "<group>"; };
-		FB4576081A5B6333003C9514 /* OrderCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCompleteViewController.m; sourceTree = "<group>"; };
 		FB78A8951A47E2B20093901C /* ShippingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingViewController.h; sourceTree = "<group>"; };
 		FB78A8961A47E2B20093901C /* ShippingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingViewController.m; sourceTree = "<group>"; };
 		FB7F27A71A2A9FDB00328CE8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -493,8 +490,6 @@
 				395F9E3D1A3AD36E00641FB1 /* PrivacyPolicyViewController.m */,
 				FBB3A1851A3FD77A005AF308 /* PaymentViewController.h */,
 				FBB3A1861A3FD77A005AF308 /* PaymentViewController.m */,
-				FB4576071A5B6333003C9514 /* OrderCompleteViewController.h */,
-				FB4576081A5B6333003C9514 /* OrderCompleteViewController.m */,
 				8758D6F51A3626F700172026 /* ModalVCForAnimation */,
 			);
 			name = "View Controllers";
@@ -881,7 +876,6 @@
 				FB0E0B4A1A293EB50053F9D1 /* Stripe.m in Sources */,
 				FBB3A16B1A3FD506005AF308 /* PTKCardNumber.m in Sources */,
 				FBB3A16C1A3FD506005AF308 /* PTKComponent.m in Sources */,
-				FB4576091A5B6333003C9514 /* OrderCompleteViewController.m in Sources */,
 				FB0E0B421A293EB50053F9D1 /* STPBankAccount.m in Sources */,
 				39CA90701A2D1FB5001FD52F /* Bicycle.m in Sources */,
 				FB78A8971A47E2B20093901C /* ShippingViewController.m in Sources */,
@@ -1050,7 +1044,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-l\"c++\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0ad71651-de28-43f5-94ba-76f5a66b31e5";
 			};
 			name = Debug;
 		};
@@ -1075,7 +1069,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-l\"c++\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0ad71651-de28-43f5-94ba-76f5a66b31e5";
 			};
 			name = Release;
 		};

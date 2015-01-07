@@ -20,6 +20,7 @@
 #import "ChosenAccessory.h"
 #import "Cart.h"
 #import "PaymentViewController.h"
+#import <AddressBook/AddressBook.h>
 #define kOFFSET_FOR_KEYBOARD 80.0
 
 #if DEBUG
@@ -39,6 +40,10 @@
 @property BOOL isKeyBoardShowing;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomOfTableView;
 @property CGFloat initialBottomOfTableView;
+@property NSMutableArray *lineItems;
+@property NSString *shippingName;
+@property NSDictionary *addressDict;
+@property NSString *email;
 
 @end
 
@@ -59,6 +64,7 @@
     self.shoppingCartArray = test.cartArray;
     [test load];
     
+    self.lineItems = [NSMutableArray new];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -324,10 +330,11 @@ return YES;
 {
     NSLog(@"button was tapped");
     
+    [self getCartData];
+    
     // Generating a PKPaymentRequest to submit to Apple.
     PKPaymentRequest *request = [Stripe paymentRequestWithMerchantIdentifier:@"merchant.MayVA.CityBicycleCompanyApp"];
-    [request setRequiredShippingAddressFields:PKAddressFieldPostalAddress];
-    [request setRequiredBillingAddressFields:PKAddressFieldPostalAddress];
+    [request setRequiredShippingAddressFields:PKAddressFieldAll];
     
     
     // Set the paymentSummaryItems to a NSArray of PKPaymentSummaryItems.  These are analogous to line items on a receipt.
@@ -337,19 +344,24 @@ return YES;
     NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:paymentSummary];
     
     request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:label amount:number]];
-
     
     // Query to check if ApplePay is available for the phone user.
     if ([Stripe canSubmitPaymentRequest:request])
     {
+        // request.shippingAddress
         // Create and display the payment request view controller.
 #if DEBUG
         PKPaymentAuthorizationViewController *auth = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
+        
 #else
         PKPaymentAuthorizationViewController *auth = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
+        NSString *address = request.shippingAddress;
+
 #endif
         auth.delegate = self;
+        
         [self presentViewController:auth animated:YES completion:nil];
+        
     }
     else
     {
@@ -375,7 +387,26 @@ return YES;
                                 completion:(void (^)(PKPaymentAuthorizationStatus))completion
 {
     [self handlePaymentAuthorizationWithPayment:payment completion:completion];
+
+    id shippingObjects = [payment shippingAddress];
+    
+    // Just a test to check if we were able to fetch the shipping object.
+    NSLog(@"%@", ABRecordCopyCompositeName((__bridge ABRecordRef)(shippingObjects)));
+    
+    // Get shipping name.
+    self.shippingName = (__bridge NSString *)(ABRecordCopyCompositeName((__bridge ABRecordRef)(shippingObjects)));
+    
+    
+    // Get shipping address details.
+    CFTypeRef addressProperty = ABRecordCopyValue((__bridge ABRecordRef)shippingObjects, kABPersonAddressProperty);
+    self.addressDict = (__bridge NSDictionary *)CFArrayGetValueAtIndex((CFArrayRef)ABMultiValueCopyArrayOfAllValues(addressProperty), 0);
+    
+    // Get email.
+    CFTypeRef email = ABRecordCopyValue((__bridge ABRecordRef)(shippingObjects), kABPersonEmailProperty);
+    self.email =(__bridge NSString *)CFArrayGetValueAtIndex((CFArrayRef)ABMultiValueCopyArrayOfAllValues(email), 0);
+
 }
+
 
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
 {
@@ -433,12 +464,26 @@ return YES;
     // Convert to a string to put into NSDictionary.
     NSString *result = [formatter stringFromNumber:[NSNumber numberWithFloat:total2]];
     
+    // Append City and State keys to one NSString.
+    NSString *city = [NSString stringWithFormat:@"%@, ", self.addressDict[@"City"]];
+    NSString *state = self.addressDict[@"State"];
+    NSString *cityState = [city stringByAppendingString:state];
+    
+    
     
     NSDictionary *chargeParams = @{
                                    @"token": token.tokenId,
                                    @"currency": @"usd",
-                                   @"amount": result // this is in cents (i.e. 1000 cents = $10)
+                                   @"amount": result, // this is in cents (i.e. 1000 cents = $10)
+                                   @"lineItems": self.lineItems,
+                                   @"name": self.shippingName,
+                                   @"email": self.email,
+                                   @"address": self.addressDict[@"Street"],
+                                   @"cityState": cityState,
+                                   @"zipcode": self.addressDict[@"ZIP"]
+                                   
                                    };
+    
     // This passes the token off to our payment backend, which will then actually complete charging the card using your account's
     [PFCloud callFunctionInBackground:@"charge"
                        withParameters:chargeParams
@@ -448,16 +493,66 @@ return YES;
                                     } else {
                                         // We're done!
                                         completion(PKPaymentAuthorizationStatusSuccess);
-                                        [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded"
-                                                                    message:nil
-                                                                   delegate:nil
-                                                          cancelButtonTitle:nil
-                                                          otherButtonTitles:@"OK", nil] show];
+                                        
+                                        NSString *storyboardName = @"Main";
+                                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+                                        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"id"];
+                                        
+                                        [self presentViewController:vc animated:YES completion:^{
+                                            [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded"
+                                                                        message:[NSString stringWithFormat:@"An email confirmation was sent to %@", self.email]
+                                                                       delegate:nil
+                                                              cancelButtonTitle:nil
+                                                              otherButtonTitles:@"OK", nil] show];
+                                        }];
+                                        
                                     }
                                 }];
     
     
     }
+
+- (void)getCartData
+{
+    NSLog(@"Test");
+    // Enumerate through cartArray to get every item.
+    Cart *cartObject = [Cart sharedManager];
+    for (id object in cartObject.cartArray)
+    {
+        if ([object isKindOfClass:[ChosenBike class]])
+        {
+            ChosenBike *bikeObject = (ChosenBike *)object;
+            NSDictionary *attributes = @{@"bikeName": bikeObject.chosenName,
+                                         @"bikeSize": bikeObject.chosenSize,
+                                         @"bikeHasRearBrake": [NSNumber numberWithBool:bikeObject.bicycleHasRearBrake],
+                                         @"bicycleWheelsetColor": bikeObject.chosenWheelSetColor,
+                                         @"bicycleExtraWheelset": bikeObject.extraSeriesWheelset,
+                                         @"bikeQty": bikeObject.chosenQuantity
+                                         
+                                         };
+            NSDictionary *lineItems = @{@"line_item_type": @"bike",
+                                        @"line_item_attributes": attributes};
+            [self.lineItems addObject:lineItems];
+            
+            
+        }
+        else if ([object isKindOfClass:[ChosenAccessory class]])
+        {
+            ChosenAccessory *accessoryObject = (ChosenAccessory *)object;
+            NSDictionary *attributes = @{@"accessoryName": accessoryObject.chosenName,
+                                         @"accessoryQty": accessoryObject.chosenQuantity,
+                                         @"accessoryColor": accessoryObject.color,
+                                         @"accessorySize": accessoryObject.chosenSize
+                                         
+                                         };
+            NSDictionary *lineItem = @{@"line_item_type": @"accessory",
+                                       @"line_item_attributes": attributes};
+            [self.lineItems addObject:lineItem];
+            
+        }
+    }
+
+}
 
 #pragma mark - SEGUE
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

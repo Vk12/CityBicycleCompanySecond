@@ -14,7 +14,6 @@
 #import "PTKAddressZip.h"
 #import "Cart.h"
 #import "ChosenAccessory.h"
-#import "OrderCompleteViewController.h"
 
 @interface PaymentViewController ()
 @property NSString *bikeName;
