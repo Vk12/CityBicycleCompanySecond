@@ -18,30 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQ1-Ny-dag">
-                                <rect key="frame" x="554" y="38" width="30" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="Cra-pW-GqJ"/>
-                                    <constraint firstAttribute="height" constant="20" id="Rsq-KT-PUf"/>
-                                    <constraint firstAttribute="width" constant="30" id="Txr-Ou-HiH"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="shoppingCart">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Cra-pW-GqJ"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="Cra-pW-GqJ"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="shoppingCartButtonTapped:" destination="gg1-cF-bDY" eventType="touchUpInside" id="W6Q-KF-dHK"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c0A-Qt-nbT">
                                 <rect key="frame" x="0.0" y="102" width="600" height="498"/>
                                 <constraints>
@@ -197,6 +173,30 @@
                                     <constraint firstAttribute="width" constant="339" id="ziD-k1-MTD"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQ1-Ny-dag">
+                                <rect key="frame" x="554" y="33" width="30" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="Cra-pW-GqJ"/>
+                                    <constraint firstAttribute="height" constant="20" id="Rsq-KT-PUf"/>
+                                    <constraint firstAttribute="width" constant="30" id="Txr-Ou-HiH"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="shoppingCart">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Cra-pW-GqJ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Cra-pW-GqJ"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="shoppingCartButtonTapped:" destination="gg1-cF-bDY" eventType="touchUpInside" id="W6Q-KF-dHK"/>
+                                </connections>
+                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vbl-cj-YPP">
                                 <rect key="frame" x="8" y="66" width="584" height="29"/>
                                 <segments>
@@ -238,7 +238,7 @@
                             <constraint firstItem="c0A-Qt-nbT" firstAttribute="top" secondItem="Ifb-H9-avf" secondAttribute="bottom" constant="58" id="qeR-Bl-YsB"/>
                             <constraint firstItem="KWJ-fl-dKf" firstAttribute="top" secondItem="GRG-Mb-nt7" secondAttribute="bottom" constant="14" id="tHY-H2-FJ8"/>
                             <constraint firstItem="c0A-Qt-nbT" firstAttribute="bottom" secondItem="Phk-4L-9a2" secondAttribute="top" id="w68-qD-Ksw"/>
-                            <constraint firstItem="tQ1-Ny-dag" firstAttribute="top" secondItem="GRG-Mb-nt7" secondAttribute="bottom" constant="18" id="ymX-21-xCk"/>
+                            <constraint firstItem="tQ1-Ny-dag" firstAttribute="top" secondItem="GRG-Mb-nt7" secondAttribute="bottom" constant="13" id="ymX-21-xCk"/>
                             <constraint firstAttribute="centerX" secondItem="Ifb-H9-avf" secondAttribute="centerX" id="zVf-hX-hds"/>
                         </constraints>
                         <variation key="default">
