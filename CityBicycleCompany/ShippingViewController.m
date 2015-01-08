@@ -12,8 +12,9 @@
 #import "ChosenBike.h"
 #import <Parse/Parse.h>
 #import "PaymentViewController.h"
+#define MAX_LENGTH 20
 
-@interface ShippingViewController ()
+@interface ShippingViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property UIGestureRecognizer *tapper;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -59,14 +60,7 @@
     [self.view endEditing:YES];
 }
 
-- (BOOL)textFieldsAreComplete
-{
-    if ([self.emailTextField.text isEqualToString:@""]) {
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Field", @"Missing Field") message:NSLocalizedString(@"Please fill in all fields.", @"Please fill in all fields.") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil] show];
-    }
-    
-    return YES;
-}
+
 
 - (IBAction)checkoutButtonTapped:(UIButton *)sender
 {
@@ -89,6 +83,8 @@
     else if (!self.emailTextField.text.length > 0)
     {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please fill in an email address.", @"Please fill in all fields") message:NSLocalizedString(@"", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil] show];
+        
+        
     }
     else if (!self.addressTextField.text.length > 0)
     {
@@ -98,36 +94,34 @@
     {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please fill in a city and state.", @"Please fill in all fields") message:NSLocalizedString(@"", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil] show];
     }
-    else if (!self.postalCodeTextField.text.length > 0)
+
+    else if (!([self.postalCodeTextField.text length] == 5))
     {
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please fill in a postal code.", @"Please fill in all fields") message:NSLocalizedString(@"", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil] show];
+        
+        
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please fill in a valid postal code.", @"Please fill in all fields") message:NSLocalizedString(@"Must be 5 digits", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil] show];
+        
+    }
+    else if (self.emailTextField.text.length > 0)
+    {
+        NSString *emailRegEx = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+        NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
+        
+        // If valid address
+        if ([emailTest evaluateWithObject:self.emailTextField.text] == YES)
+        {
+            [self popToPaymentVC];
+        }
+        else
+        {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please fill in a valid email address.", @"Please fill in all fields") message:NSLocalizedString(@"", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil] show];
+        }
     }
     else
     {
-            PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
-            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:paymentViewController];
-        
-        //    Convert subtotal (string) to NSDecimalNumber. Pass to paymentViewController.
-            paymentViewController.amount = [NSDecimalNumber decimalNumberWithString:self.subtotal];
-        
-            // pass array to paymentViewController.
-            paymentViewController.shippingInfo = self.shippingInfo;
-        
-            [self presentViewController:navController animated:YES completion:nil];
+        [self popToPaymentVC];
     }
 
-    
-//    
-//    PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
-//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:paymentViewController];
-//    
-////    Convert subtotal (string) to NSDecimalNumber. Pass to paymentViewController.
-//    paymentViewController.amount = [NSDecimalNumber decimalNumberWithString:self.subtotal];
-//    
-//    // pass array to paymentViewController.
-//    paymentViewController.shippingInfo = self.shippingInfo;
-//
-//    [self presentViewController:navController animated:YES completion:nil];
     
 }
 
@@ -136,6 +130,28 @@
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+- (BOOL)isEmailValid:(NSString *)email
+{
+    NSPredicate *regex = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"];
+    return [regex evaluateWithObject:email];
+}
+
+- (void)popToPaymentVC
+{
+    PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:paymentViewController];
+    
+    //    Convert subtotal (string) to NSDecimalNumber. Pass to paymentViewController.
+    paymentViewController.amount = [NSDecimalNumber decimalNumberWithString:self.subtotal];
+    
+    // pass array to paymentViewController.
+    paymentViewController.shippingInfo = self.shippingInfo;
+    
+    [self presentViewController:navController animated:YES completion:nil];
+ }
+
 
 
 @end
