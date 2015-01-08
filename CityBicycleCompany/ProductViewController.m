@@ -59,21 +59,82 @@
 
 @implementation ProductViewController
 
+#pragma - mark VIEW CONTROLLER LIFE CYCLES
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"cartChanged" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        self.singleton = [Cart sharedManager];
+    
+        [self.shoppingCartCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
+        [self upDateCartColorCounter];
+    }];
+    
+}
+
+
+-( void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self showSplashVideo];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"cartChanged" object:nil];
+    
+    [self.singleton load];
+    [self upDateCartColorCounter];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self queryAllObjects];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"cartChanged" object:nil];
+    
+    [self.singleton load];
+    
+    [self.shoppingCartCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
+    [self upDateCartColorCounter];
+    
+}
+
+- (void) viewDidDisappear:(BOOL)animated
+{
+    [self upDateCartColorCounter];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [self upDateCartColorCounter];
+}
+
+
+
+- (void)upDateCartColorCounter
+{
+    if (self.singleton.cartArray.count > 0) {
+        self.shoppingCartCounter.textColor = [UIColor redColor];
+    }
+}
+
 -(void)showSplashVideo
 {
     //check to see if NSUSERDEFAULTS contains YES for key: kSplashVideoPlayed
     //if yes, dont play video
     //if no, play video, and then set the vale for key: kSplashVideoPlayed to YES
-
-
+    
+    
     //UIViewController *modalSplashVideoViewController = [[UIViewController alloc] init];
-
+    
     if (![[[NSUserDefaults standardUserDefaults] objectForKey:kSplashVideoPlayed] boolValue]) {
-
+        
         CGFloat screenSize = [[UIApplication sharedApplication] keyWindow].frame.size.height;
         NSString *filename = @"videoSplashSixPlus.mp4";
-
-
+        
+        
         if (screenSize == 480) {
             filename = @"splashVideoFourS.mp4";
             NSLog(@"4 video ran");
@@ -92,93 +153,25 @@
         }
         
         
-    
-
-
         
-
+        
+        
+        
+        
         NSString *moviepath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:filename];
-
+        
         MPMoviePlayerViewController *controller = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:moviepath]];
         controller.moviePlayer.controlStyle = MPMovieControlStyleNone;
         [controller.moviePlayer prepareToPlay];
         [controller.moviePlayer play];
-
+        
         [self presentMoviePlayerViewControllerAnimated:controller];
         [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:kSplashVideoPlayed];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-
+    
     
 }
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"cartChanged" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        self.singleton = [Cart sharedManager];
-        [self.shoppingCartCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
-        [self upDateCartColorCounter];
-    }];
-    
-}
-
--( void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self showSplashVideo];
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"cartChanged" object:nil];
-    
-}
-- (void)upDateCartColorCounter
-{
-    if (self.singleton.cartArray.count > 0) {
-        self.shoppingCartCounter.textColor = [UIColor redColor];
-    }
-}
-#pragma mark - UIViewControllerTransitioningDelegate
-//
-//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
-//{
-//    return [PresentingAnimator new];
-//
-//}
-//
-//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
-//{
-//    return  [DismissingAnimator new];
-//}
-
-
-#pragma mark - Private Instance methods
-
-//- (void)addPresentButton
-//{
-//    UIButton *presentButton = [UIButton buttonWithType:UIButtonTypeSystem];
-//    presentButton.translatesAutoresizingMaskIntoConstraints = NO;
-//    [presentButton setTitle:@"Present Modal View Controller" forState:UIControlStateNormal];
-//    [presentButton addTarget:self action:@selector(present:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:presentButton];
-//
-//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:presentButton
-//                                                          attribute:NSLayoutAttributeCenterX
-//                                                          relatedBy:NSLayoutRelationEqual
-//                                                             toItem:self.view
-//                                                          attribute:NSLayoutAttributeCenterX
-//                                                         multiplier:1.f
-//                                                           constant:0.f]];
-//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:presentButton
-//                                                          attribute:NSLayoutAttributeCenterY
-//                                                          relatedBy:NSLayoutRelationEqual
-//                                                             toItem:self.view
-//                                                          attribute:NSLayoutAttributeCenterY
-//                                                         multiplier:1.f
-//                                                           constant:0.f]];
-//
-//}
 
 - (void)present:(id)sender
 {
@@ -200,13 +193,6 @@
     layout.itemSize = CGSizeMake(self.productCollectionView.frame.size.width, (self.productCollectionView.frame.size.width * kImageAspectRatioScale));
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self queryAllObjects];
-    [self.shoppingCartCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
-
-}
 
 - (void)queryAllObjects
 {

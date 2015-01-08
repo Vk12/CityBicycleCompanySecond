@@ -412,12 +412,18 @@ return YES;
 {
     [self dismissViewControllerAnimated:YES completion:nil];
     [self dismissViewControllerAnimated:YES completion:^{
-        [[[UIAlertView alloc] initWithTitle:@"Payment TEST"
+        [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded!"
                                    message:[NSString stringWithFormat:@"An email confirmation was sent to %@", self.email]
                                   delegate:nil
                          cancelButtonTitle:nil
                          otherButtonTitles:@"OK", nil] show];
     }];
+    
+    Cart *cart = [Cart sharedManager];
+    [cart.cartArray removeAllObjects];
+    
+    [cart save];
+    
 }
 
 #pragma mark PKPaymentAuthorizationViewControllerDelegate Helper Methods
