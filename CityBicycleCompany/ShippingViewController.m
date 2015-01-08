@@ -39,7 +39,7 @@
     [self.view addGestureRecognizer:self.tapper];
     
     self.shippingInfo = [NSMutableArray new];
-
+    
     
 }
 
@@ -59,6 +59,15 @@
     [self.view endEditing:YES];
 }
 
+- (BOOL)textFieldsAreComplete
+{
+    if ([self.emailTextField.text isEqualToString:@""]) {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Field", @"Missing Field") message:NSLocalizedString(@"Please fill in all fields.", @"Please fill in all fields.") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil] show];
+    }
+    
+    return YES;
+}
+
 - (IBAction)checkoutButtonTapped:(UIButton *)sender
 {
     NSString *nameString = self.nameTextField.text;
@@ -72,16 +81,53 @@
     [self.shippingInfo addObject:cityStateString];
     [self.shippingInfo addObject:postalCodeString];
     
-    PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:paymentViewController];
     
-//    Convert subtotal (string) to NSDecimalNumber. Pass to paymentViewController.
-    paymentViewController.amount = [NSDecimalNumber decimalNumberWithString:self.subtotal];
-    
-    // pass array to paymentViewController.
-    paymentViewController.shippingInfo = self.shippingInfo;
+    if (!self.nameTextField.text.length > 0)
+    {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please fill in a name.", @"Please fill in all fields") message:NSLocalizedString(@"", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil] show];
+    }
+    else if (!self.emailTextField.text.length > 0)
+    {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please fill in an email address.", @"Please fill in all fields") message:NSLocalizedString(@"", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil] show];
+    }
+    else if (!self.addressTextField.text.length > 0)
+    {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please fill in an address.", @"Please fill in all fields") message:NSLocalizedString(@"", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil] show];
+    }
+    else if (!self.cityStateTextField.text.length > 0)
+    {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please fill in a city and state.", @"Please fill in all fields") message:NSLocalizedString(@"", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil] show];
+    }
+    else if (!self.postalCodeTextField.text.length > 0)
+    {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please fill in a postal code.", @"Please fill in all fields") message:NSLocalizedString(@"", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil] show];
+    }
+    else
+    {
+            PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:paymentViewController];
+        
+        //    Convert subtotal (string) to NSDecimalNumber. Pass to paymentViewController.
+            paymentViewController.amount = [NSDecimalNumber decimalNumberWithString:self.subtotal];
+        
+            // pass array to paymentViewController.
+            paymentViewController.shippingInfo = self.shippingInfo;
+        
+            [self presentViewController:navController animated:YES completion:nil];
+    }
 
-    [self presentViewController:navController animated:YES completion:nil];
+    
+//    
+//    PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
+//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:paymentViewController];
+//    
+////    Convert subtotal (string) to NSDecimalNumber. Pass to paymentViewController.
+//    paymentViewController.amount = [NSDecimalNumber decimalNumberWithString:self.subtotal];
+//    
+//    // pass array to paymentViewController.
+//    paymentViewController.shippingInfo = self.shippingInfo;
+//
+//    [self presentViewController:navController animated:YES completion:nil];
     
 }
 

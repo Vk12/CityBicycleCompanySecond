@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CityBicycleCompany/ShippingViewController.m"
-            timestampString = "442195218.372428"
+            timestampString = "442409404.741981"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "-checkoutButtonTapped:"
             landmarkType = "5">
          </BreakpointContent>
