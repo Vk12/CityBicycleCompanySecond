@@ -30,7 +30,6 @@
 
 
 @interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate, UITableViewDataSource, UITableViewDelegate,ShoppingCartCellDelegate, UITextFieldDelegate>
-@property (strong, nonatomic) IBOutlet UIButton *buyWithIpayButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *shoppingCartArray;
 @property NSString *priceSummary;
@@ -44,6 +43,7 @@
 @property NSString *shippingName;
 @property NSDictionary *addressDict;
 @property NSString *email;
+@property Cart *singleton;
 
 @end
 
@@ -324,7 +324,40 @@ return YES;
 
     // When button is tapped, segues to ShippingViewController via Storyboard.
     
+    Cart *cart = [Cart sharedManager];
+    if (cart.cartArray.count == 0)
+    {
+        NSLog(@"Nothing in there");
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your cart is empty"
+                                                        message:@""
+                                                       delegate:self
+                                              cancelButtonTitle:@"Continue Shopping"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+        
+    }
+    else
+    {
+        
+    }
+    
 }
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    Cart *cart = [Cart sharedManager];
+    if (cart.cartArray.count == 0)
+    {
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
+
 
 - (IBAction)onPayButtonTapped:(UIButton *)sender
 {

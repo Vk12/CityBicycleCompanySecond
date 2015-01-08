@@ -1452,32 +1452,6 @@
             </objects>
             <point key="canvasLocation" x="1280" y="1457"/>
         </scene>
-        <!--Order Complete View Controller-->
-        <scene sceneID="Gam-9Q-IIU">
-            <objects>
-                <viewController id="1qH-US-cBd" customClass="OrderCompleteViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sFS-1o-jef"/>
-                        <viewControllerLayoutGuide type="bottom" id="wmc-zJ-gUG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9fQ-ZD-Hfc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Order Complete!!!!!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fo-nO-JaE">
-                                <rect key="frame" x="227" y="121" width="146" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mml-IY-MEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1280" y="2166"/>
-        </scene>
         <!--Payment View Controller-->
         <scene sceneID="ojx-b9-OwU">
             <objects>
