@@ -421,9 +421,14 @@ return YES;
     
     Cart *cart = [Cart sharedManager];
     [cart.cartArray removeAllObjects];
-    
     [cart save];
     
+    
+    NSString *storyboardName = @"Main";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"id"];
+    
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark PKPaymentAuthorizationViewControllerDelegate Helper Methods
@@ -506,11 +511,11 @@ return YES;
                                         // We're done!
                                         completion(PKPaymentAuthorizationStatusSuccess);
                                         
-                                        NSString *storyboardName = @"Main";
-                                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-                                        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"id"];
-                                        
-                                        [self presentViewController:vc animated:YES completion:nil];
+//                                        NSString *storyboardName = @"Main";
+//                                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+//                                        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"id"];
+//                                        
+//                                        [self presentViewController:vc animated:YES completion:nil];
                                         
                                     }
                                 }];
