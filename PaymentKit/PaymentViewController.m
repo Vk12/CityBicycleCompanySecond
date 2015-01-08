@@ -260,6 +260,7 @@
 {
     Cart *cart = [Cart sharedManager];
     [cart.cartArray removeAllObjects];
+    [cart save];
     
 }
 
