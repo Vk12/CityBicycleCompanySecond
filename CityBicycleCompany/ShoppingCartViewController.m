@@ -60,9 +60,10 @@
 {
     [super viewDidLoad];
     
-    Cart *test = [Cart sharedManager];
-    self.shoppingCartArray = test.cartArray;
-    [test load];
+    Cart *singleton = [Cart sharedManager];
+    self.singleton = singleton;
+    self.shoppingCartArray = self.singleton.cartArray;
+    [self.singleton load];
     
     self.lineItems = [NSMutableArray new];
     
@@ -83,8 +84,8 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-    Cart *loadCart = [Cart sharedManager];
-    [loadCart load];
+   
+    [self.singleton load];
     
     self.initialBottomOfTableView = self.bottomOfTableView.constant;
 
@@ -144,8 +145,7 @@
  
     [self refreshTotal];
     
-    Cart *cart = [Cart sharedManager];
-    [cart save];
+    [self.singleton save];
     
 }
 
@@ -157,8 +157,7 @@
 
     cell.delegate = self;
     
-    Cart *test = [Cart sharedManager];
-    id testShoppingItem = [test.cartArray objectAtIndex:indexPath.row];
+    id testShoppingItem = [self.singleton.cartArray objectAtIndex:indexPath.row];
 
 
         if ([testShoppingItem isKindOfClass:[ChosenBike class]])
@@ -271,8 +270,7 @@ return YES;
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         
         [self refreshTotal];
-        Cart *cart = [Cart sharedManager];
-        [cart save];
+        [self.singleton save];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"cartChanged" object:nil];
 
     }
@@ -307,8 +305,7 @@ return YES;
     }
     
     
-    Cart *cart = [Cart sharedManager];
-    [cart save];
+    [self.singleton save];
     
 
 }
@@ -324,45 +321,47 @@ return YES;
 
     // When button is tapped, segues to ShippingViewController via Storyboard.
     
-    Cart *cart = [Cart sharedManager];
-    if (cart.cartArray.count == 0)
+    if (self.singleton.cartArray.count == 0)
     {
         NSLog(@"Nothing in there");
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your cart is empty"
                                                         message:@""
                                                        delegate:self
-                                              cancelButtonTitle:@"Continue Shopping"
+                                              cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
         
         
     }
-    else
-    {
-        
-    }
     
 }
 
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    Cart *cart = [Cart sharedManager];
-    if (cart.cartArray.count == 0)
-    {
-        return NO;
-    }
-    else
-    {
-        return YES;
-    }
-}
-
-
-- (IBAction)onPayButtonTapped:(UIButton *)sender
+- (IBAction)onApplePayButtonTapped:(UIButton *)sender
 {
     NSLog(@"button was tapped");
     
+    if (self.singleton.cartArray.count == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your cart is empty"
+                                                        message:@""
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+    }
+    else
+    {
+        [self checkApplePay];
+    }
+}
+
+#pragma mark Apple Pay enabled check
+
+// Check to see if user has Apple Pay
+- (void)checkApplePay
+{
     [self getCartData];
     
     // Generating a PKPaymentRequest to submit to Apple.
@@ -381,7 +380,6 @@ return YES;
     // Query to check if ApplePay is available for the phone user.
     if ([Stripe canSubmitPaymentRequest:request])
     {
-        // request.shippingAddress
         // Create and display the payment request view controller.
 #if DEBUG
         PKPaymentAuthorizationViewController *auth = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
@@ -389,7 +387,7 @@ return YES;
 #else
         PKPaymentAuthorizationViewController *auth = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
         NSString *address = request.shippingAddress;
-
+        
 #endif
         auth.delegate = self;
         
@@ -408,8 +406,7 @@ return YES;
         [alert show];
         
     }
-    
-    
+
 }
 
 #pragma mark PKPaymentAuthorizationViewControllerDelegate Protocols
@@ -444,19 +441,10 @@ return YES;
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self dismissViewControllerAnimated:YES completion:^{
-        [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded!"
-                                   message:[NSString stringWithFormat:@"An email confirmation was sent to %@", self.email]
-                                  delegate:nil
-                         cancelButtonTitle:nil
-                         otherButtonTitles:@"OK", nil] show];
-    }];
     
-    Cart *cart = [Cart sharedManager];
-    [cart.cartArray removeAllObjects];
-    [cart save];
-    
-    
+    // The method below changes the view to the ProductViewController when this delegate is called.
+    // This is an awkward place to put it, but the shopping count counter behaves strangely if put anywhere else.
+    // If user cancels payment sheet without paying, cancel button triggers this method, which is OK I guess.
     NSString *storyboardName = @"Main";
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
     UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"id"];
@@ -544,11 +532,14 @@ return YES;
                                         // We're done!
                                         completion(PKPaymentAuthorizationStatusSuccess);
                                         
-//                                        NSString *storyboardName = @"Main";
-//                                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-//                                        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"id"];
-//                                        
-//                                        [self presentViewController:vc animated:YES completion:nil];
+                                        [[[UIAlertView alloc] initWithTitle:@"Payment Succeeded!"
+                                                                   message:[NSString stringWithFormat:@"An email confirmation was sent to %@", self.email]
+                                                                  delegate:nil
+                                                         cancelButtonTitle:nil
+                                                         otherButtonTitles:@"OK", nil] show];
+                                        
+                                        [self.singleton.cartArray removeAllObjects];
+                                        [self.singleton save];
                                         
                                     }
                                 }];
@@ -560,8 +551,7 @@ return YES;
 {
     NSLog(@"Test");
     // Enumerate through cartArray to get every item.
-    Cart *cartObject = [Cart sharedManager];
-    for (id object in cartObject.cartArray)
+    for (id object in self.singleton.cartArray)
     {
         if ([object isKindOfClass:[ChosenBike class]])
         {
@@ -609,6 +599,17 @@ return YES;
     }
 }
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if (self.singleton.cartArray.count == 0)
+    {
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
 
 
 

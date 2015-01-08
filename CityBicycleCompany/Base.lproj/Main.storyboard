@@ -1046,7 +1046,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="onPayButtonTapped:" destination="jhQ-nE-lgy" eventType="touchUpInside" id="vcK-om-mMK"/>
+                                            <action selector="onApplePayButtonTapped:" destination="jhQ-nE-lgy" eventType="touchUpInside" id="LBp-71-FOr"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfx-nW-Qpa">
