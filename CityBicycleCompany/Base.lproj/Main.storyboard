@@ -133,9 +133,9 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" alpha="0.75" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9e-Wk-aXj">
-                                <rect key="frame" x="16" y="28" width="30" height="27"/>
+                                <rect key="frame" x="16" y="28" width="27" height="27"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="MEN-xn-87M"/>
+                                    <constraint firstAttribute="width" constant="27" id="MEN-xn-87M"/>
                                     <constraint firstAttribute="width" constant="47" id="mV8-Xd-ne7"/>
                                     <constraint firstAttribute="height" constant="27" id="wjC-4r-l1T"/>
                                 </constraints>
@@ -305,7 +305,7 @@
                                 <rect key="frame" x="92" y="106" width="417" height="127"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xR-LD-bpE">
-                                        <rect key="frame" x="69" y="49" width="40" height="32"/>
+                                        <rect key="frame" x="61" y="49" width="40" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="4gW-pD-PdL"/>
                                             <constraint firstAttribute="width" constant="40" id="Lc7-vt-Uqe"/>
@@ -316,20 +316,6 @@
                                         </state>
                                         <connections>
                                             <action selector="onEmailButtonTapped:" destination="P1O-Zu-8PT" eventType="touchUpInside" id="0hl-7J-7JM"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gS-eL-npr">
-                                        <rect key="frame" x="199" y="47" width="34" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="34" id="74e-LO-G1L"/>
-                                            <constraint firstAttribute="height" constant="34" id="ltQ-1Y-eeq"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="phone">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="callPhone:" destination="P1O-Zu-8PT" eventType="touchUpInside" id="UvY-RE-OZP"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Us" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwc-qc-qeJ">
@@ -343,7 +329,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBG-t9-DXi">
-                                        <rect key="frame" x="325" y="48" width="34" height="34"/>
+                                        <rect key="frame" x="322" y="48" width="34" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="34" id="EAT-bn-2JQ"/>
                                             <constraint firstAttribute="height" constant="34" id="UT5-R5-JaY"/>
@@ -356,18 +342,32 @@
                                             <action selector="onWebsiteButtonPressed:" destination="P1O-Zu-8PT" eventType="touchUpInside" id="G7H-TS-lho"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gS-eL-npr">
+                                        <rect key="frame" x="196" y="49" width="34" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="34" id="74e-LO-G1L"/>
+                                            <constraint firstAttribute="height" constant="34" id="ltQ-1Y-eeq"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="phone">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="callPhone:" destination="P1O-Zu-8PT" eventType="touchUpInside" id="UvY-RE-OZP"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="aBG-t9-DXi" firstAttribute="top" secondItem="ubj-ym-a9d" secondAttribute="top" constant="48" id="0q0-dL-oYf"/>
                                     <constraint firstItem="uwc-qc-qeJ" firstAttribute="top" secondItem="ubj-ym-a9d" secondAttribute="top" constant="8" id="185-e5-rxB"/>
                                     <constraint firstAttribute="height" constant="127" id="2p6-iB-xLE"/>
-                                    <constraint firstItem="6xR-LD-bpE" firstAttribute="leading" secondItem="ubj-ym-a9d" secondAttribute="leading" constant="69" id="6kh-uE-5Xu"/>
-                                    <constraint firstAttribute="centerX" secondItem="0gS-eL-npr" secondAttribute="centerX" id="9h7-yW-iRW"/>
-                                    <constraint firstAttribute="trailing" secondItem="aBG-t9-DXi" secondAttribute="trailing" constant="58" id="LxZ-AQ-onk"/>
+                                    <constraint firstItem="6xR-LD-bpE" firstAttribute="leading" secondItem="ubj-ym-a9d" secondAttribute="leading" constant="61" id="6kh-uE-5Xu"/>
+                                    <constraint firstAttribute="centerX" secondItem="0gS-eL-npr" secondAttribute="centerX" constant="-4.5" id="9h7-yW-iRW"/>
+                                    <constraint firstAttribute="trailing" secondItem="aBG-t9-DXi" secondAttribute="trailing" constant="61" id="LxZ-AQ-onk"/>
                                     <constraint firstItem="6xR-LD-bpE" firstAttribute="top" secondItem="ubj-ym-a9d" secondAttribute="top" constant="49" id="UOT-bl-CU4"/>
                                     <constraint firstAttribute="centerX" secondItem="uwc-qc-qeJ" secondAttribute="centerX" id="WSj-zM-Rl2"/>
-                                    <constraint firstItem="0gS-eL-npr" firstAttribute="top" secondItem="uwc-qc-qeJ" secondAttribute="bottom" constant="18" id="cBE-KF-XYf"/>
+                                    <constraint firstItem="0gS-eL-npr" firstAttribute="top" secondItem="uwc-qc-qeJ" secondAttribute="bottom" constant="20" id="cBE-KF-XYf"/>
                                     <constraint firstAttribute="width" constant="417" id="ief-dr-ihf"/>
                                 </constraints>
                             </view>
@@ -391,7 +391,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kzc-GV-hcj">
-                                        <rect key="frame" x="302" y="30" width="51" height="31"/>
+                                        <rect key="frame" x="307" y="35" width="51" height="31"/>
                                         <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -405,7 +405,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fy7-ru-LDw">
-                                        <rect key="frame" x="302" y="77" width="51" height="31"/>
+                                        <rect key="frame" x="307" y="82" width="51" height="31"/>
                                         <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
