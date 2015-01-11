@@ -312,9 +312,11 @@
     [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
     {
         cell.bicycleImageView.image = [UIImage imageWithData:data];
-        [UIView animateWithDuration:.2 animations:^{
+        [UIView animateWithDuration:0.2 animations:^{
             cell.bicycleImageView.alpha = 1;
         }];
+        
+        [cell.activityIndicator stopAnimating];
         
         if (self.bicycleFromParse.isOnSale == YES)
         {

@@ -11,5 +11,7 @@
 @interface ProductCollectionViewCell : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *productName;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+
 
 @end

@@ -252,15 +252,14 @@
 {
     ProductCollectionViewCell *productCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"productCell" forIndexPath:indexPath];
     PFFile *file;
-    //PFObject *name;
-
-
-
+    
+    
     if (self.segmentControl.selectedSegmentIndex == 0)
     {
         Bicycle *bike = self.bicycleArray [indexPath.row];
         file = bike.bicyclePhoto;
         productCell.productName.text = bike.name;
+        
     }
     else
     {
@@ -270,6 +269,7 @@
     }
 
     [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        [productCell.indicator stopAnimating];
         productCell.imageView.image = [UIImage imageWithData:data];
     }];
 

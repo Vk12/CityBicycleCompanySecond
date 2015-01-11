@@ -43,7 +43,6 @@
 
 
 
-
 @end
 
 @implementation AccessoriesViewController
@@ -68,6 +67,7 @@
     [self.shoppingCartSizeCounter setText:[NSString stringWithFormat:@"%lu", (unsigned long)self.singleton.cartArray.count]];
     self.sizeSegmentedControl.selectedSegmentIndex = 0;
     self.colorSegmentedControl.selectedSegmentIndex = 0;
+    
 
 }
 
@@ -287,6 +287,10 @@
         [UIView animateWithDuration:.2 animations:^{
             cell.accessoryImageView.alpha = 1;
         }];
+        
+        [cell.activityIndicator stopAnimating];
+        
+        
         if (self.accessoryFromParse.isOnSale == YES)
         {
             cell.originalPriceLabel.text = @"SALE";

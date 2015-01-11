@@ -20,6 +20,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c0A-Qt-nbT">
                                 <rect key="frame" x="0.0" y="102" width="600" height="498"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="600" id="1PB-un-IBC"/>
                                     <constraint firstAttribute="height" constant="431" id="WK8-Sz-LrU"/>
@@ -74,17 +75,24 @@
                                                         <constraint firstItem="E7m-gs-vzN" firstAttribute="leading" secondItem="8MD-7e-6dp" secondAttribute="leading" id="t6w-or-nCD"/>
                                                     </constraints>
                                                 </view>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dIE-E8-qmT">
+                                                    <rect key="frame" x="288" y="63" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="8MD-7e-6dp" firstAttribute="leading" secondItem="Clt-Rf-fzx" secondAttribute="leadingMargin" constant="-8" id="0La-Fk-B6u"/>
+                                            <constraint firstAttribute="centerY" secondItem="dIE-E8-qmT" secondAttribute="centerY" id="0Ws-AA-eKi"/>
                                             <constraint firstItem="zth-FG-tmh" firstAttribute="top" secondItem="Clt-Rf-fzx" secondAttribute="topMargin" constant="-8" id="0hG-cf-ckQ"/>
                                             <constraint firstItem="zth-FG-tmh" firstAttribute="leading" secondItem="Clt-Rf-fzx" secondAttribute="leadingMargin" constant="-8" id="9gO-x1-SnL"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="dIE-E8-qmT" secondAttribute="bottom" constant="55" id="HfI-Kk-tqS"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="8MD-7e-6dp" secondAttribute="bottom" constant="-8" id="KdM-TX-bHM"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="zth-FG-tmh" secondAttribute="bottom" constant="-8" id="M98-Nd-6Aa"/>
                                             <constraint firstItem="zth-FG-tmh" firstAttribute="leading" secondItem="Clt-Rf-fzx" secondAttribute="leadingMargin" constant="92" id="MMU-gz-2Na"/>
+                                            <constraint firstItem="dIE-E8-qmT" firstAttribute="top" secondItem="Clt-Rf-fzx" secondAttribute="topMargin" constant="55" id="R8E-o6-Hlf"/>
                                             <constraint firstItem="zth-FG-tmh" firstAttribute="centerX" secondItem="Clt-Rf-fzx" secondAttribute="centerX" id="TMi-BE-RxD"/>
+                                            <constraint firstAttribute="centerX" secondItem="dIE-E8-qmT" secondAttribute="centerX" id="ToG-4p-NvJ"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="zth-FG-tmh" secondAttribute="trailing" constant="-8" id="VfZ-iK-2ho"/>
                                             <constraint firstItem="zth-FG-tmh" firstAttribute="top" secondItem="Clt-Rf-fzx" secondAttribute="topMargin" constant="-8" id="WKo-2R-bWI"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="zth-FG-tmh" secondAttribute="bottom" constant="-8" id="gbk-2u-94x"/>
@@ -109,6 +117,7 @@
                                         </variation>
                                         <connections>
                                             <outlet property="imageView" destination="zth-FG-tmh" id="w2c-gp-7rL"/>
+                                            <outlet property="indicator" destination="dIE-E8-qmT" id="pfv-CX-DbT"/>
                                             <outlet property="productName" destination="E7m-gs-vzN" id="Jgk-L9-JLb"/>
                                         </connections>
                                     </collectionViewCell>
@@ -713,6 +722,7 @@
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PlP-cy-yyi">
                                                 <rect key="frame" x="0.0" y="8" width="568" height="192"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="568" id="PtC-6N-XfZ"/>
                                                     <constraint firstAttribute="height" constant="192" id="vR9-L7-8xj"/>
@@ -734,7 +744,7 @@
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ixg-gL-IXL">
                                                                     <rect key="frame" x="0.0" y="0.0" width="570" height="190"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-eE-IH1">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-eE-IH1">
                                                                     <rect key="frame" x="8" y="8" width="64" height="29"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="64" id="Vpn-Cb-k45"/>
@@ -744,7 +754,7 @@
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gh-aW-cCa">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gh-aW-cCa">
                                                                     <rect key="frame" x="8" y="32" width="64" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="64" id="IuT-mo-5tr"/>
@@ -754,14 +764,21 @@
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tBz-C1-nGW">
+                                                                    <rect key="frame" x="275" y="85" width="20" height="20"/>
+                                                                </activityIndicatorView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </view>
                                                         <constraints>
                                                             <constraint firstItem="ixg-gL-IXL" firstAttribute="leading" secondItem="h5k-yG-Jfr" secondAttribute="leadingMargin" constant="-8" id="32A-D8-mkX"/>
+                                                            <constraint firstAttribute="centerX" secondItem="tBz-C1-nGW" secondAttribute="centerX" id="6pW-if-nC2"/>
                                                             <constraint firstAttribute="trailingMargin" secondItem="ixg-gL-IXL" secondAttribute="trailing" constant="-8" id="Agm-Iv-0WR"/>
+                                                            <constraint firstItem="tBz-C1-nGW" firstAttribute="top" secondItem="h5k-yG-Jfr" secondAttribute="topMargin" constant="77" id="GDf-a3-xdP"/>
                                                             <constraint firstItem="EgU-eE-IH1" firstAttribute="top" secondItem="h5k-yG-Jfr" secondAttribute="topMargin" id="Kzb-ym-OES"/>
                                                             <constraint firstItem="0Gh-aW-cCa" firstAttribute="top" secondItem="h5k-yG-Jfr" secondAttribute="topMargin" constant="24" id="Oof-o2-JEr"/>
+                                                            <constraint firstAttribute="centerY" secondItem="tBz-C1-nGW" secondAttribute="centerY" id="XMK-xo-TQA"/>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="tBz-C1-nGW" secondAttribute="bottom" constant="77" id="mRI-Jh-wDv"/>
                                                             <constraint firstItem="0Gh-aW-cCa" firstAttribute="leading" secondItem="h5k-yG-Jfr" secondAttribute="leadingMargin" id="s9H-RE-imp"/>
                                                             <constraint firstItem="EgU-eE-IH1" firstAttribute="leading" secondItem="h5k-yG-Jfr" secondAttribute="leadingMargin" id="tuQ-dZ-Mqm"/>
                                                             <constraint firstItem="ixg-gL-IXL" firstAttribute="top" secondItem="h5k-yG-Jfr" secondAttribute="topMargin" constant="-8" id="u67-j5-WHQ"/>
@@ -769,6 +786,7 @@
                                                         </constraints>
                                                         <size key="customSize" width="570" height="190"/>
                                                         <connections>
+                                                            <outlet property="activityIndicator" destination="tBz-C1-nGW" id="VOa-ga-eXN"/>
                                                             <outlet property="bicycleImageView" destination="ixg-gL-IXL" id="eor-q5-VWy"/>
                                                             <outlet property="originalPriceLabel" destination="EgU-eE-IH1" id="ZgW-Sf-9R0"/>
                                                             <outlet property="salePriceLabel" destination="0Gh-aW-cCa" id="u86-S5-jLo"/>
@@ -1614,6 +1632,7 @@ City Bicycle Company
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0F5-Yf-7Wc">
                                                 <rect key="frame" x="0.0" y="8" width="568" height="192"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="568" id="YbN-nL-IR5"/>
                                                     <constraint firstAttribute="height" constant="192" id="bY8-XC-ESk"/>
@@ -1635,7 +1654,7 @@ City Bicycle Company
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dIm-lQ-jqM">
                                                                     <rect key="frame" x="0.0" y="0.0" width="570" height="190"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcl-np-q7V">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcl-np-q7V">
                                                                     <rect key="frame" x="8" y="8" width="64" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="64" id="SAP-5s-hOX"/>
@@ -1645,7 +1664,7 @@ City Bicycle Company
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhQ-VN-X7X">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhQ-VN-X7X">
                                                                     <rect key="frame" x="8" y="35" width="64" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="0Oq-Vw-FBi"/>
@@ -1655,22 +1674,38 @@ City Bicycle Company
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jLv-Xg-dbL">
+                                                                    <rect key="frame" x="275" y="85" width="20" height="20"/>
+                                                                </activityIndicatorView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </view>
                                                         <constraints>
+                                                            <constraint firstAttribute="centerY" secondItem="jLv-Xg-dbL" secondAttribute="centerY" id="4vy-5R-YMF"/>
                                                             <constraint firstItem="dIm-lQ-jqM" firstAttribute="top" secondItem="Dfh-Gm-JZm" secondAttribute="topMargin" constant="-8" id="91m-1i-zE0"/>
+                                                            <constraint firstAttribute="centerX" secondItem="jLv-Xg-dbL" secondAttribute="centerX" id="ACw-x6-icg"/>
                                                             <constraint firstAttribute="bottomMargin" secondItem="dIm-lQ-jqM" secondAttribute="bottom" constant="-8" id="ADh-5R-Z5D"/>
                                                             <constraint firstItem="dIm-lQ-jqM" firstAttribute="leading" secondItem="Dfh-Gm-JZm" secondAttribute="leadingMargin" constant="-8" id="GX0-ER-Q5d"/>
                                                             <constraint firstItem="DhQ-VN-X7X" firstAttribute="top" secondItem="Vcl-np-q7V" secondAttribute="bottom" constant="-3" id="JFv-jk-g7B"/>
+                                                            <constraint firstAttribute="trailingMargin" secondItem="jLv-Xg-dbL" secondAttribute="trailing" constant="267" id="Lr7-Pd-XSd"/>
                                                             <constraint firstItem="Vcl-np-q7V" firstAttribute="top" secondItem="Dfh-Gm-JZm" secondAttribute="topMargin" id="NMh-ca-GFJ"/>
                                                             <constraint firstItem="DhQ-VN-X7X" firstAttribute="leading" secondItem="Dfh-Gm-JZm" secondAttribute="leadingMargin" id="OUp-0I-BOk"/>
+                                                            <constraint firstItem="jLv-Xg-dbL" firstAttribute="leading" secondItem="Dfh-Gm-JZm" secondAttribute="leadingMargin" constant="267" id="SQd-lw-513"/>
                                                             <constraint firstItem="Vcl-np-q7V" firstAttribute="leading" secondItem="Dfh-Gm-JZm" secondAttribute="leadingMargin" id="SSs-Ne-B8O"/>
+                                                            <constraint firstItem="jLv-Xg-dbL" firstAttribute="top" secondItem="Dfh-Gm-JZm" secondAttribute="topMargin" constant="77" id="bNg-dG-lMf"/>
                                                             <constraint firstAttribute="trailingMargin" secondItem="dIm-lQ-jqM" secondAttribute="trailing" constant="-8" id="m3Y-lj-H2M"/>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="jLv-Xg-dbL" secondAttribute="bottom" constant="77" id="ucD-jQ-98Z"/>
                                                         </constraints>
                                                         <size key="customSize" width="570" height="190"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="Lr7-Pd-XSd"/>
+                                                                <exclude reference="SQd-lw-513"/>
+                                                            </mask>
+                                                        </variation>
                                                         <connections>
                                                             <outlet property="accessoryImageView" destination="dIm-lQ-jqM" id="RZd-UM-krK"/>
+                                                            <outlet property="activityIndicator" destination="jLv-Xg-dbL" id="Zjc-gi-Ybj"/>
                                                             <outlet property="originalPriceLabel" destination="Vcl-np-q7V" id="KpX-66-XNq"/>
                                                             <outlet property="salePriceLabel" destination="DhQ-VN-X7X" id="JC3-OX-lbJ"/>
                                                         </connections>

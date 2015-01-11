@@ -12,5 +12,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *bicycleImageView;
 @property (strong, nonatomic) IBOutlet UILabel *originalPriceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *salePriceLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
