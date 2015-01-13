@@ -6,49 +6,65 @@
 //  Copyright (c) 2014 MVA. All rights reserved.
 //
 
-#import <Parse/Parse.h>
+// View Controllers
 #import "ShoppingCartViewController.h"
-#import "Stripe+ApplePay.h"
-#import "Stripe.h"
-#import "Constants.h"
 #import "ShippingViewController.h"
+#import "AccessoriesViewController.h"
+
+// Model Classes
 #import "Photo.h"
 #import "Bicycle.h"
 #import "ChosenBike.h"
-#import "ShoppingCartTableViewCell.h"
-#import "AccessoriesViewController.h"
 #import "ChosenAccessory.h"
 #import "Cart.h"
-#import "PaymentViewController.h"
-#import <AddressBook/AddressBook.h>
-#define kOFFSET_FOR_KEYBOARD 80.0
 
-#if DEBUG
-#import "STPTestPaymentAuthorizationViewController.h"
-#import "PKPayment+STPTestKeys.h"
-#endif
+// Frameworks
+#import <Parse/Parse.h>
+#import <AddressBook/AddressBook.h>
+#import "Stripe+ApplePay.h"
+#import "Stripe.h"
+
+// Custom Cells
+#import "ShoppingCartTableViewCell.h"
+#import "PaymentViewController.h"
+
+#import "Constants.h"
+
+#define kOFFSET_FOR_KEYBOARD 80.0
 
 
 @interface ShoppingCartViewController () <PKPaymentAuthorizationViewControllerDelegate, UITableViewDataSource, UITableViewDelegate,ShoppingCartCellDelegate, UITextFieldDelegate>
+
+// PROPERTIES:
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+// Shopping cart array properties
 @property NSMutableArray *shoppingCartArray;
+@property Cart *singleton;
+
+// Shopping cart totals
 @property NSString *priceSummary;
 @property NSString *itemLineSummary;
 @property (strong, nonatomic) IBOutlet UILabel *subTotalLabel;
 @property NSString *subtotalSummary;
+
+// Keyboard
 @property BOOL isKeyBoardShowing;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomOfTableView;
 @property CGFloat initialBottomOfTableView;
+
+// Server backend
 @property NSMutableArray *lineItems;
 @property NSString *shippingName;
 @property NSDictionary *addressDict;
 @property NSString *email;
-@property Cart *singleton;
 
 @end
 
 @implementation ShoppingCartViewController
 
+// Method for presenting this VC when shopping cart icon is tapped
 + (ShoppingCartViewController *)newFromStoryboard;
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -56,27 +72,18 @@
     
 }
 
+#pragma VIEW CONTROLLER LIFE CYCLES
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
+    // Instantiate stuff
     Cart *singleton = [Cart sharedManager];
     self.singleton = singleton;
     self.shoppingCartArray = self.singleton.cartArray;
-    [self.singleton load];
     
     self.lineItems = [NSMutableArray new];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-        
+    [self keyboardNotifications];
+    [self.singleton load];
     [self.tableView reloadData];
     
 }
@@ -96,11 +103,24 @@
 {
     [super viewWillAppear:YES];
     
-    
     [self refreshTotal];
 }
 
 #pragma mark - KEYBOARD HIDE
+// Keyboard is set to not block qty text field in editing mode.
+
+- (void)keyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
 - (void)keyboardWillShow:(NSNotification *)notification
 {
     if (self.isKeyBoardShowing)
@@ -130,7 +150,6 @@
         CGFloat totalItemPrice = [[item chosenQuantity] floatValue] * [[item chosenPrice] floatValue];
         cartTotal = cartTotal + totalItemPrice;
     }
-    self.priceSummary =
     self.subTotalLabel.text = [NSString stringWithFormat:@"%3.2f", cartTotal];
 }
 
@@ -141,10 +160,9 @@
     [item setChosenQuantity:qty];
     
     // When quantity is updated, update chosenPrice.
+    // Then save so the total will be there if the app is closed.
     
- 
     [self refreshTotal];
-    
     [self.singleton save];
     
 }
@@ -152,33 +170,34 @@
 #pragma mark - UITABLEVIEW DELEGATE METHODS
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bicycleCell"];
-
+    
+    // Had to set up custom delegation because of our text field within the custom cell.
     cell.delegate = self;
     
-    id testShoppingItem = [self.singleton.cartArray objectAtIndex:indexPath.row];
+    // Take each item in our shopping cart array and figure out what kind of item it is.
+    id cartItem = [self.singleton.cartArray objectAtIndex:indexPath.row];
 
-
-        if ([testShoppingItem isKindOfClass:[ChosenBike class]])
+    if ([cartItem isKindOfClass:[ChosenBike class]])
     {
-        ChosenBike *testBike = (ChosenBike *)testShoppingItem;
+        // We know for sure we're getting our object from our cartItem array.
+        ChosenBike *bike = (ChosenBike *)cartItem;
         
-        cell.productNameLabel.text = testBike.chosenName;
+        cell.productNameLabel.text = bike.chosenName;
         
-        if ([testBike.chosenWheelSetColor isEqualToString:@"Black"])
+        if ([bike.chosenWheelSetColor isEqualToString:@"Black"])
         {
             cell.colorLabel.text = @"Black wheelset";
         }
         else
         {
-            cell.colorLabel.text = [NSString stringWithFormat:@"%@ wheelset: 15.00", testBike.chosenWheelSetColor];
+            cell.colorLabel.text = [NSString stringWithFormat:@"%@ wheelset: 15.00", bike.chosenWheelSetColor];
 
         }
 
-        cell.sizeLabel.text = testBike.chosenSize;
+        cell.sizeLabel.text = bike.chosenSize;
 
-        if (testBike.bicycleHasRearBrake == YES)
+        if (bike.bicycleHasRearBrake == YES)
         {
             cell.rearBrakeLabel.text = @"Rear brake: 30.00";
         }
@@ -187,7 +206,7 @@
             [cell.rearBrakeLabel setHidden:YES];
         }
         
-        if ([testBike.extraSeriesWheelset  isEqual: @"None"])
+        if ([bike.extraSeriesWheelset  isEqual: @"None"])
         {
             [cell.extraWheelsetLabel setHidden:YES];
         }
@@ -195,31 +214,36 @@
         {
             cell.extraWheelsetLabel.text = @"Extra wheelset: 80.00";
             // Took below out because constraints looked weird (lines too long on one line).
+            // Leaving this in as a comment in case it makes sense to put back later.
+            // (originally it also listed the color of the chosen extra wheel set)
 //            [NSString stringWithFormat:@"Extra wheelset: 80.00", testBike.extraSeriesWheelset];
 
         }
         
-        cell.qtyTextField.text = [testBike.chosenQuantity stringValue];
+        cell.qtyTextField.text = [bike.chosenQuantity stringValue];
         
-        CGFloat totalPrice = [testBike.chosenPrice floatValue] * [testBike.chosenQuantity floatValue];
+        CGFloat totalPrice = [bike.chosenPrice floatValue] * [bike.chosenQuantity floatValue];
         
         cell.priceLabel.text = [NSString stringWithFormat:@"%3.2f",totalPrice];
         
+        // Text field won't be enabled until editing mode is on.
+        // so it doesn't look like a text field initially.
         cell.qtyTextField.enabled = NO;
         [cell.qtyTextField setBorderStyle:UITextBorderStyleNone];
-        
-        
 
-    } else if ([testShoppingItem isKindOfClass:[ChosenAccessory class]]){
+    }
+    
+    else if ([cartItem isKindOfClass:[ChosenAccessory class]]){
         
-        ChosenAccessory *testAccessory = (ChosenAccessory *)testShoppingItem;
+        // We know for sure we're getting this object from our cartItem array.
+        ChosenAccessory *accessory = (ChosenAccessory *)cartItem;
 
-        cell.productNameLabel.text = testAccessory.chosenName;
-        cell.priceLabel.text = testAccessory.salePrice;
-        cell.qtyTextField.text = [testAccessory.chosenQuantity stringValue];
-        cell.colorLabel.text = testAccessory.color;
-        cell.sizeLabel.text = testAccessory.chosenSize;
-        CGFloat totalPrice = [testAccessory.chosenPrice floatValue] * [testAccessory.chosenQuantity floatValue];
+        cell.productNameLabel.text = accessory.chosenName;
+        cell.priceLabel.text = accessory.salePrice;
+        cell.qtyTextField.text = [accessory.chosenQuantity stringValue];
+        cell.colorLabel.text = accessory.color;
+        cell.sizeLabel.text = accessory.chosenSize;
+        CGFloat totalPrice = [accessory.chosenPrice floatValue] * [accessory.chosenQuantity floatValue];
         cell.priceLabel.text = [NSString stringWithFormat:@"%3.2f",totalPrice];
         self.itemLineSummary = cell.productNameLabel.text;
     
