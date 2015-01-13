@@ -17,11 +17,12 @@
     self.qtyTextField.delegate = self;
 }
 
+// Delegate method for tableview cell - quantity text field is within cell.
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    int quantity = [string integerValue];
+    long quantity = [string integerValue];
 
-    [self.delegate updatedQty:[NSNumber numberWithInt:quantity] fromCell:self];
+    [self.delegate updatedQty:[NSNumber numberWithLong:quantity] fromCell:self];
     return YES;
 }
 
