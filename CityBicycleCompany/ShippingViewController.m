@@ -6,23 +6,30 @@
 //  Copyright (c) 2014 MVA. All rights reserved.
 //
 
+// View Controllers
 #import "ShippingViewController.h"
+#import "PaymentViewController.h"
+
+// Model Classes
 #import "Cart.h"
 #import "ChosenAccessory.h"
 #import "ChosenBike.h"
+
+// Framework
 #import <Parse/Parse.h>
-#import "PaymentViewController.h"
+
 #define MAX_LENGTH 20
 
 @interface ShippingViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-@property UIGestureRecognizer *tapper;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *addressTextField;
 @property (weak, nonatomic) IBOutlet UITextField *cityStateTextField;
 @property (weak, nonatomic) IBOutlet UITextField *postalCodeTextField;
 @property NSMutableArray *shippingInfo;
+@property UIGestureRecognizer *tapper; // Tapper method to dismiss keyboard when tap out of textfield.
+
 
 @end
 
@@ -35,13 +42,9 @@
     // add extra spaces between Total: and %@
     self.priceLabel.text = [NSString stringWithFormat:@"Total: %*s %@", 5, "", self.subtotal];
     
-    self.tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-    [self.tapper setCancelsTouchesInView:NO];
-    [self.view addGestureRecognizer:self.tapper];
-    
     self.shippingInfo = [NSMutableArray new];
     
-    
+    [self tap];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -55,15 +58,23 @@
     [super viewWillAppear:YES];
 }
 
+#pragma mark - TAP METHODS
+- (void)tap
+{
+    self.tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    [self.tapper setCancelsTouchesInView:NO];
+    [self.view addGestureRecognizer:self.tapper];
+}
 - (void)handleSingleTap:(UITapGestureRecognizer *)sender
 {
     [self.view endEditing:YES];
 }
 
-
+#pragma mark - UIBUTTONS
 
 - (IBAction)checkoutButtonTapped:(UIButton *)sender
 {
+    // Create shippingInfo array with the following:
     NSString *nameString = self.nameTextField.text;
     NSString *emailString = self.emailTextField.text;
     NSString *addressString = self.addressTextField.text;
@@ -75,7 +86,7 @@
     [self.shippingInfo addObject:cityStateString];
     [self.shippingInfo addObject:postalCodeString];
     
-    
+    // Error checks
     if (!self.nameTextField.text.length > 0)
     {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please fill in a name.", @"Please fill in all fields") message:NSLocalizedString(@"", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil] show];
@@ -131,13 +142,15 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-
+#pragma mark - HELPER METHODS
 - (BOOL)isEmailValid:(NSString *)email
 {
     NSPredicate *regex = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"];
     return [regex evaluateWithObject:email];
 }
 
+#pragma mark - SEGUE
+// I used Stripe's code, so programatically creating the "segue" to paymentViewController her.
 - (void)popToPaymentVC
 {
     PaymentViewController *paymentViewController = [[PaymentViewController alloc] initWithNibName:nil bundle:nil];
