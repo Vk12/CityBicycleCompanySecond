@@ -279,7 +279,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-return YES;
+    return YES;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -289,10 +289,12 @@ return YES;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
         [self.shoppingCartArray removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         
+        // When we delete a row from tableview, we update the price total, our shopping cart count, and save this to our singleton array.
         [self refreshTotal];
         [self.singleton save];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"cartChanged" object:nil];
@@ -344,6 +346,7 @@ return YES;
     NSLog(@"Credit card button tapped");
 
     // When button is tapped, segues to ShippingViewController via Storyboard.
+    // Only segues if there's something in the cart.  If there isn't, present UIAlert.
     
     if (self.singleton.cartArray.count == 0)
     {
@@ -364,6 +367,9 @@ return YES;
 - (IBAction)onApplePayButtonTapped:(UIButton *)sender
 {
     NSLog(@"button was tapped");
+    
+    // Apple Pay checkout process begins only if there's something in the cart.
+    // If there's not, present UIAlertView.
     
     if (self.singleton.cartArray.count == 0)
     {
@@ -386,14 +392,17 @@ return YES;
 // Check to see if user has Apple Pay
 - (void)checkApplePay
 {
+    // Prepare our data to send to Apple Pay.
     [self getCartData];
     
     // Generating a PKPaymentRequest to submit to Apple.
     PKPaymentRequest *request = [Stripe paymentRequestWithMerchantIdentifier:@"merchant.MayVA.CityBicycleCompanyApp"];
+    
+    // Our user is forced to input all of these fields.
     [request setRequiredShippingAddressFields:PKAddressFieldAll];
     
     
-    // Set the paymentSummaryItems to a NSArray of PKPaymentSummaryItems.  These are analogous to line items on a receipt.
+    // Set the paymentSummaryItems to a NSArray of PKPaymentSummaryItems.  "These are analogous to line items on a receipt."
     NSString *label = @"City Bicycle Co.";
     NSString *paymentSummary = self.subTotalLabel.text;
     
@@ -405,12 +414,12 @@ return YES;
     if ([Stripe canSubmitPaymentRequest:request])
     {
         // Create and display the payment request view controller.
+        // In debug mode, we're just going to use Apple Pay payment sheet instead of Stripe's test controller.
 #if DEBUG
         PKPaymentAuthorizationViewController *auth = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
         
 #else
         PKPaymentAuthorizationViewController *auth = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
-        NSString *address = request.shippingAddress;
         
 #endif
         auth.delegate = self;
@@ -442,6 +451,7 @@ return YES;
 {
     [self handlePaymentAuthorizationWithPayment:payment completion:completion];
 
+    // We're taking the user's address and contact details and putting it into shippingObjects.
     id shippingObjects = [payment shippingAddress];
     
     // Just a test to check if we were able to fetch the shipping object.
@@ -452,6 +462,7 @@ return YES;
     
     
     // Get shipping address details.
+    // Let's put it all into one dictionary and then we can call specific keys when we need to.
     CFTypeRef addressProperty = ABRecordCopyValue((__bridge ABRecordRef)shippingObjects, kABPersonAddressProperty);
     self.addressDict = (__bridge NSDictionary *)CFArrayGetValueAtIndex((CFArrayRef)ABMultiValueCopyArrayOfAllValues(addressProperty), 0);
     
@@ -496,6 +507,7 @@ return YES;
 - (void)createBackendChargeWithToken:(STPToken *)token
                           completion:(void (^)(PKPaymentAuthorizationStatus))completion
 {
+    // Error message in case there's something wrong with my Parse keys.
     if (!ParseApplicationId || !ParseClientKey)
     {
         UIAlertView *message =
@@ -512,6 +524,8 @@ return YES;
         completion(PKPaymentAuthorizationStatusSuccess);
         return;
     }
+    // Send the charge amount to Stripe.  But first, put the amount in proper format.
+    
     // First, convert subtotal (NSString) to float.
     float total = [self.subTotalLabel.text floatValue];
     
@@ -523,14 +537,13 @@ return YES;
     [formatter setMaximumFractionDigits:total2];
     [formatter setMinimumFractionDigits:0];
     
-    // Convert to a string to put into NSDictionary.
+    // Convert to a string to put into NSDictionary.  Amount done.
     NSString *result = [formatter stringFromNumber:[NSNumber numberWithFloat:total2]];
     
-    // Append City and State keys to one NSString.
+    // Now append City and State keys to one NSString.
     NSString *city = [NSString stringWithFormat:@"%@, ", self.addressDict[@"City"]];
     NSString *state = self.addressDict[@"State"];
     NSString *cityState = [city stringByAppendingString:state];
-    
     
     
     NSDictionary *chargeParams = @{
@@ -543,7 +556,6 @@ return YES;
                                    @"address": self.addressDict[@"Street"],
                                    @"cityState": cityState,
                                    @"zipcode": self.addressDict[@"ZIP"]
-                                   
                                    };
     
     // This passes the token off to our payment backend, which will then actually complete charging the card using your account's
@@ -612,6 +624,7 @@ return YES;
 
 }
 
+
 #pragma mark - SEGUE
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -625,6 +638,7 @@ return YES;
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
+    // Segue to ShippingViewController won't work if there's nothing in the shopping cart.
     if (self.singleton.cartArray.count == 0)
     {
         return NO;
