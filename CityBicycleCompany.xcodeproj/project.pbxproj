@@ -758,7 +758,7 @@
 					};
 					39DE842B1A2680D300BB47FB = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 58F4WQDE9T;
+						DevelopmentTeam = NBT9DPT8GS;
 						TestTargetID = 39DE84121A2680D300BB47FB;
 					};
 				};
@@ -1044,7 +1044,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-l\"c++\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0ad71651-de28-43f5-94ba-76f5a66b31e5";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1069,7 +1069,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-l\"c++\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0ad71651-de28-43f5-94ba-76f5a66b31e5";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
