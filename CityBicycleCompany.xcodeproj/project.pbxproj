@@ -136,7 +136,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		23F47D651A3A2D7D00CA2900 /* pop.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = pop.framework; path = "../../../Library/Developer/Xcode/DerivedData/TestWorkspace-bgolumntdqngotgsnddtydxyzwgc/Build/Products/Debug-iphoneos/pop.framework"; sourceTree = "<group>"; };
 		3914E18E1A2E3E4A00301DD3 /* Cart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cart.h; sourceTree = "<group>"; };
 		3914E18F1A2E3E4A00301DD3 /* Cart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cart.m; sourceTree = "<group>"; };
 		3914E1911A2E411400301DD3 /* ChosenBike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChosenBike.h; sourceTree = "<group>"; };
@@ -214,7 +213,6 @@
 		87EAEB941A2F9713002FEBB4 /* ChosenAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChosenAccessory.m; sourceTree = "<group>"; };
 		87EAEB961A2FC4AC002FEBB4 /* AccessoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryCollectionViewCell.h; sourceTree = "<group>"; };
 		87EAEB971A2FC4AD002FEBB4 /* AccessoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryCollectionViewCell.m; sourceTree = "<group>"; };
-		DC4819A1A3D38F9FD804BD2F /* libPods-CityBicycleCompany.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CityBicycleCompany.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB0E0B2B1A293EB50053F9D1 /* Stripe+ApplePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Stripe+ApplePay.h"; sourceTree = "<group>"; };
 		FB0E0B2C1A293EB50053F9D1 /* Stripe+ApplePay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Stripe+ApplePay.m"; sourceTree = "<group>"; };
 		FB0E0B2D1A293EB50053F9D1 /* STPAPIConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPAPIConnection.h; sourceTree = "<group>"; };
@@ -344,7 +342,6 @@
 			isa = PBXGroup;
 			children = (
 				87AE3F2B1A3930DE007813CB /* MediaPlayer.framework */,
-				23F47D651A3A2D7D00CA2900 /* pop.framework */,
 				8758D6F61A362A2700172026 /* UIKit.framework */,
 				87EAEB851A2CF7A2002FEBB4 /* Bolts.framework */,
 				87EAEB861A2CF7A2002FEBB4 /* Parse.framework */,
@@ -365,7 +362,6 @@
 				3928AF3C1A2685CD00BE9DBC /* Social.framework */,
 				3928AF3A1A2685C700BE9DBC /* AdSupport.framework */,
 				3928AF381A2685C100BE9DBC /* Accounts.framework */,
-				DC4819A1A3D38F9FD804BD2F /* libPods-CityBicycleCompany.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
