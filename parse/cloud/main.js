@@ -6,7 +6,7 @@
 Parse.Cloud.define("stripe", function(request, response) {
 
 var Stripe = require('stripe');
-Stripe.initialize('sk_test_wmuSPJ1EnPYWsGXejdHC9Aj5')
+Stripe.initialize('sk_live_Z5XSWuAonFpb5rI7bLBaFyBj')
 
 Stripe.Charges.create({
   amount: 100 * 10, // $10 expressed in cents
